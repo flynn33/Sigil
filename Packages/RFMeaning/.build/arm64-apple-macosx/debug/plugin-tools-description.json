@@ -1,0 +1,1269 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.xctest/Contents/MacOS/RFMeaningPackageTests",
+      "packagePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning",
+      "productName" : "RFMeaningPackageTests"
+    }
+  ],
+  "copyCommands" : {
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/agent-sigil-creation.JSON" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/agent/agent-sigil-creation.JSON"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/agent-sigil-creation.JSON"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axioms-of-existence.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/axioms-of-existence.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axioms-of-existence.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axion-of-existence.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/axion-of-existence.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axion-of-existence.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/canonical-pattern-vectors.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/cosmology/canonical-pattern-vectors.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/canonical-pattern-vectors.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator-pseudocode.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/celestial-name-generator-pseudocode.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator-pseudocode.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/celestial-name-generator.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/codex-generation.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/codex-generation.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/codex-generation.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/elder-futhark-9bit.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/runes/elder-futhark-9bit.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/elder-futhark-9bit.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/master-mythic-mapping.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/master-mythic-mapping.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/master-mythic-mapping.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/nine-planes-of-existence.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/nine-planes-of-existence.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/nine-planes-of-existence.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/pattern-vector-char-sheets.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/pattern-vector-char-sheets.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/pattern-vector-char-sheets.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/public-gift-tables.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/agent/public-gift-tables.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/public-gift-tables.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/time-line.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/time-line.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/time-line.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-codex2.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/where-ravens-wait-codex2.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-codex2.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-universal-codex-v2.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/where-ravens-wait-universal-codex-v2.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-universal-codex-v2.json"
+        }
+      ]
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/wrw-combined-archive.json" : {
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/wrw-combined-archive.json"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/wrw-combined-archive.json"
+        }
+      ]
+    }
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.RFCoreModels-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFCoreModels",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/include/RFCoreModels-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfcoremodels"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFEngineData-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/EngineDataStore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/DerivedSources/resource_bundle_accessor.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<RFEngineData-arm64-apple-macosx26.0-debug.module-resources>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFEngineData",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFEngineData.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/EngineDataStore.swift.o",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/resource_bundle_accessor.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/include/RFEngineData-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfenginedata"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/EngineDataStore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/resource_bundle_accessor.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFEngineData.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/EngineDataStore.swift",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/DerivedSources/resource_bundle_accessor.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFMeaning-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/Sources/RFMeaning/MeaningService.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFEngineData.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFMeaning",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFMeaning.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/MeaningService.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/include/RFMeaning-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfmeaning"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/MeaningService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFMeaning.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/Sources/RFMeaning/MeaningService.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFMeaningPackageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFMeaningTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFMeaningPackageTests",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFMeaningPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/include/RFMeaningPackageTests-Swift.h",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfmeaning"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFMeaningPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFMeaningTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningTests.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/Tests/RFMeaningTests/RFMeaningTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFMeaning.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFMeaningTests",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFMeaningTests.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningTests.build/RFMeaningTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfmeaning"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningTests.build/RFMeaningTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules/RFMeaningTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/Tests/RFMeaningTests/RFMeaningTests.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "RFCoreModels" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFCoreModels",
+      "-package-name",
+      "rfcoremodels",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/include/RFCoreModels-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfcoremodels",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFEngineData" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFEngineData",
+      "-package-name",
+      "rfenginedata",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/EngineDataStore.swift",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/DerivedSources/resource_bundle_accessor.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/include/RFEngineData-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfenginedata",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFMeaning" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFMeaning",
+      "-package-name",
+      "rfmeaning",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/Sources/RFMeaning/MeaningService.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/include/RFMeaning-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfmeaning",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFMeaningPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFMeaningPackageTests",
+      "-package-name",
+      "rfmeaning",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/include/RFMeaningPackageTests-Swift.h",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfmeaning",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFMeaningTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFMeaningTests",
+      "-package-name",
+      "rfmeaning",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/Tests/RFMeaningTests/RFMeaningTests.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfmeaning",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "RFCoreModels" : [
+
+    ],
+    "RFEngineData" : [
+      "RFCoreModels"
+    ],
+    "RFMeaning" : [
+      "RFEngineData",
+      "RFCoreModels"
+    ],
+    "RFMeaningPackageTests" : [
+      "RFMeaningTests",
+      "RFMeaning",
+      "RFEngineData",
+      "RFCoreModels"
+    ],
+    "RFMeaningTests" : [
+      "RFMeaning",
+      "RFEngineData",
+      "RFCoreModels"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/EngineDataStore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/DerivedSources/resource_bundle_accessor.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/Sources/RFMeaning/MeaningService.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/EngineDataStore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFEngineData.build/resource_bundle_accessor.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaning.build/MeaningService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningTests.build/RFMeaningTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/Tests/RFMeaningTests/RFMeaningTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/RFMeaningTests.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMeaning/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

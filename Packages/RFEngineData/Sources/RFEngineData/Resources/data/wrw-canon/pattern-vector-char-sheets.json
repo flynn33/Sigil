@@ -1,0 +1,95 @@
+{
+  "pattern_vectors": {
+    "Nithruun_ThalAzur_Kaelen": {
+      "names": {
+        "primordial": "Nithruun",
+        "celestial": "Thal’Azur",
+        "mortal": "Kaelen Vareth"
+      },
+      "planes_active": [
+        "P1_Physical",
+        "P3_Astral",
+        "P4_Mental",
+        "P5_Causal",
+        "P6_Celestial_potential",
+        "P8_Void_origin"
+      ],
+      "pattern_vector": {
+        "H_entropy": 0.55,
+        "K_algorithmic_complexity": 0.80,
+        "D_fractal_dimension": 1.75,
+        "S_symmetry_index": 0.70,
+        "L_generator_length": 0.40
+      },
+      "interpretation": [
+        "Moderate entropy: carries both chaos and order.",
+        "High complexity: many layers of identity and memory.",
+        "High fractal dimension: branching story and influence.",
+        "Strong symmetry: aligned with balance and gravity.",
+        "Generator relatively short: core rules are simple but recurse deeply."
+      ]
+    },
+    "Primordial_Dark_Wolf": {
+      "planes": ["P8_Void_edge", "P7_Shadow", "P2_Etheric"],
+      "pattern_vector": {
+        "H_entropy": 0.60,
+        "K_algorithmic_complexity": 0.65,
+        "D_fractal_dimension": 1.60,
+        "S_symmetry_index": 0.50,
+        "L_generator_length": 0.35
+      },
+      "interpretation": [
+        "Represents gravitational binding of chaos.",
+        "Moderate symmetry and complexity: weight without moral polarity.",
+        "Acts as deep memory and foundational attractor."
+      ]
+    },
+    "Primordial_White_Wolf": {
+      "planes": ["P6_Celestial", "P3_Astral"],
+      "pattern_vector": {
+        "H_entropy": 0.40,
+        "K_algorithmic_complexity": 0.55,
+        "D_fractal_dimension": 1.50,
+        "S_symmetry_index": 0.85,
+        "L_generator_length": 0.30
+      },
+      "interpretation": [
+        "Lower entropy: carries clarity and illumination.",
+        "High symmetry: strong harmonic structure.",
+        "Simpler generator: a clear rhythm woven across planes."
+      ]
+    },
+    "Lucifer": {
+      "planes": ["P7_Shadow", "P6_Celestial"],
+      "pattern_vector": {
+        "H_entropy": 0.65,
+        "K_algorithmic_complexity": 0.85,
+        "D_fractal_dimension": 1.80,
+        "S_symmetry_index": 0.60,
+        "L_generator_length": 0.50
+      },
+      "interpretation": [
+        "High complexity: central to rebellion, trials, hell and redemption.",
+        "Entropy elevated due to conflict and burden of others' patterns.",
+        "Symmetry recovering after self forgiveness.",
+        "Bridges Celestial and Shadow, acting as a hinge in the cosmology."
+      ]
+    },
+    "Narrator_Where_Ravens_Wait": {
+      "planes": ["P1_Physical", "P3_Astral", "P4_Mental", "P5_Causal", "P6_Celestial_potential"],
+      "pattern_vector": {
+        "H_entropy": 0.50,
+        "K_algorithmic_complexity": 0.75,
+        "D_fractal_dimension": 1.70,
+        "S_symmetry_index": 0.65,
+        "L_generator_length": 0.45
+      },
+      "interpretation": [
+        "Emergent balance between chaos and order.",
+        "Complex life arc with strong narrative pull.",
+        "Symmetry increasing as he approaches final trial completion.",
+        "Wolves as externalized aspects of his pattern vector dynamics."
+      ]
+    }
+  }
+}

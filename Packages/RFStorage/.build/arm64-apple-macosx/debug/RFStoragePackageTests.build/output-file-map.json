@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/master.swiftdeps"
+  },
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.derived/runner.swift": {
+    "dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/runner.d",
+    "object": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/runner.dia"
+  }
+}

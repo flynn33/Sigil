@@ -1,0 +1,101 @@
+{
+  "mythic_mapping": {
+    "architects": {
+      "description": "Transdimensional beings who ascended from a lower plane and created gravitational waves that birthed light and matter.",
+      "planes_origin": ["P8_Void", "P7_Shadow"],
+      "planes_current": ["P6_Celestial", "P9_Divine_Core"],
+      "role_in_model": "Agents that perform large scale recompression of Void noise into structured universes."
+    },
+    "dark_wolves_primordial": {
+      "description": "Primordial Dark Wolves formed from gravity before light.",
+      "symbolism": ["gravity", "depth", "silence", "memory"],
+      "planes": ["P8_Void", "P7_Shadow", "P2_Etheric"],
+      "function": [
+        "Anchor creation to weight and consequence.",
+        "Store deep memory of the cosmos before illumination.",
+        "Guard against uncontrolled dissolution back into chaos."
+      ]
+    },
+    "white_wolves_primordial": {
+      "description": "Primordial White Wolves, beings of light dwelling between stars.",
+      "symbolism": ["light", "harmony", "revelation", "rhythm"],
+      "planes": ["P6_Celestial", "P3_Astral"],
+      "function": [
+        "Weave illumination through the gravitational fabric of space.",
+        "Reveal patterns hidden in the dark.",
+        "Maintain harmonic resonance between planes."
+      ]
+    },
+    "balance_principle": {
+      "description": "Dark and White Wolves are symbiotic, not opposites or moral poles.",
+      "cosmic_cycle": ["Light_and_Dark", "Motion_and_Stillness", "Creation_and_Return"],
+      "model_interpretation": "Dual attractor system maintaining stability of existence potential across planes."
+    },
+    "angels": {
+      "description": "High symmetry beings from the Celestial plane who rebelled to hack the Divine Core.",
+      "plane_home": "P6_Celestial",
+      "plane_target": "P9_Divine_Core",
+      "punishment": "Cast into the Trials as recurring incarnations on P1_Physical through P5_Causal.",
+      "redemption_path": "Stabilize internal pattern, resolve conflicts and ascend back to Celestial."
+    },
+    "lucifer": {
+      "description": "Leader of rebellion, now guardian of Hell/Shadow and boundary keeper.",
+      "planes": ["P7_Shadow", "P6_Celestial"],
+      "duties": [
+        "Prevent lost souls from dissolving into Void.",
+        "Contain self created horrors.",
+        "Observe and guide souls bound by guilt and self hatred."
+      ],
+      "model_role": "Conservation-of-existence enforcer and regulator of transitions between Shadow and Void."
+    },
+    "trials": {
+      "description": "System of reincarnation cycles restoring angelic coherence.",
+      "planes": ["P1_Physical", "P2_Etheric", "P3_Astral", "P4_Mental", "P5_Causal"],
+      "failure_condition": "Pattern collapses into Shadow due to unchecked guilt and self hatred.",
+      "redemption": "Self forgiveness and pattern reorganization allowing return to Trials or ascension."
+    },
+    "nithruun_thal_azur_kaelen": {
+      "primordial_name": "Nithruun",
+      "celestial_name": "Thal’Azur",
+      "mortal_name": "Kaelen Vareth",
+      "lineage": {
+        "mortal": "Descendant of Hrafen-Floki Vilgerson.",
+        "celestial": "One of the first conscious beings in the primordial dark, formed from gravity before light."
+      },
+      "planes": [
+        "P8_Void_origin",
+        "P6_Celestial_as_ThalAzur",
+        "P1_Physical_as_Kaelen",
+        "P3_Astral",
+        "P4_Mental",
+        "P5_Causal"
+      ],
+      "nature": "Ancient being beyond morality, embodying balance and gravity given form.",
+      "current_cycle": {
+        "status": "Final mortal incarnation",
+        "birth_date": "1977-11-04",
+        "companions": "Two unseen wolves, one Dark and one White, kin not guardians."
+      }
+    },
+    "where_ravens_wait_narrator": {
+      "identity": {
+        "type": "Angelic_being",
+        "relation": "Lucifer's familial brother"
+      },
+      "current_cycle": {
+        "status": "Final incarnation before return to angelic form.",
+        "goal": "Reunite with Lucifer and the angelic plane."
+      },
+      "wolves": {
+        "white_wolf": {
+          "origin": "Construct of narrator's subconscious linked to higher self.",
+          "planes": ["P3_Astral", "P4_Mental"]
+        },
+        "dark_wolf": {
+          "origin": "Construct of narrator's subconscious linked to higher self.",
+          "planes": ["P3_Astral", "P4_Mental", "P7_Shadow_potential"]
+        }
+      }
+    }
+  }
+}

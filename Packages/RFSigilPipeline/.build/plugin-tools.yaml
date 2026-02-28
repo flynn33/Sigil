@@ -1,0 +1,251 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "RFCoreModels-arm64-apple-macosx26.0-debug.module": ["<RFCoreModels-arm64-apple-macosx26.0-debug.module>"]
+  "RFEngineData-arm64-apple-macosx26.0-debug.module": ["<RFEngineData-arm64-apple-macosx26.0-debug.module>"]
+  "RFSigilPipeline-arm64-apple-macosx26.0-debug.module": ["<RFSigilPipeline-arm64-apple-macosx26.0-debug.module>"]
+  "RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.module": ["<RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.module>"]
+  "RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.test": ["<RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.test>"]
+  "RFSigilPipelineTests-arm64-apple-macosx26.0-debug.module": ["<RFSigilPipelineTests-arm64-apple-macosx26.0-debug.module>"]
+  "main": ["<RFSigilPipeline-arm64-apple-macosx26.0-debug.module>"]
+  "test": ["<RFSigilPipeline-arm64-apple-macosx26.0-debug.module>","<RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.test>","<RFSigilPipelineTests-arm64-apple-macosx26.0-debug.module>"]
+default: "main"
+nodes:
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Sources/RFSigilPipeline/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Tests/RFSigilPipelineTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"]
+    description: "Write auxiliary file /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/EngineDataStore.swift","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/DerivedSources/resource_bundle_accessor.swift"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/sources"]
+    description: "Write auxiliary file /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/sources"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/agent-sigil-creation.JSON":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/agent/agent-sigil-creation.JSON"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/agent-sigil-creation.JSON"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/agent/agent-sigil-creation.JSON"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axioms-of-existence.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/axioms-of-existence.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axioms-of-existence.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/axioms-of-existence.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axion-of-existence.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/axion-of-existence.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axion-of-existence.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/axion-of-existence.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/canonical-pattern-vectors.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/cosmology/canonical-pattern-vectors.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/canonical-pattern-vectors.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/cosmology/canonical-pattern-vectors.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator-pseudocode.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/celestial-name-generator-pseudocode.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator-pseudocode.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/celestial-name-generator-pseudocode.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/celestial-name-generator.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/celestial-name-generator.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/codex-generation.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/codex-generation.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/codex-generation.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/codex-generation.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/elder-futhark-9bit.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/runes/elder-futhark-9bit.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/elder-futhark-9bit.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/runes/elder-futhark-9bit.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/master-mythic-mapping.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/master-mythic-mapping.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/master-mythic-mapping.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/master-mythic-mapping.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/nine-planes-of-existence.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/nine-planes-of-existence.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/nine-planes-of-existence.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/nine-planes-of-existence.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/pattern-vector-char-sheets.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/pattern-vector-char-sheets.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/pattern-vector-char-sheets.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/pattern-vector-char-sheets.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/public-gift-tables.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/agent/public-gift-tables.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/public-gift-tables.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/agent/public-gift-tables.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/time-line.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/time-line.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/time-line.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/time-line.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-codex2.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/where-ravens-wait-codex2.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-codex2.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/where-ravens-wait-codex2.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-universal-codex-v2.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/where-ravens-wait-universal-codex-v2.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-universal-codex-v2.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/where-ravens-wait-universal-codex-v2.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/wrw-combined-archive.json":
+    tool: copy-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/wrw-combined-archive.json"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/wrw-combined-archive.json"]
+    description: "Copying /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/Resources/data/wrw-canon/wrw-combined-archive.json"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Sources/RFSigilPipeline/SigilPipelineService.swift"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/sources"]
+    description: "Write auxiliary file /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/sources"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.derived/runner.swift"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/sources"]
+    description: "Write auxiliary file /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/sources"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.derived/runner.swift":
+    tool: test-entry-point-tool
+    inputs: []
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.derived/runner.swift"]
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/EngineDataStore.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/resource_bundle_accessor.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/SigilPipelineService.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/runner.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/RFSigilPipelineTests.swift.o"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.product/Objects.LinkFileList"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Tests/RFSigilPipelineTests/RFSigilPipelineTests.swift"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/sources"]
+    description: "Write auxiliary file /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/sources"
+
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<RFCoreModels-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"]
+    outputs: ["<RFCoreModels-arm64-apple-macosx26.0-debug.module>"]
+
+  "<RFEngineData-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/EngineDataStore.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/resource_bundle_accessor.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFEngineData.swiftmodule"]
+    outputs: ["<RFEngineData-arm64-apple-macosx26.0-debug.module>"]
+
+  "<RFSigilPipeline-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/SigilPipelineService.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipeline.swiftmodule"]
+    outputs: ["<RFSigilPipeline-arm64-apple-macosx26.0-debug.module>"]
+
+  "<RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/runner.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipelinePackageTests.swiftmodule"]
+    outputs: ["<RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.module>"]
+
+  "<RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.test>":
+    tool: phony
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.xctest/Contents/MacOS/RFSigilPipelinePackageTests"]
+    outputs: ["<RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.test>"]
+
+  "<RFSigilPipelineTests-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/RFSigilPipelineTests.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipelineTests.swiftmodule"]
+    outputs: ["<RFSigilPipelineTests-arm64-apple-macosx26.0-debug.module>"]
+
+  "C.RFCoreModels-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"]
+    description: "Compiling Swift Module 'RFCoreModels' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","RFCoreModels","-emit-dependencies","-emit-module","-emit-module-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule","-output-file-map","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources","-I","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j14","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/include/RFCoreModels-Swift.h","-swift-version","6","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","rfcoremodels"]
+
+  "C.RFEngineData-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/Sources/RFEngineData/EngineDataStore.swift","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/DerivedSources/resource_bundle_accessor.swift","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","<RFEngineData-arm64-apple-macosx26.0-debug.module-resources>","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/sources"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/EngineDataStore.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/resource_bundle_accessor.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFEngineData.swiftmodule"]
+    description: "Compiling Swift Module 'RFEngineData' (2 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","RFEngineData","-emit-dependencies","-emit-module","-emit-module-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFEngineData.swiftmodule","-output-file-map","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/sources","-I","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j14","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_AVAILABLE","-module-cache-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/include/RFEngineData-Swift.h","-swift-version","6","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","rfenginedata"]
+
+  "C.RFSigilPipeline-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Sources/RFSigilPipeline/SigilPipelineService.swift","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFEngineData.swiftmodule","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/sources"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/SigilPipelineService.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipeline.swiftmodule"]
+    description: "Compiling Swift Module 'RFSigilPipeline' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","RFSigilPipeline","-emit-dependencies","-emit-module","-emit-module-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipeline.swiftmodule","-output-file-map","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/sources","-I","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j14","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/include/RFSigilPipeline-Swift.h","-swift-version","6","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","rfsigilpipeline"]
+
+  "C.RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.derived/runner.swift","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipelineTests.swiftmodule","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/sources"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/runner.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipelinePackageTests.swiftmodule"]
+    description: "Compiling Swift Module 'RFSigilPipelinePackageTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","RFSigilPipelinePackageTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipelinePackageTests.swiftmodule","-output-file-map","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/sources","-I","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j14","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/include/RFSigilPipelinePackageTests-Swift.h","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","rfsigilpipeline"]
+
+  "C.RFSigilPipelinePackageTests-arm64-apple-macosx26.0-debug.test":
+    tool: shell
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/EngineDataStore.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData.build/resource_bundle_accessor.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/SigilPipelineService.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.build/runner.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/RFSigilPipelineTests.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.product/Objects.LinkFileList"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.xctest/Contents/MacOS/RFSigilPipelinePackageTests"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.xctest/Contents/MacOS/RFSigilPipelinePackageTests"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug","-o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.xctest/Contents/MacOS/RFSigilPipelinePackageTests","-module-name","RFSigilPipelinePackageTests","-Xlinker","-no_warn_duplicate_libraries","-Xlinker","-bundle","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelinePackageTests.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-6.2/macosx","-target","arm64-apple-macosx14.0","-Xlinker","-add_ast_path","-Xlinker","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFEngineData.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipeline.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipelinePackageTests.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipelineTests.swiftmodule","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.RFSigilPipelineTests-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Tests/RFSigilPipelineTests/RFSigilPipelineTests.swift","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipeline.swiftmodule","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/sources"]
+    outputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/RFSigilPipelineTests.swift.o","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipelineTests.swiftmodule"]
+    description: "Compiling Swift Module 'RFSigilPipelineTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","RFSigilPipelineTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules/RFSigilPipelineTests.swiftmodule","-output-file-map","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipelineTests.build/sources","-I","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j14","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-swift-version","6","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","rfsigilpipeline"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Sources/RFSigilPipeline/","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Tests/RFSigilPipelineTests/","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Package.swift","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
+  "RFEngineData-arm64-apple-macosx26.0-debug.module-resources":
+    tool: phony
+    inputs: ["/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/agent-sigil-creation.JSON","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/public-gift-tables.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/canonical-pattern-vectors.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/elder-futhark-9bit.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axioms-of-existence.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/axion-of-existence.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator-pseudocode.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/celestial-name-generator.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/codex-generation.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/master-mythic-mapping.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/nine-planes-of-existence.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/pattern-vector-char-sheets.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/time-line.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-codex2.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/where-ravens-wait-universal-codex-v2.json","/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFEngineData_RFEngineData.bundle/wrw-combined-archive.json"]
+    outputs: ["<RFEngineData-arm64-apple-macosx26.0-debug.module-resources>"]
+

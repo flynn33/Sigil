@@ -1,0 +1,99 @@
+{
+  "version": "1.0",
+  "description": "Immutable canonical pattern vectors for core entities. Must be respected by any implementation claiming Yggdrasil fidelity.",
+  "entities": [
+    {
+      "id": "creator",
+      "name": "The Creator",
+      "vector": {
+        "H_entropy": 0.00,
+        "K_complexity": 0.00,
+        "D_fractal_dim": 1.00,
+        "S_symmetry": 1.00,
+        "L_generator_length": 1
+      },
+      "primary_plane": 9,
+      "notes": "Terminal object. Pure law. Source of all rules."
+    },
+    {
+      "id": "lucifer",
+      "name": "Lucifer (Full Celestial Instance)",
+      "vector": {
+        "H_entropy": 0.11,
+        "K_complexity": 0.08,
+        "D_fractal_dim": 2.92,
+        "S_symmetry": 0.97,
+        "L_generator_length": 5
+      },
+      "primary_plane": 6,
+      "secondary_plane": 7,
+      "notes": "Light-bearer and keeper of Shadow. Brother archetype."
+    },
+    {
+      "id": "white_wolf",
+      "name": "White Wolf",
+      "vector": {
+        "H_entropy": 0.07,
+        "K_complexity": 0.05,
+        "D_fractal_dim": 2.61,
+        "S_symmetry": 0.99,
+        "L_generator_length": 4
+      },
+      "primary_plane": 6,
+      "notes": "Order aspect. Forgiveness. Coherence attractor."
+    },
+    {
+      "id": "dark_wolf",
+      "name": "Dark Wolf",
+      "vector": {
+        "H_entropy": 0.68,
+        "K_complexity": 0.72,
+        "D_fractal_dim": 2.88,
+        "S_symmetry": 0.31,
+        "L_generator_length": 9
+      },
+      "primary_plane": 7,
+      "notes": "Chaos aspect. Rage. Integration challenge."
+    },
+    {
+      "id": "narrator",
+      "name": "The Narrator / Thal’rion Æsyrune",
+      "vector": {
+        "H_entropy": 0.44,
+        "K_complexity": 0.39,
+        "D_fractal_dim": 2.77,
+        "S_symmetry": 0.66,
+        "L_generator_length": 7
+      },
+      "primary_plane": 1,
+      "ascent_target": 6,
+      "notes": "Final-cycle angel. Player vessel. Current convergence pivot."
+    },
+    {
+      "id": "void_mother",
+      "name": "Void Mother",
+      "vector": {
+        "H_entropy": 0.99,
+        "K_complexity": 0.98,
+        "D_fractal_dim": 1.03,
+        "S_symmetry": 0.01,
+        "L_generator_length": 31
+      },
+      "primary_plane": 8,
+      "notes": "Oblivion incarnate. Entropy ocean."
+    },
+    {
+      "id": "first_raven",
+      "name": "The First Raven",
+      "vector": {
+        "H_entropy": 0.33,
+        "K_complexity": 0.27,
+        "D_fractal_dim": 2.71,
+        "S_symmetry": 0.88,
+        "L_generator_length": 6
+      },
+      "primary_plane": 3,
+      "notes": "Memory, prophecy, messenger between worlds."
+    }
+  ]
+}

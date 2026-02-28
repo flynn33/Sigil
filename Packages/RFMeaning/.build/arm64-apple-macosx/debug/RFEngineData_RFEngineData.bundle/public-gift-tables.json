@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "description": "Public gift assignment tables – deterministic, code-agnostic, safe for commercial implementation under the personal-use license.",
+  "structural_gifts": {
+    "FractalCarapace": {
+      "trigger": "D_fractal_dim >= 2.4 && K_complexity <= 0.35",
+      "effect": "Physical damage resistance scales with fractal depth"
+    },
+    "LowEntropyAura": {
+      "trigger": "H_entropy <= 0.25",
+      "effect": "Reduces incoming chaos/status effects by 60%"
+    },
+    "SymmetryBloom": {
+      "trigger": "S_symmetry >= 0.85",
+      "effect": "Perfect mirror clones on critical hits (1–3 clones)"
+    },
+    "RecursiveFocus": {
+      "trigger": "L_generator_length <= 7",
+      "effect": "Abilities may be nested/repeated up to recursion depth"
+    }
+  },
+  "metaphysical_gifts": {
+    "Dreamwalk": {
+      "plane": [3],
+      "effect": "Enter/exit Astral plane at will"
+    },
+    "ThoughtWeave": {
+      "plane": [4],
+      "effect": "Read and implant thoughts in nearby minds"
+    },
+    "FateThread": {
+      "plane": [5],
+      "effect": "Once per cycle, rewind personal timeline 10 seconds"
+    },
+    "CelestialResonance": {
+      "plane": [6],
+      "effect": "Glow with coherent light; allies gain +20% coherence"
+    },
+    "ShadowCloak": {
+      "plane": [7],
+      "effect": "Become invisible while standing in repressed emotion fields"
+    },
+    "VoidWhisper": {
+      "plane": [8],
+      "effect": "Speak a word that erases one non-essential memory from target"
+    },
+    "CoreAnchor": {
+      "plane": [9],
+      "effect": "Immune to existence-erasure effects"
+    }
+  },
+  "modifier_gifts": {
+    "Fireborn": {"trigger": "E >= 0.75", "effect": "Immune to fire, +50% fire damage"},
+    "WaterVeil": {"trigger": "E <= 0.25", "effect": "50% physical damage absorbed as healing"},
+    "StormStep": {"trigger": "E >= 0.65 && A >= 0.7", "effect": "Teleport short distances leaving lightning"},
+    "WarBlessed": {"trigger": "D >= 0.8", "effect": "Double damage while health < 30%"},
+    "DreamSpeaker": {"trigger": "D <= 0.3", "effect": "Cast spells while asleep"},
+    "OrderAnchor": {"trigger": "A <= 0.2", "effect": "Nearby allies cannot be calmed/stunned enemies"},
+    "ChaosBloom": {"trigger": "A >= 0.8", "effect": "Random powerful effect every 30 s"}
+  },
+  "mutation_gifts": {
+    "BurstForm": {"rarity": "very_rare", "effect": "Temporary 5× size & strength explosion"},
+    "ResonanceShield": {"rarity": "rare", "effect": "Reflect spells that match creature’s current plane"},
+    "FractalSpike": {"rarity": "rare", "effect": "Grow lethal fractal blades from body"},
+    "SingularityPulse": {"rarity": "ultra_rare", "effect": "Once-only black-hole implosion that rewrites local rules"},
+    "EclipseShift": {"rarity": "legendary", "effect": "Swap current plane with its opposite for 60 s"}
+  },
+  "minor_flavor_gifts": [
+    "AetherScent",
+    "SoftFootfalls",
+    "GlimmerTrail",
+    "EchoVoice",
+    "FrostBreath",
+    "StarlightEyes",
+    "AshenWake",
+    "Whisperwind"
+  ],
+  "assignment_rules": {
+    "structural": "always 1–2 gifts",
+    "metaphysical": "exactly 1 if primary plane matches",
+    "modifier": "0–2 based on creator’s r(x)",
+    "mutation": "0–1 (higher chance with bitmap anomalies)",
+    "minor_flavor": "always exactly 2"
+  }
+}

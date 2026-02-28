@@ -1,0 +1,3 @@
+module RFSecurity {
+    header "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSecurity/.build/arm64-apple-macosx/debug/RFSecurity.build/include/RFSecurity-Swift.h"
+}

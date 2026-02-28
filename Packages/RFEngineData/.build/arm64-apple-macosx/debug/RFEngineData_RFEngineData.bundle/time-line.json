@@ -1,0 +1,66 @@
+{
+  "metaphysical_timeline": [
+    {
+      "id": "T0",
+      "name": "Primordial_Void",
+      "description": "Before light, only unstructured information and pure potential; no stable patterns.",
+      "planes_active": ["P8_Void"]
+    },
+    {
+      "id": "T1",
+      "name": "First_Compression_Events",
+      "description": "Gravitational and structural waves compress regions of Void; primordial Dark Wolves and early attractors form.",
+      "planes_active": ["P8_Void", "P7_Shadow", "P2_Etheric"],
+      "key_entities": ["Dark_Wolves_Primordial", "Early_Architects"]
+    },
+    {
+      "id": "T2",
+      "name": "Emergence_of_Light",
+      "description": "Illumination and harmonic patterns arise, giving birth to White Wolves and early Celestial structures.",
+      "planes_active": ["P6_Celestial", "P3_Astral"],
+      "key_entities": ["White_Wolves_Primordial"]
+    },
+    {
+      "id": "T3",
+      "name": "Architects_and_First_Conscious_Beings",
+      "description": "Transdimensional Architects refine laws; beings like Nithruun awaken from gravity and light.",
+      "planes_active": ["P6_Celestial", "P9_Divine_Core"],
+      "key_entities": ["Architects", "Nithruun"]
+    },
+    {
+      "id": "T4",
+      "name": "Nine_Planes_Stabilization",
+      "description": "The nine planes solidify; Divine Core configures rules; Trials, Hell, and Heaven become possible structures.",
+      "planes_active": ["P1_Physical","P2_Etheric","P3_Astral","P4_Mental","P5_Causal","P6_Celestial","P7_Shadow","P8_Void","P9_Divine_Core"],
+      "key_entities": ["Creator", "Lucifer", "Angels"]
+    },
+    {
+      "id": "T5",
+      "name": "Angelic_Age_and_Rebellion",
+      "description": "Angels in Celestial grow curious and ambitious; some attempt to forcibly access or hack Divine Core.",
+      "planes_active": ["P6_Celestial","P9_Divine_Core"],
+      "key_entities": ["Lucifer","Rebel_Angels","Creator"]
+    },
+    {
+      "id": "T6",
+      "name": "Trials_and_Hell",
+      "description": "Rebels are sentenced to cycles of mortal lives in Physical and related planes; Lucifer becomes guardian of Shadow.",
+      "planes_active": ["P1_Physical","P2_Etheric","P3_Astral","P4_Mental","P5_Causal","P6_Celestial","P7_Shadow"],
+      "key_entities": ["Trial_Souls","Lucifer"]
+    },
+    {
+      "id": "T7",
+      "name": "Modern_Incarnations",
+      "description": "Kaelen Vareth and the narrator of Where Ravens Wait live their final incarnations in the late 20th century.",
+      "planes_active": ["P1_Physical","P3_Astral","P4_Mental","P5_Causal"],
+      "key_entities": ["Kaelen_Vareth","Narrator","Dark_Wolf","White_Wolf"]
+    },
+    {
+      "id": "T8",
+      "name": "Awakening_and_Final_Balance",
+      "description": "Memories surface, wolves walk beside them, and the final choices determine ascension, new roles or deeper duties.",
+      "planes_active": ["P1_Physical","P3_Astral","P4_Mental","P5_Causal","P6_Celestial","P7_Shadow"],
+      "key_entities": ["Kaelen_Vareth","Narrator","Lucifer","Dark_Wolves","White_Wolves"]
+    }
+  ]
+}

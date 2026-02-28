@@ -1,0 +1,1023 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.xctest/Contents/MacOS/RFStoragePackageTests",
+      "packagePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage",
+      "productName" : "RFStoragePackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.RFCoreModels-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFCoreModels",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/include/RFCoreModels-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfcoremodels"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFSecurity-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSecurity/Sources/RFSecurity/SecurityService.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFSecurity",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFSecurity.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/SecurityService.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/include/RFSecurity-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfsecurity"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/SecurityService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFSecurity.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSecurity/Sources/RFSecurity/SecurityService.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFStorage-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/Sources/RFStorage/ProfileRepository.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFSecurity.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFStorage",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFStorage.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/ProfileRepository.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/include/RFStorage-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfstorage"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/ProfileRepository.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFStorage.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/Sources/RFStorage/ProfileRepository.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFStoragePackageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFStorageTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFStoragePackageTests",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFStoragePackageTests.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/include/RFStoragePackageTests-Swift.h",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfstorage"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFStoragePackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFStorageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorageTests.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/Tests/RFStorageTests/RFStorageTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFStorage.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFStorageTests",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFStorageTests.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorageTests.build/RFStorageTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfstorage"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorageTests.build/RFStorageTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules/RFStorageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/Tests/RFStorageTests/RFStorageTests.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorageTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "RFCoreModels" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFCoreModels",
+      "-package-name",
+      "rfcoremodels",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/include/RFCoreModels-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfcoremodels",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFSecurity" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFSecurity",
+      "-package-name",
+      "rfsecurity",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSecurity/Sources/RFSecurity/SecurityService.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/include/RFSecurity-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfsecurity",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFStorage" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFStorage",
+      "-package-name",
+      "rfstorage",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/Sources/RFStorage/ProfileRepository.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/include/RFStorage-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfstorage",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFStoragePackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFStoragePackageTests",
+      "-package-name",
+      "rfstorage",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.derived/runner.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/include/RFStoragePackageTests-Swift.h",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfstorage",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFStorageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFStorageTests",
+      "-package-name",
+      "rfstorage",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/Tests/RFStorageTests/RFStorageTests.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfstorage",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "RFCoreModels" : [
+
+    ],
+    "RFSecurity" : [
+      "RFCoreModels"
+    ],
+    "RFStorage" : [
+      "RFSecurity",
+      "RFCoreModels"
+    ],
+    "RFStoragePackageTests" : [
+      "RFStorageTests",
+      "RFStorage",
+      "RFSecurity",
+      "RFCoreModels"
+    ],
+    "RFStorageTests" : [
+      "RFStorage",
+      "RFSecurity",
+      "RFCoreModels"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSecurity/Sources/RFSecurity/SecurityService.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/Sources/RFStorage/ProfileRepository.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFSecurity.build/SecurityService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorage.build/ProfileRepository.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorageTests.build/RFStorageTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStoragePackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/Tests/RFStorageTests/RFStorageTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/RFStorageTests.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFStorage/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

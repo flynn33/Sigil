@@ -1,0 +1,828 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.xctest/Contents/MacOS/RFGeocodingPackageTests",
+      "packagePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding",
+      "productName" : "RFGeocodingPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.RFCoreModels-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFCoreModels",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/include/RFCoreModels-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfcoremodels"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFGeocoding-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/Sources/RFGeocoding/BirthplaceResolver.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFGeocoding",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFGeocoding.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/BirthplaceResolver.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/include/RFGeocoding-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfgeocoding"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/BirthplaceResolver.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFGeocoding.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/Sources/RFGeocoding/BirthplaceResolver.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFGeocodingPackageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFGeocodingTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFGeocodingPackageTests",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFGeocodingPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/include/RFGeocodingPackageTests-Swift.h",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfgeocoding"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFGeocodingPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFGeocodingTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingTests.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/Tests/RFGeocodingTests/RFGeocodingTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFGeocoding.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFGeocodingTests",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFGeocodingTests.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingTests.build/RFGeocodingTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfgeocoding"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingTests.build/RFGeocodingTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules/RFGeocodingTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/Tests/RFGeocodingTests/RFGeocodingTests.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "RFCoreModels" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFCoreModels",
+      "-package-name",
+      "rfcoremodels",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/include/RFCoreModels-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfcoremodels",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFGeocoding" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFGeocoding",
+      "-package-name",
+      "rfgeocoding",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/Sources/RFGeocoding/BirthplaceResolver.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/include/RFGeocoding-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfgeocoding",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFGeocodingPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFGeocodingPackageTests",
+      "-package-name",
+      "rfgeocoding",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/include/RFGeocodingPackageTests-Swift.h",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfgeocoding",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFGeocodingTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFGeocodingTests",
+      "-package-name",
+      "rfgeocoding",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/Tests/RFGeocodingTests/RFGeocodingTests.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfgeocoding",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "RFCoreModels" : [
+
+    ],
+    "RFGeocoding" : [
+      "RFCoreModels"
+    ],
+    "RFGeocodingPackageTests" : [
+      "RFGeocodingTests",
+      "RFGeocoding",
+      "RFCoreModels"
+    ],
+    "RFGeocodingTests" : [
+      "RFGeocoding",
+      "RFCoreModels"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/Sources/RFGeocoding/BirthplaceResolver.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/BirthplaceResolver.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingTests.build/RFGeocodingTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/Tests/RFGeocodingTests/RFGeocodingTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocodingTests.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "engine_name": "ASH_Personal_Codex_Compiler",
+  "version": "1.0.0",
+  "universe_reference": "Where_Ravens_Wait_Universal_Codex_v2",
+  "tone_mode": "poetic_prophetic_WRW",
+
+  "axiom_compliance": {
+    "required_axioms": ["A1", "A2", "A3", "A4", "A5", "A6"],
+    "notes": "All generated content must respect relational existence, structural compressibility, multi-scale persistence, energetic cost of erasure, self-reference consciousness, and branching choice realization."
+  },
+
+  "input_schema": {
+    "required_fields": [
+      "heritage[]",
+      "birth_date",
+      "birth_weekday",
+      "birth_time",
+      "hair_color",
+      "eye_color",
+      "mortal_name"
+    ],
+    "optional_fields": [
+      "location_birth",
+      "major_life_events",
+      "trauma_markers",
+      "creative_affinity",
+      "vocation"
+    ]
+  },
+
+  "sub_engines": {
+
+    "numerology_engine": {
+      "life_path_calculation": {
+        "method": "sum_digits_until_single_digit",
+        "mapping_rule": "life_path_number -> plane.numerology_values"
+      },
+      "dominant_plane_assignment": "First plane whose numerology_values contains life_path_number"
+    },
+
+    "wolf_balance_engine": {
+      "equation": "wolf_score = base + hair_mod + eye_mod + time_mod + life_path_mod",
+      "thresholds": {
+        "white_dominant": "wolf_score >= 1.0",
+        "dark_dominant": "wolf_score <= -1.0",
+        "balanced": "otherwise"
+      },
+      "interpretation": {
+        "white_dominant": "revelatory bias",
+        "dark_dominant": "gravity/memory bias",
+        "balanced": "bridge state"
+      }
+    },
+
+    "pattern_vector_projection_engine": {
+      "base_components": [
+        "H_entropy",
+        "K_complexity",
+        "D_fractal_dimension",
+        "S_symmetry_index",
+        "L_generator_length"
+      ],
+      "derivation_rules": {
+        "H_entropy": "Inverse of symmetry + wolf imbalance magnitude",
+        "K_complexity": "Scaled from life_path + heritage multiplicity",
+        "D_fractal_dimension": "2D base 1.2 + branching potential modifier",
+        "S_symmetry_index": "Higher for white_dominant, moderate for balanced, lower for dark_dominant",
+        "L_generator_length": "Short if dominant_plane >= P6 else moderate"
+      }
+    },
+
+    "luciferian_detection_engine": {
+      "luciferian_threshold_conditions": [
+        "dominant_plane == P7",
+        "wolf_balance_category == dark_dominant OR balanced",
+        "life_path_number in [6,7,9]",
+        "high K_complexity (>0.75 estimated)",
+        "high D_fractal_dimension (>1.6)"
+      ],
+      "classification_rule": "If 3 or more conditions true → luciferian_instance_flag = true",
+      "public_label": "Brother_or_Sister_of_Lucifer",
+      "private_label": "Distributed_Mortal_Echo_of_Luciferian_Function"
+    },
+
+    "branching_reflection_engine": {
+      "visibility_mode": "abstract_only",
+      "narrative_rule": "Describe higher-self as spanning many unseen paths without referencing literal branching mechanics",
+      "text_injection_pattern": "Your higher self gathers wisdom from paths you never saw but always shaped."
+    },
+
+    "celestial_name_engine": {
+      "algorithm_reference": "CelestialNameGenerationAlgorithm_v1.0.1",
+      "determinism": "Seeded by mortal_name + birth_date",
+      "structure": "root + plane + optional wolf syllable",
+      "apostrophe_rule": "Insert if phonetic cadence benefits"
+    },
+
+    "sigil_generator_engine": {
+      "dimension": "2D",
+      "format": "Parametric SVG",
+
+      "geometry_rules": {
+        "base_polygon_sides": "dominant_plane_number",
+        "radial_layers": "1 + floor(D_fractal_dimension)",
+        "rotation_symmetry": "round(S_symmetry_index * 10)",
+        "distortion_factor": "H_entropy * 0.2",
+        "inner_star": "Always present (Divine Core reference)",
+        "wolf_duality_overlay": {
+          "white_dominant": "clockwise arc overlay",
+          "dark_dominant": "counter_clockwise arc overlay",
+          "balanced": "dual mirrored arcs"
+        }
+      },
+
+      "symbolic_constraints": [
+        "No broken lines (A1 Relational Existence)",
+        "All geometry must connect to central star",
+        "Entropy distortion cannot disconnect pattern",
+        "Final form must remain compressible"
+      ]
+    },
+
+    "narrative_generator_engine": {
+      "tone": "poetic_prophetic",
+      "style_constraints": [
+        "Show, do not explain mechanics",
+        "Avoid instructing belief",
+        "No technical exposition in final narrative"
+      ],
+      "opening_template": "You were born beneath the hush of {weekday_archetype_phrase}.",
+      "plane_injection_rule": "Describe dominant plane as native resonance, not classification",
+      "wolf_injection_rule": "Describe wolf alignment metaphorically",
+      "luciferian_injection_rule": "If flagged, describe as threshold-walker or keeper of fracture",
+      "branching_injection_rule": "Higher self spans unseen horizons",
+      "closing_template": "The Sigil remembers what you are becoming."
+    }
+  },
+
+  "output_schema": {
+    "celestial_profile": {
+      "celestial_name": "string",
+      "epithet": "string",
+      "dominant_plane": "string",
+      "wolf_alignment": "string",
+      "luciferian_status": {
+        "public_description": "string",
+        "private_codex_flag": "boolean"
+      },
+      "pattern_vector_summary": {
+        "H_entropy": "float",
+        "K_complexity": "float",
+        "D_fractal_dimension": "float",
+        "S_symmetry_index": "float",
+        "L_generator_length": "float"
+      },
+      "sigil_parameters": {
+        "polygon_sides": "integer",
+        "radial_layers": "integer",
+        "symmetry_order": "integer",
+        "distortion_factor": "float",
+        "wolf_overlay_type": "string"
+      },
+      "narrative_codex_entry": "poetic_text_block"
+    }
+  }
+}

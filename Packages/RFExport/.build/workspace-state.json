@@ -1,0 +1,41 @@
+{
+  "object" : {
+    "artifacts" : [
+
+    ],
+    "dependencies" : [
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "rfcoremodels",
+          "kind" : "fileSystem",
+          "location" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels",
+          "name" : "RFCoreModels"
+        },
+        "state" : {
+          "name" : "fileSystem",
+          "path" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels"
+        },
+        "subpath" : "rfcoremodels"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "rfrendering",
+          "kind" : "fileSystem",
+          "location" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFRendering",
+          "name" : "RFRendering"
+        },
+        "state" : {
+          "name" : "fileSystem",
+          "path" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFRendering"
+        },
+        "subpath" : "rfrendering"
+      }
+    ],
+    "prebuilts" : [
+
+    ]
+  },
+  "version" : 7
+}

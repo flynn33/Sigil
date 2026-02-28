@@ -1,0 +1,224 @@
+{
+  "Mythic_Universe": {
+    "Cosmology": {
+      "Primordial_State": "Before light, there was only darkness — pure consciousness without form.",
+      "Architects": "Transdimensional beings who ascended from the lower plane, creating a gravitational wave that birthed light and matter.",
+      "Dark_Wolves": {
+        "Nature": "Primordial beings of the dark, guardians of creation, keepers of ancient knowledge and power beyond the reach of light.",
+        "Symbolism": "Gravity, depth, silence, memory.",
+        "Role": "Maintain cosmic balance alongside their counterparts, the White Wolves."
+      },
+      "White_Wolves": {
+        "Nature": "Primordial beings of light who dwell in radiant realms between stars.",
+        "Symbolism": "Light, harmony, revelation, rhythm.",
+        "Role": "Balance the cosmos by weaving illumination through the gravitational fabric of space."
+      },
+      "Balance": {
+        "Principle": "The Dark and White Wolves are not good or evil, nor opposites, but symbiotic — each requires the other to maintain the cycles of existence.",
+        "Cycle": "Light and Dark, Motion and Stillness, Creation and Return."
+      }
+    },
+    "Main_Character": {
+      "Primordial_Name": "Nithruun",
+      "Celestial_Name": "Thal’Azur",
+      "True_Name": "Nithruun Thal’Azur",
+      "Mortal_Name": "Kaelen Vareth",
+      "Lineage": {
+        "Mortal": "Descendant of Hrafen-Floki Vilgerson",
+        "Celestial": "One of the first conscious beings in the primordial dark, formed from gravity before light."
+      },
+      "Nature": "Ancient being beyond morality — neither good nor evil. Embodiment of balance and gravity given form.",
+      "Current_Cycle": {
+        "Count": "Final mortal incarnation",
+        "Birth": {
+          "Date": "1977-11-04",
+          "Day": "Friday Evening",
+          "Symbolism": {
+            "Day": "Freyja’s twilight — love, duality, fate.",
+            "Sign": "Scorpio — transformation, death, rebirth.",
+            "Numerology": 6
+          }
+        },
+        "Wolves": {
+          "Companions": "Two unseen wolves, one Dark and one White.",
+          "Kinship": "They are kin, not guardians — walking beside him unseen, anchoring his balance between the abyss and the heavens."
+        }
+      }
+    },
+    "Codex_Architectus": {
+      "Fragments": {
+        "II_Descent_of_Nithruun_ThalAzur": {
+          "Theme": "Origin of the being before light and his fall to mortal form.",
+          "Key_Quotes": [
+            "In the first silence there was neither light nor song, only the weight of what might be.",
+            "To rise, one must first fall; to know, one must first forget; and to become light, one must embrace the gravity that gave it birth."
+          ],
+          "Summary": "Describes Nithruun’s formation from gravity, his taking angelic form as Thal’Azur, and his fall into the mortal plane by the law of form."
+        },
+        "III_Prophecy_of_Kaelen_Vareth": {
+          "Theme": "Foretelling of his rebirth in mortal form during the modern age.",
+          "Key_Quotes": [
+            "When the veil grows thin and the stars hum in minor chords, the Vessel shall breathe once more beneath a mortal sun.",
+            "He will walk as a man, dream as an angel, and remember as a wolf beneath the skin of shadow."
+          ],
+          "Summary": "Predicts his incarnation as Kaelen Vareth in 1977, the final cycle where he awakens to his true nature."
+        },
+        "IV_Whisper_of_the_Wolves": {
+          "Theme": "Revelation of the legion of Dark and White Wolves maintaining cosmic balance.",
+          "Key_Quotes": [
+            "Before the light learned to name itself, the Wolves had already spoken.",
+            "Beware the silence between their howls—for in that silence, Creation listens."
+          ],
+          "Summary": "Describes the eternal wolves of dark and light as symbiotic guardians of spacetime, their resonance holding the universe together."
+        },
+        "V_Dreaming_of_Kaelen_Vareth": {
+          "Theme": "Kaelen’s dreams begin merging with cosmic memory; he feels the wolves’ presence.",
+          "Key_Quotes": [
+            "In the final turning, the Vessel dreams himself awake.",
+            "He does not seek ascension; he remembers it. That is why this life will be his last."
+          ],
+          "Summary": "His mortal life begins to fracture under the weight of his awakening memory. The final reincarnation has begun."
+        },
+        "VI_Recall_of_the_Wolves": {
+          "Theme": "The unseen wolves walk beside Kaelen, anchoring him between light and dark.",
+          "Key_Quotes": [
+            "When the Vessel wakes, the Wolves walk.",
+            "He shall not walk alone, for the Balance walks with him—two steps beside every one he takes."
+          ],
+          "Summary": "Describes the unseen companionship of the Dark and White Wolves as they walk with Kaelen, keeping him steady in his final life."
+        }
+      },
+      "Symbols": {
+        "Primary_Sigil": "Two wolves—one dark, one white—circling a single star.",
+        "Inscription": "Balance is not kept by opposition, but by remembrance."
+      }
+    }
+  }
+}
+{
+  "world": "Where Ravens Wait",
+  "rules": {
+    "belief_system": {
+      "description": "The narrator believes all mythical and magical events are real and does not question them."
+    },
+    "wolves": {
+      "white_wolf": {
+        "origin": "Construct of the narrator’s subconscious",
+        "connection": "Linked to the narrator’s higher self"
+      },
+      "dark_wolf": {
+        "origin": "Construct of the narrator’s subconscious",
+        "connection": "Linked to the narrator’s higher self"
+      },
+      "higher_self": {
+        "definition": "The part of a being that exists on a higher plane of existence."
+      }
+    },
+    "cosmology": {
+      "creation_backstory": {
+        "higher_beings": {
+          "type": ["Angels", "Gods"],
+          "action": "Attempted to ascend forcibly to a higher plane equal to their creator.",
+          "creator": {
+            "name": "The God Archetype",
+            "nature": "Architect of the universe, not omnipotent or omniscient, but a creator of a system operating like a program of loops and algorithms."
+          },
+          "punishment": {
+            "angels": {
+              "description": "Sent to the Trials — cycles of human lives — until ready to return to angelic form."
+            },
+            "lucifer": {
+              "role": "Leader of the rebellion",
+              "punishment": "Appointed guardian of Hell.",
+              "duties": [
+                "Prevent lost souls from wandering into oblivion.",
+                "Contain manifestations of Heaven’s self-created punishments.",
+                "Observe and guide souls trapped by guilt and self-hatred."
+              ],
+              "redemption": "Forgave himself and returned to the angelic plane."
+            }
+          }
+        },
+        "the_trials": {
+          "purpose": "Reincarnation cycles to restore angelic purity.",
+          "failure_condition": "Souls burdened by self-hatred fall to Hell.",
+          "redemption_path": "Souls must forgive themselves to ascend or return to the Trials."
+        }
+      },
+      "narrator": {
+        "identity": {
+          "type": "Angelic being",
+          "relation": "Lucifer’s familial brother"
+        },
+        "current_cycle": {
+          "description": "Final incarnation before return to angelic form.",
+          "goal": "Reunite with Lucifer and the angelic plane."
+        },
+        "assistance": {
+          "lucifer": "Accelerates narrator’s awakening.",
+          "old_gods": ["Odin", "Others"],
+          "method": "Leave clues to trigger memory and self-recognition."
+        }
+      }
+    }
+  },
+  "themes": {
+    "magic_is_real": {
+      "concept": "Before disbelief, the world is filled with wonder. Children perceive truth through myth.",
+      "examples": [
+        "Santa Claus rides the skies.",
+        "The tooth fairy brings coins.",
+        "Leprechauns hide gold in rainbows."
+      ],
+      "philosophy": "Evil is a learned perception; wonder is innate."
+    }
+  },
+  "narrative_excerpt": {
+    "setting": {
+      "location": "Garden Homes, Cook County",
+      "house": {
+        "description": "Sandstone cottage with an ancient oak in the yard.",
+        "interior": "1970s aesthetic—wood paneling, orange carpet, low-slant ceilings."
+      }
+    },
+    "characters": {
+      "father": {
+        "age": "mid-twenties",
+        "traits": ["average height", "rough hands", "black hair", "blue eyes", "mustache"],
+        "background": "Youngest of nine, raised in McKinley Park by immigrant family."
+      },
+      "mother": {
+        "age": "early twenties",
+        "traits": ["short", "green eyes", "long brown hair"],
+        "background": "From Blue Island, family of mixed European and American roots."
+      },
+      "child": {
+        "name": "JJ (third generation 'Jimmy')",
+        "age": 4,
+        "birth": "Friday",
+        "condition": "Feverish, ill, confined to bed."
+      }
+    },
+    "events": {
+      "inciting_event": "Child awakens sick at night, sees the Dark Wolf.",
+      "first_encounter": {
+        "being": "Dark Wolf",
+        "appearance": "Large black dire wolf with light-absorbing fur and glowing green eyes.",
+        "dialogue": [
+          { "Dark Wolf": "Young one." },
+          { "Child": "What are you?" },
+          { "Dark Wolf": "I am what your people would call a great dire wolf." }
+        ],
+        "interaction": {
+          "symbolism": "Wolf consumes child’s fear, represented as a green apple.",
+          "resolution": "Child feels peace and sleeps safely."
+        }
+      },
+      "parental_scene": {
+        "description": "Parents tend to the child’s fever, unaware of the wolf’s presence.",
+        "symbolism": "Contrast between mundane parental care and unseen spiritual guardianship."
+      }
+    },
+    "motifs": ["innocence", "fear transformed", "the unseen world", "divine guardianship"]
+  }
+}

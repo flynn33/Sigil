@@ -1,0 +1,828 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.xctest/Contents/MacOS/RFMythosCatalogPackageTests",
+      "packagePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog",
+      "productName" : "RFMythosCatalogPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.RFCoreModels-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFCoreModels",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/include/RFCoreModels-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfcoremodels"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFMythosCatalog-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/Sources/RFMythosCatalog/MythosCatalogService.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFCoreModels.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFMythosCatalog",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFMythosCatalog.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/MythosCatalogService.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/include/RFMythosCatalog-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfmythoscatalog"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/MythosCatalogService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFMythosCatalog.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/Sources/RFMythosCatalog/MythosCatalogService.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFMythosCatalogPackageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFMythosCatalogTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFMythosCatalogPackageTests",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFMythosCatalogPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/include/RFMythosCatalogPackageTests-Swift.h",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfmythoscatalog"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFMythosCatalogPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.RFMythosCatalogTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogTests.build/sources",
+      "importPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/Tests/RFMythosCatalogTests/RFMythosCatalogTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFMythosCatalog.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "RFMythosCatalogTests",
+      "moduleOutputPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFMythosCatalogTests.swiftmodule",
+      "objects" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogTests.build/RFMythosCatalogTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "rfmythoscatalog"
+      ],
+      "outputFileMapPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogTests.build/RFMythosCatalogTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules/RFMythosCatalogTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/Tests/RFMythosCatalogTests/RFMythosCatalogTests.swift"
+      ],
+      "tempsPath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "RFCoreModels" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFCoreModels",
+      "-package-name",
+      "rfcoremodels",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/include/RFCoreModels-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfcoremodels",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFMythosCatalog" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFMythosCatalog",
+      "-package-name",
+      "rfmythoscatalog",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/Sources/RFMythosCatalog/MythosCatalogService.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/include/RFMythosCatalog-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfmythoscatalog",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFMythosCatalogPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFMythosCatalogPackageTests",
+      "-package-name",
+      "rfmythoscatalog",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/include/RFMythosCatalogPackageTests-Swift.h",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfmythoscatalog",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "RFMythosCatalogTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "RFMythosCatalogTests",
+      "-package-name",
+      "rfmythoscatalog",
+      "-c",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/Tests/RFMythosCatalogTests/RFMythosCatalogTests.swift",
+      "-I",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "rfmythoscatalog",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "RFCoreModels" : [
+
+    ],
+    "RFMythosCatalog" : [
+      "RFCoreModels"
+    ],
+    "RFMythosCatalogPackageTests" : [
+      "RFMythosCatalogTests",
+      "RFMythosCatalog",
+      "RFCoreModels"
+    ],
+    "RFMythosCatalogTests" : [
+      "RFMythosCatalog",
+      "RFCoreModels"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/Sources/RFMythosCatalog/MythosCatalogService.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/MythosCatalogService.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogTests.build/RFMythosCatalogTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/Tests/RFMythosCatalogTests/RFMythosCatalogTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/RFMythosCatalogTests.build/sources"
+    },
+    "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

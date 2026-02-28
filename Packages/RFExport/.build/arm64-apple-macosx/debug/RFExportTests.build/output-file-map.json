@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFExport/.build/arm64-apple-macosx/debug/RFExportTests.build/master.swiftdeps"
+  },
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFExport/Tests/RFExportTests/RFExportTests.swift": {
+    "dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFExport/.build/arm64-apple-macosx/debug/RFExportTests.build/RFExportTests.d",
+    "object": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFExport/.build/arm64-apple-macosx/debug/RFExportTests.build/RFExportTests.swift.o",
+    "swiftmodule": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFExport/.build/arm64-apple-macosx/debug/RFExportTests.build/RFExportTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFExport/.build/arm64-apple-macosx/debug/RFExportTests.build/RFExportTests.swiftdeps",
+    "diagnostics": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFExport/.build/arm64-apple-macosx/debug/RFExportTests.build/RFExportTests.dia"
+  }
+}

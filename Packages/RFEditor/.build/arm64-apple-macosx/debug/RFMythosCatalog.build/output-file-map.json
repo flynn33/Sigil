@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/master.swiftdeps"
+  },
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFMythosCatalog/Sources/RFMythosCatalog/MythosCatalogService.swift": {
+    "dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/MythosCatalogService.d",
+    "object": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/MythosCatalogService.swift.o",
+    "swiftmodule": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/MythosCatalogService~partial.swiftmodule",
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/MythosCatalogService.swiftdeps",
+    "diagnostics": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFMythosCatalog.build/MythosCatalogService.dia"
+  }
+}

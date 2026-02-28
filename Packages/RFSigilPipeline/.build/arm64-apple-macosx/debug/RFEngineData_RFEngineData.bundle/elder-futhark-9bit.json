@@ -1,0 +1,246 @@
+{
+  "version": "1.0",
+  "description": "Canonical, fixed 9-bit hypercube codes for all 24 Elder Futhark runes. Deterministic forever.",
+  "runes": [
+    {
+      "id": "fehu",
+      "char": "ᚠ",
+      "name": "Fehu",
+      "bits": "100000001",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Wealth, cattle, mobile property",
+      "game_domains": ["prosperity", "resource_generation", "gold_drop_multiplier"]
+    },
+    {
+      "id": "uruz",
+      "char": "ᚢ",
+      "name": "Uruz",
+      "bits": "010000010",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Aurochs, primal strength",
+      "game_domains": ["raw_power", "health_regen", "charge_attacks"]
+    },
+    {
+      "id": "thurisaz",
+      "char": "ᚦ",
+      "name": "Thurisaz",
+      "bits": "001000100",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Giant / thorn",
+      "game_domains": ["spike_damage", "counter_attack", "thorn_aura"]
+    },
+    {
+      "id": "ansuz",
+      "char": "ᚨ",
+      "name": "Ansuz",
+      "bits": "000111000",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Odin, breath, inspiration",
+      "game_domains": ["revelation", "mana_regen", "divine_speech"]
+    },
+    {
+      "id": "raidho",
+      "char": "ᚱ",
+      "name": "Raidho",
+      "bits": "000011111",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Journey, wheel, rhythm",
+      "game_domains": ["teleport", "movement_speed", "time_dilation"]
+    },
+    {
+      "id": "kenaz",
+      "char": "ᚲ",
+      "name": "Kenaz",
+      "bits": "001111000",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Torch, controlled fire",
+      "game_domains": ["fire_damage", "illumination", "crafting_bonus"]
+    },
+    {
+      "id": "gebo",
+      "char": "ᚷ",
+      "name": "Gebo",
+      "bits": "100110001",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Gift, partnership",
+      "game_domains": ["trading", "alliance_mechanics", "shared_health"]
+    },
+    {
+      "id": "wunjo",
+      "char": "ᚹ",
+      "name": "Wunjo",
+      "bits": "011110000",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Joy, harmony",
+      "game_domains": ["morale_boost", "healing_over_time", "friendship_aura"]
+    },
+    {
+      "id": "hagala",
+      "char": "ᚺ",
+      "name": "Hagalaz",
+      "bits": "111000111",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Hail, disruption",
+      "game_domains": ["aoe_destruction", "random_events", "weather_control"]
+    },
+    {
+      "id": "naudhiz",
+      "char": "ᚾ",
+      "name": "Nauthiz",
+      "bits": "001011010",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Need, friction",
+      "game_domains": ["survival_mechanics", "damage_on_low_health", "sacrifice"]
+    },
+    {
+      "id": "isa",
+      "char": "ᛁ",
+      "name": "Isa",
+      "bits": "000000111",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Ice, stillness",
+      "game_domains": ["freeze", "time_stop", "invulnerability_frames"]
+    },
+    {
+      "id": "jera",
+      "char": "ᛃ",
+      "name": "Jera",
+      "bits": "110011001",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Year, harvest",
+      "game_domains": ["growth_over_time", "farming", "season_cycles"]
+    },
+    {
+      "id": "eihwaz",
+      "char": "ᛇ",
+      "name": "Eihwaz",
+      "bits": "000011000",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Yew tree, axis",
+      "game_domains": ["plane_shift", "resurrection", "world_tree_portal"]
+    },
+    {
+      "id": "perthro",
+      "char": "ᛈ",
+      "name": "Perthro",
+      "bits": "011001100",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Dice cup, fate",
+      "game_domains": ["random_rolls", "gambling", "luck_manipulation"]
+    },
+    {
+      "id": "algiz",
+      "char": "ᛉ",
+      "name": "Algiz",
+      "bits": "101010101",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Elk, protection",
+      "game_domains": ["shield", "ward", "guardian_spirits"]
+    },
+    {
+      "id": "sowilo",
+      "char": "ᛊ",
+      "name": "Sowilo",
+      "bits": "111111000",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Sun, victory",
+      "game_domains": ["pure_light", "banish_shadow", "final_boss_aura"]
+    },
+    {
+      "id": "tiwaz",
+      "char": "ᛏ",
+      "name": "Tiwaz",
+      "bits": "001001001",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Tyr, justice",
+      "game_domains": ["sacrifice", "law_enforcement", "one_hit_kill"]
+    },
+    {
+      "id": "berkano",
+      "char": "ᛒ",
+      "name": "Berkano",
+      "bits": "110000011",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Birch, birth",
+      "game_domains": ["healing", "fertility", "spawn_allies"]
+    },
+    {
+      "id": "ehwaz",
+      "char": "ᛖ",
+      "name": "Ehwaz",
+      "bits": "010101010",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Horse, partnership",
+      "game_domains": ["mount", "co_op_mechanics", "soul_link"]
+    },
+    {
+      "id": "mannaz",
+      "char": "ᛗ",
+      "name": "Mannaz",
+      "bits": "101001010",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Mankind, self",
+      "game_domains": ["identity", "faction", "mirror_self"]
+    },
+    {
+      "id": "laguz",
+      "char": "ᛚ",
+      "name": "Laguz",
+      "bits": "000111111",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Water, flow",
+      "game_domains": ["liquid_physics", "drowning", "teleport_via_water"]
+    },
+    {
+      "id": "ingwaz",
+      "char": "ᛜ",
+      "name": "Ingwaz",
+      "bits": "111100000",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Seed, gestation",
+      "game_domains": ["charge_up", "delayed_explosion", "rebirth"]
+    },
+    {
+      "id": "dagaz",
+      "char": "ᛞ",
+      "name": "Dagaz",
+      "bits": "011111100",
+      "parity": "even",
+      "wolf": "White Wolf",
+      "meaning": "Daybreak, transformation",
+      "game_domains": ["phase_shift", "dawn_mechanic", "irreversible_change"]
+    },
+    {
+      "id": "othala",
+      "char": "ᛟ",
+      "name": "Othala",
+      "bits": "100110011",
+      "parity": "odd",
+      "wolf": "Dark Wolf",
+      "meaning": "Ancestral property, inheritance",
+      "game_domains": ["legacy_system", "bloodline_powers", "homeland_buff"]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditor.build/master.swiftdeps"
+  },
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/Sources/RFEditor/EditorDocument.swift": {
+    "dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditor.build/EditorDocument.d",
+    "object": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditor.build/EditorDocument.swift.o",
+    "swiftmodule": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditor.build/EditorDocument~partial.swiftmodule",
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditor.build/EditorDocument.swiftdeps",
+    "diagnostics": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditor.build/EditorDocument.dia"
+  }
+}

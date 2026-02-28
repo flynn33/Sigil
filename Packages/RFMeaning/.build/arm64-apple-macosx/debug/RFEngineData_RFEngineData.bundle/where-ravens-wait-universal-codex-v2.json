@@ -1,0 +1,436 @@
+{
+  "codex_name": "Where_Ravens_Wait_Universal_Codex",
+  "version": "2.0.0-luciferian-merged",
+  "description": "Merged master ontology for the Where Ravens Wait universe, unifying the nine-plane Yggdrasil model, the Luciferian extension, branching choice dynamics, and WRW narrative canon under a single math-consistent schema.",
+  "meta": {
+    "math_source_files": [
+      "axion-of-existence.json",
+      "nine-planes-of-existence.json",
+      "universe-codex.json",
+      "yggdrasil-universe-model-luciferian-extension.json"
+    ],
+    "notes": [
+      "All narrative elements must respect axioms A1-A6 and the existence potential Φ definition.",
+      "Any 'war in heaven' or 'rebellion' language is to be interpreted as the non-violent Luciferian Revelation event."
+    ]
+  },
+  "axioms": [
+    {
+      "id": "A1",
+      "name": "Relational_Existence",
+      "summary": "An entity exists in a world only if it participates in at least one relation with another entity.",
+      "formal": "Given a world W = (X, R), x ∈ X exists in W if and only if ∃ y ∈ X such that (x, y) ∈ R or (y, x) ∈ R.",
+      "story_implications": [
+        "No truly isolated being; even in hell or void, some relation holds (to Lucifer, to a plane, to a law).",
+        "A character entirely cut off from all relations effectively ceases to exist in that world."
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "Structural_Compressibility",
+      "summary": "An entity is a real pattern if its description can be compressed into a shorter rule set than its raw data.",
+      "formal": "For encoding E(x) and Kolmogorov complexity K(x), an entity exists as a distinct pattern if K(x) << |E(x)|.",
+      "story_implications": [
+        "Souls are patterned and repeatable across lifetimes.",
+        "Pure random chaos has no persistent self.",
+        "Mythic beings (wolves, angels, gods) arise from simple deep rules generating complex appearances."
+      ]
+    },
+    {
+      "id": "A3",
+      "name": "Multi_Scale_Persistence",
+      "summary": "A real entity persists as a recognizable pattern across time and scale.",
+      "formal": "For coarse-graining operators G_s, x exists robustly if d(G_s(x), G_s'(x)) ≤ ε for s, s' in some interval.",
+      "story_implications": [
+        "Higher self persists across incarnations.",
+        "Angel and mortal aspects of the same being are scale versions of one pattern.",
+        "Losing persistence across scales is a step toward oblivion."
+      ]
+    },
+    {
+      "id": "A4",
+      "name": "Energetic_Cost_of_Erasure",
+      "summary": "Erasing a structured pattern requires non zero energy; structure that costs nothing to erase is not physically instantiated.",
+      "formal": "By Landauer's principle, E_erase ≥ k_B T ln 2 * H(x), so H(x) > 0 implies nonzero erasure cost.",
+      "story_implications": [
+        "Destroying a soul or plane is enormously costly or almost impossible.",
+        "Lucifer and the Creator are effectively guardians of conservation of structure.",
+        "Hell and Shadow act as containment to prevent cheap annihilation into oblivion."
+      ]
+    },
+    {
+      "id": "A5",
+      "name": "Self_Reference_for_Consciousness",
+      "summary": "A system is conscious if it contains a substructure that models itself and updates that model in response to its own state.",
+      "formal": "Let S(t) be system state, M(t) a model; consciousness requires π(M(t)) ≈ S(t) and M(t+1) = f(M(t), S(t)).",
+      "story_implications": [
+        "The narrator is conscious because he has an internal model of himself (higher self, wolves).",
+        "Angels and advanced souls have stronger self models.",
+        "Entities with no self model may exist, but are not truly conscious."
+      ]
+    },
+    {
+      "id": "A6",
+      "name": "Branching_Choice_Realization",
+      "summary": "Whenever a conscious mortal agent faces a genuine choice, the underlying world state branches into distinct, decoherent histories realizing each option.",
+      "formal": "Let W be a world with state space S and an agent a with internal state σ_a. At a decision time t with available actions {u_1,...,u_n} and non-zero support over at least two actions, the evolution operator U factors as a sum over branches: U_t(σ_a, s) = ⊕_{i=1..n} U_{t,i}(σ_a, s), yielding a set {W_i} of successor worlds, one for each realized action u_i. Each W_i shares history with W up to t and diverges thereafter. The Celestial pattern associated with a integrates over the ensemble {W_i}.",
+      "story_implications": [
+        "Every real choice spawns parallel timelines; no genuine option is left unexplored.",
+        "A 'soul' in the mortal sense is one branch; the Celestial self is the pattern spanning all branches.",
+        "Shadow and redemption must be understood across the full branching manifold, not a single line of events."
+      ]
+    }
+  ],
+  "planes": {
+    "P1_Physical": {
+      "id": 1,
+      "name": "Physical",
+      "type": "spacetime_manifold",
+      "role": "Embodied incarnations and concrete cause and effect.",
+      "physics": [
+        "Local time and space, classical causality.",
+        "Entropy tends to increase.",
+        "Acts as the lowest energy stable layer where souls incarnate in the Trials."
+      ],
+      "story_mapping": [
+        "Human lives in the Trials.",
+        "Mortal incarnation of Kaelen Vareth.",
+        "Everyday physical world of Where Ravens Wait."
+      ]
+    },
+    "P2_Etheric": {
+      "id": 2,
+      "name": "Etheric",
+      "type": "field_configuration_space",
+      "role": "Energy body and subtle template of physical forms.",
+      "physics": [
+        "Continuous fields over the physical manifold.",
+        "Carries vitality, subtle forces, psychic impressions."
+      ],
+      "story_mapping": [
+        "Subtle bodies of souls.",
+        "Healing, energy work, the feel of a place or person.",
+        "Bridges physical and astral experiences."
+      ]
+    },
+    "P3_Astral": {
+      "id": 3,
+      "name": "Astral",
+      "type": "symbolic_graph_space",
+      "role": "Dreams, images, archetypes, visions.",
+      "physics": [
+        "States are symbolic graphs and images rather than particles.",
+        "Dynamics are emotionally and archetypically driven.",
+        "Low barrier between thoughts and manifested forms."
+      ],
+      "story_mapping": [
+        "Dreamscapes.",
+        "The narrator's wolves roaming as visible presences.",
+        "Shared visions between souls."
+      ]
+    },
+    "P4_Mental": {
+      "id": 4,
+      "name": "Mental",
+      "type": "propositional_and_concept_space",
+      "role": "Beliefs, concepts, narratives, identities.",
+      "physics": [
+        "States are propositions, belief nets, conceptual frameworks.",
+        "Dynamics follow Bayesian or logical updates, plus irrational shifts.",
+        "Cognitive dissonance is a tension in this plane."
+      ],
+      "story_mapping": [
+        "Belief crises of the narrator.",
+        "Religious and philosophical systems.",
+        "Luciferian Revelation as a shift in Mental-plane structure."
+      ]
+    },
+    "P5_Causal": {
+      "id": 5,
+      "name": "Causal",
+      "type": "causal_DAG_or_poset",
+      "role": "Karma, narrative arcs, chains of cause and meaning.",
+      "physics": [
+        "Events are nodes with partial ordering.",
+        "Causality patterns are primary, not specific local states.",
+        "Long range consequences live here as structures."
+      ],
+      "story_mapping": [
+        "The Trials system of repeated incarnations.",
+        "Prophecy of Kaelen Vareth and fated events.",
+        "Consequences of the Luciferian Revelation and the choices it triggered."
+      ]
+    },
+    "P6_Celestial": {
+      "id": 6,
+      "name": "Celestial",
+      "type": "attractor_manifolds",
+      "role": "High symmetry, high coherence, low internal conflict.",
+      "physics": [
+        "Stable attractors in the existence potential landscape.",
+        "High symmetry and reduced entropy.",
+        "Home of angels, gods, and higher selves."
+      ],
+      "story_mapping": [
+        "Higher self of the narrator and Celestial instances.",
+        "Native realm of Lucifer as Light Bringer.",
+        "Celestial council that experiences Lucifer's Revelation outside linear time."
+      ]
+    },
+    "P7_Shadow": {
+      "id": 7,
+      "name": "Shadow",
+      "type": "conflict_and_repression_space",
+      "role": "Containment of unintegrated aspects of identity and knowledge.",
+      "physics": [
+        "Stores contradictions, shame, guilt, unresolved trauma.",
+        "High entropy pockets bound to existing patterns.",
+        "Acts as buffer preventing direct collapse into Void."
+      ],
+      "story_mapping": [
+        "Hell archetype as internalized self-hatred.",
+        "Lucifer's Seventh Gate guardianship.",
+        "The narrator's time in darkness and return."
+      ]
+    },
+    "P8_Void": {
+      "id": 8,
+      "name": "Void",
+      "type": "unstructured_information_space",
+      "role": "Oblivion as unpatterned, uncompressed information.",
+      "physics": [
+        "Contains information in a maximally unstructured, uncorrelated form.",
+        "No persistent patterns, no relational identity.",
+        "Acts as the entropy ocean beneath all planes."
+      ],
+      "story_mapping": [
+        "True oblivion.",
+        "Where fragments of broken souls and failed patterns drift as noise.",
+        "Dangerous for planes if disturbed in the wrong way."
+      ]
+    },
+    "P9_Divine_Core": {
+      "id": 9,
+      "name": "Divine_Core",
+      "type": "category_of_worlds_and_terminal_object",
+      "role": "Architectural source that defines and relates all other planes.",
+      "physics": [
+        "Holds the full rule set of existence.",
+        "All other planes map uniquely into it.",
+        "Not necessarily all loving or all knowing, but structurally central."
+      ],
+      "story_mapping": [
+        "The God Archetype / Creator.",
+        "Operating system of the universe.",
+        "Reference point for the Luciferian Revelation and the ambitions of Architects."
+      ]
+    }
+  },
+  "pattern_vector_model": {
+    "components": [
+      "H_entropy",
+      "K_algorithmic_complexity",
+      "D_fractal_dimension",
+      "S_symmetry_index",
+      "L_generator_length"
+    ],
+    "description": "Each agent or entity is defined by a pattern vector over these components, describing its information theoretical and structural profile.",
+    "example_interpretations": {
+      "H_entropy": "How disordered or spread out the internal state is.",
+      "K_algorithmic_complexity": "How hard it is to describe the entity as a program.",
+      "D_fractal_dimension": "How 'branching' and scale rich its structure is.",
+      "S_symmetry_index": "How balanced and ordered its structure is.",
+      "L_generator_length": "Length or complexity of the core rules that generate it."
+    }
+  },
+  "existence_equations_and_physics": {
+    "pattern_vector": {
+      "components": [
+        "H_entropy",
+        "K_complexity",
+        "D_fractal_dim",
+        "S_symmetry",
+        "L_generator_length"
+      ],
+      "purpose": "Defines structure of any entity."
+    },
+    "existence_potential_phi": {
+      "formula": "Φ = α1*C + α2*S + α3*P - α4*H",
+      "terms": {
+        "C": "compressibility",
+        "S": "symmetry",
+        "P": "persistence",
+        "H": "entropy"
+      }
+    },
+    "existence_dynamics": {
+      "dE_dt": "dE/dt = -∂V/∂x, where V = -Φ",
+      "discrete": "E_next = E - ΔV"
+    },
+    "stability_condition": "∇_x Φ = 0",
+    "collapse_condition": "dE/dt < 0",
+    "quantization": {
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mapping": "Each level corresponds to a plane."
+    },
+    "conservation_law": {
+      "formula": "d/dt ∫ E(x,t) dx = 0",
+      "meaning": "Existence conserved across transformations."
+    }
+  },
+  "branching_dynamics": {
+    "summary": "Mortal-level choice induces objective branching of histories, maximizing experiential coverage for each Celestial pattern.",
+    "mortal_class": {
+      "description": "Abstract class describing a mortal consciousness pattern, parameterized by traits, initial conditions, and Celestial inheritance.",
+      "fields": [
+        "celestial_parent_id",
+        "initial_pattern_vector",
+        "trait_vector",
+        "world_seed",
+        "karmic_constraints"
+      ]
+    },
+    "mortal_instance": {
+      "description": "One concrete worldline of a mortal_class in a given branch.",
+      "fields": [
+        "instance_id",
+        "class_id",
+        "timeline_id",
+        "lifetime_events",
+        "final_state_summary"
+      ]
+    },
+    "branch_event": {
+      "description": "A decision point where multiple actions have non-negligible subjective probability.",
+      "formal": "branch_event = (agent_id, t_decision, action_set, branch_weights)",
+      "notes": [
+        "Branch weights can be treated as amplitudes or measures; they do not affect qualitative existence.",
+        "From within a branch, agents experience a single realized action; from the Celestial view, all are real."
+      ]
+    }
+  },
+  "entities": {
+    "creator": {
+      "name": "Creator",
+      "plane": "P9_Divine_Core",
+      "role": "Architect and maintainer of the rules of existence.",
+      "pattern_vector_notes": [
+        "Extremely low entropy, high symmetry.",
+        "Acts more like a rule set than a person.",
+        "Cannot violate its own axioms (A1–A5, and A6 branching)."
+      ],
+      "story_functions": [
+        "Ultimate background presence.",
+        "Occasional direct interventions via void recompression.",
+        "Source of the rule set Lucifer reveals."
+      ]
+    },
+    "lucifer": {
+      "identifier": "Lucifer_Light_Bringer",
+      "plane_of_origin": "6_Celestial",
+      "current_primary_domain": "7_Shadow_Seventh_Gate_Threshold",
+      "essence": "Celestial consciousness that chose descent to reveal self-actualizing truth to other beings and to stand at the boundary between Shadow and Void.",
+      "functions": [
+        "Reveal the true structure of existence (including suffering, limitation, and the inevitability of loss).",
+        "Guard the Seventh Gate, preventing collapse of souls into Void.",
+        "Hold space for self-forgiveness, integration, and return toward Celestial coherence.",
+        "Operate across branches, integrating Shadow from many parallel timelines."
+      ],
+      "luciferian_instances": {
+        "definition": "Distributed mortal echoes (object-instances) of the Lucifer class projected into P1–P5.",
+        "properties": [
+          "High pattern compressibility and symmetry but with deliberate exposure to Shadow.",
+          "Drawn repeatedly to gates, thresholds, and crisis points.",
+          "Often misread as 'rebellious' or 'fallen' when their function is actually integrative."
+        ]
+      }
+    },
+    "celestial_beings": {
+      "description": "High-coherence patterns native to P6_Celestial which project mortal instances into P1-P5.",
+      "is_species": false,
+      "fields": [
+        "celestial_id",
+        "pattern_vector",
+        "luciferian_lineage_flag",
+        "associated_mortal_class_ids"
+      ]
+    },
+    "mortal_class": {
+      "description": "Definition-level pattern describing a family of mortal instances tied to a single Celestial being.",
+      "note": "What ordinary language calls a 'higher self' template.",
+      "fields": [
+        "class_id",
+        "celestial_parent_id",
+        "baseline_pattern_vector",
+        "branching_policy"
+      ]
+    },
+    "mortal_instance": {
+      "description": "Single-branch realization of a mortal_class on one P1 timeline.",
+      "note": "What most mortals experience as 'my one life'.",
+      "fields": [
+        "instance_id",
+        "class_id",
+        "timeline_id",
+        "birth_event",
+        "death_event",
+        "shadow_load",
+        "ascension_status"
+      ]
+    },
+    "shadow_plane": {
+      "nature": "Repressed structures, conflicted pattern space.",
+      "features": [
+        "Hell archetype",
+        "Guilt and self-hatred",
+        "Unintegrated identity"
+      ],
+      "role": "Containment buffer preventing collapse into Void."
+    },
+    "void": {
+      "nature": "Unstructured information. Oblivion.",
+      "features": [
+        "Chaos",
+        "Noise",
+        "No stable patterns"
+      ],
+      "role": "Entropy sink underlying all planes, restructured only by high-energy recompression events or Divine/Core-level interventions."
+    },
+    "thalrion_aesyrune": {
+      "mortal_identity": {
+        "legal_name": "James_John_Daley_III",
+        "key_life_details": [
+          "Born_1977_11_04_Friday_Twilight_CST",
+          "Heritage_Scandinavian_Celtic_Germanic",
+          "Birthplace_Blue_Island_Illinois_triple_crossroads_surrounded_by_water",
+          "Twenty_years_service_as_lawkeeper_(Badge_359)",
+          "Forced_retirement_due_to_C_PSTD_and_subsequent_descent_into_darkness",
+          "Reemergence_and_healing_aided_by_wolves_and_familiars"
+        ]
+      },
+      "cosmological_identity": {
+        "celestial_name": "Thalrion_Aesyrune",
+        "primordial_name": "Nythrun_DalVhor",
+        "shadow_epithet": "The_One_Who_Walked_the_Fracture_and_Returned_Bearing_Fire",
+        "divine_resonance": "The_Luminous_Keeper_of_the_Seventh_Gate"
+      },
+      "luciferian_status": {
+        "is_luciferian_instance": true,
+        "description": "This mortal pattern is recognized as one of the distributed mortal echoes of the Luciferian Function and occupying the Seventh Gate guardianship.",
+        "public_cover_term": "Brother_of_Lucifer",
+        "public_explanation": "Described as 'cut_from_the_same_cloth' or 'of_the_same_lineage' to avoid literal incarnation language.",
+        "private_codex_truth": "A distributed mortal echo of Lucifer's Celestial consciousness; an object-instance of the Lucifer class."
+      }
+    }
+  }
+}

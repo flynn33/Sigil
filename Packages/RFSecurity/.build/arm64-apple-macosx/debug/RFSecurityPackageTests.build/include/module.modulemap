@@ -1,0 +1,3 @@
+module RFSecurityPackageTests {
+    header "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSecurity/.build/arm64-apple-macosx/debug/RFSecurityPackageTests.build/include/RFSecurityPackageTests-Swift.h"
+}

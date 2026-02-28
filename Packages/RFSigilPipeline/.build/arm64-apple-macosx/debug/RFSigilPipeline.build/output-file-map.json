@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/master.swiftdeps"
+  },
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/Sources/RFSigilPipeline/SigilPipelineService.swift": {
+    "dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/SigilPipelineService.d",
+    "object": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/SigilPipelineService.swift.o",
+    "swiftmodule": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/SigilPipelineService~partial.swiftmodule",
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/SigilPipelineService.swiftdeps",
+    "diagnostics": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSigilPipeline/.build/arm64-apple-macosx/debug/RFSigilPipeline.build/SigilPipelineService.dia"
+  }
+}

@@ -1,0 +1,802 @@
+{
+  "celestial_name_generator": {
+    "version": "1.0.0",
+    "description": "Combined model, algorithm, and math definitions for Celestial Name Generator using the Yggdrasil cosmology.",
+    "model": {
+      "model_name": "CelestialNameGenerator",
+      "version": "1.0.0",
+      "inputs": {
+        "heritage": {
+          "type": "multi_select",
+          "allowed_values": [
+            "scandinavian",
+            "celtic",
+            "germanic",
+            "greco_roman",
+            "slavic",
+            "mediterranean",
+            "middle_eastern",
+            "african",
+            "east_asian",
+            "south_asian",
+            "americas",
+            "other"
+          ]
+        },
+        "birth_date": {
+          "type": "date",
+          "life_path_rule": "sum_all_digits_until_single_digit"
+        },
+        "birth_weekday": {
+          "type": "enum",
+          "allowed_values": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ]
+        },
+        "birth_time": {
+          "type": "time",
+          "buckets": {
+            "night": {
+              "start": "00:00",
+              "end": "05:59"
+            },
+            "dawn": {
+              "start": "06:00",
+              "end": "08:59"
+            },
+            "day": {
+              "start": "09:00",
+              "end": "15:59"
+            },
+            "dusk": {
+              "start": "16:00",
+              "end": "19:59"
+            },
+            "late": {
+              "start": "20:00",
+              "end": "23:59"
+            }
+          }
+        },
+        "hair_color": {
+          "type": "enum",
+          "allowed_values": [
+            "blonde",
+            "light_brown",
+            "dark_brown",
+            "black",
+            "red",
+            "grey_white",
+            "other"
+          ]
+        },
+        "eye_color": {
+          "type": "enum",
+          "allowed_values": [
+            "blue",
+            "green",
+            "hazel",
+            "brown",
+            "grey",
+            "other"
+          ]
+        },
+        "mortal_name": {
+          "type": "string",
+          "use_as_seed": true
+        }
+      },
+      "planes": [
+        {
+          "id": 1,
+          "code": "P1",
+          "name": "Physical",
+          "numerology_values": [
+            1
+          ],
+          "keywords": [
+            "body",
+            "action",
+            "survival",
+            "material"
+          ],
+          "name_influence": "strong_consonants"
+        },
+        {
+          "id": 2,
+          "code": "P2",
+          "name": "Etheric",
+          "numerology_values": [
+            2
+          ],
+          "keywords": [
+            "vitality",
+            "connection",
+            "sensing"
+          ],
+          "name_influence": "fluid_transitions"
+        },
+        {
+          "id": 3,
+          "code": "P3",
+          "name": "Astral",
+          "numerology_values": [
+            3
+          ],
+          "keywords": [
+            "emotion",
+            "dreams",
+            "imagination"
+          ],
+          "name_influence": "soft_vowels"
+        },
+        {
+          "id": 4,
+          "code": "P4",
+          "name": "Mental",
+          "numerology_values": [
+            4
+          ],
+          "keywords": [
+            "thought",
+            "structure",
+            "logic"
+          ],
+          "name_influence": "ordered_syllables"
+        },
+        {
+          "id": 5,
+          "code": "P5",
+          "name": "Causal",
+          "numerology_values": [
+            5
+          ],
+          "keywords": [
+            "pattern",
+            "fate",
+            "threads"
+          ],
+          "name_influence": "repeated_motifs"
+        },
+        {
+          "id": 6,
+          "code": "P6",
+          "name": "Celestial",
+          "numerology_values": [
+            6
+          ],
+          "keywords": [
+            "coherence",
+            "completion",
+            "harmony"
+          ],
+          "name_influence": "luminous_syllables"
+        },
+        {
+          "id": 7,
+          "code": "P7",
+          "name": "Shadow",
+          "numerology_values": [
+            7
+          ],
+          "keywords": [
+            "integration",
+            "trauma",
+            "truth_in_darkness"
+          ],
+          "name_influence": "deep_and_gravity_syllables"
+        },
+        {
+          "id": 8,
+          "code": "P8",
+          "name": "Void",
+          "numerology_values": [
+            8
+          ],
+          "keywords": [
+            "entropy",
+            "unmaking",
+            "reset"
+          ],
+          "name_influence": "minimalist_syllables"
+        },
+        {
+          "id": 9,
+          "code": "P9",
+          "name": "DivineCore",
+          "numerology_values": [
+            9
+          ],
+          "keywords": [
+            "source",
+            "origin",
+            "blueprint"
+          ],
+          "name_influence": "primordial_syllables"
+        }
+      ],
+      "weekday_archetypes": {
+        "monday": {
+          "deity_axis": "lunar",
+          "tone": "emotional",
+          "role_bias": "nurturer"
+        },
+        "tuesday": {
+          "deity_axis": "warrior",
+          "tone": "assertive",
+          "role_bias": "challenger"
+        },
+        "wednesday": {
+          "deity_axis": "odin_mercury",
+          "tone": "messenger",
+          "role_bias": "teacher"
+        },
+        "thursday": {
+          "deity_axis": "storm",
+          "tone": "expansive",
+          "role_bias": "protector"
+        },
+        "friday": {
+          "deity_axis": "freyja_venus",
+          "tone": "relational",
+          "role_bias": "weaver"
+        },
+        "saturday": {
+          "deity_axis": "saturn",
+          "tone": "boundary",
+          "role_bias": "keeper"
+        },
+        "sunday": {
+          "deity_axis": "solar",
+          "tone": "radiant",
+          "role_bias": "leader"
+        }
+      },
+      "wolf_balance_rules": {
+        "base_score": 0,
+        "hair_modifiers": {
+          "blonde": 1,
+          "light_brown": 0.5,
+          "dark_brown": -0.5,
+          "black": -1,
+          "red": 0,
+          "grey_white": 0.5,
+          "other": 0
+        },
+        "eye_modifiers": {
+          "blue": 1,
+          "green": 0.5,
+          "hazel": 0.25,
+          "brown": -0.25,
+          "grey": 0.5,
+          "other": 0
+        },
+        "birth_time_modifiers": {
+          "night": -1,
+          "dawn": 0.5,
+          "day": 0,
+          "dusk": -0.5,
+          "late": -0.5
+        },
+        "life_path_modifiers": {
+          "1": 0,
+          "2": 0.25,
+          "3": 0.25,
+          "4": 0,
+          "5": 0,
+          "6": 0.5,
+          "7": -0.5,
+          "8": -0.25,
+          "9": 0.5
+        },
+        "thresholds": {
+          "white_dominant": 1.0,
+          "balanced_lower": -1.0,
+          "balanced_upper": 1.0,
+          "dark_dominant": -1.0
+        }
+      },
+      "heritage_families": {
+        "scandinavian": {
+          "pantheon_tone": "norse",
+          "syllable_bias": [
+            "har",
+            "ulf",
+            "rion",
+            "skald",
+            "drun",
+            "vald",
+            "thor",
+            "frey",
+            "yr"
+          ],
+          "epithet_flavor": [
+            "raven",
+            "wolf",
+            "storm",
+            "sea",
+            "ash_tree"
+          ]
+        },
+        "celtic": {
+          "pantheon_tone": "celtic",
+          "syllable_bias": [
+            "bryn",
+            "wyn",
+            "cai",
+            "ao",
+            "eir",
+            "tal",
+            "wynne",
+            "morr"
+          ],
+          "epithet_flavor": [
+            "mist",
+            "stone",
+            "grove",
+            "river",
+            "song"
+          ]
+        },
+        "germanic": {
+          "pantheon_tone": "teutonic",
+          "syllable_bias": [
+            "vald",
+            "grim",
+            "hart",
+            "rik",
+            "ulf",
+            "raun"
+          ],
+          "epithet_flavor": [
+            "spear",
+            "oath",
+            "iron",
+            "ember"
+          ]
+        },
+        "generic_northern": {
+          "pantheon_tone": "mixed_northern",
+          "syllable_bias": [
+            "thal",
+            "aer",
+            "run",
+            "vorn",
+            "lyr",
+            "kael",
+            "drae"
+          ],
+          "epithet_flavor": [
+            "crossroads",
+            "gate",
+            "snow",
+            "dusk"
+          ]
+        }
+      },
+      "syllables": {
+        "root": {
+          "neutral": [
+            "tha",
+            "thal",
+            "ryn",
+            "riel",
+            "sera",
+            "vena",
+            "kael",
+            "vor",
+            "lis",
+            "ara",
+            "lun",
+            "ava",
+            "nyth",
+            "rune",
+            "dal",
+            "vhor",
+            "aer",
+            "lyth"
+          ]
+        },
+        "plane": {
+          "P1": [
+            "gar",
+            "kor",
+            "bran",
+            "thor",
+            "stone",
+            "hald"
+          ],
+          "P2": [
+            "ely",
+            "ira",
+            "syl",
+            "lume"
+          ],
+          "P3": [
+            "aer",
+            "lyr",
+            "mir",
+            "sera"
+          ],
+          "P4": [
+            "tal",
+            "ren",
+            "var",
+            "dom"
+          ],
+          "P5": [
+            "cael",
+            "thread",
+            "weav",
+            "fate",
+            "cas"
+          ],
+          "P6": [
+            "ae",
+            "el",
+            "ion",
+            "azar",
+            "riel",
+            "zuren"
+          ],
+          "P7": [
+            "nyth",
+            "thal",
+            "vhor",
+            "ruun",
+            "drach",
+            "mor"
+          ],
+          "P8": [
+            "null",
+            "van",
+            "os",
+            "vor"
+          ],
+          "P9": [
+            "orun",
+            "prime",
+            "core",
+            "axis"
+          ]
+        },
+        "wolf": {
+          "white": [
+            "ae",
+            "el",
+            "ira",
+            "sera",
+            "lyr",
+            "lun"
+          ],
+          "dark": [
+            "nyth",
+            "vhor",
+            "ruun",
+            "drach",
+            "mor",
+            "thal"
+          ],
+          "balanced": [
+            "rion",
+            "aer",
+            "kael",
+            "lys"
+          ]
+        }
+      },
+      "name_structure_rules": {
+        "celestial_name": {
+          "parts": [
+            "root_cluster",
+            "plane_cluster",
+            "wolf_cluster_optional"
+          ],
+          "join_style": "camelcase_with_optional_apostrophe",
+          "length_preference": {
+            "min_syllables": 2,
+            "max_syllables": 4
+          }
+        },
+        "epithet": {
+          "enabled": true,
+          "use_templates": true
+        }
+      },
+      "epithet_templates": [
+        {
+          "id": "gatekeeper",
+          "conditions": {
+            "dominant_plane": "P7",
+            "role_bias_any_of": [
+              "keeper",
+              "protector",
+              "boundary"
+            ]
+          },
+          "template": "The One Who Walks the Fracture and Returns Bearing Light"
+        },
+        {
+          "id": "harmonist",
+          "conditions": {
+            "dominant_plane": "P5",
+            "role_bias_any_of": [
+              "weaver",
+              "teacher",
+              "nurturer"
+            ]
+          },
+          "template": "She Who Holds the Lantern of Quiet Paths"
+        },
+        {
+          "id": "seeker",
+          "conditions": {
+            "dominant_plane_any_of": [
+              "P3",
+              "P4"
+            ],
+            "role_bias_any_of": [
+              "seeker",
+              "messenger",
+              "teacher"
+            ]
+          },
+          "template": "The One Who Listens Between Worlds"
+        }
+      ],
+      "numerology_output_fragments": {
+        "planes": {
+          "P1": "You resonate with the Physical Plane. Your lessons are written in action, survival and the shaping of the tangible world.",
+          "P2": "You resonate with the Etheric Plane. You sense connections others miss and feel the invisible currents of life.",
+          "P3": "You resonate with the Astral Plane. Emotion, dream and imagination are your native languages.",
+          "P4": "You resonate with the Mental Plane. Structure, understanding and clear thought are your tools.",
+          "P5": "You resonate with the Causal Plane. You perceive patterns and threads, and your choices echo far beyond you.",
+          "P6": "You resonate with the Celestial Plane. You are drawn toward harmony, completion and integration.",
+          "P7": "You resonate with the Shadow Plane. You are here to face what others bury and to turn fracture into wisdom.",
+          "P8": "You resonate with the Void Plane. You are a reset point, an agent of endings and new beginnings.",
+          "P9": "You resonate with the Divine Core. You carry a memory of the original pattern inside you."
+        },
+        "wolf_balance": {
+          "white_dominant": "The White Wolf walks closest to you. You reveal, clarify and illuminate, often becoming the quiet light in other people’s darkness.",
+          "dark_dominant": "The Dark Wolf walks closest to you. You hold memory, gravity and depth, carrying burdens that would crush lighter hearts.",
+          "balanced": "Both wolves walk beside you in rare balance. You are a bridge between remembrance and revelation."
+        },
+        "weekday": {
+          "monday": "Your path carries lunar echoes: feeling first, then understanding.",
+          "tuesday": "Your path carries warrior echoes: conflict teaches you more than comfort.",
+          "wednesday": "Your path carries messenger echoes: you translate between worlds, ideas and people.",
+          "thursday": "Your path carries storm echoes: you expand, challenge and protect.",
+          "friday": "Your path carries Freyja’s echoes: love, loss and beauty weave through your fate.",
+          "saturday": "Your path carries keeper echoes: you are drawn to thresholds, rules and responsibilities.",
+          "sunday": "Your path carries solar echoes: you shine, lead and warm others."
+        }
+      },
+      "example_profiles": [
+        {
+          "label": "example_james_like_profile",
+          "inputs": {
+            "heritage": [
+              "scandinavian",
+              "celtic",
+              "germanic"
+            ],
+            "birth_date": "1977-11-04",
+            "birth_weekday": "friday",
+            "birth_time": "18:33",
+            "hair_color": "blonde",
+            "eye_color": "blue",
+            "mortal_name": "James John Daley"
+          }
+        },
+        {
+          "label": "example_shannon_like_profile",
+          "inputs": {
+            "heritage": [
+              "scandinavian",
+              "celtic",
+              "germanic"
+            ],
+            "birth_date": "1979-07-25",
+            "birth_weekday": "wednesday",
+            "birth_time": "14:08",
+            "hair_color": "brown",
+            "eye_color": "green",
+            "mortal_name": "Shannon Lynn"
+          }
+        }
+      ]
+    },
+    "algorithm": {
+      "algorithm_name": "CelestialNameGenerationAlgorithm",
+      "version": "1.0.1",
+      "description": "Algorithm for computing celestial name, epithet, and numerology information based on the Celestial Name Generator model.",
+      "input_fields": [
+        "heritage",
+        "birth_date",
+        "birth_weekday",
+        "birth_time",
+        "hair_color",
+        "eye_color",
+        "mortal_name"
+      ],
+      "output_fields": [
+        "celestial_name",
+        "epithet",
+        "dominant_plane",
+        "dominant_plane_text",
+        "wolf_balance_category",
+        "wolf_balance_text",
+        "weekday_text",
+        "heritage_used",
+        "numerology_text",
+        "debug_metadata"
+      ],
+      "steps": [
+        {
+          "step": "parse_input",
+          "actions": [
+            "Normalize all strings to lowercase where applicable.",
+            "Ensure birth_date is YYYY-MM-DD.",
+            "Ensure birth_time is HH:MM.",
+            "If heritage items do not match known values, map them to 'other'."
+          ]
+        },
+        {
+          "step": "compute_life_path_number",
+          "actions": [
+            "Extract digits from birth_date.",
+            "life_path_sum = sum(all digits).",
+            "While life_path_sum > 9, repeat life_path_sum = sum(digits).",
+            "Store life_path_number."
+          ]
+        },
+        {
+          "step": "determine_dominant_plane",
+          "actions": [
+            "Find plane where numerology_values contains life_path_number.",
+            "Assign dominant_plane_code and dominant_plane_name from model.planes.",
+            "Assign dominant_plane_text from model.numerology_output_fragments.planes[dominant_plane_code]."
+          ]
+        },
+        {
+          "step": "bucket_birth_time",
+          "actions": [
+            "Convert birth_time to minutes.",
+            "Compare with model.inputs.birth_time.buckets.",
+            "Assign birth_time_bucket."
+          ]
+        },
+        {
+          "step": "compute_wolf_balance_score",
+          "actions": [
+            "Start wolf_score = wolf_balance_rules.base_score.",
+            "Add hair modifier using wolf_balance_rules.hair_modifiers[hair_color].",
+            "Add eye modifier using wolf_balance_rules.eye_modifiers[eye_color].",
+            "Add birth time modifier using wolf_balance_rules.birth_time_modifiers[birth_time_bucket].",
+            "Add life path modifier using wolf_balance_rules.life_path_modifiers[String(life_path_number)].",
+            "If wolf_score >= thresholds.white_dominant, category = 'white_dominant'.",
+            "Else if wolf_score <= thresholds.dark_dominant, category = 'dark_dominant'.",
+            "Else category = 'balanced'.",
+            "Assign wolf_balance_text from model.numerology_output_fragments.wolf_balance[category]."
+          ]
+        },
+        {
+          "step": "determine_weekday_archetype",
+          "actions": [
+            "Use model.weekday_archetypes[birth_weekday] to assign role_bias and tone.",
+            "Assign weekday_text from model.numerology_output_fragments.weekday[birth_weekday]."
+          ]
+        },
+        {
+          "step": "select_primary_heritage_family",
+          "actions": [
+            "If user provided multiple heritages, prioritize in order: scandinavian, celtic, germanic, other.",
+            "If none match, use 'generic_northern'.",
+            "Assign primary_heritage and load heritage_families[primary_heritage].syllable_bias and epithet_flavor."
+          ]
+        },
+        {
+          "step": "build_celestial_name_components",
+          "actions": [
+            "Initialize empty syllable list.",
+            "Select 1 root syllable from syllables.root.neutral (biased by heritage if desired).",
+            "Select 1 plane syllable from syllables.plane[dominant_plane_code].",
+            "If wolf_balance_category == 'white_dominant', choose 0–1 syllables from syllables.wolf.white.",
+            "If wolf_balance_category == 'dark_dominant', choose 0–1 syllables from syllables.wolf.dark.",
+            "If wolf_balance_category == 'balanced', choose 0–1 syllables from syllables.wolf.balanced.",
+            "Ensure final syllable count is within min_syllables and max_syllables from name_structure_rules.celestial_name.length_preference."
+          ]
+        },
+        {
+          "step": "assemble_celestial_name",
+          "actions": [
+            "Capitalize each syllable.",
+            "Optionally insert apostrophe before final syllable based on internal rule.",
+            "Join syllables according to join_style 'camelcase_with_optional_apostrophe'.",
+            "Store as celestial_name."
+          ]
+        },
+        {
+          "step": "select_epithet_template",
+          "actions": [
+            "Initialize empty matching_templates.",
+            "For each template in model.epithet_templates:",
+            "  If conditions.dominant_plane exists and != dominant_plane_code, skip.",
+            "  If conditions.dominant_plane_any_of exists and dominant_plane_code not in list, skip.",
+            "  If conditions.role_bias_any_of exists and weekday_archetypes[birth_weekday].role_bias not in list, skip.",
+            "  Otherwise, add template to matching_templates.",
+            "If matching_templates not empty, choose one (first or deterministic).",
+            "Else use fallback epithet 'The One Who Walks Between Paths'.",
+            "Store chosen template text as epithet_base."
+          ]
+        },
+        {
+          "step": "personalize_epithet",
+          "actions": [
+            "Set epithet = epithet_base.",
+            "Optionally inject heritage_families[primary_heritage].epithet_flavor words into epithet.",
+            "Optionally adjust wording based on wolf_balance_category.",
+            "Store epithet."
+          ]
+        },
+        {
+          "step": "compose_numerology_text",
+          "actions": [
+            "Initialize numerology_text as list of strings.",
+            "Append dominant_plane_text.",
+            "Append wolf_balance_text.",
+            "Append weekday_text.",
+            "Optionally append short text about primary_heritage.",
+            "Join list into final numerology_text with line breaks or spaces."
+          ]
+        },
+        {
+          "step": "assemble_output",
+          "actions": [
+            "Create output object.",
+            "Set celestial_name, epithet, dominant_plane, dominant_plane_text, wolf_balance_category, wolf_balance_text, weekday_text, heritage_used, numerology_text.",
+            "Set debug_metadata including wolf_score, life_path_number, birth_time_bucket.",
+            "Return output."
+          ]
+        }
+      ]
+    },
+    "math": {
+      "life_path_formula": {
+        "description": "Sum all digits in YYYYMMDD, repeating until a single digit remains.",
+        "example": "1977-11-04 -> 1+9+7+7+1+1+0+4 = 30 -> 3+0 = 3"
+      },
+      "wolf_balance_equation": {
+        "description": "Weighted additive scoring system using hair, eye, time-of-day and life path modifiers.",
+        "formula": "wolf_score = base_score + hair_mod + eye_mod + time_mod + life_path_mod",
+        "threshold_logic": {
+          "white_dominant": "wolf_score >= thresholds.white_dominant",
+          "balanced": "thresholds.balanced_lower < wolf_score < thresholds.balanced_upper",
+          "dark_dominant": "wolf_score <= thresholds.dark_dominant"
+        }
+      },
+      "plane_mapping_math": {
+        "description": "Life path number (1–9) maps to a plane where that number exists in numerology_values.",
+        "mapping_rule": "dominant_plane = first plane where life_path_number is in plane.numerology_values"
+      },
+      "syllable_selection_math": {
+        "description": "Deterministic or random selection of syllables biased by heritage and plane.",
+        "rules": {
+          "root_cluster": "Select one from syllables.root.neutral, optionally weighted by heritage syllable_bias.",
+          "plane_cluster": "Select one from syllables.plane[dominant_plane].",
+          "wolf_cluster": "Select zero or one from the appropriate syllables.wolf group based on wolf_balance_category."
+        }
+      },
+      "name_joining_math": {
+        "description": "CamelCase concatenation with an optional apostrophe before final syllable.",
+        "pseudo": "Name = Capitalize(root) + (\"'\" optional) + Capitalize(plane) + Capitalize(wolf_if_present)"
+      }
+    }
+  }
+}

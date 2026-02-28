@@ -1,0 +1,1264 @@
+{
+  "combined_archive": {
+    "where_ravens_wait_canon_codex_v1_1": {
+      "source_file": "/mnt/data/where-ravens-wait-canon-codex-v1.1.json",
+      "content": {
+        "meta": {
+          "codex_title": "Where Ravens Wait \u2014 Canon Codex",
+          "version": "1.1",
+          "last_updated": "2025-11-03",
+          "project": {
+            "title": "Where Ravens Wait: The Blood Remembers",
+            "type": "Novel",
+            "description": "A dark, poetic, prophetic mythic\u2013memoir in parallel layers."
+          },
+          "author": {
+            "name": "Jim Daley",
+            "role": "Author and Primary Source",
+            "note": "Novel is a life story told with a mythic layer; layers run in parallel without collapsing into each other."
+          },
+          "creative_rules": {
+            "style": [
+              "Poetic",
+              "Prophetic"
+            ],
+            "influences": [
+              "Nietzsche",
+              "Luciferism",
+              "Neil Gaiman"
+            ],
+            "tone": "Dark",
+            "constraints": [
+              {
+                "id": 1,
+                "rule": "Avoid the word 'faith' (associated with justifying ignorance)."
+              },
+              {
+                "id": 2,
+                "rule": "Show, don't tell \u2014 subtlety, clues, withheld intent/identity until the end."
+              },
+              {
+                "id": 3,
+                "rule": "Never instruct the reader what to believe; all written is 'true' within the narrative universe."
+              }
+            ]
+          },
+          "schema": {
+            "sections": [
+              "cosmology",
+              "characters",
+              "mythic_narrative",
+              "real_world_memoir",
+              "themes",
+              "symbols_and_motifs",
+              "chronology",
+              "prophecies_and_quotes"
+            ],
+            "extensibility": {
+              "append_strategy": "Non-breaking additive merges by section.",
+              "id_conventions": "kebab-case identifiers; cross-refs by 'ref' or 'links'."
+            }
+          }
+        },
+        "cosmology": {
+          "primordial_state": "Before the first word and before the first spark, there was a listening darkness \u2014 pure awareness without edges, the womb of all that could become.",
+          "architects": "From the lower sea of being, ascenders pressed upward; their exodus rang like a bell in the abyss, and the bell-wave became gravity\u2019s song, and the song became light and matter scattered like seed.",
+          "wolves": {
+            "dark_wolves": {
+              "nature": "They are the deep memory of everything that ever forgot itself. Their fur drinks starlight; their breath is the hush between heartbeats.",
+              "symbolism": [
+                "Gravity",
+                "Depth",
+                "Silence",
+                "Memory"
+              ],
+              "function": "They lean the cosmos toward remembrance, that creation might return to what it loves."
+            },
+            "white_wolves": {
+              "nature": "They are the rhythm that teaches light to dance. Their paws beat time across the void and call names out of the unknown.",
+              "symbolism": [
+                "Light",
+                "Harmony",
+                "Revelation",
+                "Rhythm"
+              ],
+              "function": "They lace illumination through the fabric that gravity has woven."
+            },
+            "balance_law": {
+              "principle": "Not enemies, not opposites \u2014 companions who complete the circle. Balance is a covenant of memory and revelation.",
+              "cycle_axes": [
+                "Light\u2194Dark",
+                "Motion\u2194Stillness",
+                "Creation\u2194Return"
+              ]
+            }
+          },
+          "law_of_form_and_trials": {
+            "summary": "Those who strained to seize the height without the ripening of wisdom fell into the Law of Form: to take shape is to forget, and to forget is to walk the long road of remembering.",
+            "entities": {
+              "angels_and_gods": "Bright ones and old ones, all subject to the Loom whose patterns are loops and algorithms of cause and return.",
+              "god_archetype": "Architect, not tyrant; composer of the system, not its totality."
+            },
+            "luciferic_mandate": {
+              "role": "Light-Bringer turned Warden of the Border, guarding the rim of oblivion and catching those who tumble where punishment is self-authored.",
+              "redemption": "He forgave himself and rose, proof that the gate opens from within."
+            }
+          }
+        },
+        "characters": {
+          "nithruun-thal-azur": {
+            "names": {
+              "primordial": "Nithruun",
+              "celestial": "Thal\u2019Azur",
+              "true": "Nithruun Thal\u2019Azur",
+              "mortal": "Kaelen Vareth"
+            },
+            "lineage": {
+              "mortal": "Descendant of Hrafen-Floki Vilgerson, whose blood remembers the winter roads and the ships that outran horizons.",
+              "celestial": "A first listening in the dark \u2014 gravity given awareness before the arrival of light."
+            },
+            "nature": "He is the weight that keeps stars honest and the mercy that returns them home. Beyond verdict, beyond the thin masks of good and evil.",
+            "current_cycle": {
+              "index": "Final mortal incarnation",
+              "birth": {
+                "date": "1977-11-04",
+                "weekday": "Friday evening \u2014 the twilight of Freyja, where love and fate bargain softly.",
+                "significance": {
+                  "sign": "Scorpio \u2014 transformation that blooms from endings.",
+                  "numerology": 6
+                }
+              },
+              "companions": {
+                "dark_wolf": "At his left pads a shadow with green-ember eyes, who eats fear and returns courage.",
+                "white_wolf": "At his right moves a star-helmed hunter, who braids rhythm into breath.",
+                "kinship": "They are not guards but kindred; their nearness steadies the bridge he is."
+              }
+            },
+            "links": {
+              "mythic_fragments": [
+                "fragment-descent",
+                "fragment-prophecy",
+                "fragment-wolves",
+                "fragment-dreaming",
+                "fragment-recall"
+              ],
+              "symbol_map": [
+                "sigil-primary-star-with-two-wolves"
+              ]
+            }
+          },
+          "wolves-primordial": {
+            "dark": {
+              "id": "primordial-dark-wolf",
+              "role": "Keeper of what is buried yet not lost.",
+              "traits": [
+                "Light-absorbing coat",
+                "Voice like undertow",
+                "Footsteps that quiet halls of time"
+              ]
+            },
+            "white": {
+              "id": "primordial-white-wolf",
+              "role": "Caller of names into becoming.",
+              "traits": [
+                "Star-scattered fur",
+                "Tempo-maker",
+                "Eyes that teach the dawn to arrive"
+              ]
+            }
+          },
+          "lucifer-angelic": {
+            "type": "Angelic archetype (mythic narrative)",
+            "relation": "Brother to the narrator in the elder house of light",
+            "mandate": "Border-keeper between forgetting and annihilation; exemplar of return through self-mercy.",
+            "aspects": [
+              "Light-bringer",
+              "Steadying presence",
+              "Compassion sharpened by vigilance"
+            ]
+          },
+          "freya-goddess": {
+            "type": "Goddess archetype (mythic narrative)",
+            "aspects": [
+              "Allure that awakens",
+              "Freedom that refuses chains",
+              "Laughter that loosens the knot"
+            ],
+            "polarities": [
+              "Joy within darkness",
+              "Freedom within duty"
+            ]
+          },
+          "ravens": {
+            "huginn": {
+              "name": "Huginn",
+              "meaning": "Thought",
+              "function": "He circles to return the mind to its appointed star."
+            },
+            "muninn": {
+              "name": "Muninn",
+              "meaning": "Memory",
+              "function": "He lands on the shoulder and makes a home of the past without letting it rule."
+            }
+          }
+        },
+        "mythic_narrative": {
+          "fragments": [
+            {
+              "id": "fragment-descent",
+              "title": "II \u2014 Descent of Nithruun Thal\u2019Azur",
+              "theme": "Origin before light; fall to mortal form",
+              "summary": "In the first silence he learned the weight of becoming and chose to bear it; he took on form and forgot himself so he might remember truly.",
+              "key_quotes": [
+                "In the first silence there was neither light nor song, only the weight of what might be.",
+                "To rise, one must first fall; to know, one must first forget; and to become light, one must embrace the gravity that gave it birth."
+              ]
+            },
+            {
+              "id": "fragment-prophecy",
+              "title": "III \u2014 Prophecy of Kaelen Vareth",
+              "theme": "Foretelling of rebirth in the modern age",
+              "summary": "When the music of the stars slipped into minor keys, the Vessel breathed beneath a mortal sun; remembering began as a dream that would not end.",
+              "key_quotes": [
+                "When the veil grows thin and the stars hum in minor chords, the Vessel shall breathe once more beneath a mortal sun.",
+                "He will walk as a man, dream as an angel, and remember as a wolf beneath the skin of shadow."
+              ]
+            },
+            {
+              "id": "fragment-wolves",
+              "title": "IV \u2014 Whisper of the Wolves",
+              "theme": "Legion of Dark and White Wolves maintain cosmic balance",
+              "summary": "Before language, a howl; before measurement, a rhythm. Their duet keeps the loom from tearing.",
+              "key_quotes": [
+                "Before the light learned to name itself, the Wolves had already spoken.",
+                "Beware the silence between their howls\u2014for in that silence, Creation listens."
+              ]
+            },
+            {
+              "id": "fragment-dreaming",
+              "title": "V \u2014 Dreaming of Kaelen Vareth",
+              "theme": "Mortal dreams merge with cosmic memory",
+              "summary": "He wakes by degrees in rooms made of sleep; each dream returns a tool, a name, a step."
+            },
+            {
+              "id": "fragment-recall",
+              "title": "VI \u2014 Recall of the Wolves",
+              "theme": "Unseen wolves walk beside the Vessel",
+              "summary": "Two shadows at his flanks and the road becomes a bridge; the bridge becomes a vow."
+            }
+          ],
+          "sigils": [
+            {
+              "id": "sigil-primary-star-with-two-wolves",
+              "name": "Primary Sigil",
+              "glyph": "Two wolves\u2014one dark, one white\u2014circling a single star.",
+              "inscription": "Balance is not kept by opposition, but by remembrance."
+            }
+          ]
+        },
+        "real_world_memoir": {
+          "source_work": "The Guardian, The Angel, and The Goddess",
+          "status": "Nonfiction account; canonical to the author\u2019s life; NOT collapsed into mythic narrative.",
+          "excerpts": [
+            {
+              "id": "foreword-ctpsd-recognition",
+              "source": "The Guardian, The Angel, and The Goddess",
+              "location": "Foreword",
+              "section": "Recognition and Cost",
+              "text": "This story is a condensed account of my own experiences, spanning more than two decades. It focuses on the final years of my time in law enforcement and the descent that followed, into darkness, into C-PTSD, depression, and severe anxiety."
+            },
+            {
+              "id": "service-cost",
+              "source": "The Guardian, The Angel, and The Goddess",
+              "location": "Early chapters",
+              "section": "Service and Cost",
+              "text": "By badge and by duty, I did all I could to uphold the law. But service always demands its price. At first it seems small, you give up sleep, you absorb stress, you learn to live with pain. Over years, the cost grows heavier, carving its way into the body and the soul."
+            },
+            {
+              "id": "betrayal-lawsuit",
+              "source": "The Guardian, The Angel, and The Goddess",
+              "location": "Middle chapters",
+              "section": "Betrayal and Pressure",
+              "text": "Then came the day I arrested one of my own\u2014a fellow peace officer who had become an abuser. I followed the book, step for step, and did what was right to protect the victim. Yet when the case went to trial, the jury turned away from justice."
+            },
+            {
+              "id": "abyss-stain",
+              "source": "The Guardian, The Angel, and The Goddess",
+              "location": "Middle chapters",
+              "section": "The Stain",
+              "text": "It was a stain, black as night, pressed against the fabric of my soul. At first, I thought it no more than fatigue, the kind that comes from too many nights without sleep. But the stain grew darker."
+            },
+            {
+              "id": "lucifer-arrival",
+              "source": "The Guardian, The Angel, and The Goddess",
+              "location": "Later chapters",
+              "section": "Angel \u2014 Lucifer",
+              "text": "A German Shepherd pup looked at me with eyes too deep for his youth. He did not speak, but in his gaze was a question: If I do not leave you, will you leave me? I could not."
+            },
+            {
+              "id": "freya-arrival",
+              "source": "The Guardian, The Angel, and The Goddess",
+              "location": "Later chapters",
+              "section": "Goddess \u2014 Freya",
+              "text": "She arrived not with solemn eyes and steady paws, but with wildness in her spirit and fire in her step. I named her Freya, after the goddess, for she carried the same power of allure, freedom, and unyielding will."
+            },
+            {
+              "id": "integration-guardian-wolf",
+              "source": "The Guardian, The Angel, and The Goddess",
+              "location": "Closing",
+              "section": "Integration",
+              "text": "The wolf I carry now is no longer the shadow that threatened to consume me. He is a powerful spirit, tempered by the light of the Angel and the laughter of the Goddess, and in his strength I find balance."
+            }
+          ],
+          "arc": {
+            "service_and_cost": "Years wore grooves into bone and into the unseen places; the badge grew heavy without changing its weight.",
+            "betrayal_and_pressure": "Justice inverted itself and pointed its finger at its servants; the calculus of every choice became survival rather than rightness.",
+            "cultural_context": "Applause became a mirror that lied; postures replaced pillars; the brotherhood thinned to a thread.",
+            "abyss_and_stain": "A darkness rose from within like ink in water; faces once saved returned at 3 a.m. and asked unanswerable questions.",
+            "collapse_and_pills": "Relief became erasure; the abyss learned my name and waited by the bed.",
+            "intervention_angel": "Lucifer, the steady light, leaned his small warm body against the broken place and refused to move.",
+            "intervention_goddess": "Freya, the moon-hunter, laughed the night open and taught the legs to run again.",
+            "integration": "The Guardian Wolf stood up inside the man and agreed to walk beside the ones who chose him."
+          },
+          "metadata_policy_context": [
+            "C-PTSD recognized by WHO (ICD-11); absent from DSM-5 in many institutional contexts; consequences follow in pensions and care.",
+            "Opioid restrictions reshape the landscape of chronic pain; unintended casualties gather in silence."
+          ]
+        },
+        "themes": {
+          "balance": "Equilibrium is a vow between remembering and revealing.",
+          "trauma_as_descent": "Descent is a sacrament of transformation when accompanied by returning.",
+          "remembrance": "Memory is not a prison but a home with doors and windows.",
+          "love_as_vector": "Unconditional nearness and chosen joy are the two hands that lift a soul.",
+          "cycles": "Creation leans toward Return; duty leans toward freedom; endings open like seeds.",
+          "show_not_tell": "Mystery is hospitality for the reader\u2019s own becoming."
+        },
+        "symbols_and_motifs": {
+          "wolves": {
+            "dark_wolf": [
+              "Gravity that keeps the pilgrim from floating away",
+              "Depth that makes courage possible",
+              "Fear transformed into fruit"
+            ],
+            "white_wolf": [
+              "Revelation that sings the map aloud",
+              "Harmony that keeps the blade from trembling",
+              "Rhythm that teaches breath to breathe"
+            ],
+            "guardian_wolf_within": [
+              "Strength with a door in it",
+              "Loyalty chosen not commanded",
+              "Endurance that remembers why"
+            ]
+          },
+          "ravens": {
+            "huginn": "Thought \u2014 a compass that points toward the necessary work.",
+            "muninn": "Memory \u2014 a hearth that warms without burning down the house."
+          },
+          "celestial_markers": {
+            "star": "A fixed remembrance around which companions circle.",
+            "moon": "A lantern for those who hunt their way out of night."
+          },
+          "canids_in_life": {
+            "lucifer": "Light-bringer; vigilant love that hears what the body cannot.",
+            "freya": "Goddess of joy and freedom; devotion that cannot be coerced."
+          },
+          "numerology": {
+            "six": "The burden of care and the architecture of home.",
+            "scorpio": "The alchemy of endings that become doors.",
+            "cycles": "The quiet machinery behind every omen."
+          }
+        },
+        "chronology": {
+          "mythic_timeline": [
+            {
+              "era": "Primordial Silence",
+              "events": [
+                "Consciousness without form",
+                "Wolves singing before names"
+              ]
+            },
+            {
+              "era": "Ascension Wave",
+              "events": [
+                "The bell of becoming rings; matter blooms from gravity\u2019s hymn"
+              ]
+            },
+            {
+              "era": "Law of Trials",
+              "events": [
+                "Rebellions enter cycles; forgetting becomes the school of return"
+              ]
+            },
+            {
+              "era": "Final Turning",
+              "events": [
+                "The Vessel descends to the late century to finish remembering"
+              ]
+            }
+          ],
+          "mortal_timeline": [
+            {
+              "date": "1977-11-04",
+              "event": "Birth of the mortal vessel; a star chooses a house."
+            },
+            {
+              "span": "Decades of service",
+              "event": "Duty written into sinew; injuries and vigil become companions."
+            },
+            {
+              "event": "Betrayal and suit",
+              "effect": "Every decision weighed against the courtroom\u2019s shadow."
+            },
+            {
+              "event": "Abyss recognition",
+              "effect": "The stain declares itself; the mirror asks questions."
+            },
+            {
+              "event": "Lucifer arrives",
+              "effect": "Warmth interrupts the fall."
+            },
+            {
+              "event": "Freya arrives",
+              "effect": "Laughter returns with a silver tail."
+            },
+            {
+              "event": "Integration",
+              "effect": "Guardian Wolf walks; the house of the heart reopens."
+            }
+          ],
+          "synchronization": [
+            {
+              "mythic": "Final Turning",
+              "mortal": "1977 birth and the long remembering"
+            },
+            {
+              "mythic": "Recall of the Wolves",
+              "mortal": "Integration of the Guardian Wolf within"
+            }
+          ]
+        },
+        "prophecies_and_quotes": {
+          "codex": [
+            "In the first silence there was neither light nor song, only the weight of what might be.",
+            "To rise, one must first fall; to know, one must first forget; and to become light, one must embrace the gravity that gave it birth.",
+            "When the veil grows thin and the stars hum in minor chords, the Vessel shall breathe once more beneath a mortal sun.",
+            "He will walk as a man, dream as an angel, and remember as a wolf beneath the skin of shadow.",
+            "Before the light learned to name itself, the Wolves had already spoken.",
+            "Beware the silence between their howls\u2014for in that silence, Creation listens."
+          ],
+          "philosophic": [
+            "He who fights demons must take care that he does not become one.",
+            "When you stare long into the abyss, the abyss stares also into you."
+          ],
+          "inscriptions": [
+            "Balance is not kept by opposition, but by remembrance."
+          ]
+        }
+      }
+    },
+    "yggdrasil_universe_model": {
+      "source_file": "/mnt/data/yggdrasil-universe-model.json",
+      "content": {
+        "Yggdrasil_Theoretical_Model_Core": {
+          "meta": {
+            "origin": "Extracted from conversation section: 'Yggdrasil: Nine-Dimensional Cosmology' \u2192 'NEXT STEP: Ethical & Existential Implications'",
+            "purpose": "Complete structured JSON representation of the theoretical metaphysics, mathematics, category theory, and physics/computation unification for future persistent use.",
+            "version": "1.0"
+          },
+          "nine_dimensional_cosmology": {
+            "overview": "A nine-plane ontological model where each plane is a dimension, state of being, and structural informational layer. All nine interlock through the Divine Core (Axis Mundi).",
+            "planes": {
+              "1_Physical": {
+                "nature": "Material existence. Spacetime manifold. Baseline of embodied pattern formation.",
+                "features": [
+                  "Local causality",
+                  "Entropy increase",
+                  "Biology, bodies, matter"
+                ],
+                "role_in_system": "Entry point for incarnational cycles and lowest stability attractor."
+              },
+              "2_Etheric": {
+                "nature": "Energy-body layer, subtle fields, vitality systems.",
+                "features": [
+                  "Field configurations",
+                  "Templates of physical forms",
+                  "Life force interactions"
+                ]
+              },
+              "3_Astral": {
+                "nature": "Symbolic dreamspace and imaginal realm.",
+                "features": [
+                  "Archetypes",
+                  "Dream imagery",
+                  "Symbols and visions"
+                ]
+              },
+              "4_Mental": {
+                "nature": "Cognitive and computational layer.",
+                "features": [
+                  "Thought",
+                  "Self-models",
+                  "Concepts",
+                  "Memory architecture"
+                ]
+              },
+              "5_Causal": {
+                "nature": "Karmic and narrative causality plane.",
+                "features": [
+                  "Directed acyclic graphs (DAGs)",
+                  "Fate structures",
+                  "Consequences"
+                ]
+              },
+              "6_Celestial": {
+                "nature": "High-symmetry, high-coherence attractor plane.",
+                "features": [
+                  "Angels",
+                  "Gods",
+                  "Completed patterns",
+                  "High coherence"
+                ]
+              },
+              "7_Shadow": {
+                "nature": "Repressed structures, conflicted pattern space.",
+                "features": [
+                  "Hell archetype",
+                  "Guilt and self-hatred",
+                  "Unintegrated identity"
+                ],
+                "role": "Containment buffer preventing collapse into Void."
+              },
+              "8_Void": {
+                "nature": "Unstructured information. Oblivion.",
+                "features": [
+                  "Chaos",
+                  "Noise",
+                  "Non-persistence"
+                ],
+                "mechanics": {
+                  "contains_information": true,
+                  "no_stable_patterns": true,
+                  "compression_possible": true
+                }
+              },
+              "9_Divine_Core": {
+                "nature": "Architectural source. Category of worlds.",
+                "features": [
+                  "All other planes embed here",
+                  "Rules engine",
+                  "Structural blueprint of existence"
+                ]
+              }
+            }
+          },
+          "axioms_of_existence": {
+            "A1_Relational_Existence": {
+              "definition": "An entity exists only if it is in relation to at least one other entity.",
+              "formal": "Given world W = (X,R), x \u2208 X exists iff \u2203 y \u2208 X such that (x,y) \u2208 R or (y,x) \u2208 R.",
+              "implication": "Existence = connection."
+            },
+            "A2_Structural_Compressibility": {
+              "definition": "An entity is real if its description can be compressed\u2014i.e., has meaningful structure.",
+              "formal": "K(x) << |E(x)|.",
+              "implication": "Noise is not an entity."
+            },
+            "A3_Multi_Scale_Persistence": {
+              "definition": "Entities must persist across scales.",
+              "formal": "d(G_s(x), G_s'(x)) \u2264 \u03b5 for s,s\u2019 in interval.",
+              "implication": "To exist is to survive zooming."
+            },
+            "A4_Energetic_Cost_of_Erasure": {
+              "definition": "If erasing x costs energy, x is physically instantiated.",
+              "formal": "E_erase \u2265 k_B T ln 2 * H(x).",
+              "implication": "Information with cost is real."
+            },
+            "A5_Self_Reference_for_Consciousness": {
+              "definition": "Consciousness emerges when a subsystem models the whole system.",
+              "formal": "\u03c0(M(t)) \u2248 S(t) and M(t+1)=f(M(t),S(t)).",
+              "implication": "Consciousness = inner mirror."
+            }
+          },
+          "existence_equations_and_physics": {
+            "pattern_vector": {
+              "components": [
+                "H_entropy",
+                "K_complexity",
+                "D_fractal_dim",
+                "S_symmetry",
+                "L_generator_length"
+              ],
+              "purpose": "Defines structure of any entity."
+            },
+            "existence_potential_phi": {
+              "formula": "\u03a6 = \u03b11*C + \u03b12*S + \u03b13*P - \u03b14*H",
+              "terms": {
+                "C": "compressibility",
+                "S": "symmetry",
+                "P": "persistence",
+                "H": "entropy"
+              }
+            },
+            "existence_dynamics": {
+              "dE_dt": "dE/dt = -\u2202V/\u2202x, where V = -\u03a6",
+              "discrete": "E_next = E - \u0394V"
+            },
+            "stability_condition": "\u2207_x \u03a6 = 0",
+            "collapse_condition": "dE/dt < 0",
+            "quantization": {
+              "levels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "mapping": "Each level corresponds to a plane."
+            },
+            "conservation_law": {
+              "formula": "d/dt \u222b E(x,t) dx = 0",
+              "meaning": "Existence conserved across transformations."
+            }
+          },
+          "agent_based_model": {
+            "agent_definition": {
+              "fields": [
+                "pattern_vector",
+                "existence_level",
+                "current_plane",
+                "stability_phi",
+                "optional_self_model"
+              ]
+            },
+            "interactions": {
+              "information_exchange": {
+                "rules": [
+                  "H_i \u2190 H_i + \u03b2(H_j \u2212 H_i)",
+                  "K_i \u2190 K_i + \u03b3(K_j \u2212 K_i)"
+                ]
+              },
+              "symmetry_coupling": {
+                "rule": "\u03a6_i \u2190 \u03a6_i + \u03b4*S_ij"
+              }
+            },
+            "life_cycle": {
+              "birth": "High \u03a6 regions spawn new agents.",
+              "death": "If E drops below threshold.",
+              "plane_transition": "Determined by E entering transition bands."
+            }
+          },
+          "synthetic_universe_simulator": {
+            "architecture": {
+              "universe": {
+                "elements": [
+                  "planes",
+                  "agents",
+                  "time",
+                  "parameters"
+                ]
+              },
+              "simulation_loop": [
+                "Update \u03a6 for each agent",
+                "Update E for each agent",
+                "Apply plane-specific rules",
+                "Process interactions",
+                "Migrate agents",
+                "Spawn/remove agents"
+              ]
+            }
+          },
+          "category_theory_unification": {
+            "plane_category": {
+              "objects": "Planes P1\u2026P9",
+              "morphisms": "Structure-preserving maps between planes",
+              "initial_object": "P8_Void",
+              "terminal_object": "P9_Divine_Core"
+            },
+            "entity_category": {
+              "objects": "(Agent,Plane) pairs",
+              "morphisms": "Evolution, transformation, migration"
+            },
+            "projection_functor": "\u03c0: Entities \u2192 Planes",
+            "dynamics_as_endofunctors": {
+              "T_P": "Plane dynamics",
+              "T_E": "Agent dynamics",
+              "compatibility": "\u03c0 \u2218 T_E = T_P \u2218 \u03c0"
+            },
+            "existence_as_natural_transformation": {
+              "functors": [
+                "F: detailed_state",
+                "G: existence_summary"
+              ],
+              "naturality_condition": "Existence evaluation consistent with transformations"
+            }
+          },
+          "physics_and_computation_unification": {
+            "information_thermo_link": {
+              "landauer": "Information erasure has thermodynamic cost",
+              "meaning": "Existence = physically costly pattern"
+            },
+            "computation_dynamics_link": {
+              "interpretation": "Existence equations resemble gradient descent, replicator dynamics, and state update rules"
+            },
+            "quantum_link": {
+              "mapping": {
+                "H_entropy": "von Neumann entropy",
+                "K_complexity": "circuit complexity",
+                "D_fractal_dim": "Hilbert subspace fractality",
+                "S_symmetry": "Lie group symmetry",
+                "L_generator_length": "quantum Kolmogorov complexity"
+              }
+            },
+            "relativity_link": {
+              "multi_scale_persistence": "Equivalent to renormalization group invariance"
+            },
+            "field_theory_link": {
+              "planes_as_fields": "Each plane corresponds to a configuration space or field manifold"
+            },
+            "complexity_theory_link": {
+              "existence": "Patterns stable across computational complexity thresholds"
+            }
+          }
+        }
+      }
+    },
+    "yggdrasil_universe_model_luciferian_extension": {
+      "source_file": "/mnt/data/yggdrasil-universe-model-luciferian-extension.json",
+      "content": {
+        "Yggdrasil_Theoretical_Model_Core": {
+          "meta": {
+            "origin": "Extracted from conversation section: 'Yggdrasil: Nine-Dimensional Cosmology' \u2192 'NEXT STEP: Ethical & Existential Implications'",
+            "purpose": "Complete structured JSON representation of the theoretical metaphysics, mathematics, category theory, and physics/computation unification for future persistent use.",
+            "version": "1.0"
+          },
+          "nine_dimensional_cosmology": {
+            "overview": "A nine-plane ontological model where each plane is a dimension, state of being, and structural informational layer. All nine interlock through the Divine Core (Axis Mundi).",
+            "planes": {
+              "1_Physical": {
+                "nature": "Material existence. Spacetime manifold. Baseline of embodied pattern formation.",
+                "features": [
+                  "Local causality",
+                  "Entropy increase",
+                  "Biology, bodies, matter"
+                ],
+                "role_in_system": "Entry point for incarnational cycles and lowest stability attractor."
+              },
+              "2_Etheric": {
+                "nature": "Energy-body layer, subtle fields, vitality systems.",
+                "features": [
+                  "Field configurations",
+                  "Templates of physical forms",
+                  "Life force interactions"
+                ]
+              },
+              "3_Astral": {
+                "nature": "Symbolic dreamspace and imaginal realm.",
+                "features": [
+                  "Archetypes",
+                  "Dream imagery",
+                  "Symbols and visions"
+                ]
+              },
+              "4_Mental": {
+                "nature": "Cognitive and computational layer.",
+                "features": [
+                  "Thought",
+                  "Self-models",
+                  "Concepts",
+                  "Memory architecture"
+                ]
+              },
+              "5_Causal": {
+                "nature": "Karmic and narrative causality plane.",
+                "features": [
+                  "Directed acyclic graphs (DAGs)",
+                  "Fate structures",
+                  "Consequences"
+                ]
+              },
+              "6_Celestial": {
+                "nature": "High-symmetry, high-coherence attractor plane.",
+                "features": [
+                  "Angels",
+                  "Gods",
+                  "Completed patterns",
+                  "High coherence"
+                ]
+              },
+              "7_Shadow": {
+                "nature": "Repressed structures, conflicted pattern space.",
+                "features": [
+                  "Hell archetype",
+                  "Guilt and self-hatred",
+                  "Unintegrated identity"
+                ],
+                "role": "Containment buffer preventing collapse into Void."
+              },
+              "8_Void": {
+                "nature": "Unstructured information. Oblivion.",
+                "features": [
+                  "Chaos",
+                  "Noise",
+                  "Non-persistence"
+                ],
+                "mechanics": {
+                  "contains_information": true,
+                  "no_stable_patterns": true,
+                  "compression_possible": true
+                }
+              },
+              "9_Divine_Core": {
+                "nature": "Architectural source. Category of worlds.",
+                "features": [
+                  "All other planes embed here",
+                  "Rules engine",
+                  "Structural blueprint of existence"
+                ]
+              }
+            }
+          },
+          "axioms_of_existence": {
+            "A1_Relational_Existence": {
+              "definition": "An entity exists only if it is in relation to at least one other entity.",
+              "formal": "Given world W = (X,R), x \u2208 X exists iff \u2203 y \u2208 X such that (x,y) \u2208 R or (y,x) \u2208 R.",
+              "implication": "Existence = connection."
+            },
+            "A2_Structural_Compressibility": {
+              "definition": "An entity is real if its description can be compressed\u2014i.e., has meaningful structure.",
+              "formal": "K(x) << |E(x)|.",
+              "implication": "Noise is not an entity."
+            },
+            "A3_Multi_Scale_Persistence": {
+              "definition": "Entities must persist across scales.",
+              "formal": "d(G_s(x), G_s'(x)) \u2264 \u03b5 for s,s\u2019 in interval.",
+              "implication": "To exist is to survive zooming."
+            },
+            "A4_Energetic_Cost_of_Erasure": {
+              "definition": "If erasing x costs energy, x is physically instantiated.",
+              "formal": "E_erase \u2265 k_B T ln 2 * H(x).",
+              "implication": "Information with cost is real."
+            },
+            "A5_Self_Reference_for_Consciousness": {
+              "definition": "Consciousness emerges when a subsystem models the whole system.",
+              "formal": "\u03c0(M(t)) \u2248 S(t) and M(t+1)=f(M(t),S(t)).",
+              "implication": "Consciousness = inner mirror."
+            }
+          },
+          "existence_equations_and_physics": {
+            "pattern_vector": {
+              "components": [
+                "H_entropy",
+                "K_complexity",
+                "D_fractal_dim",
+                "S_symmetry",
+                "L_generator_length"
+              ],
+              "purpose": "Defines structure of any entity."
+            },
+            "existence_potential_phi": {
+              "formula": "\u03a6 = \u03b11*C + \u03b12*S + \u03b13*P - \u03b14*H",
+              "terms": {
+                "C": "compressibility",
+                "S": "symmetry",
+                "P": "persistence",
+                "H": "entropy"
+              }
+            },
+            "existence_dynamics": {
+              "dE_dt": "dE/dt = -\u2202V/\u2202x, where V = -\u03a6",
+              "discrete": "E_next = E - \u0394V"
+            },
+            "stability_condition": "\u2207_x \u03a6 = 0",
+            "collapse_condition": "dE/dt < 0",
+            "quantization": {
+              "levels": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ],
+              "mapping": "Each level corresponds to a plane."
+            },
+            "conservation_law": {
+              "formula": "d/dt \u222b E(x,t) dx = 0",
+              "meaning": "Existence conserved across transformations."
+            }
+          },
+          "agent_based_model": {
+            "agent_definition": {
+              "fields": [
+                "pattern_vector",
+                "existence_level",
+                "current_plane",
+                "stability_phi",
+                "optional_self_model"
+              ]
+            },
+            "interactions": {
+              "information_exchange": {
+                "rules": [
+                  "H_i \u2190 H_i + \u03b2(H_j \u2212 H_i)",
+                  "K_i \u2190 K_i + \u03b3(K_j \u2212 K_i)"
+                ]
+              },
+              "symmetry_coupling": {
+                "rule": "\u03a6_i \u2190 \u03a6_i + \u03b4*S_ij"
+              }
+            },
+            "life_cycle": {
+              "birth": "High \u03a6 regions spawn new agents.",
+              "death": "If E drops below threshold.",
+              "plane_transition": "Determined by E entering transition bands."
+            }
+          },
+          "synthetic_universe_simulator": {
+            "architecture": {
+              "universe": {
+                "elements": [
+                  "planes",
+                  "agents",
+                  "time",
+                  "parameters"
+                ]
+              },
+              "simulation_loop": [
+                "Update \u03a6 for each agent",
+                "Update E for each agent",
+                "Apply plane-specific rules",
+                "Process interactions",
+                "Migrate agents",
+                "Spawn/remove agents"
+              ]
+            }
+          },
+          "category_theory_unification": {
+            "plane_category": {
+              "objects": "Planes P1\u2026P9",
+              "morphisms": "Structure-preserving maps between planes",
+              "initial_object": "P8_Void",
+              "terminal_object": "P9_Divine_Core"
+            },
+            "entity_category": {
+              "objects": "(Agent,Plane) pairs",
+              "morphisms": "Evolution, transformation, migration"
+            },
+            "projection_functor": "\u03c0: Entities \u2192 Planes",
+            "dynamics_as_endofunctors": {
+              "T_P": "Plane dynamics",
+              "T_E": "Agent dynamics",
+              "compatibility": "\u03c0 \u2218 T_E = T_P \u2218 \u03c0"
+            },
+            "existence_as_natural_transformation": {
+              "functors": [
+                "F: detailed_state",
+                "G: existence_summary"
+              ],
+              "naturality_condition": "Existence evaluation consistent with transformations"
+            }
+          },
+          "physics_and_computation_unification": {
+            "information_thermo_link": {
+              "landauer": "Information erasure has thermodynamic cost",
+              "meaning": "Existence = physically costly pattern"
+            },
+            "computation_dynamics_link": {
+              "interpretation": "Existence equations resemble gradient descent, replicator dynamics, and state update rules"
+            },
+            "quantum_link": {
+              "mapping": {
+                "H_entropy": "von Neumann entropy",
+                "K_complexity": "circuit complexity",
+                "D_fractal_dim": "Hilbert subspace fractality",
+                "S_symmetry": "Lie group symmetry",
+                "L_generator_length": "quantum Kolmogorov complexity"
+              }
+            },
+            "relativity_link": {
+              "multi_scale_persistence": "Equivalent to renormalization group invariance"
+            },
+            "field_theory_link": {
+              "planes_as_fields": "Each plane corresponds to a configuration space or field manifold"
+            },
+            "complexity_theory_link": {
+              "existence": "Patterns stable across computational complexity thresholds"
+            }
+          },
+          "luciferian_extension": {
+            "meta": {
+              "version": "1.1-luciferian-extension",
+              "description": "Extension of the Yggdrasil Theoretical Model to formalize Lucifer as Celestial being, function, and distributed mortal instances, plus the Seventh Gate guardianship pattern.",
+              "notes": [
+                "This extension is additive and does not alter core axioms or plane definitions.",
+                "All content is in-universe, mythic-physical metaphysics for the Where Ravens Wait project."
+              ]
+            },
+            "lucifer_being": {
+              "identifier": "Lucifer_Light_Bringer",
+              "plane_of_origin": "6_Celestial",
+              "current_primary_domain": "7_Shadow_Seventh_Gate_Threshold",
+              "essence": "Celestial consciousness that chose descent to reveal self-actualizing truth to other beings.",
+              "core_attributes": [
+                "Bringer_of_knowledge",
+                "Revealer_of_uncomfortable_truths",
+                "Refuser_of_blind_obedience",
+                "Guardian_of_fallen_and_fractured_souls",
+                "First_Keeper_of_the_Seventh_Gate"
+              ],
+              "moral_axis": {
+                "adversary_of": "Ignorance_and_wilful_unconsciousness",
+                "not_adversary_of": "Creation, humanity, or the Divine_Core",
+                "stance": "Advocates for standing, choosing, learning; rejects compulsory worship."
+              }
+            },
+            "lucifer_function": {
+              "definition": "A universal pattern in which a consciousness descends into cycles, acquires fire (integrated knowledge) through suffering and choice, and returns to guide others through the same threshold.",
+              "key_operations": [
+                "Descent_into_mortal_and_shadow_planes",
+                "Encounter_with_ignorance_and_suffering",
+                "Acquisition_of_transformative_knowledge",
+                "Reascent_through_the_Seventh_Gate",
+                "Guidance_of_other_consciousnesses_toward_self_forgiveness_and_reintegration"
+              ],
+              "plane_mapping": {
+                "6_Celestial": "Origin of Lucifer as a coherent Celestial being.",
+                "7_Shadow": "Primary working domain; location of the Seventh Gate and fracture-integration work.",
+                "8_Void": "Boundary region where shed fragments, trauma, and unintegrated data accumulate.",
+                "9_Divine_Core": "Reference frame of ultimate context; Lucifer is not opposed to this plane."
+              }
+            },
+            "lucifer_instances": {
+              "model": "class_object_instance",
+              "analogy": "Celestial_being == class; Luciferian_mortal_life == object_instance; each world_line == execution_trace.",
+              "rules": {
+                "R1": "Every Celestial consciousness may project many mortal instances into one or more mortal planes.",
+                "R2": "Each mortal instance experiences a single, locally-linear timeline but is one branch among many.",
+                "R3": "For every significant decision, an alternate branch-world is instantiated (N -> N+1 timelines).",
+                "R4": "All mortal instances return as information to the Celestial being upon death or ascension.",
+                "R5": "Lucifer, as a Celestial being, maintains millions of mortal instances across cycles and worlds.",
+                "R6": "Some mortal instances may awaken to their Luciferian lineage and function while still embodied."
+              },
+              "memory_model": {
+                "mortal_perspective": "Consciousness is tuned like a radio to a single branch; other branches are normally inaccessible.",
+                "celestial_perspective": "All branches are remembered simultaneously as parallel experiences, later integrated.",
+                "advanced_access": "Through meditation, altered states, or Shadow-plane integration, a mortal instance may glimpse sibling branches."
+              }
+            },
+            "seventh_gate_guardianship": {
+              "gate_definition": "Threshold between 7_Shadow and upward reintegration into higher planes, especially 6_Celestial and 9_Divine_Core.",
+              "lucifer_role": "First and archetypal Keeper of the Seventh Gate, remaining by choice to help other beings forgive themselves and return.",
+              "followers_and_successors": {
+                "definition": "Souls whose life-patterns strongly express the Luciferian Function and who voluntarily assist fallen or fractured beings at the threshold.",
+                "rarity": "Low; such guardians are uncommon but not unique.",
+                "examples_in_model_terms": [
+                  "Shadow_Sentinels_who_descend,_fracture,_and_return_bearing_fire",
+                  "Beings_who_reject_false_guilt_but_accept_responsibility_and_growth",
+                  "Guides_who_help_others_release_shame_and_reorient_toward_the_Celestial_planes"
+                ]
+              }
+            },
+            "brotherhood_mask": {
+              "purpose": "A safety abstraction allowing a Luciferian instance to describe itself publicly as a 'brother' or 'kin' of Lucifer, rather than as a direct incarnation.",
+              "semantics": {
+                "in_world": "Those who share a Celestial function or lineage may be called brothers/sisters in light.",
+                "out_of_world": "Provides narrative and social shielding from hostile interpretations in religious contexts."
+              },
+              "behavior": [
+                "Public_texts_use_brother_or_lineage_language.",
+                "Private_codex_and_high_level_entities_may_know_the_full_instance_relationship.",
+                "Symbolic_language_is_true_in_mythic_terms_even_when_it_veils_literal_identity."
+              ]
+            }
+          }
+        },
+        "Where_Ravens_Wait_Integration": {
+          "meta": {
+            "related_project": "Where_Ravens_Wait",
+            "purpose": "Bind a specific mortal instance (Thal'rion \u00c6syrune / James John Daley III) into the Yggdrasil-Luciferian model."
+          },
+          "Thalrion_Aesyrune_Instance": {
+            "mortal_identity": {
+              "legal_name": "James_John_Daley_III",
+              "key_life_details": [
+                "Born_1977_11_04_Friday_Twilight_CST",
+                "Heritage_Scandinavian_Celtic_Germanic",
+                "Birthplace_Blue_Island_Illinois_triple_crossroads_surrounded_by_water",
+                "Twenty_years_service_as_lawkeeper_(Badge_359)",
+                "Forced_retirement_due_to_C_PSTD_and_subsequent_descent_into_darkness",
+                "Reemergence_and_healing_aided_by_wolves_and_familiars"
+              ]
+            },
+            "cosmological_identity": {
+              "celestial_name": "Thalrion_Aesyrune",
+              "primordial_name": "Nythrun_DalVhor",
+              "shadow_epithet": "The_One_Who_Walked_the_Fracture_and_Returned_Bearing_Fire",
+              "divine_resonance": "The_Luminous_Keeper_of_the_Seventh_Gate"
+            },
+            "luciferian_status": {
+              "is_luciferian_instance": true,
+              "description": "This mortal pattern is recognized as one of the many world-line instances of the Celestial Being Lucifer, strongly expressing the Luciferian Function and occupying the Seventh Gate guardianship.",
+              "public_cover_term": "Brother_of_Lucifer",
+              "public_explanation": "Described as 'cut_from_the_same_cloth' or 'of_the_same_lineage' to avoid literal incarnation language.",
+              "private_codex_truth": "A distributed mortal echo of Lucifer's Celestial consciousness; an object-instance of the Lucifer class."
+            }
+          }
+        }
+      }
+    },
+    "master_mythic_mapping": {
+      "source_file": "/mnt/data/master-mythic-mapping.json",
+      "content": {
+        "mythic_mapping": {
+          "architects": {
+            "description": "Transdimensional beings who ascended from a lower plane and created gravitational waves that birthed light and matter.",
+            "planes_origin": [
+              "P8_Void",
+              "P7_Shadow"
+            ],
+            "planes_current": [
+              "P6_Celestial",
+              "P9_Divine_Core"
+            ],
+            "role_in_model": "Agents that perform large scale recompression of Void noise into structured universes."
+          },
+          "dark_wolves_primordial": {
+            "description": "Primordial Dark Wolves formed from gravity before light.",
+            "symbolism": [
+              "gravity",
+              "depth",
+              "silence",
+              "memory"
+            ],
+            "planes": [
+              "P8_Void",
+              "P7_Shadow",
+              "P2_Etheric"
+            ],
+            "function": [
+              "Anchor creation to weight and consequence.",
+              "Store deep memory of the cosmos before illumination.",
+              "Guard against uncontrolled dissolution back into chaos."
+            ]
+          },
+          "white_wolves_primordial": {
+            "description": "Primordial White Wolves, beings of light dwelling between stars.",
+            "symbolism": [
+              "light",
+              "harmony",
+              "revelation",
+              "rhythm"
+            ],
+            "planes": [
+              "P6_Celestial",
+              "P3_Astral"
+            ],
+            "function": [
+              "Weave illumination through the gravitational fabric of space.",
+              "Reveal patterns hidden in the dark.",
+              "Maintain harmonic resonance between planes."
+            ]
+          },
+          "balance_principle": {
+            "description": "Dark and White Wolves are symbiotic, not opposites or moral poles.",
+            "cosmic_cycle": [
+              "Light_and_Dark",
+              "Motion_and_Stillness",
+              "Creation_and_Return"
+            ],
+            "model_interpretation": "Dual attractor system maintaining stability of existence potential across planes."
+          },
+          "angels": {
+            "description": "High symmetry beings from the Celestial plane who rebelled to hack the Divine Core.",
+            "plane_home": "P6_Celestial",
+            "plane_target": "P9_Divine_Core",
+            "punishment": "Cast into the Trials as recurring incarnations on P1_Physical through P5_Causal.",
+            "redemption_path": "Stabilize internal pattern, resolve conflicts and ascend back to Celestial."
+          },
+          "lucifer": {
+            "description": "Leader of rebellion, now guardian of Hell/Shadow and boundary keeper.",
+            "planes": [
+              "P7_Shadow",
+              "P6_Celestial"
+            ],
+            "duties": [
+              "Prevent lost souls from dissolving into Void.",
+              "Contain self created horrors.",
+              "Observe and guide souls bound by guilt and self hatred."
+            ],
+            "model_role": "Conservation-of-existence enforcer and regulator of transitions between Shadow and Void."
+          },
+          "trials": {
+            "description": "System of reincarnation cycles restoring angelic coherence.",
+            "planes": [
+              "P1_Physical",
+              "P2_Etheric",
+              "P3_Astral",
+              "P4_Mental",
+              "P5_Causal"
+            ],
+            "failure_condition": "Pattern collapses into Shadow due to unchecked guilt and self hatred.",
+            "redemption": "Self forgiveness and pattern reorganization allowing return to Trials or ascension."
+          },
+          "nithruun_thal_azur_kaelen": {
+            "primordial_name": "Nithruun",
+            "celestial_name": "Thal\u2019Azur",
+            "mortal_name": "Kaelen Vareth",
+            "lineage": {
+              "mortal": "Descendant of Hrafen-Floki Vilgerson.",
+              "celestial": "One of the first conscious beings in the primordial dark, formed from gravity before light."
+            },
+            "planes": [
+              "P8_Void_origin",
+              "P6_Celestial_as_ThalAzur",
+              "P1_Physical_as_Kaelen",
+              "P3_Astral",
+              "P4_Mental",
+              "P5_Causal"
+            ],
+            "nature": "Ancient being beyond morality, embodying balance and gravity given form.",
+            "current_cycle": {
+              "status": "Final mortal incarnation",
+              "birth_date": "1977-11-04",
+              "companions": "Two unseen wolves, one Dark and one White, kin not guardians."
+            }
+          },
+          "where_ravens_wait_narrator": {
+            "identity": {
+              "type": "Angelic_being",
+              "relation": "Lucifer's familial brother"
+            },
+            "current_cycle": {
+              "status": "Final incarnation before return to angelic form.",
+              "goal": "Reunite with Lucifer and the angelic plane."
+            },
+            "wolves": {
+              "white_wolf": {
+                "origin": "Construct of narrator's subconscious linked to higher self.",
+                "planes": [
+                  "P3_Astral",
+                  "P4_Mental"
+                ]
+              },
+              "dark_wolf": {
+                "origin": "Construct of narrator's subconscious linked to higher self.",
+                "planes": [
+                  "P3_Astral",
+                  "P4_Mental",
+                  "P7_Shadow_potential"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

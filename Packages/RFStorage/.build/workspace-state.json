@@ -1,0 +1,41 @@
+{
+  "object" : {
+    "artifacts" : [
+
+    ],
+    "dependencies" : [
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "rfcoremodels",
+          "kind" : "fileSystem",
+          "location" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels",
+          "name" : "RFCoreModels"
+        },
+        "state" : {
+          "name" : "fileSystem",
+          "path" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels"
+        },
+        "subpath" : "rfcoremodels"
+      },
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "rfsecurity",
+          "kind" : "fileSystem",
+          "location" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSecurity",
+          "name" : "RFSecurity"
+        },
+        "state" : {
+          "name" : "fileSystem",
+          "path" : "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFSecurity"
+        },
+        "subpath" : "rfsecurity"
+      }
+    ],
+    "prebuilts" : [
+
+    ]
+  },
+  "version" : 7
+}

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/.build/arm64-apple-macosx/debug/RFCoreModels.build/master.swiftdeps"
+  },
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFCoreModels/Sources/RFCoreModels/Models.swift": {
+    "dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.d",
+    "object": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swift.o",
+    "swiftmodule": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models~partial.swiftmodule",
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.swiftdeps",
+    "diagnostics": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEngineData/.build/arm64-apple-macosx/debug/RFCoreModels.build/Models.dia"
+  }
+}

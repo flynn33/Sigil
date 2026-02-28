@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditorPackageTests.build/master.swiftdeps"
+  },
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditorPackageTests.derived/runner.swift": {
+    "dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditorPackageTests.build/runner.d",
+    "object": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditorPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditorPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditorPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFEditor/.build/arm64-apple-macosx/debug/RFEditorPackageTests.build/runner.dia"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/master.swiftdeps"
+  },
+  "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/Sources/RFGeocoding/BirthplaceResolver.swift": {
+    "dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/BirthplaceResolver.d",
+    "object": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/BirthplaceResolver.swift.o",
+    "swiftmodule": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/BirthplaceResolver~partial.swiftmodule",
+    "swift-dependencies": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/BirthplaceResolver.swiftdeps",
+    "diagnostics": "/Users/jimdaley/Documents/Projects/Dev Projects/RuneForge/Packages/RFGeocoding/.build/arm64-apple-macosx/debug/RFGeocoding.build/BirthplaceResolver.dia"
+  }
+}
