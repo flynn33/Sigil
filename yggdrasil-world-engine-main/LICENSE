@@ -1,0 +1,225 @@
+YGGDRASIL ENGINE – PERSONAL AND EDUCATIONAL USE LICENSE
+Version 1.1
+Copyright © 2025 Flynn (Creator), Yggdrasil Engine Project
+All Rights Reserved.
+
+──────────────────────────────────────────────────────────────
+1. DEFINITIONS
+──────────────────────────────────────────────────────────────
+"Software" or "Yggdrasil Engine" refers to all files, data,
+formulas, models, documentation, JSON structures, systems,
+architectures, pipelines, diagrams, theoretical or
+procedural content contained in this repository, including
+any proprietary formulas, mathematical innovations, cosmological
+structures, rune pipelines, creature-generation logic, and all
+other intellectual property disclosed herein.
+
+"Personal Use" means use by an individual solely for:
+• private experimentation,
+• academic learning,
+• hobby projects,
+• non-commercial worldbuilding,
+• non-commercial games or prototypes,
+• non-monetized creative works.
+Personal Use explicitly excludes any activities that generate
+revenue, commercial value, or involve corporate/enterprise
+environments, even if indirect.
+
+"Commercial Use" means any use that directly or indirectly
+generates revenue or commercial value, including but not limited to:
+• commercial game development,
+• commercial tools or plugins,
+• paid educational products or courses,
+• subscription-based platforms,
+• monetized media or derivative works,
+• corporate or enterprise use,
+• any integration into products or services offered for sale,
+lease, or subscription.
+
+“Educational Use”
+“Educational Use” means use of the Software by students, educators, academic researchers, or accredited educational institutions solely for non‑commercial teaching, learning, or research purposes, including:
+• classroom instruction and demonstrations,  
+• academic assignments, capstone projects, or coursework,  
+• non‑commercial university or laboratory research,  
+• thesis or dissertation work,  
+• non‑profit educational analysis, review, or study of the Software.
+Educational Use does not include:
+• paid courses, paid workshops, or paid training programs,  
+• use within for‑profit educational platforms or institutions,  
+• corporate or enterprise training,  
+• research performed under commercial contracts or grants,  
+• any activity that generates revenue, tuition‑based profit, or commercial value.
+---
+“Independent Developer Use”
+“Independent Developer Use” means use of the Software by a single individual game developer or sole proprietor who:
+• develops games or interactive works independently (not as part of a company or studio), and  
+• earns less than 1,000,000 USD in total gross revenue from all product sales in any calendar year.
+Independent Developer Use is strictly non‑commercial beyond this revenue threshold and is subject to all other terms, restrictions, and obligations of this License. Any developer exceeding this threshold, operating as a multi‑person studio, or engaging in commercial distribution must obtain a separate commercial license.
+
+"Creator" means Flynn, the original author and copyright holder.
+
+"Contributions" means any code, documentation, or other materials
+submitted by third parties via pull requests or other means.
+
+──────────────────────────────────────────────────────────────  
+2. GRANT OF LICENSE FOR PERSONAL, EDUCATIONAL, AND INDIE‑DEVELOPER USE  
+──────────────────────────────────────────────────────────────
+Subject to the terms and conditions of this License, the Creator grants you a limited, non‑exclusive, non‑transferable, non‑sublicensable, revocable, royalty‑free license to use, copy, and modify the Yggdrasil Engine solely for Personal Use and Educational Use, as defined in Section 1.
+Educational Use Grant (Free License)
+The Creator expressly authorizes free Educational Use of the Yggdrasil Engine by:
+• individual students,  
+• educators and instructors,  
+• academic researchers,  
+• accredited K‑12 schools, colleges, universities, and non‑profit educational institutions.
+This grant includes the right to:
+• use the Software in classrooms, labs, and academic environments,  
+• incorporate the Software into non‑commercial academic projects,  
+• publish academic papers or research findings referencing the Software,  
+• distribute non‑commercial academic materials that include excerpts or diagrams derived from the Software.
+Educational Use must remain strictly non‑commercial.  
+Any use within paid courses, for‑profit educational platforms, or commercial training programs requires a separate commercial license.
+---
+Indie‑Developer Use
+In support of independent game development, the Creator extends the same royalty‑free license granted for Personal and Educational Use to qualifying independent developers.
+For the purposes of this License, an “Indie‑Developer” is defined as:
+• a single‑person game developer or sole proprietor,  
+• whose total gross revenue from all product sales does not exceed 1,000,000 USD in any calendar year.
+Indie‑Developer Use is subject to all other terms, restrictions, and obligations contained in this License.
+---
+Permitted Activities
+You may:
+• study the architecture and documentation,  
+• build personal, academic, or non‑commercial projects,  
+• create non‑commercial stories, worlds, and content,  
+• experiment with the formulas and systems in a non‑commercial context.
+---
+Prohibited Activities
+You may NOT:
+• engage in any Commercial Use without a separate commercial license,  
+• sell, license, sublicense, rent, lease, or distribute derivative works for commercial purposes,  
+• incorporate the Yggdrasil Engine into any paid or monetized products, services, or platforms,  
+• represent the technology or formulas as your own invention,  
+• reverse engineer or attempt to derive proprietary formulas beyond Personal or Educational Use,  
+• remove or obscure copyright notices,  
+• use the Software in any manner that infringes on the Creator’s rights or violates applicable laws.
+This license is personal to you and may not be assigned or transferred without the Creator’s prior written consent.
+──────────────────────────────────────────────────────────────
+3. CONTRIBUTIONS AND CONTRIBUTOR LICENSE AGREEMENT
+──────────────────────────────────────────────────────────────
+All Contributions are subject to a Contributor License Agreement (CLA),
+as detailed in CONTRIBUTING.md. By submitting a Contribution, you agree
+to grant the Creator a perpetual, worldwide, non-exclusive, transferable,
+royalty-free, irrevocable license (with the right to sublicense) to use,
+reproduce, modify, distribute, create derivative works of, publicly
+display, publicly perform, and otherwise exploit your Contributions in
+any manner, including for Commercial Use, without any obligation to
+compensate you or share revenues.
+
+Contributions do not dilute or transfer the Creator's ownership of the
+core intellectual property. The Creator retains sole discretion over
+merging Contributions and may reject or remove them at any time.
+
+No contributor shall be entitled to any share of licensing fees,
+revenues, or other compensation arising from the Yggdrasil Engine.
+
+──────────────────────────────────────────────────────────────
+4. COMMERCIAL LICENSE
+──────────────────────────────────────────────────────────────
+Any Commercial Use requires a separate, written commercial license from
+the Creator. Terms, including fees, royalties, and restrictions, are
+negotiable and determined on a case-by-case basis. Contact the Creator
+via GitHub or repository issues for inquiries.
+
+Unauthorized Commercial Use constitutes a material breach of this
+License and may result in immediate termination and legal action.
+
+──────────────────────────────────────────────────────────────
+5. PROPRIETARY RIGHTS & PRIOR ART
+──────────────────────────────────────────────────────────────
+The Yggdrasil Engine, including all formulas, mappings, creature-generation
+logic, rune pipelines, cosmological structures, mathematical innovations,
+and other content, is the exclusive intellectual property of the Creator,
+protected by copyright, trade secret, and other laws.
+
+Public disclosure in this repository serves solely as:
+• Timestamped proof of authorship and prior art for patent purposes.
+• Technical documentation to facilitate Personal Use and potential
+licensing discussions.
+
+Such disclosure does NOT constitute a waiver of rights, abandonment of
+intellectual property, or grant of any implied licenses (e.g., under
+estoppel or otherwise). The Creator expressly reserves all rights,
+including the right to patent implementations, improvements, and applied
+systems worldwide. No moral rights are waived.
+
+You agree not to challenge the Creator's ownership or validity of any
+patents, copyrights, or other IP rights related to the Yggdrasil Engine.
+
+──────────────────────────────────────────────────────────────
+6. REDISTRIBUTION
+──────────────────────────────────────────────────────────────
+You may redistribute unmodified copies of this repository only if:
+• This LICENSE file is included unchanged and in its entirety.
+• All copyright notices and proprietary markings remain intact.
+• Redistribution is strictly non-commercial and for Personal Use purposes.
+
+Modified versions, forks, or derivatives may not be redistributed,
+published, or made publicly available without the Creator's explicit
+written permission. Unauthorized redistribution may result in termination
+of your license.
+
+──────────────────────────────────────────────────────────────
+7. TERMINATION
+──────────────────────────────────────────────────────────────
+This License is effective until terminated. It will terminate immediately
+without notice if you fail to comply with any term or condition herein.
+Upon termination, you must cease all use of the Yggdrasil Engine and
+destroy all copies in your possession.
+
+The Creator may terminate this License at any time for any reason,
+including but not limited to suspected misuse or changes in project
+direction.
+
+Provisions regarding proprietary rights, disclaimers, limitations of
+liability, and governing law shall survive termination.
+
+──────────────────────────────────────────────────────────────
+8. NO WARRANTY & LIMITATION OF LIABILITY
+──────────────────────────────────────────────────────────────
+The Yggdrasil Engine is provided "AS IS" without warranty of any kind,
+express or implied, including but not limited to warranties of
+merchantability, fitness for a particular purpose, non-infringement,
+or accuracy.
+
+The Creator disclaims all liability for any damages arising from use
+of the Yggdrasil Engine, including direct, indirect, incidental,
+consequential, or punitive damages, even if advised of the possibility
+thereof. Your sole remedy for dissatisfaction is to discontinue use.
+
+──────────────────────────────────────────────────────────────
+9. GOVERNING LAW & MISCELLANEOUS
+──────────────────────────────────────────────────────────────
+This License shall be governed by the laws of the State of [Insert Your State, e.g., California], United States, without regard to conflict of laws principles.
+Any disputes arising hereunder shall be resolved exclusively in the state or federal courts located in [Insert Your County/City, e.g., San Francisco County, California].
+
+If any provision is held invalid or unenforceable, the remaining provisions shall remain in full force (severability).
+
+This License constitutes the entire agreement between you and the Creator and supersedes all prior understandings.
+
+No amendments or waivers shall be effective unless in writing signed by the Creator.
+
+──────────────────────────────────────────────────────────────
+10. ACCEPTANCE
+──────────────────────────────────────────────────────────────
+By using, downloading, accessing, or contributing to the Yggdrasil Engine,
+you agree to be bound by the terms of this License. If you do not agree,
+do not use the Yggdrasil Engine.
+
+──────────────────────────────────────────────────────────────
+Yggdrasil Engine – Patent & Prior Art Addendum
+──────────────────────────────────────────────────────────────
+This repository constitutes formal prior art for every formula,
+pipeline, and architectural innovation it contains.
+The Creator retains full rights to patent implementations,
+improvements, and applied systems worldwide. No license granted herein
+extends to any patents or patent applications owned by the Creator.

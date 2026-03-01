@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Xcode
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata
+
+# SwiftPM
+.build/
+**/.build/
+
+# Test artifacts
+*.xcresult
+
+# Codex local metadata
+.codex/

@@ -1,0 +1,51 @@
+{
+  "version": "0.1",
+  "date": "2024-03-15",
+  "author": "Flynn",
+  "note": "This is the very first prototype of the Yggdrasil cosmology – only 7 planes existed at this stage. The 9-plane final model with Divine Core and Void as separate layers was added later in 2024.",
+  "description": "Pre-unification prototype – for historical and prior-art purposes only",
+  "planes": [
+    {
+      "id": 1,
+      "name": "Physical",
+      "description": "Matter and classical causality"
+    },
+    {
+      "id": 2,
+      "name": "Etheric",
+      "description": "Life force and subtle energy"
+    },
+    {
+      "id": 3,
+      "name": "Astral",
+      "description": "Dreams, symbols, archetypes"
+    },
+    {
+      "id": 4,
+      "name": "Mental",
+      "description": "Thought, memory, self-model"
+    },
+    {
+      "id": 5,
+      "name": "Causal",
+      "description": "Karma, fate lines"
+    },
+    {
+      "id": 6,
+      "name": "Celestial",
+      "description": "Angels, gods, high coherence"
+    },
+    {
+      "id": 7,
+      "name": "Shadow",
+      "description": "Repressed structures, hell realms"
+    }
+  ],
+  "state_vector": {
+    "dimension": 4,
+    "components": ["Order", "Chaos", "Coherence", "Entropy"],
+    "note": "This became the final s(x) = [C, S, P, H] vector"
+  },
+  "transition_rule": "Adjacent planes only (|i-j| <= 1)",
+  "historical_significance": "First written proof that the Kripke-ladder adjacency rule and bounded structural drift were conceived in early 2024. All later 9-plane versions are direct descendants."
+}

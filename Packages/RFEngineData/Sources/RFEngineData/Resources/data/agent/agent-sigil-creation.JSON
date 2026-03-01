@@ -1,173 +1,190 @@
 {
-  "version": "1.0",
-  "description": "Comprehensive guidance for creating the main agent sigil from personal data, including all conversion steps, numerology reductions, pattern vector calculation, celestial name generation, sigil formation (9D to 2D projection), and display logic. This is a deterministic process integrated with the engine's mathematics (e.g., pattern vectors from PATTERN_VECTORS_AND_LORE.md, 9-bit mappings and tube geometry from rune-system.md). Feed the output vector into existing logic like plane calculation or ImprintKey. The sigil is formed as a 9D object (hypercube discretization) and projected to 2D via L-system for screen display.",
-  "numerology_reduction_rules": {
-    "description": "Standard numerology: Sum values (ordinals or digits), repeatedly sum digits of the result until a single digit (1-9). If the sum is a multiple of 9, it reduces to 9 (not 0).",
-    "pseudo_example": "function ReduceToSingleDigit(value): sum = value; while sum > 9: sum = SumOfDigits(sum); if sum == 0: sum = 9; return sum; // Note: SumOfDigits(18) = 1+8=9"
-  },
-  "syllable_pool": {
-    "description": "Fixed pool of lore-inspired syllables for celestial name generation, drawn from cosmology terms (e.g., planes like 'Void', 'Cel' for Celestial). Pool size determines binning (here 10 for 0-9 indices).",
-    "pool": ["Thal", "Rion", "Kael", "Void", "Aeth", "Caus", "Shad", "Cel", "Ast", "Eth"]
-  },
-  "inputs": {
-    "required": {
-      "first_name": {
-        "type": "string",
-        "example": "John"
-      },
-      "last_name": {
-        "type": "string",
-        "example": "Doe"
-      },
-      "birth_day": {
-        "type": "integer",
-        "range": [1, 31],
-        "example": 15
-      },
-      "birth_month": {
-        "type": "integer",
-        "range": [1, 12],
-        "example": 7
-      },
-      "birth_year": {
-        "type": "integer",
-        "range": [1900, 2100],
-        "example": 1990
-      },
-      "birth_hour": {
-        "type": "integer",
-        "range": [0, 23],
-        "example": 14
-      },
-      "birth_minute": {
-        "type": "integer",
-        "range": [0, 59],
-        "example": 30
-      },
-      "birth_order": {
-        "type": "integer",
-        "description": "Your birth order in family (1=firstborn, etc.)",
-        "example": 2
-      },
-      "mother_birth_order": {
-        "type": "integer",
-        "example": 1
-      },
-      "father_birth_order": {
-        "type": "integer",
-        "example": 3
-      },
-      "birth_latitude": {
-        "type": "number",
-        "range": [-90, 90],
-        "example": 40.7128
-      },
-      "birth_longitude": {
-        "type": "number",
-        "range": [-180, 180],
-        "example": -74.0060
-      }
-    },
-    "optional": {
-      "pet_names": {
-        "type": "array of strings",
-        "example": ["Max", "Luna"]
-      },
-      "additional_data": {
-        "type": "object",
-        "description": "Any user-provided key-value pairs (e.g., {'favorite_color': 'blue', 'hobby': 'reading', 'lucky_number': 7}). Strings are converted like names; numbers directly summed/reduced; ignore non-string/number values.",
-        "example": {
-          "favorite_color": "blue",
-          "childhood_home_city": "New York",
-          "significant_event_year": 2010
-        }
-      }
+  "schema": "wrw.sigil9d.portable.v1",
+  "id": "sigil-primary-star-with-two-wolves-9d-projection",
+  "version": "1.0.0",
+  "portable_intent": "Agent-agnostic JSON spec for generating the WRW sigil as a 2D projection of 9D tubes.",
+  "source_context": {
+    "project": "Where Ravens Wait",
+    "canonical_symbols": {
+      "primary_sigil": "Two wolves-one dark, one white-circling a single star.",
+      "inscription": "Balance is not kept by opposition, but by remembrance."
     }
   },
-  "conversion_steps_pseudo": [
-    {
-      "step": 1,
-      "description": "Convert names (first, last, pet_names) to numbers: Sum ordinal values (A=1, B=2, ..., Z=26; ignore non-letters, case-insensitive). Reduce each sum to single digit using numerology rules.",
-      "pseudo": "for each name in [first_name, last_name] + pet_names: ordinal_sum = Sum(Ord(Upper(char)) - Ord('A') + 1 for char in name if is_letter(char)); reduced = ReduceToSingleDigit(ordinal_sum); // Collect: name_reduces = list of reduced values"
-    },
-    {
-      "step": 2,
-      "description": "Reduce dates/times: Concatenate birth_year (4 digits), birth_month (2), birth_day (2), birth_hour (2), birth_minute (2) into a string (e.g., '199007151430'). Sum all digits, reduce to single digit.",
-      "pseudo": "date_str = Format('%04d%02d%02d%02d%02d', birth_year, birth_month, birth_day, birth_hour, birth_minute); digit_sum = Sum(Int(char) for char in date_str); date_reduce = ReduceToSingleDigit(digit_sum);"
-    },
-    {
-      "step": 3,
-      "description": "Reduce orders: Sum birth_order + mother_birth_order + father_birth_order, reduce to single digit.",
-      "pseudo": "order_sum = birth_order + mother_birth_order + father_birth_order; order_reduce = ReduceToSingleDigit(order_sum);"
-    },
-    {
-      "step": 4,
-      "description": "Reduce geo coordinates: Take absolute values, remove decimals (e.g., Floor(Abs(lat))*100 + Floor(Abs(long))*100 for precision), sum digits of the combined integer, reduce to single digit.",
-      "pseudo": "lat_int = Floor(Abs(birth_latitude) * 100); long_int = Floor(Abs(birth_longitude) * 100); geo_combined = lat_int + long_int; geo_sum = SumOfDigits(geo_combined); geo_reduce = ReduceToSingleDigit(geo_sum);"
-    },
-    {
-      "step": 5,
-      "description": "Process additional_data: For each value, if string: treat as name (sum ordinals, reduce); if number: reduce directly; average all reductions (or sum and reduce if no pets). If empty, use 5 as neutral default.",
-      "pseudo": "additional_reduces = []; for key, value in additional_data: if is_string(value): red = ReduceToSingleDigit(SumOrdinals(value)); elif is_number(value): red = ReduceToSingleDigit(value); additional_reduces.append(red); if additional_reduces: additional_reduce = ReduceToSingleDigit(Sum(additional_reduces)); else: additional_reduce = 5;"
-    },
-    {
-      "step": 6,
-      "description": "Aggregate pet_names (if any): Average their reductions, or use additional_reduce if no pets.",
-      "pseudo": "if pet_names: pet_reduces = [ReduceToSingleDigit(SumOrdinals(name)) for name in pet_names]; pet_avg = ReduceToSingleDigit(Sum(pet_reduces) / Len(pet_reduces)); else: pet_avg = additional_reduce or 5;"
-    },
-    {
-      "step": 7,
-      "description": "Compute pattern vector: Assign and normalize reductions to vector ranges (H/K/S [0,1], D [1,3], L [1,999]). Use name_avg (first+last)/9 for H; date_reduce/9 for K; 1 + (order_reduce/9)*2 for D; geo_reduce/9 for S; 1 + pet_avg*111 for L (or adjust multiplier for range).",
-      "pseudo": "name_avg = ReduceToSingleDigit(Sum(name_reduces)); H = name_avg / 9.0; K = date_reduce / 9.0; D = 1.0 + (order_reduce / 9.0) * 2.0; S = geo_reduce / 9.0; L = 1 + Floor(pet_avg * 111); vector = { H_entropy: Clamp(H, 0, 1), K_complexity: Clamp(K, 0, 1), D_fractal_dim: Clamp(D, 1, 3), S_symmetry: Clamp(S, 0, 1), L_generator_length: Clamp(L, 1, 999) };"
-    },
-    {
-      "step": 8,
-      "description": "Generate celestial name: Normalize vector components to [0,1] (scale D and L as needed), compute indices (Floor(norm * (pool_size - 1))), select syllables from pool, concatenate 4-5 (e.g., H, K, D, S, optional L if additional_data).",
-      "pseudo": "norm_H = H; norm_K = K; norm_D = (D - 1) / 2.0; norm_S = S; norm_L = (L - 1) / 998.0; pool_size = Len(syllable_pool); index_H = Floor(norm_H * (pool_size - 1)); index_K = Floor(norm_K * (pool_size - 1)); index_D = Floor(norm_D * (pool_size - 1)); index_S = Floor(norm_S * (pool_size - 1)); index_L = Floor(norm_L * (pool_size - 1)); syllables = [syllable_pool[index_H], syllable_pool[index_K], syllable_pool[index_D], syllable_pool[index_S]]; if additional_data: syllables.append(syllable_pool[index_L]); celestial_name = Join(syllables, ' ');"
-    },
-    {
-      "step": 9,
-      "description": "Form 9D sigil object: Binarize normalized vector to 9 bits (repeat/pad 5 norms to 9: H,K,D,S,L,H,K,D,S; bit=1 if >0.5). This creates a point on the 9D hypercube (as in rune-system.md's tube geometry discretization). Compute parity (popcount %2). Use bits as seed for L-system (e.g., axiom from parity: even='F', odd='X'; rules based on bits). The 9D sigil is this structure (bits + L-system).",
-      "pseudo": "norms = [norm_H, norm_K, norm_D, norm_S, norm_L, norm_H, norm_K, norm_D, norm_S]; bits9 = ''.join('1' if n > 0.5 else '0' for n in norms); popcount = Count('1' in bits9); parity = 'even' if popcount % 2 == 0 else 'odd'; seed = BinaryToInt(bits9); rng = SeedDeterministicRNG(seed); axiom = 'F' if parity == 'even' else 'X'; rules = { 'F': rng.Choose(['F[+F]', 'F[-F]F']) if parity == 'even' else rng.Choose(['FInvert', 'FBreak']) }; sigil_9d = { bits9: bits9, parity: parity, lsystem: { axiom: axiom, rules: rules, angle: rng.NextFloat(0, 90), iterations: 3 + rng.NextInt(4) } }; // This 9D sigil serves as input for further logic (e.g., creature BinaryMask proxy)."
-    },
-    {
-      "step": 10,
-      "description": "Project 9D sigil to 2D: First expand the L-system string using the rules and iterations. Then use the expanded string as a turtle graphics script to generate 2D paths. Start at (0,0) facing right; interpret symbols: F=draw forward (length=1), +=turn left (angle), -=turn right (angle), [=push position/angle (branch), ]=pop (return). This produces a list of 2D line segments.",
-      "pseudo": "function ExpandLSystem(axiom, rules, iterations): current = axiom; for i=1 to iterations: new = ''; for char in current: new += rules[char] if char in rules else char; current = new; return current; // Expand expanded_string = ExpandLSystem(sigil_9d.lsystem.axiom, sigil_9d.lsystem.rules, sigil_9d.lsystem.iterations); // e.g., 'F[+F][-F]F...' position = (0, 0); angle_current = 0; // Degrees, right=0 stack = []; lines_2d = []; for symbol in expanded_string: if symbol == 'F': next_pos = (position[0] + Cos(angle_current) * length, position[1] + Sin(angle_current) * length); lines_2d.append({start: position, end: next_pos}); position = next_pos; elif symbol == '+': angle_current += sigil_9d.lsystem.angle; elif symbol == '-': angle_current -= sigil_9d.lsystem.angle; elif symbol == '[': stack.append({pos: position, ang: angle_current}); elif symbol == ']': popped = stack.pop(); position = popped.pos; angle_current = popped.ang; // Normalize lines_2d to fit screen (scale/center bounding box); sigil_2d = { lines: lines_2d };"
-    },
-    {
-      "step": 11,
-      "description": "Display 2D sigil on screen: Use the 2D lines as paths for rendering (e.g., draw lines with thickness for 'tube' effect, inspired by rune-system.md). Output as vector paths or bitmap proxy. For screen: Scale to viewport, add color/fractal details based on vector (e.g., hue from H_entropy).",
-      "pseudo": "viewport_width = screen_width; viewport_height = screen_height; // Find min/max from lines_2d to compute bounds min_x = Min(line.start[0], line.end[0] for line in sigil_2d.lines); max_x = Max(...); min_y = ...; max_y = ...; scale_x = viewport_width / (max_x - min_x); scale_y = viewport_height / (max_y - min_y); scale = Min(scale_x, scale_y) * 0.9; // Padding offset = ((viewport_width - (max_x - min_x) * scale) / 2, (viewport_height - (max_y - min_y) * scale) / 2); for each line in sigil_2d.lines: draw_start = ((line.start[0] - min_x) * scale + offset[0], (line.start[1] - min_y) * scale + offset[1]); draw_end = ...; DrawLine(draw_start, draw_end, thickness=0.1, color=HSL(vector.H_entropy * 360, 0.8, 0.5)); // e.g., Hue from H; Optionally add fractal iterations based on D_fractal_dim for edges."
+  "coordinate_system": {
+    "base_space": "normalized_2d",
+    "x_range": [-1.0, 1.0],
+    "y_range": [-1.2, 1.2],
+    "origin": "center",
+    "y_axis": "up"
+  },
+  "dimensions": {
+    "ambient": 9,
+    "visible": [0, 1],
+    "hidden": [2, 3, 4, 5, 6, 7, 8],
+    "plane_index_map": {
+      "0": "P1_Physical",
+      "1": "P2_Etheric",
+      "2": "P3_Astral",
+      "3": "P4_Mental",
+      "4": "P5_Causal",
+      "5": "P6_Celestial",
+      "6": "P7_Shadow",
+      "7": "P8_Void",
+      "8": "P9_Divine_Core"
     }
-  ],
-  "outputs_example": {
+  },
+  "canon_defaults": {
     "pattern_vector": {
+      "entity": "Nithruun_ThalAzur_Kaelen",
       "H_entropy": 0.55,
-      "K_complexity": 0.44,
-      "D_fractal_dim": 2.22,
-      "S_symmetry": 0.77,
-      "L_generator_length": 123
+      "K_algorithmic_complexity": 0.8,
+      "D_fractal_dimension": 1.75,
+      "S_symmetry_index": 0.7,
+      "L_generator_length": 0.4
     },
-    "celestial_name": "Thal Rion Kael Void",
-    "sigil_9d": {
-      "bits9": "010101010",
-      "parity": "odd",
-      "lsystem": {
-        "axiom": "X",
-        "rules": {"F": "F[-F]Invert"},
-        "angle": 45.0,
-        "iterations": 5
+    "plane_resonance_weights": [1.0, 0.35, 0.95, 0.9, 0.88, 0.92, 0.42, 0.86, 0.58]
+  },
+  "formulae": {
+    "embedding": {
+      "centerline": "v0=x(t), v1=y(t)",
+      "hidden": "vk=Ak*sin(2*pi*fk*t+phik), k in {2..8}",
+      "notes": "t is global stroke-progress in [0,1]."
+    },
+    "tube": {
+      "surface": "v_tube = v_center + r*omega",
+      "omega": "7D section vector over hidden dimensions (unit or normalized)",
+      "radius_param": "r >= 0"
+    },
+    "projection": {
+      "equation": "p2 = M(2x9) * v9",
+      "matrix_build": "M rows are the first two rows of chained 9D Givens rotations, then elementwise multiplied by plane_resonance_weights."
+    },
+    "render_glow": {
+      "distance_field": "d(x)=min_curve ||x-curve||",
+      "intensity": "I(x)=exp(-d(x)^2/(2*sigma^2))"
+    }
+  },
+  "matrix_construction": {
+    "givens_rotations_ordered": [
+      {"i": 0, "j": 2, "angle_rad": 0.22},
+      {"i": 1, "j": 3, "angle_rad": -0.18},
+      {"i": 0, "j": 5, "angle_rad": 0.11},
+      {"i": 1, "j": 6, "angle_rad": 0.14},
+      {"i": 0, "j": 8, "angle_rad": -0.09},
+      {"i": 1, "j": 7, "angle_rad": 0.13}
+    ],
+    "precomputed_weighted_rows": {
+      "row_x": [0.966073374918, 0.0, -0.205231130782, 0.0, 0.0, -0.100587278845, 0.0, 0.0, 0.052129558535],
+      "row_y": [0.0, 0.338099023272, 0.0, 0.158203851515, 0.0, 0.0, -0.058113566705, -0.111485362653, 0.0]
+    }
+  },
+  "hidden_dimension_profiles": {
+    "generator": {
+      "fractal_norm": "clamp((D_fractal_dimension-1.0)/1.5,0,1)",
+      "components": [
+        "H_entropy",
+        "K_algorithmic_complexity",
+        "fractal_norm",
+        "S_symmetry_index",
+        "L_generator_length",
+        "0.5*(K_algorithmic_complexity+S_symmetry_index)",
+        "0.5*(1.0-H_entropy+S_symmetry_index)"
+      ],
+      "for_offset_0_to_6": {
+        "dimension": "2+offset",
+        "amplitude": "(0.020+0.060*component[offset]) * plane_weight[dimension]",
+        "frequency": "1.00 + 0.37*offset + 0.25*component[offset]",
+        "phase": "offset*pi/7"
       }
     },
-    "sigil_2d_example": {
-      "lines": [
-        {"start": [0, 0], "end": [1, 0]},
-        {"start": [1, 0], "end": [1, 1]},
-        {"start": [1, 1], "end": [0, 1]}
-      ],
-      "notes": "Example simplified 2D paths after projection and expansion; scale and draw as lines on screen."
+    "precomputed_defaults": [
+      {"dimension": 2, "amplitude": 0.05035, "frequency": 1.1375, "phase": 0.0},
+      {"dimension": 3, "amplitude": 0.0612, "frequency": 1.57, "phase": 0.448798950513},
+      {"dimension": 4, "amplitude": 0.044, "frequency": 1.865, "phase": 0.897597901026},
+      {"dimension": 5, "amplitude": 0.05704, "frequency": 2.285, "phase": 1.346396851538},
+      {"dimension": 6, "amplitude": 0.01848, "frequency": 2.58, "phase": 1.795195802051},
+      {"dimension": 7, "amplitude": 0.0559, "frequency": 3.0375, "phase": 2.243994752564},
+      {"dimension": 8, "amplitude": 0.03161, "frequency": 3.36375, "phase": 2.692793703077}
+    ]
+  },
+  "strokes_2d": {
+    "named_points": {
+      "A": [-0.48, 0.7],
+      "B": [0.48, 0.7],
+      "C": [0.0, 0.28],
+      "D": [-0.18, -0.03],
+      "E": [0.18, -0.03],
+      "F": [-0.24, -0.28],
+      "G": [0.24, -0.28],
+      "H": [0.0, -0.57],
+      "I": [-0.24, -0.86],
+      "J": [0.24, -0.86],
+      "K": [0.0, -1.02]
     },
-    "notes": "This sigil serves as the starting point for the main agent. Use the vector for plane/leaf calculation, bits for rune-like parity, lsystem for 9D/2D form, and 2D lines for display (e.g., as glyph or icon)."
+    "primitives": [
+      {"type": "line", "from": [0.0, 0.18], "to": [0.0, -1.02], "samples": 54},
+      {"type": "line", "from_ref": "A", "to_ref": "B", "samples": 48},
+      {"type": "line", "from_ref": "A", "to_ref": "C", "samples": 36},
+      {"type": "line", "from_ref": "B", "to_ref": "C", "samples": 36},
+      {"type": "line", "from_ref": "C", "to_ref": "D", "samples": 28},
+      {"type": "line", "from_ref": "C", "to_ref": "E", "samples": 28},
+      {"type": "line", "from_ref": "F", "to_ref": "H", "samples": 30},
+      {"type": "line", "from_ref": "G", "to_ref": "H", "samples": 30},
+      {"type": "line", "from_ref": "H", "to_ref": "I", "samples": 32},
+      {"type": "line", "from_ref": "H", "to_ref": "J", "samples": 32},
+      {
+        "type": "ellipse",
+        "center": [0.0, 0.86],
+        "radius_x": 0.07,
+        "radius_y": 0.11,
+        "theta_range": [0.0, 6.283185307179586],
+        "samples": 120,
+        "closed": true
+      },
+      {
+        "type": "curl",
+        "center": [-0.32, -0.6],
+        "theta_start": 0.7853981633974483,
+        "theta_end": 4.869468613064179,
+        "radius_start": 0.02,
+        "radius_end": 0.08,
+        "x_sign": 1.0,
+        "samples": 92
+      },
+      {
+        "type": "curl",
+        "center": [0.32, -0.6],
+        "theta_start": 0.7853981633974483,
+        "theta_end": 4.869468613064179,
+        "radius_start": 0.02,
+        "radius_end": 0.08,
+        "x_sign": -1.0,
+        "samples": 92
+      },
+      {
+        "type": "polyline",
+        "points": [[0.0, -1.02], [0.018, -0.97], [0.0, -0.92], [-0.018, -0.97], [0.0, -1.02]],
+        "samples": 70,
+        "closed": true
+      }
+    ]
+  },
+  "sampling": {
+    "global_t_mode": "stroke_index_normalized",
+    "global_t_formula": "global_t=(strokeIndex+local_t)/strokeCount",
+    "minimum_samples_per_primitive": 2
+  },
+  "agent_integration": {
+    "required_steps": [
+      "Build or load 2D primitive samples in listed order.",
+      "Map each sample to 9D with embedding formula and hidden profiles.",
+      "Optionally offset hidden dimensions with tube radius and section vector.",
+      "Project with M and draw polylines in order.",
+      "Apply glow pass if desired."
+    ],
+    "output_expectation": {
+      "primary": "2D polyline set",
+      "optional": "raster, svg, canvas, or path object"
+    }
   }
 }

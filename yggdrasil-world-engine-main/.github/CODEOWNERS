@@ -1,0 +1,4 @@
+# CODEOWNERS file for Yggdrasil-Engine
+# This designates @flynn33 as the required reviewer for all files
+
+* @flynn33

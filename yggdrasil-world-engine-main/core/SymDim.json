@@ -1,0 +1,131 @@
+{
+  "process_name": "SymDim Transformer",
+  "version": "1.0",
+  "date": "2025-12-25",
+  "description": "A modular pipeline for transforming 2D geometric symbols (images or procedurally generated sigils) into higher-dimensional (X-D) representations via binary discretization, pattern analysis, fractal mapping, logical enforcement, and mathematical interpretation. Inspired by Adinkra diagrams in supersymmetry, radial symmetries, and connections to higher-dimensional physics (e.g., 12D supergravity/F-theory).",
+  "input_modes": [
+    {
+      "mode": "upload_image",
+      "description": "User provides an external image file (PNG, JPG, BMP).",
+      "file_formats": ["png", "jpg", "jpeg", "bmp"]
+    },
+    {
+      "mode": "generate_sigil",
+      "description": "Procedural generation of a personal geometric sigil from user-provided numeric seed string.",
+      "seed_input": "String of digits or numbers (e.g., birthdate '19900101', constants '3.14159', or arbitrary sequence).",
+      "generation_parameters": {
+        "num_points": {"default": 12, "range": [5, 30], "description": "Number of anchor points for geometry."},
+        "symmetry_order": {"default": 12, "range": [4, 24], "description": "Rotational symmetry fold (e.g., 12 for dodecahedral/radial)."},
+        "complexity": {"default": "medium", "options": ["low", "medium", "high"], "description": "Controls curves, connections, and branching."},
+        "style": {"default": "radial", "options": ["radial", "linear", "grid", "chaotic"], "description": "Base geometric motif."}
+      },
+      "output": "In-memory binary/grayscale image (cv::Mat) for direct pipeline feed."
+    }
+  ],
+  "core_parameters": {
+    "dimensions_X": {
+      "description": "Target number of dimensions (X). Determines binary string length and grid size.",
+      "type": "integer",
+      "range": [4, 4096],
+      "recommended": "Multiples of 8 (e.g., 8, 16, 32) or powers of 2 for alignment with byte boundaries and hypercube interpretations.",
+      "note_on_accuracy": "User observation that 'SymDim gets best results when number of dimensions equals bits in a byte' (i.e., multiples of 8) is partially supported: byte-aligned lengths simplify storage and hashing, but mathematically not required. In Adinkra physics, code length N (bits) equals the extension degree (number of supercharges), not tied to 8. Square grids (side = sqrt(X)) are preferred for perfect symmetry checks (horizontal/vertical/rotational). We recommend X as perfect squares that are multiples of 8 when possible (e.g., 16=4x4, 64=8x8) for optimal visual and analytical symmetry."
+    }
+  },
+  "pipeline_steps": [
+    {
+      "step": 1,
+      "name": "Image Acquisition & Preprocessing",
+      "actions": [
+        "Load image (OpenCV cv::imread).",
+        "Convert to grayscale (cv::cvtColor).",
+        "Optional edge detection/enhancement (cv::Canny or custom radial symmetry filter for sigils).",
+        "Threshold to binary (cv::threshold, adaptive if needed)."
+      ]
+    },
+    {
+      "step": 2,
+      "name": "X-Dimensional Discretization",
+      "actions": [
+        "Compute grid side length S = ceil(sqrt(X)).",
+        "Resize binary image to S x S (cv::resize, INTER_NEAREST for preservation).",
+        "Flatten row-major to X-bit binary string (pad with 0s if needed).",
+        "Store as std::bitset<X> or std::vector<bool> for efficiency."
+      ],
+      "output": "Binary string of length X, optionally reshaped as S x S matrix for visualization."
+    },
+    {
+      "step": 3,
+      "name": "Adinkra-Inspired Stylization (Optional Enhancement)",
+      "actions": [
+        "Detect and amplify radial/rotational symmetry (polar transform or custom averaging).",
+        "Simplify to bold geometric glyph (morphological operations)."
+      ]
+    },
+    {
+      "step": 4,
+      "name": "Deep Pattern Analysis",
+      "metrics": [
+        "Hamming weight (population count).",
+        "Palindrome check on binary string.",
+        "Shannon entropy (base-2).",
+        "Symmetry checks: horizontal, vertical, 180° rotational, 90° if square.",
+        "Run-length encoding statistics.",
+        "Anomaly detection: flag asymmetry scores or unexpected entropy deviations."
+      ]
+    },
+    {
+      "step": 5,
+      "name": "L-System Mapping",
+      "mapping": {
+        "0": "+ (turn right 90°)",
+        "1": "F (forward draw)"
+      },
+      "axiom": "Direct concatenation from binary string.",
+      "rules": {
+        "default": {"F": "F[+F][-F]F"},
+        "customizable": true
+      },
+      "iterations": {"default": 2, "max": 5, "description": "Higher iterations grow exponentially."},
+      "output": "Turtle graphics rendering of fractal rays."
+    },
+    {
+      "step": 6,
+      "name": "Kripke Frame Enforcement",
+      "construction": [
+        "Worlds = X nodes (one per bit position).",
+        "Accessibility relation: edge if positions adjacent in grid AND bits match.",
+        "Valuation: proposition p = 'filled' (bit=1)."
+      ],
+      "enforced_properties": [
+        "Mirror symmetry balancing.",
+        "Invariant central cluster (AG p for hub).",
+        "Eventual uniform clusters."
+      ],
+      "output": "Graph visualization (Boost.Graph or custom)."
+    },
+    {
+      "step": 7,
+      "name": "Mathematical Display & Interpretation",
+      "outputs": [
+        "Binary grid heatmap.",
+        "Analysis report (text metrics).",
+        "L-system fractal image.",
+        "Kripke graph.",
+        "Sample equations (e.g., Weierstrass form for elliptic fibration ties, supergravity action templates).",
+        "Profound notes linking to physics (optional toggle)."
+      ]
+    }
+  ],
+  "output_formats": ["PNG images", "JSON report", "PDF bundle", "DOT graph files"],
+  "rules_for_mathematical_accuracy": {
+    "grid_shape": "Prefer square grids (X perfect square) for unbiased rotational symmetry checks.",
+    "bit_alignment": "Multiples of 8 recommended for practical byte handling and hashing, but not mathematically mandatory.",
+    "padding": "If X not perfect square, pad with 0s transparently and note in report.",
+    "reproducibility": "Sigil seeds hashed deterministically (e.g., std::hash)."
+  },
+  "future_extensions": [
+    "ML-based anomaly prediction.",
+    "Export to physics simulation formats.",
+    "Gaming asset generation (procedural runes)."
+  ]
+}

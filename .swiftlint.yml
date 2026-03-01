@@ -1,0 +1,39 @@
+included:
+  - App/Sources/SigilApp.swift
+  - App/Sources/Core/SigilForsettiBootstrap.swift
+  - App/Sources/Views/SigilForsettiHostView.swift
+  - App/Tests/ForsettiArchitecturePolicyTests.swift
+  - Packages/RFSigilForsettiModules/Sources
+  - Packages/RFSigilForsettiModules/Tests
+
+excluded:
+  - "**/.build"
+  - RuneForge.xcodeproj
+  - Packages/**/resource_bundle_accessor.swift
+
+line_length:
+  warning: 140
+  error: 180
+  ignores_comments: true
+  ignores_urls: true
+
+identifier_name:
+  min_length:
+    warning: 2
+  excluded:
+    - id
+    - x
+    - y
+
+custom_rules:
+  no_forsetti_example_imports:
+    name: "No Forsetti Example Imports"
+    regex: "(^|\\n)\\s*import\\s+ForsettiModulesExample\\b"
+    message: "Consumer app targets must not import ForsettiModulesExample."
+    severity: error
+
+  no_forsetti_internal_path_refs:
+    name: "No Forsetti Internal Source References"
+    regex: "Forsetti-Framwork/Sources/"
+    message: "Treat Forsetti as sealed; do not reference internal source paths."
+    severity: error

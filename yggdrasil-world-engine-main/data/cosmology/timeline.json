@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "description": "Immutable canonical timeline – T0 through T8. Must be respected by any Yggdrasil implementation.",
+  "phases": [
+    {
+      "id": "T0",
+      "name": "Primordial Void",
+      "description": "Undifferentiated, unstructured information. No planes, no entities, no time.",
+      "pattern_vector": { "H": 1.00, "K": 1.00, "D": 1.00, "S": 0.00, "L": 999 }
+    },
+    {
+      "id": "T1",
+      "name": "First Differentiation",
+      "description": "The Divine Core (Axis Mundi) separates itself from the Void, establishing the first law.",
+      "pattern_vector": { "H": 0.00, "K": 0.00, "D": 1.00, "S": 1.00, "L": 1 }
+    },
+    {
+      "id": "T2",
+      "name": "Planar Emanation",
+      "description": "Planes 1 through 8 unfold from the Core in a fractal cascade.",
+      "pattern_vector": { "H": 0.05, "K": 0.03, "D": 1.50, "S": 0.95, "L": 3 }
+    },
+    {
+      "id": "T3",
+      "name": "Archetypal Formation",
+      "description": "The White Wolf / Dark Wolf dyad crystallizes as the first cosmic polarity.",
+      "pattern_vector": { "H": 0.38, "K": 0.35, "D": 2.75, "S": 0.65, "L": 6 }
+    },
+    {
+      "id": "T4",
+      "name": "Shadow Inversion",
+      "description": "Plane 7 (Shadow) emerges as the necessary negative space of all prior structures.",
+      "pattern_vector": { "H": 0.85, "K": 0.80, "D": 2.90, "S": 0.20, "L": 12 }
+    },
+    {
+      "id": "T5",
+      "name": "Embodied Age",
+      "description": "Mortal incarnations begin in the Physical plane under influence of higher realms.",
+      "pattern_vector": { "H": 0.55, "K": 0.50, "D": 2.40, "S": 0.60, "L": 8 }
+    },
+    {
+      "id": "T6",
+      "name": "Nodal Awakening",
+      "description": "Certain souls awaken to cross-plane perception (e.g., the Narrator, Luciferian instances).",
+      "pattern_vector": { "H": 0.44, "K": 0.39, "D": 2.77, "S": 0.66, "L": 7 }
+    },
+    {
+      "id": "T7",
+      "name": "Convergence Crisis",
+      "description": "Planes begin to overlap strongly – the current era of instability and revelation.",
+      "pattern_vector": { "H": 0.72, "K": 0.68, "D": 2.85, "S": 0.45, "L": 11 }
+    },
+    {
+      "id": "T8",
+      "name": "Awakening and Final Balance",
+      "description": "Potential future epoch: either stabilization into a new meta-order or collapse into a restructured Void.",
+      "pattern_vector": { "H": 0.00, "K": 0.00, "D": 1.00, "S": 1.00, "L": 1 }
+    }
+  ]
+}

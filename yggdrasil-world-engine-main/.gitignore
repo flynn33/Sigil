@@ -1,0 +1,36 @@
+# Unreal
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+*.sln
+*.opensdf
+*.sdf
+
+# Unity
+/Library/
+/Temp/
+/Obj/
+/Build/
+/Builds/
+/Assets/Plugins/
+/Assets/StreamingAssets/
+/Logs/
+/UserSettings/
+
+# General
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Editor directories
+.vscode/
+.idea/
+
+# macOS
+.DS_Store

@@ -1,0 +1,96 @@
+{
+  "version": "1.0",
+  "description": "Ready-to-use example creatures generated with the public pipeline. Drop straight into your game.",
+  "examples": [
+    {
+      "name": "Veylthar, the Fractured Mirror",
+      "imprintKey": "0x9f3c8e1a4b7d2f6e9c1d8a5b3e7f0c4d2a6b9e1f5c8d3a7e0b4f1c9d6a2e5b8",
+      "plane": 7,
+      "leaf": 3,
+      "pattern_metrics": {
+        "H_entropy": 0.18,
+        "K_complexity": 0.22,
+        "D_fractal_dim": 2.71,
+        "S_symmetry": 0.94,
+        "L_generator_length": 6
+      },
+      "gifts": [
+        "FractalCarapace",
+        "SymmetryBloom",
+        "ShadowCloak",
+        "FractalSpike",
+        "GlimmerTrail",
+        "EchoVoice"
+      ],
+      "appearance_lsystem": {
+        "axiom": "F",
+        "rules": {
+          "F": "F[+F][-F]F[+F-F]",
+          "+": "+",
+          "-": "-",
+          "[": "[",
+          "]": "]"
+        },
+        "angle": 25.7,
+        "iterations": 7
+      },
+      "lore_fragment": "Born from a shattered god’s reflection, it walks backwards through mirrors and leaves perfect copies that decay into glass dust."
+    },
+    {
+      "name": "Lumora, Child of Dawn",
+      "imprintKey": "0x1a2b3c4d5e6f7890123456789abcdeffedcba9876543210fedcba9876543210",
+      "plane": 6,
+      "leaf": 11,
+      "pattern_metrics": {
+        "H_entropy": 0.09,
+        "K_complexity": 0.12,
+        "D_fractal_dim": 1.93,
+        "S_symmetry": 0.99,
+        "L_generator_length": 4
+      },
+      "gifts": [
+        "LowEntropyAura",
+        "SymmetryBloom",
+        "CelestialResonance",
+        "SoftFootfalls",
+        "StarlightEyes"
+      ],
+      "appearance_lsystem": {
+        "axiom": "X",
+        "rules": {
+          "X": "F[+X][-X]FX",
+          "F": "FF"
+        },
+        "angle": 20,
+        "iterations": 6
+      },
+      "lore_fragment": "Where she steps, night becomes morning. Angels kneel. The Void itself flinches."
+    },
+    {
+      "name": "Nullwyrm",
+      "imprintKey": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "plane": 8,
+      "leaf": 1,
+      "pattern_metrics": {
+        "H_entropy": 1.00,
+        "K_complexity": 0.98,
+        "D_fractal_dim": 1.11,
+        "S_symmetry": 0.02,
+        "L_generator_length": 31
+      },
+      "gifts": [
+        "VoidWhisper",
+        "SingularityPulse",
+        "AetherScent",
+        "AshenWake"
+      ],
+      "appearance_lsystem": {
+        "axiom": "F",
+        "rules": { "F": "f" },
+        "angle": 0,
+        "iterations": 1
+      },
+      "lore_fragment": "A dragon-shaped hole in reality. It eats names."
+    }
+  ]
+}

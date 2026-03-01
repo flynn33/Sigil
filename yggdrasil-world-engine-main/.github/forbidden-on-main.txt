@@ -1,0 +1,24 @@
+# File patterns that must never appear on the main branch.
+# Main is the engine-agnostic spec. Engine code belongs on engine branches.
+
+# Unity
+*.cs
+*.meta
+*.unity
+*.prefab
+*.asset
+*.asmdef
+Packages/manifest.json
+
+# Unreal
+*.cpp
+*.hpp
+*.h
+*.uasset
+*.umap
+*.uplugin
+*.uproject
+
+# Engine directories
+Assets/
+Source/

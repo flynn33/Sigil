@@ -1,0 +1,36 @@
+{
+  "version": "0.3",
+  "date": "2024-06-22",
+  "author": "Flynn",
+  "note": "Very early experimental rune-to-number mapping before the final 9-bit hypercube system was locked in. Uses only 8 bits and no parity dyad.",
+  "description": "Historical draft – shows evolution toward final White Wolf / Dark Wolf system",
+  "bit_count": 8,
+  "parity_system": "none",
+  "sample_runes": [
+    {
+      "rune": "ᚠ",
+      "name": "Fehu",
+      "bits_8": "10110011",
+      "decimal": 179,
+      "intended_effect": "wealth generation",
+      "comment": "Later became 100000001 (9-bit) with White Wolf parity"
+    },
+    {
+      "rune": "ᚺ",
+      "name": "Hagalaz",
+      "bits_8": "11100111",
+      "decimal": 231,
+      "intended_effect": "chaotic disruption",
+      "comment": "Later became 111000111 (9-bit) – still even parity"
+    },
+    {
+      "rune": "ᛞ",
+      "name": "Dagaz",
+      "bits_8": "01111001",
+      "decimal": 121,
+      "intended_effect": "transformation / dawn",
+      "comment": "Final version: 011111100 – added Divine Core dimension"
+    }
+  ],
+  "historical_significance": "Proves the rune-to-binary pipeline concept existed before the final 9D tube geometry and White Wolf / Dark Wolf dyad were formalized. Included for prior-art protection."
+}

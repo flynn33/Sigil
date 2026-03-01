@@ -18,6 +18,7 @@ packages=(
   RFMythosCatalog
   RFEditor
   RFExport
+  RFSigilForsettiModules
 )
 
 for package in "${packages[@]}"; do

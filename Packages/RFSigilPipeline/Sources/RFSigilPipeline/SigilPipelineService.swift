@@ -66,8 +66,7 @@ public final class DefaultSigilPipelineService: SigilPipelineService, Sendable {
     private let imprintBuilder: any ImprintKeyBuilding
     private let coreBuilder: any SigilCore9DBuilding
     private let lsystemEngine: any LSystemGenerating
-    private let turtleProjector: any TurtleProjecting
-    private let symmetryComposer: any SymmetryComposing
+    private let geometryBuilder9D: any Sigil9DGeometryBuilding
     private let geometryNormalizer: any SegmentGeometryNormalizing
     private let hasher: any StableHashing
     private let nameGenerator: any CelestialNaming
@@ -76,8 +75,7 @@ public final class DefaultSigilPipelineService: SigilPipelineService, Sendable {
     private let symmetryOrder = 12
     private let canvasSize = CGSize(width: 1024, height: 1024)
     private let canvasPadding = 0.10
-    private let maxExpandedLSystemLength = 80_000
-    private let maxBaseSegmentCount = 8_000
+    private let maxProjectedSegmentCount = 8_000
 
     public init(engineData: EngineDataProviding = EngineDataStore()) {
         self.engineData = engineData
@@ -87,8 +85,7 @@ public final class DefaultSigilPipelineService: SigilPipelineService, Sendable {
         self.imprintBuilder = ImprintKeyBuilder()
         self.coreBuilder = SigilCore9DBuilder()
         self.lsystemEngine = AgentLSystemEngine()
-        self.turtleProjector = TurtleProjector2D()
-        self.symmetryComposer = RotationalSymmetryComposer()
+        self.geometryBuilder9D = PortableSigil9DGeometryBuilder()
         self.geometryNormalizer = GeometryNormalizer()
         self.hasher = FNV1a64Hasher()
         self.nameGenerator = CelestialNameGenerator()
@@ -119,7 +116,7 @@ public final class DefaultSigilPipelineService: SigilPipelineService, Sendable {
 
         let core = coreBuilder.buildCore9D(vector: vector)
         let imprint = imprintBuilder.build(for: vector)
-        let (_, geometry) = buildGeometry(core9D: core, seed64: imprint.seed64)
+        let (_, geometry) = buildGeometry(vector: vector, core9D: core, seed64: imprint.seed64)
         return geometry
     }
 
@@ -149,7 +146,7 @@ public final class DefaultSigilPipelineService: SigilPipelineService, Sendable {
         }
 
         let imprint = imprintBuilder.build(for: vector)
-        let (lsystem, geometry) = buildGeometry(core9D: core9D, seed64: imprint.seed64)
+        let (lsystem, geometry) = buildGeometry(vector: vector, core9D: core9D, seed64: imprint.seed64)
         let geometryHash = hasher.hex(hasher.hashString(geometry.serialized()))
 
         let hasOptionalExtras = !normalized.significantNumbers.isEmpty || !normalized.additionalStrings.isEmpty
@@ -174,21 +171,14 @@ public final class DefaultSigilPipelineService: SigilPipelineService, Sendable {
         )
     }
 
-    private func buildGeometry(core9D: SigilCore9DState, seed64: UInt64) -> (LSystemDefinition, SigilGeometry) {
+    private func buildGeometry(
+        vector: CanonicalVector,
+        core9D: SigilCore9DState,
+        seed64: UInt64
+    ) -> (LSystemDefinition, SigilGeometry) {
         let lsystem = lsystemEngine.makeConfig(core9D: core9D, seed64: seed64)
-        let expanded = lsystemEngine.expand(
-            axiom: lsystem.axiom,
-            rules: lsystem.rules,
-            iterations: lsystem.iterations,
-            maxLength: maxExpandedLSystemLength
-        )
-        let projected = turtleProjector.project(lsys: expanded, angleDeg: lsystem.angle, step: 1.0)
-        let boundedBaseSegments = deterministicSample(projected, maxCount: maxBaseSegmentCount)
-        let segments = symmetryComposer.applyRotationalSymmetry(
-            segments: boundedBaseSegments,
-            order: symmetryOrder,
-            center: (0.0, 0.0)
-        )
+        let projected = geometryBuilder9D.buildSegments(vector: vector)
+        let segments = deterministicSample(projected, maxCount: maxProjectedSegmentCount)
         let geometry = geometryNormalizer.normalize(segments: segments, canvas: canvasSize, padding: canvasPadding)
         return (lsystem, geometry)
     }
@@ -573,15 +563,63 @@ private struct AgentPatternVectorBuilder: PatternVectorBuilding {
             return reducer.reduceToSingleDigit(average)
         }()
 
+        let baseH = (Double(nameAverage) / 9.0).clamped(to: 0...1)
+        let baseK = (Double(dateReduce) / 9.0).clamped(to: 0...1)
+        let baseDNorm = (Double(orderReduce) / 9.0).clamped(to: 0...1)
+        let baseS = (Double(geoReduce ?? additionalReduce) / 9.0).clamped(to: 0...1)
+        let baseLNorm = (Double(petAverage) / 9.0).clamped(to: 0...1)
+
+        // Mix in a deterministic fingerprint of full profile input to reduce collisions.
+        let mix = inputMixFractions(from: input)
+        let h = (0.70 * baseH + 0.30 * mix[0]).clamped(to: 0...1)
+        let k = (0.70 * baseK + 0.30 * mix[1]).clamped(to: 0...1)
+        let dNorm = (0.70 * baseDNorm + 0.30 * mix[2]).clamped(to: 0...1)
+        let s = (0.70 * baseS + 0.30 * mix[3]).clamped(to: 0...1)
+        let lNorm = (0.70 * baseLNorm + 0.30 * mix[4]).clamped(to: 0...1)
+
         let vector = CanonicalVector(
-            H_entropy: (Double(nameAverage) / 9.0).clamped(to: 0...1),
-            K_complexity: (Double(dateReduce) / 9.0).clamped(to: 0...1),
-            D_fractal_dim: (1.0 + (Double(orderReduce) / 9.0) * 2.0).clamped(to: 1...3),
-            S_symmetry: (Double(geoReduce ?? additionalReduce) / 9.0).clamped(to: 0...1),
-            L_generator_length: (1 + Int(floor(Double(petAverage) * 111.0))).clamped(to: 1...999)
+            H_entropy: h,
+            K_complexity: k,
+            D_fractal_dim: (1.0 + dNorm * 2.0).clamped(to: 1...3),
+            S_symmetry: s,
+            L_generator_length: (1 + Int(floor(lNorm * 998.0))).clamped(to: 1...999)
         )
 
         return PatternVectorBuildOutput(vector: vector, dateReduce: dateReduce)
+    }
+
+    private func inputMixFractions(from input: UserProfileInput) -> [Double] {
+        let lat = input.birthLatitude.map { String(format: "%.6f", $0) } ?? ""
+        let lon = input.birthLongitude.map { String(format: "%.6f", $0) } ?? ""
+        let canonical = [
+            input.firstName,
+            input.lastName,
+            input.birthDate,
+            input.birthTime,
+            String(input.birthOrder),
+            String(input.motherBirthOrder),
+            String(input.fatherBirthOrder),
+            input.petNames.joined(separator: ","),
+            input.significantNumbers.map(String.init).joined(separator: ","),
+            input.additionalStrings.joined(separator: ","),
+            lat,
+            lon
+        ]
+        .joined(separator: "|")
+
+        let digest = SHA256.hash(data: Data(canonical.utf8))
+        let bytes = Array(digest)
+        guard bytes.count >= 10 else {
+            return [0.5, 0.5, 0.5, 0.5, 0.5]
+        }
+
+        var values: [Double] = []
+        values.reserveCapacity(5)
+        for index in stride(from: 0, to: 10, by: 2) {
+            let raw = (UInt16(bytes[index]) << 8) | UInt16(bytes[index + 1])
+            values.append(Double(raw) / 65535.0)
+        }
+        return values
     }
 }
 

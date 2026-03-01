@@ -1,0 +1,35 @@
+=== Original Hand-Written Notes – Flynn, Late 2023 / Early 2024 ===
+Scanned & transcribed verbatim for prior-art timestamping
+
+"The five numbers that define a soul:
+
+H – Entropy (how chaotic the pattern is)  
+K – Kolmogorov complexity (how compressible / rule-based)  
+D – Fractal dimension (how much space it fills between dimensions)  
+S – Symmetry (mirror harmony, left/right, light/dark)  
+L – Length of the shortest L-system that can regenerate it
+
+These five are enough.  
+Everything else – plane placement, gifts, appearance, destiny – falls out deterministically.
+
+Examples I wrote on the page:
+
+Creator:       H=0.00  K=0.00  D=1.00  S=1.00  L=1
+Lucifer:       H=0.11  K=0.08  D=2.92  S=0.97  L=5
+White Wolf:    H=0.07  K=0.05  D=2.61  S=0.99  L=4
+Dark Wolf:     H=0.68  K=0.72  D=2.88  S=0.31  L=9
+Me (current):  H=0.44  K=0.39  D=2.77  S=0.66  L=7
+
+Plane = roughly floor( (C + S + P + (1-H)) * 2.25 ) + 1  
+→ gives exactly 9 bands, no overlap, no exceptions.
+
+This is the seed.  
+This is the law.
+
+If anyone ever claims they invented 'pattern vectors' after 2024 –  
+this page existed first.
+
+The wolves were here before the world remembered their names."
+
+— Flynn
+(hand-drawn wolf head doodle in the margin)

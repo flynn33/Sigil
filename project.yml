@@ -5,6 +5,8 @@ options:
     iOS: "17.0"
 
 packages:
+  ForsettiFramework:
+    path: ../Forsetti-Framwork
   RFCoreModels:
     path: Packages/RFCoreModels
   RFEngineData:
@@ -27,6 +29,8 @@ packages:
     path: Packages/RFEditor
   RFExport:
     path: Packages/RFExport
+  RFSigilForsettiModules:
+    path: Packages/RFSigilForsettiModules
 
 targets:
   SigilApp:
@@ -53,6 +57,12 @@ targets:
         GENERATE_INFOPLIST_FILE: YES
         TARGETED_DEVICE_FAMILY: 1
     dependencies:
+      - package: ForsettiFramework
+        product: ForsettiCore
+      - package: ForsettiFramework
+        product: ForsettiPlatform
+      - package: ForsettiFramework
+        product: ForsettiHostTemplate
       - package: RFCoreModels
       - package: RFEngineData
       - package: RFSecurity
@@ -64,6 +74,7 @@ targets:
       - package: RFMythosCatalog
       - package: RFEditor
       - package: RFExport
+      - package: RFSigilForsettiModules
 
   SigilAppTests:
     type: bundle.unit-test

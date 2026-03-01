@@ -1,0 +1,92 @@
+{
+  "process_name": "SigilForge",
+  "version": "1.0",
+  "date": "2025-12-25",
+  "description": "A procedural generation process for creating personalized geometric sigils from user-provided numeric seed data. The resulting sigil serves as an input image for further transformations in the SymDim Transformer pipeline, enabling higher-dimensional analysis, pattern exploration, and ties to mathematical/physics concepts. Sigils are generated with emphasis on symmetry and geometry, inspired by esoteric traditions but grounded in algorithmic reproducibility.",
+  "integration_note": "SigilForge is an optional input mode within the SymDim Transformer software, allowing users to generate sigils instead of uploading external images. The output sigil image feeds directly into the SymDim pipeline for X-D conversion and subsequent steps.",
+  "input": {
+    "seed_data": {
+      "description": "User-entered string of numbers (e.g., birthdate '20001225', physical constants '6.626e-34', or arbitrary sequences like '123456789'). Treated as a seed for deterministic generation.",
+      "type": "string",
+      "validation": "Must contain only digits, decimals, hyphens, or scientific notation. Non-numeric characters are ignored or hashed.",
+      "examples": ["19900101", "3.1415926535", "42-137-2025"]
+    },
+    "customization_parameters": {
+      "num_points": {"default": 12, "range": [5, 30], "description": "Number of anchor points defining the sigil's geometry."},
+      "symmetry_order": {"default": 12, "range": [4, 24], "description": "Order of rotational symmetry (e.g., 12-fold for radial designs like the Black Sun)."},
+      "complexity": {"default": "medium", "options": ["low", "medium", "high"], "description": "Controls density of connections and curves: low (simple lines), medium (beziers), high (fractal-like branches)."},
+      "style": {"default": "radial", "options": ["radial", "linear", "grid", "chaotic"], "description": "Base motif: radial (circular emanations), linear (straight connections), grid (matrix-based), chaotic (randomized with seed constraints)."}
+    }
+  },
+  "workflow_steps": [
+    {
+      "step": 1,
+      "name": "Seed Processing",
+      "actions": [
+        "Validate and sanitize input string (remove invalid characters).",
+        "Compute a hash of the seed (e.g., using std::hash<std::string> or CRC32 for a 64-bit integer).",
+        "Use the hash as a seed for a pseudo-random number generator (e.g., std::mt19937) to ensure reproducibility."
+      ],
+      "output": "Seeded RNG instance for consistent geometric parameter generation."
+    },
+    {
+      "step": 2,
+      "name": "Point Generation",
+      "actions": [
+        "Generate 'num_points' coordinates in a 2D plane using the seeded RNG.",
+        "For radial style: Use polar coordinates (angle = 360° / symmetry_order increments, radius = RNG-modulated between 0.1-1.0 normalized).",
+        "For other styles: Linear (along a line), grid (uniform matrix), chaotic (uniform random distribution).",
+        "Apply symmetry: Mirror or rotate points to enforce symmetry_order (e.g., duplicate and transform for rotational invariance)."
+      ],
+      "output": "std::vector of 2D points (e.g., pairs of doubles for x,y)."
+    },
+    {
+      "step": 3,
+      "name": "Connection and Shape Building",
+      "actions": [
+        "Connect points based on style: Radial (from center to points), linear (sequential), grid (edges between neighbors), chaotic (Delaunay triangulation or RNG-selected edges).",
+        "Add curves if complexity > low: Use quadratic Bezier curves (control points from RNG).",
+        "For high complexity: Introduce branching (e.g., midpoint splits with RNG offsets).",
+        "Enforce mathematical accuracy: Ensure connections respect symmetry (e.g., transform edges across axes)."
+      ],
+      "output": "List of lines, curves, or polygons defining the sigil geometry."
+    },
+    {
+      "step": 4,
+      "name": "Rendering to Image",
+      "actions": [
+        "Create a canvas (e.g., 512x512 cv::Mat in OpenCV, initialized to white).",
+        "Draw points as small circles (cv::circle).",
+        "Draw connections as lines (cv::line) or polylines for curves.",
+        "Apply anti-aliasing and thickness based on complexity.",
+        "Convert to grayscale/binary if needed for SymDim input."
+      ],
+      "output": "In-memory image (cv::Mat) ready for SymDim pipeline."
+    },
+    {
+      "step": 5,
+      "name": "Preview and Export",
+      "actions": [
+        "Display preview in UI (e.g., MFC window or OpenCV imshow for testing).",
+        "Optionally save as PNG (cv::imwrite).",
+        "Feed directly to SymDim Transformer's Image Acquisition step."
+      ]
+    }
+  ],
+  "rules_for_mathematical_accuracy": {
+    "reproducibility": "Same seed always yields identical sigil (deterministic hashing and RNG).",
+    "symmetry_enforcement": "Apply transformations (rotations, mirrors) to maintain specified order, using matrix operations (e.g., Eigen for rotations).",
+    "scaling": "Normalize coordinates to unit circle/square for consistent rendering regardless of num_points.",
+    "edge_cases": "Handle low points (e.g., min 5) by defaulting to pentagonal symmetry; warn on invalid seeds."
+  },
+  "applications": {
+    "mathematics": "Generate test geometries for symmetry group analysis or fractal seeding.",
+    "physics": "Seed simulations with personalized patterns for higher-D projections or entropy calculations.",
+    "gaming": "Procedural asset creation (e.g., unique runes or emblems based on player data)."
+  },
+  "future_extensions": [
+    "Support text seeds (convert via ASCII sum or hashing).",
+    "Integrate ML for style enhancement (e.g., auto-refine curves).",
+    "Export to vector formats (SVG) for scalable use."
+  ]
+}

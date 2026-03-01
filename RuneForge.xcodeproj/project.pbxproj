@@ -3,33 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048C3BD77AE3B6A49E985C10 /* SigilForsettiHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628CDF9E1F7EEE1C9980C53E /* SigilForsettiHostView.swift */; };
+		054197E72FF372EF3EF345A2 /* RFMythosCatalog in Frameworks */ = {isa = PBXBuildFile; productRef = 676C5E310E3AF531A62DB213 /* RFMythosCatalog */; };
 		06EF885DA0F1C225872B1F16 /* SigilGeometryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A497AECA34A9C492A4D36F17 /* SigilGeometryView.swift */; };
-		12A097C4AF7AF5CDE85ADC2A /* RFRendering in Frameworks */ = {isa = PBXBuildFile; productRef = 2452737EAA59A045BB71F452 /* RFRendering */; };
+		12A097C4AF7AF5CDE85ADC2A /* RFSigilPipeline in Frameworks */ = {isa = PBXBuildFile; productRef = BDE607B03BBEADA679842BD3 /* RFSigilPipeline */; };
 		1D6BF88386DD0589D02CBB3F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DE97B9729F16FD5515F0B /* SettingsView.swift */; };
 		1EA1FCE7B7116F76B39A7326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD9B3911658F1AFEB6DF3BC /* Assets.xcassets */; };
 		1F833F4A34D4F9C208C81253 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9163C969EE5D204D673D1A /* OnboardingView.swift */; };
-		23F1DFF9A8B1C0806A03C7C6 /* RFStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A39920E8AFE6A724F90CCE2C /* RFStorage */; };
-		2476F96711B8C514B87AD331 /* RFSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 3AB8B7CFB5490B1FEE5A3ECE /* RFSecurity */; };
+		23F1DFF9A8B1C0806A03C7C6 /* RFCoreModels in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7B92B982D76FC88E7E78E9 /* RFCoreModels */; };
+		2476F96711B8C514B87AD331 /* ForsettiHostTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = C129220E52CD63295D3AEBD8 /* ForsettiHostTemplate */; };
 		2A0B0B92EA4A23152391DE22 /* ProfileEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C8CBDEEDA8136473542E42 /* ProfileEditorView.swift */; };
-		3B8372314B29167206BFC297 /* RFSigilPipeline in Frameworks */ = {isa = PBXBuildFile; productRef = BDE607B03BBEADA679842BD3 /* RFSigilPipeline */; };
+		3B8372314B29167206BFC297 /* RFEngineData in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF924257CE1E564F26AA5C1 /* RFEngineData */; };
+		50839811D6C164ED59A5AB54 /* SigilForsettiBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DE0377A35BB6989A1C54F /* SigilForsettiBootstrap.swift */; };
 		57EDF4FF18A3C8FEF4F7EE6E /* SigilStudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD5404ECCA6B32FCC256FF /* SigilStudioView.swift */; };
+		586455C8EDD00C625927CF04 /* RFSigilForsettiModules in Frameworks */ = {isa = PBXBuildFile; productRef = 5B9133D3EAE60A2AB327AE65 /* RFSigilForsettiModules */; };
 		5A24BE5EA4434D80FFDF3477 /* SigilAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE845F818E01D91F1476A74 /* SigilAppTests.swift */; };
-		60EC5F1BB73B1D659364EC64 /* RFEngineData in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF924257CE1E564F26AA5C1 /* RFEngineData */; };
-		73944B7A5FFD9A334539FCA7 /* RFMeaning in Frameworks */ = {isa = PBXBuildFile; productRef = 9BEDE4F7C669537D9DC6FC8C /* RFMeaning */; };
-		87FC043C687D4E25AF66327D /* RFExport in Frameworks */ = {isa = PBXBuildFile; productRef = A72873A192A9DA67536FAE20 /* RFExport */; };
+		60EC5F1BB73B1D659364EC64 /* ForsettiPlatform in Frameworks */ = {isa = PBXBuildFile; productRef = 656CFE1904464FD684C80C29 /* ForsettiPlatform */; };
+		65C827B2C940A2CF14582B3D /* RFEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 59F97A8D67427DA5E293F988 /* RFEditor */; };
+		73944B7A5FFD9A334539FCA7 /* RFSecurity in Frameworks */ = {isa = PBXBuildFile; productRef = 3AB8B7CFB5490B1FEE5A3ECE /* RFSecurity */; };
+		87FC043C687D4E25AF66327D /* RFRendering in Frameworks */ = {isa = PBXBuildFile; productRef = 2452737EAA59A045BB71F452 /* RFRendering */; };
 		933161448EC304AA92042E50 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CA5B7A4865A7FF3951F8CC /* AppCoordinator.swift */; };
 		A1178C39621A23F409797072 /* SigilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BB7ED553BD6C3ACE9A5CDD /* SigilApp.swift */; };
-		B3A8226C036C52499A3C8F7D /* RFGeocoding in Frameworks */ = {isa = PBXBuildFile; productRef = 7C31F7F75B81D286C1C91263 /* RFGeocoding */; };
-		B94054E44C0D14D457435654 /* RFCoreModels in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7B92B982D76FC88E7E78E9 /* RFCoreModels */; };
+		B3A8226C036C52499A3C8F7D /* RFStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A39920E8AFE6A724F90CCE2C /* RFStorage */; };
+		B94054E44C0D14D457435654 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = F1C2B9CB9194AF4CC46774FC /* ForsettiCore */; };
 		BFD6426A8ABE7800DD156A2B /* RFMysticTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD58F73E20D23E6D9DF6E83F /* RFMysticTheme.swift */; };
 		CC321231B69B0970CD962A9E /* ProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4884E81EA0B72F68FF2AF2B0 /* ProfilesView.swift */; };
-		CCE46B5683A6086DF182D7A7 /* RFMythosCatalog in Frameworks */ = {isa = PBXBuildFile; productRef = 676C5E310E3AF531A62DB213 /* RFMythosCatalog */; };
+		CCE46B5683A6086DF182D7A7 /* RFMeaning in Frameworks */ = {isa = PBXBuildFile; productRef = 9BEDE4F7C669537D9DC6FC8C /* RFMeaning */; };
+		DCD769F4BC4A4E0950DDE685 /* ForsettiArchitecturePolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FD23E6B873C28E2E0338DA /* ForsettiArchitecturePolicyTests.swift */; };
 		DF3A0E6BE05B0E720E91DE1D /* DynamicFieldEditorRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEE19D32EEB4DD993AF29FF /* DynamicFieldEditorRow.swift */; };
-		E023A2C65A2816DE98FF121E /* RFEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 59F97A8D67427DA5E293F988 /* RFEditor */; };
+		E023A2C65A2816DE98FF121E /* RFGeocoding in Frameworks */ = {isa = PBXBuildFile; productRef = 7C31F7F75B81D286C1C91263 /* RFGeocoding */; };
+		E4A78B06F4628486085EE62A /* RFExport in Frameworks */ = {isa = PBXBuildFile; productRef = A72873A192A9DA67536FAE20 /* RFExport */; };
 		E9B09DA3329ECF8B0E3F02BA /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917C42439AB1FE89D970D6AE /* AppDependencies.swift */; };
 		EE3AB0C71A7F6E4760ACE1FC /* LoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCA3F133A36DFF287AA307 /* LoreView.swift */; };
 		F7AF4DE6810F6C4E86535DE3 /* ProfileFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8084D672ED2C78356ADA68 /* ProfileFormModel.swift */; };
@@ -51,7 +58,7 @@
 		0E8084D672ED2C78356ADA68 /* ProfileFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFormModel.swift; sourceTree = "<group>"; };
 		13082AF7DD57FAD75A1B982E /* RFSigilPipeline */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFSigilPipeline; path = Packages/RFSigilPipeline; sourceTree = SOURCE_ROOT; };
 		14F486100C989D4A10F841F5 /* RFExport */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFExport; path = Packages/RFExport; sourceTree = SOURCE_ROOT; };
-		1A2323F55D702CE848966C12 /* Sigil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sigil.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A2323F55D702CE848966C12 /* SigilApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SigilApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25AF894FA2D7E106B83800AE /* RFStorage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFStorage; path = Packages/RFStorage; sourceTree = SOURCE_ROOT; };
 		2FE845F818E01D91F1476A74 /* SigilAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilAppTests.swift; sourceTree = "<group>"; };
 		35186C8195C647B42C47AE01 /* RFMythosCatalog */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFMythosCatalog; path = Packages/RFMythosCatalog; sourceTree = SOURCE_ROOT; };
@@ -63,18 +70,23 @@
 		54CA5B7A4865A7FF3951F8CC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		5E7D03BD84C79566ADB70F09 /* RFMeaning */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFMeaning; path = Packages/RFMeaning; sourceTree = SOURCE_ROOT; };
 		5F9DE97B9729F16FD5515F0B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		628CDF9E1F7EEE1C9980C53E /* SigilForsettiHostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilForsettiHostView.swift; sourceTree = "<group>"; };
 		70B15948B7EA61C5EDD6D025 /* RFSecurity */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFSecurity; path = Packages/RFSecurity; sourceTree = SOURCE_ROOT; };
 		74DD5404ECCA6B32FCC256FF /* SigilStudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilStudioView.swift; sourceTree = "<group>"; };
 		7EBCA3F133A36DFF287AA307 /* LoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoreView.swift; sourceTree = "<group>"; };
 		8B9163C969EE5D204D673D1A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		917C42439AB1FE89D970D6AE /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
+		999AF7E26D7724515F864813 /* Forsetti-Framwork */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Forsetti-Framwork"; path = "../Forsetti-Framwork"; sourceTree = SOURCE_ROOT; };
 		A008AF0FBDFE409F539EB43C /* RFCoreModels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFCoreModels; path = Packages/RFCoreModels; sourceTree = SOURCE_ROOT; };
 		A497AECA34A9C492A4D36F17 /* SigilGeometryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilGeometryView.swift; sourceTree = "<group>"; };
+		A52E5EB198CB239D672BDD98 /* RFSigilForsettiModules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFSigilForsettiModules; path = Packages/RFSigilForsettiModules; sourceTree = SOURCE_ROOT; };
 		BD58F73E20D23E6D9DF6E83F /* RFMysticTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RFMysticTheme.swift; sourceTree = "<group>"; };
 		D426D18D7428BE1155306C94 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		E7C8CBDEEDA8136473542E42 /* ProfileEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorView.swift; sourceTree = "<group>"; };
 		E9E25C9CF3B644DC8FF19072 /* SigilAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SigilAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9DE0377A35BB6989A1C54F /* SigilForsettiBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilForsettiBootstrap.swift; sourceTree = "<group>"; };
 		EBEE19D32EEB4DD993AF29FF /* DynamicFieldEditorRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFieldEditorRow.swift; sourceTree = "<group>"; };
+		F6FD23E6B873C28E2E0338DA /* ForsettiArchitecturePolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForsettiArchitecturePolicyTests.swift; sourceTree = "<group>"; };
 		FED6274BC70459769A5DC3DD /* RFGeocoding */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFGeocoding; path = Packages/RFGeocoding; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -83,17 +95,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B94054E44C0D14D457435654 /* RFCoreModels in Frameworks */,
-				60EC5F1BB73B1D659364EC64 /* RFEngineData in Frameworks */,
-				2476F96711B8C514B87AD331 /* RFSecurity in Frameworks */,
-				23F1DFF9A8B1C0806A03C7C6 /* RFStorage in Frameworks */,
-				3B8372314B29167206BFC297 /* RFSigilPipeline in Frameworks */,
-				73944B7A5FFD9A334539FCA7 /* RFMeaning in Frameworks */,
-				B3A8226C036C52499A3C8F7D /* RFGeocoding in Frameworks */,
-				12A097C4AF7AF5CDE85ADC2A /* RFRendering in Frameworks */,
-				CCE46B5683A6086DF182D7A7 /* RFMythosCatalog in Frameworks */,
-				E023A2C65A2816DE98FF121E /* RFEditor in Frameworks */,
-				87FC043C687D4E25AF66327D /* RFExport in Frameworks */,
+				B94054E44C0D14D457435654 /* ForsettiCore in Frameworks */,
+				60EC5F1BB73B1D659364EC64 /* ForsettiPlatform in Frameworks */,
+				2476F96711B8C514B87AD331 /* ForsettiHostTemplate in Frameworks */,
+				23F1DFF9A8B1C0806A03C7C6 /* RFCoreModels in Frameworks */,
+				3B8372314B29167206BFC297 /* RFEngineData in Frameworks */,
+				73944B7A5FFD9A334539FCA7 /* RFSecurity in Frameworks */,
+				B3A8226C036C52499A3C8F7D /* RFStorage in Frameworks */,
+				12A097C4AF7AF5CDE85ADC2A /* RFSigilPipeline in Frameworks */,
+				CCE46B5683A6086DF182D7A7 /* RFMeaning in Frameworks */,
+				E023A2C65A2816DE98FF121E /* RFGeocoding in Frameworks */,
+				87FC043C687D4E25AF66327D /* RFRendering in Frameworks */,
+				054197E72FF372EF3EF345A2 /* RFMythosCatalog in Frameworks */,
+				65C827B2C940A2CF14582B3D /* RFEditor in Frameworks */,
+				E4A78B06F4628486085EE62A /* RFExport in Frameworks */,
+				586455C8EDD00C625927CF04 /* RFSigilForsettiModules in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +119,7 @@
 		31EB3D12994FCC6997C93B84 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				999AF7E26D7724515F864813 /* Forsetti-Framwork */,
 				A008AF0FBDFE409F539EB43C /* RFCoreModels */,
 				4D41513918B7A02ABD27ABFD /* RFEditor */,
 				01B2AA170F97427198CABC0A /* RFEngineData */,
@@ -112,6 +129,7 @@
 				35186C8195C647B42C47AE01 /* RFMythosCatalog */,
 				353422B7537603F6ED5B1DE3 /* RFRendering */,
 				70B15948B7EA61C5EDD6D025 /* RFSecurity */,
+				A52E5EB198CB239D672BDD98 /* RFSigilForsettiModules */,
 				13082AF7DD57FAD75A1B982E /* RFSigilPipeline */,
 				25AF894FA2D7E106B83800AE /* RFStorage */,
 			);
@@ -128,6 +146,7 @@
 				4884E81EA0B72F68FF2AF2B0 /* ProfilesView.swift */,
 				D426D18D7428BE1155306C94 /* RootView.swift */,
 				5F9DE97B9729F16FD5515F0B /* SettingsView.swift */,
+				628CDF9E1F7EEE1C9980C53E /* SigilForsettiHostView.swift */,
 				A497AECA34A9C492A4D36F17 /* SigilGeometryView.swift */,
 				74DD5404ECCA6B32FCC256FF /* SigilStudioView.swift */,
 			);
@@ -148,7 +167,7 @@
 		67B81C872B238ABAC570A0E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A2323F55D702CE848966C12 /* Sigil.app */,
+				1A2323F55D702CE848966C12 /* SigilApp.app */,
 				E9E25C9CF3B644DC8FF19072 /* SigilAppTests.xctest */,
 			);
 			name = Products;
@@ -157,6 +176,7 @@
 		6AAAB009B6D4A82BBECB235E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				F6FD23E6B873C28E2E0338DA /* ForsettiArchitecturePolicyTests.swift */,
 				2FE845F818E01D91F1476A74 /* SigilAppTests.swift */,
 			);
 			name = Tests;
@@ -181,6 +201,7 @@
 			children = (
 				54CA5B7A4865A7FF3951F8CC /* AppCoordinator.swift */,
 				917C42439AB1FE89D970D6AE /* AppDependencies.swift */,
+				EB9DE0377A35BB6989A1C54F /* SigilForsettiBootstrap.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -245,6 +266,9 @@
 			);
 			name = SigilApp;
 			packageProductDependencies = (
+				F1C2B9CB9194AF4CC46774FC /* ForsettiCore */,
+				656CFE1904464FD684C80C29 /* ForsettiPlatform */,
+				C129220E52CD63295D3AEBD8 /* ForsettiHostTemplate */,
 				8F7B92B982D76FC88E7E78E9 /* RFCoreModels */,
 				1AF924257CE1E564F26AA5C1 /* RFEngineData */,
 				3AB8B7CFB5490B1FEE5A3ECE /* RFSecurity */,
@@ -256,9 +280,10 @@
 				676C5E310E3AF531A62DB213 /* RFMythosCatalog */,
 				59F97A8D67427DA5E293F988 /* RFEditor */,
 				A72873A192A9DA67536FAE20 /* RFExport */,
+				5B9133D3EAE60A2AB327AE65 /* RFSigilForsettiModules */,
 			);
 			productName = SigilApp;
-			productReference = 1A2323F55D702CE848966C12 /* Sigil.app */;
+			productReference = 1A2323F55D702CE848966C12 /* SigilApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -281,6 +306,7 @@
 			mainGroup = 5EFAA7C24F431AED3EC5224A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				B5B2072CA4089435BAD264E3 /* XCLocalSwiftPackageReference "../Forsetti-Framwork" */,
 				5B7274B5F000B8E14871597D /* XCLocalSwiftPackageReference "Packages/RFCoreModels" */,
 				58A050879B634F92387924F3 /* XCLocalSwiftPackageReference "Packages/RFEditor" */,
 				8F64AF19D3ABAC389744C109 /* XCLocalSwiftPackageReference "Packages/RFEngineData" */,
@@ -290,9 +316,11 @@
 				A73820C94F98C10E46257124 /* XCLocalSwiftPackageReference "Packages/RFMythosCatalog" */,
 				5A66E056EC605B48CC01B9F3 /* XCLocalSwiftPackageReference "Packages/RFRendering" */,
 				D1CC929DB346848B45BE8BE0 /* XCLocalSwiftPackageReference "Packages/RFSecurity" */,
+				41B8AD669D794C2993A52CF2 /* XCLocalSwiftPackageReference "Packages/RFSigilForsettiModules" */,
 				68CFFCE13886BAC55A86741D /* XCLocalSwiftPackageReference "Packages/RFSigilPipeline" */,
 				39CE63460E64824E9BC2A411 /* XCLocalSwiftPackageReference "Packages/RFStorage" */,
 			);
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -318,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCD769F4BC4A4E0950DDE685 /* ForsettiArchitecturePolicyTests.swift in Sources */,
 				5A24BE5EA4434D80FFDF3477 /* SigilAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +367,8 @@
 				F99CF04DFD5AEBB11DDAEE8F /* RootView.swift in Sources */,
 				1D6BF88386DD0589D02CBB3F /* SettingsView.swift in Sources */,
 				A1178C39621A23F409797072 /* SigilApp.swift in Sources */,
+				50839811D6C164ED59A5AB54 /* SigilForsettiBootstrap.swift in Sources */,
+				048C3BD77AE3B6A49E985C10 /* SigilForsettiHostView.swift in Sources */,
 				06EF885DA0F1C225872B1F16 /* SigilGeometryView.swift in Sources */,
 				57EDF4FF18A3C8FEF4F7EE6E /* SigilStudioView.swift in Sources */,
 			);
@@ -435,13 +466,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9AQ2C2838M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Sigil;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Sigil uses location only for Apple Maps birthplace search.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Sigil does not use microphone access.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -452,8 +480,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.daleyjames.sigil;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigil.app;
 				PRODUCT_NAME = Sigil;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 6.0;
@@ -465,13 +493,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9AQ2C2838M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Sigil;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Sigil uses location only for Apple Maps birthplace search.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Sigil does not use microphone access.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -482,8 +507,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.daleyjames.sigil;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sigil.app;
 				PRODUCT_NAME = Sigil;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 6.0;
@@ -616,6 +641,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/RFExport;
 		};
+		41B8AD669D794C2993A52CF2 /* XCLocalSwiftPackageReference "Packages/RFSigilForsettiModules" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/RFSigilForsettiModules;
+		};
 		58A050879B634F92387924F3 /* XCLocalSwiftPackageReference "Packages/RFEditor" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/RFEditor;
@@ -648,6 +677,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/RFMythosCatalog;
 		};
+		B5B2072CA4089435BAD264E3 /* XCLocalSwiftPackageReference "../Forsetti-Framwork" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../Forsetti-Framwork";
+		};
 		D1CC929DB346848B45BE8BE0 /* XCLocalSwiftPackageReference "Packages/RFSecurity" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/RFSecurity;
@@ -670,6 +703,14 @@
 		59F97A8D67427DA5E293F988 /* RFEditor */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RFEditor;
+		};
+		5B9133D3EAE60A2AB327AE65 /* RFSigilForsettiModules */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RFSigilForsettiModules;
+		};
+		656CFE1904464FD684C80C29 /* ForsettiPlatform */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ForsettiPlatform;
 		};
 		676C5E310E3AF531A62DB213 /* RFMythosCatalog */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -698,6 +739,14 @@
 		BDE607B03BBEADA679842BD3 /* RFSigilPipeline */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RFSigilPipeline;
+		};
+		C129220E52CD63295D3AEBD8 /* ForsettiHostTemplate */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ForsettiHostTemplate;
+		};
+		F1C2B9CB9194AF4CC46774FC /* ForsettiCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ForsettiCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

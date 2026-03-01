@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "description": "Sample for 3D-extended L-system in creature generation. Use as template: Input metrics from sigil, output expanded string and interpreted 3D vertices/edges for mesh/display. Extends 2D with ^/& for pitch, /\\ for roll.",
+  "input_metrics": {
+    "H_entropy": 0.25,
+    "K_complexity": 0.30,
+    "D_fractal_dim": 2.50,
+    "S_symmetry": 0.80,
+    "L_generator_length": 5
+  },
+  "logic_applied": "ImprintKey = SHA256(metrics); RNG seeded; Parameters chosen deterministically (more rules for 3D if D > 2.0); L-system expanded via iterative replacement; Interpreted to 3D vertices/edges via turtle (F=forward, +=yaw left, -=yaw right, ^=pitch up, &=pitch down, /=roll left, \\=roll right, [=branch push, ]=pop).",
+  "lsystem_parameters": {
+    "axiom": "F",
+    "rules": {
+      "F": "F[^F]&[&F]F[+F][-F]^F",
+      "+": "+",
+      "-": "-",
+      "^": "^",
+      "&": "&",
+      "/": "/",
+      "\\": "\\",
+      "[": "[",
+      "]": "]"
+    },
+    "angle": 30.0,
+    "iterations": 4
+  },
+  "expanded_string_truncated": "F[^F]&[&F]F[+F][-F]^F[^F[^F]&[&F]F[+F][-F]^F]&[&F[^F]&[&F]F[+F][-F]^F]F[+F[+F][-F]^F[+F[+F][-F]^F]][-F[+F][-F]^F[-F[+F][-F]^F]]^F ... (full expansion would be longer; truncate for sample)",
+  "interpreted_3d_mesh_example": {
+    "vertices": [
+      [0, 0, 0],
+      [1, 0, 0],
+      [1, 0, 1],
+      [1, 0, 0],
+      [1, 1, 0],
+      [1, -1, 0],
+      [1, 0, 0],
+      [1, 0, 2]
+    ],
+    "edges": [
+      {"from": 0, "to": 1},
+      {"from": 1, "to": 2},
+      {"from": 1, "to": 3},
+      {"from": 3, "to": 4},
+      {"from": 3, "to": 5},
+      {"from": 3, "to": 6},
+      {"from": 6, "to": 7}
+    ],
+    "notes": "Example simplified 3D vertices (x,y,z) and edges after turtle interpretation starting at (0,0,0), facing +x. Use for mesh: Connect edges with tubes (thickness from S_symmetry), render in Unity Mesh or Unreal ProceduralMesh. Scale/center bounding box for display."
+  },
+  "integration_notes": "For creatures: If D_fractal_dim > 2.5, add z-depth via ^/&; tie to gifts (e.g., 'FractalCarapace' for 3D hull). Output to 3D procedural asset."
+}

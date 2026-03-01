@@ -5,6 +5,10 @@ Sigil is a native iPhone app (`iOS 17+`) that generates a deterministic personal
 ## Implemented (Phase 1 Foundation)
 
 - Native SwiftUI app target: `SigilApp`
+- Forsetti-compliant host runtime integration (`consumer_repo_mode`) using:
+  - `ForsettiCore`
+  - `ForsettiPlatform`
+  - `ForsettiHostTemplate`
 - Modular local Swift packages:
   - `RFCoreModels`
   - `RFEngineData`
@@ -17,6 +21,7 @@ Sigil is a native iPhone app (`iOS 17+`) that generates a deterministic personal
   - `RFEditor`
   - `RFExport`
   - `RFMythosCatalog`
+  - `RFSigilForsettiModules` (app-owned Forsetti modules/manifests)
 - Core Data profile repository with encrypted payload blobs (AES-GCM via CryptoKit)
 - Keychain master key with optional biometric gate
 - Optional app-level lock overlay (Face ID / Passcode) on foreground resume
@@ -34,6 +39,7 @@ Sigil is a native iPhone app (`iOS 17+`) that generates a deterministic personal
 - `Packages/` local modules and tests
 - `scripts/check_network_boundary.sh` enforces network isolation outside `RFGeocoding`
 - `scripts/run_checks.sh` runs package tests + app build
+- `scripts/verify-forsetti-guardrails.sh` runs Forsetti consumer guardrails (tests + lint)
 - `docs/MythosImagePromptPack.md` contains stock-image prompt sets for Mythos asset generation
 - `docs/MythosImageBatch01.md` contains the first 40 production filename+prompt entries
 

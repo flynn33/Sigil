@@ -1,0 +1,64 @@
+name: Branch Guard
+
+on:
+  pull_request:
+    branches: [main, unity, Unreal-Engine]
+
+permissions:
+  contents: read
+
+jobs:
+  branch-isolation:
+    name: Enforce branch isolation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check branch isolation rules
+        run: |
+          TARGET="${{ github.base_ref }}"
+          SOURCE="${{ github.head_ref }}"
+
+          echo "PR: $SOURCE -> $TARGET"
+
+          # Rule 1: No engine-specific files in PRs targeting main
+          if [ "$TARGET" = "main" ]; then
+            FILES=$(git diff --name-only origin/main...HEAD 2>/dev/null || echo "")
+            FORBIDDEN=$(echo "$FILES" | grep -E '\.(cs|meta|unity|prefab|asset|asmdef|cpp|hpp|h|uasset|umap|uplugin|uproject)$' || true)
+            DIR_FORBIDDEN=$(echo "$FILES" | grep -E '^(Assets|Source)/' || true)
+            MANIFEST=$(echo "$FILES" | grep -E '^Packages/manifest\.json$' || true)
+
+            ALL_FORBIDDEN=$(printf "%s\n%s\n%s" "$FORBIDDEN" "$DIR_FORBIDDEN" "$MANIFEST" | sort -u | sed '/^$/d')
+
+            if [ -n "$ALL_FORBIDDEN" ]; then
+              echo "::error::Engine-specific files detected in PR to main!"
+              echo ""
+              echo "These files do not belong on main:"
+              echo "$ALL_FORBIDDEN" | while read -r f; do echo "  - $f"; done
+              echo ""
+              echo "Target the appropriate engine branch instead (unity, Unreal-Engine, etc.)."
+              exit 1
+            fi
+            echo "Main guard passed."
+          fi
+
+          # Rule 2: No cross-contamination between engine branches
+          if [ "$TARGET" = "unity" ]; then
+            if echo "$SOURCE" | grep -qi "unreal"; then
+              echo "::error::Cannot merge Unreal-related branch into unity."
+              exit 1
+            fi
+            echo "Unity guard passed."
+          fi
+
+          if [ "$TARGET" = "Unreal-Engine" ]; then
+            if echo "$SOURCE" | grep -qi "unity"; then
+              echo "::error::Cannot merge Unity-related branch into Unreal-Engine."
+              exit 1
+            fi
+            echo "Unreal guard passed."
+          fi
+
+          echo "Branch isolation check complete."

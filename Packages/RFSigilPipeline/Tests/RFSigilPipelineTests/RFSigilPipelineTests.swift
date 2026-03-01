@@ -19,6 +19,47 @@ func pipelineIsDeterministicForSameInput() throws {
 }
 
 @Test
+func distinctCorePersonalInputsProduceDifferentSigils() throws {
+    let service = DefaultSigilPipelineService()
+
+    let inputA = UserProfileInput(
+        firstName: "Alicia",
+        lastName: "Wolfsbane",
+        birthDate: "1990-07-15",
+        birthTime: "12:00",
+        birthOrder: 2,
+        motherBirthOrder: 1,
+        fatherBirthOrder: 3,
+        petNames: ["Fen"],
+        significantNumbers: [],
+        additionalStrings: [],
+        birthLatitude: 47.6062,
+        birthLongitude: -122.3321
+    )
+
+    let inputB = UserProfileInput(
+        firstName: "Marcus",
+        lastName: "Ravenshield",
+        birthDate: "1983-11-02",
+        birthTime: "04:35",
+        birthOrder: 4,
+        motherBirthOrder: 2,
+        fatherBirthOrder: 6,
+        petNames: ["Nyx"],
+        significantNumbers: [],
+        additionalStrings: [],
+        birthLatitude: 34.0522,
+        birthLongitude: -118.2437
+    )
+
+    let resultA = try service.generateSigilResult(input: inputA)
+    let resultB = try service.generateSigilResult(input: inputB)
+
+    #expect(resultA.vector != resultB.vector)
+    #expect(resultA.geometryHash != resultB.geometryHash)
+}
+
+@Test
 func bitsAndParityFollow9DBuildRules() throws {
     let service = DefaultSigilPipelineService()
     let result = try service.generate(profile: sampleProfile(), options: SigilOptions(includeTraitExtensions: true))
@@ -46,12 +87,12 @@ func geometryNormalizesToUnitBounds() throws {
 }
 
 @Test
-func rotationalSymmetryProducesDenseDeterministicGeometry() throws {
+func portable9DProjectionProducesDenseGeometry() throws {
     let service = DefaultSigilPipelineService()
     let result = try service.generate(profile: sampleProfile(), options: SigilOptions(includeTraitExtensions: true))
 
-    #expect(result.geometry.lines.count >= 24)
-    #expect(result.geometry.lines.count.isMultiple(of: 12))
+    #expect(result.geometry.lines.count >= 400)
+    #expect(result.geometry.lines.count <= 8_000)
 }
 
 @Test
