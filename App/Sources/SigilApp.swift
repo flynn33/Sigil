@@ -6,6 +6,7 @@ struct SigilApp: App {
     @StateObject private var coordinator: AppCoordinator
     @StateObject private var hostController: ForsettiHostController
     private let injectionRegistry: ForsettiViewInjectionRegistry
+    private let primaryModuleID: String
 
     @AppStorage("rf.onboarding.completed") private var onboardingCompleted = false
 
@@ -17,6 +18,7 @@ struct SigilApp: App {
         _coordinator = StateObject(wrappedValue: appCoordinator)
         _hostController = StateObject(wrappedValue: artifacts.controller)
         injectionRegistry = artifacts.injectionRegistry
+        primaryModuleID = artifacts.primaryModuleID
     }
 
     var body: some Scene {
@@ -25,7 +27,8 @@ struct SigilApp: App {
                 if onboardingCompleted {
                     SigilForsettiHostView(
                         controller: hostController,
-                        injectionRegistry: injectionRegistry
+                        injectionRegistry: injectionRegistry,
+                        primaryModuleID: primaryModuleID
                     )
                 } else {
                     OnboardingView {

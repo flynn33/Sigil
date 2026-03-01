@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0",
-  "moduleID": "com.sigil.module.core-service",
-  "displayName": "Sigil Core Service",
+  "moduleID": "com.sigil.module.core",
+  "displayName": "Sigil Core",
   "moduleVersion": {
     "major": 1,
     "minor": 0,
     "patch": 0
   },
-  "moduleType": "service",
+  "moduleType": "ui",
   "supportedPlatforms": [
     "iOS",
     "macOS"
@@ -21,8 +21,10 @@
   "capabilitiesRequested": [
     "storage",
     "secure_storage",
-    "telemetry"
+    "telemetry",
+    "view_injection",
+    "ui_theme_mask"
   ],
   "iapProductID": null,
-  "entryPoint": "SigilCoreServiceModule"
+  "entryPoint": "SigilCoreModule"
 }

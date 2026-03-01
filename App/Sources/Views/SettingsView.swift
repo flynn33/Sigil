@@ -99,6 +99,24 @@ struct SettingsView: View {
                         MysticCard(palette: palette) {
                             VStack(alignment: .leading, spacing: 10) {
                                 HStack(spacing: 8) {
+                                    MysticSectionHeader(title: "About", palette: palette)
+                                    infoButton(
+                                        title: "About",
+                                        message: aboutHelpText,
+                                        palette: palette
+                                    )
+                                }
+
+                                Text("Sigil is built on the Forsetti Framework.")
+                                    .font(.system(.subheadline, design: .serif))
+                                    .foregroundStyle(palette.textSecondary)
+                            }
+                            .foregroundStyle(palette.textPrimary)
+                        }
+
+                        MysticCard(palette: palette) {
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack(spacing: 8) {
                                     MysticSectionHeader(title: "Mythos",
                                                         palette: palette)
                                     infoButton(
@@ -179,6 +197,10 @@ struct SettingsView: View {
 
     private var privacyHelpText: String {
         "Rune Forge processes data locally. Apple Maps geocoding is the only online service used when resolving birthplace coordinates."
+    }
+
+    private var aboutHelpText: String {
+        "Sigil is built on the Forsetti Framework for modular architecture, safer upgrades, and long-term maintainability."
     }
 
     private var mythosHelpText: String {

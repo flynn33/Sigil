@@ -4,33 +4,23 @@ import Testing
 @testable import RFSigilForsettiModules
 
 @Test
-func registryRegistersSigilModules() throws {
+func registryRegistersSigilCoreModule() throws {
     let registry = ModuleRegistry()
     SigilForsettiModuleRegistry.registerAll(into: registry)
 
-    let service = try registry.makeModule(entryPoint: SigilCoreServiceModule.entryPoint)
-    let ui = try registry.makeModule(entryPoint: SigilCodexUIModule.entryPoint)
-
-    #expect(service.descriptor.moduleID == SigilCoreServiceModule.moduleID)
-    #expect(ui.descriptor.moduleID == SigilCodexUIModule.moduleID)
-    #expect((ui as? any ForsettiUIModule) != nil)
+    let module = try registry.makeModule(entryPoint: SigilCoreModule.entryPoint)
+    #expect(module.descriptor.moduleID == SigilCoreModule.moduleID)
+    #expect((module as? any ForsettiUIModule) != nil)
 }
 
 @Test
-func moduleManifestsExistInResourceBundle() throws {
-    let serviceURL = try #require(
+func moduleManifestExistsInResourceBundle() throws {
+    let manifestURL = try #require(
         SigilForsettiModuleResources.bundle.url(
-            forResource: "SigilCoreServiceModule",
-            withExtension: "json"
-        )
-    )
-    let uiURL = try #require(
-        SigilForsettiModuleResources.bundle.url(
-            forResource: "SigilCodexUIModule",
+            forResource: "SigilCoreModule",
             withExtension: "json"
         )
     )
 
-    #expect(FileManager.default.fileExists(atPath: serviceURL.path))
-    #expect(FileManager.default.fileExists(atPath: uiURL.path))
+    #expect(FileManager.default.fileExists(atPath: manifestURL.path))
 }
