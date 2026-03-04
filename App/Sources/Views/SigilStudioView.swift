@@ -1618,6 +1618,9 @@ struct SigilStudioView: View {
         if profile.mother.birthOrderTotal != nil { count += 1 }
         if profile.father.birthOrderTotal != nil { count += 1 }
         if !profile.birthplaceName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { count += 1 }
+        if !profile.userHairColor.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { count += 1 }
+        if !profile.userEyeColor.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { count += 1 }
+        if profile.userHeightCentimeters != nil { count += 1 }
         if !profile.mother.hairColor.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { count += 1 }
         if !profile.mother.eyeColor.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { count += 1 }
         if !profile.father.hairColor.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { count += 1 }

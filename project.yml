@@ -6,7 +6,7 @@ options:
 
 packages:
   ForsettiFramework:
-    path: ../Forsetti-Framwork
+    path: Forsetti-Framwork
   RFCoreModels:
     path: Packages/RFCoreModels
   RFEngineData:

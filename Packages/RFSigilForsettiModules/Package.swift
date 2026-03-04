@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "RFSigilForsettiModules", targets: ["RFSigilForsettiModules"])
     ],
     dependencies: [
-        .package(path: "../../../Forsetti-Framwork")
+        .package(path: "../../Forsetti-Framwork")
     ],
     targets: [
         .target(

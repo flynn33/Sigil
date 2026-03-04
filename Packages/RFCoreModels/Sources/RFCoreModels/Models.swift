@@ -257,6 +257,9 @@ public struct PersonProfile: Codable, Hashable, Sendable, Identifiable {
     public var birthOrderTotal: Int?
     public var birthplaceName: String
     public var birthplace: GeoPoint
+    public var userHairColor: String
+    public var userEyeColor: String
+    public var userHeightCentimeters: Int?
     public var mother: ParentTraits
     public var father: ParentTraits
     public var traits: TraitBundle
@@ -271,6 +274,9 @@ public struct PersonProfile: Codable, Hashable, Sendable, Identifiable {
         birthOrder: Int,
         birthplaceName: String,
         birthplace: GeoPoint,
+        userHairColor: String = "",
+        userEyeColor: String = "",
+        userHeightCentimeters: Int? = nil,
         mother: ParentTraits,
         father: ParentTraits,
         traits: TraitBundle,
@@ -285,6 +291,9 @@ public struct PersonProfile: Codable, Hashable, Sendable, Identifiable {
         self.birthOrderTotal = nil
         self.birthplaceName = birthplaceName
         self.birthplace = birthplace
+        self.userHairColor = userHairColor
+        self.userEyeColor = userEyeColor
+        self.userHeightCentimeters = userHeightCentimeters
         self.mother = mother
         self.father = father
         self.traits = traits
@@ -301,6 +310,9 @@ public struct PersonProfile: Codable, Hashable, Sendable, Identifiable {
         birthOrderTotal: Int?,
         birthplaceName: String,
         birthplace: GeoPoint,
+        userHairColor: String = "",
+        userEyeColor: String = "",
+        userHeightCentimeters: Int? = nil,
         mother: ParentTraits,
         father: ParentTraits,
         traits: TraitBundle,
@@ -315,6 +327,9 @@ public struct PersonProfile: Codable, Hashable, Sendable, Identifiable {
         self.birthOrderTotal = birthOrderTotal
         self.birthplaceName = birthplaceName
         self.birthplace = birthplace
+        self.userHairColor = userHairColor
+        self.userEyeColor = userEyeColor
+        self.userHeightCentimeters = userHeightCentimeters
         self.mother = mother
         self.father = father
         self.traits = traits
@@ -331,6 +346,9 @@ public struct PersonProfile: Codable, Hashable, Sendable, Identifiable {
         case birthOrderTotal
         case birthplaceName
         case birthplace
+        case userHairColor
+        case userEyeColor
+        case userHeightCentimeters
         case mother
         case father
         case traits
@@ -348,6 +366,9 @@ public struct PersonProfile: Codable, Hashable, Sendable, Identifiable {
         birthOrderTotal = try container.decodeIfPresent(Int.self, forKey: .birthOrderTotal)
         birthplaceName = try container.decode(String.self, forKey: .birthplaceName)
         birthplace = try container.decode(GeoPoint.self, forKey: .birthplace)
+        userHairColor = try container.decodeIfPresent(String.self, forKey: .userHairColor) ?? ""
+        userEyeColor = try container.decodeIfPresent(String.self, forKey: .userEyeColor) ?? ""
+        userHeightCentimeters = try container.decodeIfPresent(Int.self, forKey: .userHeightCentimeters)
         mother = try container.decode(ParentTraits.self, forKey: .mother)
         father = try container.decode(ParentTraits.self, forKey: .father)
         traits = try container.decode(TraitBundle.self, forKey: .traits)
@@ -365,6 +386,9 @@ public struct PersonProfile: Codable, Hashable, Sendable, Identifiable {
         try container.encodeIfPresent(birthOrderTotal, forKey: .birthOrderTotal)
         try container.encode(birthplaceName, forKey: .birthplaceName)
         try container.encode(birthplace, forKey: .birthplace)
+        try container.encode(userHairColor, forKey: .userHairColor)
+        try container.encode(userEyeColor, forKey: .userEyeColor)
+        try container.encodeIfPresent(userHeightCentimeters, forKey: .userHeightCentimeters)
         try container.encode(mother, forKey: .mother)
         try container.encode(father, forKey: .father)
         try container.encode(traits, forKey: .traits)

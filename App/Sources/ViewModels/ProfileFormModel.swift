@@ -120,6 +120,9 @@ final class ProfileFormModel: ObservableObject {
     @Published var birthplaceName: String = ""
     @Published var latitude: String = ""
     @Published var longitude: String = ""
+    @Published var userHairColor: String = ""
+    @Published var userEyeColor: String = ""
+    @Published var userHeightCentimeters: String = ""
 
     @Published var motherBirthOrder: String = "1"
     @Published var motherBirthOrderTotal: String = ""
@@ -157,6 +160,9 @@ final class ProfileFormModel: ObservableObject {
         birthplaceName = profile.birthplaceName
         latitude = String(profile.birthplace.latitude)
         longitude = String(profile.birthplace.longitude)
+        userHairColor = profile.userHairColor
+        userEyeColor = profile.userEyeColor
+        userHeightCentimeters = profile.userHeightCentimeters.map(String.init) ?? ""
 
         motherBirthOrder = String(profile.mother.birthOrder)
         motherBirthOrderTotal = profile.mother.birthOrderTotal.map(String.init) ?? ""
@@ -262,6 +268,7 @@ final class ProfileFormModel: ObservableObject {
         let birthOrderTotal = try parseOptionalPositiveInt(birthOrderTotal)
         let motherBirthOrderTotal = try parseOptionalPositiveInt(motherBirthOrderTotal)
         let fatherBirthOrderTotal = try parseOptionalPositiveInt(fatherBirthOrderTotal)
+        let userHeightCentimeters = try parseOptionalPositiveInt(userHeightCentimeters)
 
         try validateBirthOrder(position: birthOrder, total: birthOrderTotal, label: "Your birth order")
         try validateBirthOrder(position: motherBirthOrder, total: motherBirthOrderTotal, label: "Mother birth order")
@@ -303,6 +310,9 @@ final class ProfileFormModel: ObservableObject {
             birthOrderTotal: birthOrderTotal,
             birthplaceName: birthplaceName,
             birthplace: GeoPoint(latitude: latitude, longitude: longitude),
+            userHairColor: userHairColor.trimmingCharacters(in: .whitespacesAndNewlines),
+            userEyeColor: userEyeColor.trimmingCharacters(in: .whitespacesAndNewlines),
+            userHeightCentimeters: userHeightCentimeters,
             mother: ParentTraits(
                 birthOrder: motherBirthOrder,
                 birthOrderTotal: motherBirthOrderTotal,
@@ -472,7 +482,7 @@ enum ProfileFormError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidNumberInput:
-            "Birth order values and coordinates must be valid numbers."
+            "Birth order values, coordinates, and optional height must be valid numbers."
         case .invalidBirthOrderRange(let label):
             "\(label) must be a positive position that does not exceed total children."
         case .missingProfessionName:

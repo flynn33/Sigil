@@ -30,6 +30,7 @@ struct SigilApp: App {
                         injectionRegistry: injectionRegistry,
                         primaryModuleID: primaryModuleID
                     )
+                    .environmentObject(coordinator)
                 } else {
                     OnboardingView {
                         onboardingCompleted = true

@@ -1,90 +1,619 @@
+import CryptoKit
 import Foundation
 import RFCoreModels
 
 protocol Sigil9DGeometryBuilding: Sendable {
-    func buildSegments(vector: CanonicalVector) -> [SigilLine]
+    func buildSegments(vector: CanonicalVector, profileSeed: SigilProfileSeed?) -> [SigilLine]
+}
+
+struct SigilProfileSeed: Sendable {
+    let userID: String
+    let birthDate: String
+    let birthOrder: Int
+    let siblingCount: Int
+    let heightCentimeters: Double
+    let hairColor: String
+    let eyeColor: String
+    let birthLatitude: Double
+    let birthLongitude: Double
+    let sex: String?
+    let dominantHand: String?
+    let nameSeed: String?
 }
 
 struct PortableSigil9DGeometryBuilder: Sigil9DGeometryBuilding {
-    private let planeWeights: [Double] = [1.0, 0.35, 0.95, 0.9, 0.88, 0.92, 0.42, 0.86, 0.58]
-    private let rotations: [PortableGivensRotation] = [
-        PortableGivensRotation(i: 0, j: 2, angle: 0.22),
-        PortableGivensRotation(i: 1, j: 3, angle: -0.18),
-        PortableGivensRotation(i: 0, j: 5, angle: 0.11),
-        PortableGivensRotation(i: 1, j: 6, angle: 0.14),
-        PortableGivensRotation(i: 0, j: 8, angle: -0.09),
-        PortableGivensRotation(i: 1, j: 7, angle: 0.13)
-    ]
-    private let strokeBlueprint = PortableSigilBlueprint()
+    func buildSegments(vector: CanonicalVector, profileSeed: SigilProfileSeed?) -> [SigilLine] {
+        let resolver = PortableSigil9DParameterResolver()
+        let parameters = resolver.resolve(from: vector, profileSeed: profileSeed)
+        return PortableSigil9DGenerator().buildSegments(parameters: parameters)
+    }
+}
 
-    func buildSegments(vector: CanonicalVector) -> [SigilLine] {
-        let matrix = PortableProjectionMatrixBuilder().makeMatrix(
+private struct PortableSigil9DParameters: Sendable {
+    let topologyMode: PortableTopologyMode
+    let symmetryOrder: Int
+    let sampleCount: Int
+    let families: [PortableFamilyHarmonicSet]
+    let projector: PortableSigil9DProjector
+}
+
+private enum PortableTopologyMode: Int, Sendable, CaseIterable {
+    case roseWeb = 0
+    case lissajousBraid = 1
+    case hypotrochoidRune = 2
+    case polygramLattice = 3
+    case spiralGate = 4
+    case lemniscateForge = 5
+}
+
+private struct PortableFamilyHarmonicSet: Sendable {
+    let harmonics: [PortableFamilyHarmonic]
+    let rosePhase: Double
+    let latticeBlend: Double
+    let hypotrochoidR: Double
+    let hypotrochoidr: Double
+    let hypotrochoidD: Double
+    let hypotrochoidRate: Double
+    let hypotrochoidPhase: Double
+    let gateRate: Double
+    let gatePhase: Double
+    let lemniscateScale: Double
+    let lemniscateRate: Double
+    let lemniscatePhase: Double
+}
+
+private struct PortableFamilyHarmonic: Sendable {
+    let a: Double
+    let b: Double
+    let n: Int
+    let m: Int
+    let phi: Double
+    let psi: Double
+}
+
+private struct PortableResolvedProfileFeatures: Sendable {
+    let features: [Double]   // F0...F8
+    let lifePath: Int
+    let seedMaterial: String
+}
+
+private struct PortableSigil9DParameterResolver: Sendable {
+    private let weightClamp: ClosedRange<Double> = 0.10...1.55
+    private let angleClamp: ClosedRange<Double> = -1.45...1.45
+    private let hairPalette: [String: Double] = [
+        "black": 0.08,
+        "dark brown": 0.16,
+        "brown": 0.22,
+        "light brown": 0.28,
+        "auburn": 0.34,
+        "red": 0.42,
+        "strawberry blonde": 0.52,
+        "blonde": 0.58,
+        "gray": 0.74,
+        "grey": 0.74,
+        "white": 0.88
+    ]
+    private let eyePalette: [String: Double] = [
+        "black": 0.10,
+        "dark brown": 0.14,
+        "brown": 0.18,
+        "hazel": 0.32,
+        "green": 0.46,
+        "amber": 0.52,
+        "blue": 0.64,
+        "gray": 0.79,
+        "grey": 0.79
+    ]
+
+    func resolve(from vector: CanonicalVector, profileSeed: SigilProfileSeed?) -> PortableSigil9DParameters {
+        let resolved = resolveProfileFeatures(vector: vector, profileSeed: profileSeed)
+        let features = resolved.features
+        let lifePath = resolved.lifePath
+        let u = normalizedSequence(seedMaterial: resolved.seedMaterial, count: 448)
+
+        let topologyBlend = 0.55 * sample(u, at: 0) + 0.45 * features[2]
+        let topologyRaw = Int(floor(Double(PortableTopologyMode.allCases.count) * topologyBlend))
+        let topologyMode = PortableTopologyMode(rawValue: topologyRaw % PortableTopologyMode.allCases.count) ?? .lissajousBraid
+        let symmetryOrder = (2 + Int(floor(11.0 * (0.60 * sample(u, at: 1) + 0.40 * features[3])))).clamped(to: 2...12)
+        let familyCount = (2 + Int(floor(4.0 * (0.50 * sample(u, at: 2) + 0.50 * features[4])))).clamped(to: 2...5)
+        let harmonicsPerFamily = (3 + Int(floor(5.0 * (0.60 * sample(u, at: 3) + 0.40 * features[6])))).clamped(to: 3...7)
+        let sampleCountBlend = 0.50 * sample(u, at: 4) + 0.50 * features[7]
+        let sampleCount = 640 + (160 * Int(floor(3.0 * sampleCountBlend)))
+
+        let families = resolveFamilies(
+            count: familyCount,
+            harmonicsPerFamily: harmonicsPerFamily,
+            lifePath: lifePath,
+            features: features,
+            u: u
+        )
+
+        let hiddenProfiles: [PortableHiddenDimensionProfile] = (2...8).map { dimension in
+            let offset = dimension - 2
+            let amplitude = (0.012 + 0.074 * features[offset]) * (0.58 + 0.42 * sample(u, at: 200 + dimension))
+            let frequency = 0.85 + 0.52 * Double(dimension) + 0.85 * sample(u, at: 220 + dimension)
+            let phase = 2.0 * Double.pi * sample(u, at: 240 + dimension)
+            return PortableHiddenDimensionProfile(
+                dimension: dimension,
+                amplitude: amplitude,
+                frequency: frequency,
+                phase: phase
+            )
+        }
+
+        let planeWeights: [Double] = (0..<9).map { dimension in
+            let weighted = 0.60 * features[dimension] + 0.40 * sample(u, at: 300 + dimension)
+            let value = 0.12 + 1.30 * weighted
+            return value.clamped(to: weightClamp)
+        }
+
+        let rotationPairs: [(Int, Int)] = [
+            (0, 2),
+            (1, 3),
+            (0, 4),
+            (1, 5),
+            (0, 6),
+            (1, 7),
+            (0, 8),
+            (1, 8)
+        ]
+        let rotations = rotationPairs.enumerated().map { offset, pair in
+            let rawAngle =
+                1.05 * Double.pi * (2.0 * sample(u, at: 330 + offset) - 1.0)
+                + 0.28 * (features[offset % 9] - 0.5)
+            return PortableGivensRotation(i: pair.0, j: pair.1, angle: rawAngle.clamped(to: angleClamp))
+        }
+
+        let projection = PortableProjectionMatrixBuilder().makeMatrix(
             rotations: rotations,
             planeWeights: planeWeights
         )
-        let hiddenProfiles = PortableHiddenDimensionProfileFactory().makeProfiles(
-            vector: vector,
-            planeWeights: planeWeights
+        let projector = PortableSigil9DProjector(
+            matrix: projection,
+            hiddenProfiles: hiddenProfiles,
+            tubeProfile: PortableTubeProfile(
+                radius: 0.0,
+                omega: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                frequency: 1.0,
+                phase: 0.0
+            )
         )
-        let projector = PortableSigil9DProjector(matrix: matrix, hiddenProfiles: hiddenProfiles)
-        let strokes = strokeBlueprint.makeStrokes()
 
-        guard !strokes.isEmpty else { return [] }
+        return PortableSigil9DParameters(
+            topologyMode: topologyMode,
+            symmetryOrder: symmetryOrder,
+            sampleCount: max(120, sampleCount),
+            families: families,
+            projector: projector
+        )
+    }
 
-        let totalStrokeCount = Double(strokes.count)
+    private func resolveProfileFeatures(
+        vector: CanonicalVector,
+        profileSeed: SigilProfileSeed?
+    ) -> PortableResolvedProfileFeatures {
+        if let profileSeed {
+            let birthDate = parseBirthDate(profileSeed.birthDate)
+            let lifePath = digitalRoot(fromDigits: String(format: "%04d%02d%02d", birthDate.year, birthDate.month, birthDate.day))
+            let siblingCount = max(0, profileSeed.siblingCount)
+            let heightCm = profileSeed.heightCentimeters.clamped(to: 90.0...260.0)
+            let birthOrder = max(1, profileSeed.birthOrder)
+            let lat = profileSeed.birthLatitude.clamped(to: -90.0...90.0)
+            let lon = profileSeed.birthLongitude.clamped(to: -180.0...180.0)
+
+            let f0 = (Double(birthDate.day) / 31.0).clamped(to: 0...1)
+            let f1 = (Double(birthDate.month) / 12.0).clamped(to: 0...1)
+            let f2 = (Double(lifePath) / 9.0).clamped(to: 0...1)
+            let f3 = (Double(birthOrder - 1) / Double(max(1, siblingCount))).clamped(to: 0...1)
+            let f4 = (Double(siblingCount) / 10.0).clamped(to: 0...1)
+            let f5 = ((heightCm - 140.0) / 70.0).clamped(to: 0...1)
+            let f6 = colorScalar(profileSeed.hairColor, palette: hairPalette)
+            let f7 = colorScalar(profileSeed.eyeColor, palette: eyePalette)
+            let f8 = (0.5 * ((lat + 90.0) / 180.0) + 0.5 * ((lon + 180.0) / 360.0)).clamped(to: 0...1)
+
+            return PortableResolvedProfileFeatures(
+                features: [f0, f1, f2, f3, f4, f5, f6, f7, f8],
+                lifePath: lifePath,
+                seedMaterial: canonicalSeedMaterial(for: profileSeed)
+            )
+        }
+
+        let h = vector.H_entropy.clamped(to: 0...1)
+        let k = vector.K_complexity.clamped(to: 0...1)
+        let d = ((vector.D_fractal_dim - 1.0) / 2.0).clamped(to: 0...1)
+        let s = vector.S_symmetry.clamped(to: 0...1)
+        let l = (Double(vector.L_generator_length - 1) / 998.0).clamped(to: 0...1)
+        let lifePath = fallbackLifePath(from: vector)
+        let features = [
+            h,
+            k,
+            Double(lifePath) / 9.0,
+            s,
+            l,
+            0.5 * (d + l),
+            0.5 * (h + k),
+            0.5 * (s + l),
+            0.5 * (d + h)
+        ]
+        .map { $0.clamped(to: 0...1) }
+
+        return PortableResolvedProfileFeatures(
+            features: features,
+            lifePath: lifePath,
+            seedMaterial: canonicalSeedMaterial(for: vector)
+        )
+    }
+
+    private func resolveFamilies(
+        count: Int,
+        harmonicsPerFamily: Int,
+        lifePath: Int,
+        features: [Double],
+        u: [Double]
+    ) -> [PortableFamilyHarmonicSet] {
+        (0..<count).map { familyIndex in
+            let harmonics: [PortableFamilyHarmonic] = (0..<harmonicsPerFamily).map { harmonicIndex in
+                let cursor = 20 + familyIndex * harmonicsPerFamily * 6 + harmonicIndex * 6
+                let a =
+                    (0.08 + 0.30 * sample(u, at: cursor))
+                    * (0.55 + 0.45 * features[(familyIndex + harmonicIndex) % 9])
+                let b =
+                    (0.08 + 0.30 * sample(u, at: cursor + 1))
+                    * (0.55 + 0.45 * features[(familyIndex + harmonicIndex + 2) % 9])
+                let nSeed = Int(floor(12.0 * sample(u, at: cursor + 2)))
+                let mSeed = Int(floor(12.0 * sample(u, at: cursor + 3)))
+                let n = 1 + ((nSeed + lifePath + familyIndex + harmonicIndex + Int(floor(4.0 * features[0]))) % 19)
+                let m = 1 + ((mSeed + familyIndex + 2 * harmonicIndex + Int(floor(6.0 * features[1]))) % 19)
+                let phi = 2.0 * Double.pi * sample(u, at: cursor + 4)
+                let psi = 2.0 * Double.pi * sample(u, at: cursor + 5)
+                return PortableFamilyHarmonic(a: a, b: b, n: n, m: m, phi: phi, psi: psi)
+            }
+
+            return PortableFamilyHarmonicSet(
+                harmonics: harmonics,
+                rosePhase: 2.0 * Double.pi * sample(u, at: 96 + familyIndex),
+                latticeBlend: (0.35 + 0.45 * features[(familyIndex + 2) % 9]).clamped(to: 0...1),
+                hypotrochoidR: 0.20 + 0.30 * sample(u, at: 112 + familyIndex),
+                hypotrochoidr: 0.05 + 0.20 * sample(u, at: 128 + familyIndex),
+                hypotrochoidD: 0.06 + 0.28 * sample(u, at: 144 + familyIndex),
+                hypotrochoidRate: 0.5 + 2.0 * sample(u, at: 160 + familyIndex),
+                hypotrochoidPhase: 2.0 * Double.pi * sample(u, at: 176 + familyIndex),
+                gateRate: sample(u, at: 192 + familyIndex),
+                gatePhase: 2.0 * Double.pi * sample(u, at: 208 + familyIndex),
+                lemniscateScale: 0.20 + 0.55 * sample(u, at: 224 + familyIndex),
+                lemniscateRate: 0.40 + 2.20 * sample(u, at: 240 + familyIndex),
+                lemniscatePhase: 2.0 * Double.pi * sample(u, at: 256 + familyIndex)
+            )
+        }
+    }
+
+    private func canonicalSeedMaterial(for profileSeed: SigilProfileSeed) -> String {
+        var entries: [String: String] = [
+            "birth_date": normalizeToken(profileSeed.birthDate),
+            "birth_latitude": String(format: "%.6f", profileSeed.birthLatitude.clamped(to: -90.0...90.0)),
+            "birth_longitude": String(format: "%.6f", profileSeed.birthLongitude.clamped(to: -180.0...180.0)),
+            "birth_order": String(max(1, profileSeed.birthOrder)),
+            "eye_color": normalizeToken(profileSeed.eyeColor),
+            "hair_color": normalizeToken(profileSeed.hairColor),
+            "height_cm": String(format: "%.3f", profileSeed.heightCentimeters),
+            "sibling_count": String(max(0, profileSeed.siblingCount)),
+            "user_id": normalizeToken(profileSeed.userID)
+        ]
+
+        if let sex = profileSeed.sex?.trimmingCharacters(in: .whitespacesAndNewlines), !sex.isEmpty {
+            entries["sex"] = normalizeToken(sex)
+        }
+        if let dominantHand = profileSeed.dominantHand?.trimmingCharacters(in: .whitespacesAndNewlines), !dominantHand.isEmpty {
+            entries["dominant_hand"] = normalizeToken(dominantHand)
+        }
+        if let nameSeed = profileSeed.nameSeed?.trimmingCharacters(in: .whitespacesAndNewlines), !nameSeed.isEmpty {
+            entries["name_seed"] = normalizeToken(nameSeed)
+        }
+
+        let body = entries.keys.sorted().map { key in
+            "\"\(key)\":\"\(escapeJSON(entries[key] ?? ""))\""
+        }
+        .joined(separator: ",")
+        return "{\(body)}"
+    }
+
+    private func canonicalSeedMaterial(for vector: CanonicalVector) -> String {
+        let normL = (Double(vector.L_generator_length - 1) / 998.0).clamped(to: 0...1)
+        let serialized = vector.canonicalSerialized()
+        let fingerprint = SHA256.hash(data: Data(serialized.utf8)).prefix(8).map {
+            String(format: "%02x", $0)
+        }.joined()
+        let entries: [String: String] = [
+            "D_fractal_dim": String(format: "%.12f", vector.D_fractal_dim),
+            "H_entropy": String(format: "%.12f", vector.H_entropy),
+            "K_complexity": String(format: "%.12f", vector.K_complexity),
+            "L_generator_norm": String(format: "%.12f", normL),
+            "S_symmetry": String(format: "%.12f", vector.S_symmetry),
+            "vector_fingerprint": fingerprint
+        ]
+
+        let body = entries.keys.sorted().map { key in
+            "\"\(key)\":\"\(entries[key] ?? "")\""
+        }
+        .joined(separator: ",")
+        return "{\(body)}"
+    }
+
+    private func normalizedSequence(seedMaterial: String, count: Int) -> [Double] {
+        guard count > 0 else { return [] }
+
+        var values: [Double] = []
+        values.reserveCapacity(count)
+        var counter = 0
+
+        while values.count < count {
+            let digest = Array(SHA512.hash(data: Data("\(seedMaterial)|\(counter)".utf8)))
+            var index = 0
+            while index + 3 < digest.count, values.count < count {
+                let raw =
+                    (UInt32(digest[index]) << 24)
+                    | (UInt32(digest[index + 1]) << 16)
+                    | (UInt32(digest[index + 2]) << 8)
+                    | UInt32(digest[index + 3])
+                values.append(Double(raw) / Double(UInt32.max))
+                index += 4
+            }
+            counter += 1
+        }
+
+        return values
+    }
+
+    private func sample(_ values: [Double], at index: Int) -> Double {
+        guard !values.isEmpty else { return 0.5 }
+        return values[index % values.count].clamped(to: 0...1)
+    }
+
+    private func parseBirthDate(_ value: String) -> (year: Int, month: Int, day: Int) {
+        let digits = value.filter(\.isNumber)
+        guard digits.count >= 8 else { return (1970, 1, 1) }
+        let year = Int(digits.prefix(4)) ?? 1970
+        let month = Int(digits.dropFirst(4).prefix(2)) ?? 1
+        let day = Int(digits.dropFirst(6).prefix(2)) ?? 1
+        return (
+            year.clamped(to: 1900...2200),
+            month.clamped(to: 1...12),
+            day.clamped(to: 1...31)
+        )
+    }
+
+    private func fallbackLifePath(from vector: CanonicalVector) -> Int {
+        let packed = String(
+            format: "%04d%04d%04d%04d%03d",
+            Int((vector.H_entropy.clamped(to: 0...1) * 1_000.0).rounded()),
+            Int((vector.K_complexity.clamped(to: 0...1) * 1_000.0).rounded()),
+            Int((((vector.D_fractal_dim - 1.0) / 2.0).clamped(to: 0...1) * 1_000.0).rounded()),
+            Int((vector.S_symmetry.clamped(to: 0...1) * 1_000.0).rounded()),
+            vector.L_generator_length.clamped(to: 1...999)
+        )
+        return digitalRoot(fromDigits: packed)
+    }
+
+    private func digitalRoot(fromDigits value: String) -> Int {
+        let sum = value.compactMap(\.wholeNumberValue).reduce(0, +)
+        return digitalRoot(sum)
+    }
+
+    private func digitalRoot(_ value: Int) -> Int {
+        var result = max(1, value)
+        while result > 9 {
+            result = String(result).compactMap(\.wholeNumberValue).reduce(0, +)
+        }
+        return result.clamped(to: 1...9)
+    }
+
+    private func colorScalar(_ value: String, palette: [String: Double]) -> Double {
+        let normalized = normalizeToken(value)
+        if let known = palette[normalized] {
+            return known.clamped(to: 0...1)
+        }
+
+        guard !normalized.isEmpty else { return 0.5 }
+        let bytes = Array(SHA256.hash(data: Data(normalized.utf8)))
+        guard bytes.count >= 4 else { return 0.5 }
+        let raw =
+            (UInt32(bytes[0]) << 24)
+            | (UInt32(bytes[1]) << 16)
+            | (UInt32(bytes[2]) << 8)
+            | UInt32(bytes[3])
+        return (Double(raw) / Double(UInt32.max)).clamped(to: 0...1)
+    }
+
+    private func normalizeToken(_ value: String) -> String {
+        value
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+            .split(whereSeparator: \.isWhitespace)
+            .joined(separator: " ")
+    }
+
+    private func escapeJSON(_ value: String) -> String {
+        value
+            .replacingOccurrences(of: "\\", with: "\\\\")
+            .replacingOccurrences(of: "\"", with: "\\\"")
+    }
+}
+
+private struct PortableSigil9DGenerator: Sendable {
+    func buildSegments(parameters: PortableSigil9DParameters) -> [SigilLine] {
+        let sampleCount = max(2, parameters.sampleCount)
+        let totalCurves = max(1, parameters.families.count * parameters.symmetryOrder)
         var lines: [SigilLine] = []
+        lines.reserveCapacity(totalCurves * sampleCount)
+        var curveIndex = 0
 
-        for (strokeIndex, stroke) in strokes.enumerated() {
-            let sampleCount = max(2, stroke.sampleCount)
-            let points: [(x: Double, y: Double)] = (0..<sampleCount).map { sampleIndex in
-                let localT = sampleCount == 1 ? 0.0 : Double(sampleIndex) / Double(sampleCount - 1)
-                let globalT = (Double(strokeIndex) + localT) / totalStrokeCount
-                let p2 = stroke.point(at: localT)
-                return projector.project(point2D: p2, globalT: globalT)
-            }
+        for family in parameters.families {
+            for symmetryIndex in 0..<parameters.symmetryOrder {
+                let angle = 2.0 * Double.pi * Double(symmetryIndex) / Double(parameters.symmetryOrder)
+                let cosTheta = cos(angle)
+                let sinTheta = sin(angle)
+                var previous: (x: Double, y: Double)?
+                var first: (x: Double, y: Double)?
 
-            guard points.count >= 2 else { continue }
-            for index in 0..<(points.count - 1) {
-                let start = points[index]
-                let end = points[index + 1]
-                lines.append(
-                    SigilLine(
-                        startX: start.x,
-                        startY: start.y,
-                        endX: end.x,
-                        endY: end.y
+                for sampleIndex in 0..<sampleCount {
+                    let t = Double(sampleIndex) / Double(sampleCount)
+                    let localForGlobal = Double(sampleIndex) / Double(max(1, sampleCount - 1))
+                    var point = basePoint(t: t, family: family)
+                    point = applyTopologyTransform(
+                        point: point,
+                        t: t,
+                        mode: parameters.topologyMode,
+                        symmetryOrder: parameters.symmetryOrder,
+                        family: family
                     )
-                )
-            }
+                    point = rotate(point: point, cosTheta: cosTheta, sinTheta: sinTheta)
 
-            if stroke.isClosed, let first = points.first, let last = points.last {
-                lines.append(
-                    SigilLine(
-                        startX: last.x,
-                        startY: last.y,
-                        endX: first.x,
-                        endY: first.y
-                    )
-                )
+                    let globalT = (Double(curveIndex) + localForGlobal) / Double(totalCurves)
+                    let projected = parameters.projector.project(point2D: point, globalT: globalT)
+                    if let previous {
+                        appendSegment(from: previous, to: projected, into: &lines)
+                    } else {
+                        first = projected
+                    }
+                    previous = projected
+                }
+
+                if let first, let previous {
+                    appendSegment(from: previous, to: first, into: &lines)
+                }
+
+                curveIndex += 1
             }
         }
 
         return lines
+    }
+
+    private func basePoint(t: Double, family: PortableFamilyHarmonicSet) -> (x: Double, y: Double) {
+        let tau = 2.0 * Double.pi
+        var x = 0.0
+        var y = 0.0
+        for harmonic in family.harmonics {
+            x += harmonic.a * cos(tau * Double(harmonic.n) * t + harmonic.phi)
+            y += harmonic.b * sin(tau * Double(harmonic.m) * t + harmonic.psi)
+        }
+        return (x, y)
+    }
+
+    private func applyTopologyTransform(
+        point: (x: Double, y: Double),
+        t: Double,
+        mode: PortableTopologyMode,
+        symmetryOrder: Int,
+        family: PortableFamilyHarmonicSet
+    ) -> (x: Double, y: Double) {
+        switch mode {
+        case .roseWeb:
+            let r = hypot(point.x, point.y)
+            let angle = atan2(point.y, point.x)
+            let petals = max(2, symmetryOrder)
+            let compression = 0.72 + 0.28 * cos(Double(petals) * angle + family.rosePhase)
+            let adjustedR = r * compression
+            return (adjustedR * cos(angle), adjustedR * sin(angle))
+
+        case .lissajousBraid:
+            return point
+
+        case .hypotrochoidRune:
+            let theta = 2.0 * Double.pi * t * family.hypotrochoidRate + family.hypotrochoidPhase
+            let r = max(family.hypotrochoidr, 0.00001)
+            let ratio = (family.hypotrochoidR - r) / r
+            let offsetX = (family.hypotrochoidR - r) * cos(theta) + family.hypotrochoidD * cos(ratio * theta)
+            let offsetY = (family.hypotrochoidR - r) * sin(theta) - family.hypotrochoidD * sin(ratio * theta)
+            return (
+                point.x + 0.35 * offsetX,
+                point.y + 0.35 * offsetY
+            )
+
+        case .polygramLattice:
+            let r = hypot(point.x, point.y)
+            let angle = atan2(point.y, point.x)
+            let step = (2.0 * Double.pi) / Double(max(2, symmetryOrder))
+            let snapped = (angle / step).rounded() * step
+            let blended = angle * (1.0 - family.latticeBlend) + snapped * family.latticeBlend
+            return (r * cos(blended), r * sin(blended))
+
+        case .spiralGate:
+            let r = hypot(point.x, point.y)
+            let angle = atan2(point.y, point.x)
+            let ramp = 0.25 + 0.75 * t
+            let gate = 2.0 * Double.pi * (0.6 + 1.8 * family.gateRate) * t + family.gatePhase
+            let adjustedR = r * (0.55 + 0.90 * ramp)
+            return (
+                adjustedR * cos(angle + gate),
+                adjustedR * sin(angle + gate)
+            )
+
+        case .lemniscateForge:
+            let theta = 2.0 * Double.pi * family.lemniscateRate * t + family.lemniscatePhase
+            let denom = 1.0 + pow(sin(theta), 2.0)
+            let lx = family.lemniscateScale * cos(theta) / denom
+            let ly = family.lemniscateScale * sin(theta) * cos(theta) / denom
+            return (
+                point.x + lx,
+                point.y + ly
+            )
+        }
+    }
+
+    private func rotate(
+        point: (x: Double, y: Double),
+        cosTheta: Double,
+        sinTheta: Double
+    ) -> (x: Double, y: Double) {
+        (
+            point.x * cosTheta - point.y * sinTheta,
+            point.x * sinTheta + point.y * cosTheta
+        )
+    }
+
+    private func appendSegment(
+        from start: (x: Double, y: Double),
+        to end: (x: Double, y: Double),
+        into lines: inout [SigilLine]
+    ) {
+        guard start.x.isFinite, start.y.isFinite, end.x.isFinite, end.y.isFinite else {
+            return
+        }
+
+        let dx = end.x - start.x
+        let dy = end.y - start.y
+        guard (dx * dx + dy * dy) > 1e-12 else {
+            return
+        }
+
+        lines.append(
+            SigilLine(
+                startX: start.x,
+                startY: start.y,
+                endX: end.x,
+                endY: end.y
+            )
+        )
     }
 }
 
 private struct PortableSigil9DProjector: Sendable {
     let matrix: PortableProjectionMatrix2x9
     let hiddenProfiles: [PortableHiddenDimensionProfile]
+    let tubeProfile: PortableTubeProfile
 
     func project(point2D: (x: Double, y: Double), globalT: Double) -> (x: Double, y: Double) {
         var vector = [Double](repeating: 0.0, count: 9)
         vector[0] = point2D.x
         vector[1] = point2D.y
 
-        for profile in hiddenProfiles {
+        for (offset, profile) in hiddenProfiles.enumerated() {
             let signal = profile.amplitude * sin(2.0 * Double.pi * profile.frequency * globalT + profile.phase)
-            vector[profile.dimension] = signal
+            let tubeSignal = tubeProfile.radius
+                * (tubeProfile.omega[safe: offset] ?? 0.0)
+                * sin((2.0 * Double.pi * tubeProfile.frequency * globalT) + tubeProfile.phase + Double(offset) * 0.41)
+            vector[profile.dimension] = signal + tubeSignal
         }
 
         return matrix.project(vector)
@@ -162,198 +691,11 @@ private struct PortableHiddenDimensionProfile: Sendable {
     let phase: Double
 }
 
-private struct PortableHiddenDimensionProfileFactory: Sendable {
-    func makeProfiles(vector: CanonicalVector, planeWeights: [Double]) -> [PortableHiddenDimensionProfile] {
-        let h = vector.H_entropy.clamped(to: 0...1)
-        let k = vector.K_complexity.clamped(to: 0...1)
-        let d = ((vector.D_fractal_dim - 1.0) / 1.5).clamped(to: 0...1)
-        let s = vector.S_symmetry.clamped(to: 0...1)
-        let l = (Double(vector.L_generator_length - 1) / 998.0).clamped(to: 0...1)
-
-        let components: [Double] = [
-            h,
-            k,
-            d,
-            s,
-            l,
-            0.5 * (k + s),
-            0.5 * (1.0 - h + s)
-        ]
-
-        return components.enumerated().map { offset, component in
-            let dimension = offset + 2
-            let amplitude = (0.020 + 0.060 * component) * (planeWeights[safe: dimension] ?? 1.0)
-            let frequency = 1.00 + 0.37 * Double(offset) + 0.25 * component
-            let phase = Double(offset) * .pi / 7.0
-            return PortableHiddenDimensionProfile(
-                dimension: dimension,
-                amplitude: amplitude,
-                frequency: frequency,
-                phase: phase
-            )
-        }
-    }
-}
-
-private protocol PortableSigilStroke2D: Sendable {
-    var sampleCount: Int { get }
-    var isClosed: Bool { get }
-    func point(at t: Double) -> (x: Double, y: Double)
-}
-
-private struct PortableLineStroke2D: PortableSigilStroke2D {
-    let start: (x: Double, y: Double)
-    let end: (x: Double, y: Double)
-    let sampleCount: Int
-    let isClosed = false
-
-    func point(at t: Double) -> (x: Double, y: Double) {
-        let u = t.clamped(to: 0...1)
-        return (
-            x: start.x + (end.x - start.x) * u,
-            y: start.y + (end.y - start.y) * u
-        )
-    }
-}
-
-private struct PortableEllipseStroke2D: PortableSigilStroke2D {
-    let center: (x: Double, y: Double)
-    let radiusX: Double
-    let radiusY: Double
-    let thetaStart: Double
-    let thetaEnd: Double
-    let sampleCount: Int
-    let isClosed: Bool
-
-    func point(at t: Double) -> (x: Double, y: Double) {
-        let u = t.clamped(to: 0...1)
-        let theta = thetaStart + (thetaEnd - thetaStart) * u
-        return (
-            x: center.x + radiusX * cos(theta),
-            y: center.y + radiusY * sin(theta)
-        )
-    }
-}
-
-private struct PortableCurlStroke2D: PortableSigilStroke2D {
-    let center: (x: Double, y: Double)
-    let thetaStart: Double
-    let thetaEnd: Double
-    let radiusStart: Double
-    let radiusEnd: Double
-    let xSign: Double
-    let sampleCount: Int
-    let isClosed = false
-
-    func point(at t: Double) -> (x: Double, y: Double) {
-        let u = t.clamped(to: 0...1)
-        let theta = thetaStart + (thetaEnd - thetaStart) * u
-        let radius = radiusStart + (radiusEnd - radiusStart) * u
-        return (
-            x: center.x + xSign * radius * cos(theta),
-            y: center.y + radius * sin(theta)
-        )
-    }
-}
-
-private struct PortablePolylineStroke2D: PortableSigilStroke2D {
-    let points: [(x: Double, y: Double)]
-    let sampleCount: Int
-    let isClosed: Bool
-
-    func point(at t: Double) -> (x: Double, y: Double) {
-        guard points.count > 1 else {
-            return points.first ?? (0.0, 0.0)
-        }
-
-        let u = t.clamped(to: 0...1)
-        let segmentCount = points.count - 1
-        let position = u * Double(segmentCount)
-        let segmentIndex = min(Int(floor(position)), segmentCount - 1)
-        let localT = position - Double(segmentIndex)
-
-        let start = points[segmentIndex]
-        let end = points[segmentIndex + 1]
-        return (
-            x: start.x + (end.x - start.x) * localT,
-            y: start.y + (end.y - start.y) * localT
-        )
-    }
-}
-
-private struct PortableSigilBlueprint: Sendable {
-    func makeStrokes() -> [any PortableSigilStroke2D] {
-        let namedPoints: [String: (Double, Double)] = [
-            "A": (-0.48, 0.70),
-            "B": (0.48, 0.70),
-            "C": (0.0, 0.28),
-            "D": (-0.18, -0.03),
-            "E": (0.18, -0.03),
-            "F": (-0.24, -0.28),
-            "G": (0.24, -0.28),
-            "H": (0.0, -0.57),
-            "I": (-0.24, -0.86),
-            "J": (0.24, -0.86),
-            "K": (0.0, -1.02)
-        ]
-
-        let strokeList: [any PortableSigilStroke2D] = [
-            PortableLineStroke2D(
-                start: (0.0, 0.18),
-                end: namedPoints["K"] ?? (0.0, -1.02),
-                sampleCount: 54
-            ),
-            PortableLineStroke2D(start: namedPoints["A"]!, end: namedPoints["B"]!, sampleCount: 48),
-            PortableLineStroke2D(start: namedPoints["A"]!, end: namedPoints["C"]!, sampleCount: 36),
-            PortableLineStroke2D(start: namedPoints["B"]!, end: namedPoints["C"]!, sampleCount: 36),
-            PortableLineStroke2D(start: namedPoints["C"]!, end: namedPoints["D"]!, sampleCount: 28),
-            PortableLineStroke2D(start: namedPoints["C"]!, end: namedPoints["E"]!, sampleCount: 28),
-            PortableLineStroke2D(start: namedPoints["F"]!, end: namedPoints["H"]!, sampleCount: 30),
-            PortableLineStroke2D(start: namedPoints["G"]!, end: namedPoints["H"]!, sampleCount: 30),
-            PortableLineStroke2D(start: namedPoints["H"]!, end: namedPoints["I"]!, sampleCount: 32),
-            PortableLineStroke2D(start: namedPoints["H"]!, end: namedPoints["J"]!, sampleCount: 32),
-            PortableEllipseStroke2D(
-                center: (0.0, 0.86),
-                radiusX: 0.07,
-                radiusY: 0.11,
-                thetaStart: 0.0,
-                thetaEnd: 2.0 * Double.pi,
-                sampleCount: 120,
-                isClosed: true
-            ),
-            PortableCurlStroke2D(
-                center: (-0.32, -0.6),
-                thetaStart: 0.7853981633974483,
-                thetaEnd: 4.869468613064179,
-                radiusStart: 0.02,
-                radiusEnd: 0.08,
-                xSign: 1.0,
-                sampleCount: 92
-            ),
-            PortableCurlStroke2D(
-                center: (0.32, -0.6),
-                thetaStart: 0.7853981633974483,
-                thetaEnd: 4.869468613064179,
-                radiusStart: 0.02,
-                radiusEnd: 0.08,
-                xSign: -1.0,
-                sampleCount: 92
-            ),
-            PortablePolylineStroke2D(
-                points: [
-                    (0.0, -1.02),
-                    (0.018, -0.97),
-                    (0.0, -0.92),
-                    (-0.018, -0.97),
-                    (0.0, -1.02)
-                ],
-                sampleCount: 70,
-                isClosed: true
-            )
-        ]
-
-        return strokeList
-    }
+private struct PortableTubeProfile: Sendable {
+    let radius: Double
+    let omega: [Double]
+    let frequency: Double
+    let phase: Double
 }
 
 private extension Array {

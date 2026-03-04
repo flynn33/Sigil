@@ -21,8 +21,12 @@ public struct UserProfileInput: Codable, Hashable, Sendable {
     public var birthDate: String
     public var birthTime: String
     public var birthOrder: Int
+    public var siblingCount: Int?
     public var motherBirthOrder: Int
     public var fatherBirthOrder: Int
+    public var userHairColor: String
+    public var userEyeColor: String
+    public var userHeightCentimeters: Int?
     public var petNames: [String]
     public var significantNumbers: [Int]
     public var additionalStrings: [String]
@@ -35,8 +39,12 @@ public struct UserProfileInput: Codable, Hashable, Sendable {
         birthDate: String,
         birthTime: String,
         birthOrder: Int,
+        siblingCount: Int? = nil,
         motherBirthOrder: Int,
         fatherBirthOrder: Int,
+        userHairColor: String = "",
+        userEyeColor: String = "",
+        userHeightCentimeters: Int? = nil,
         petNames: [String] = [],
         significantNumbers: [Int] = [],
         additionalStrings: [String] = [],
@@ -48,8 +56,12 @@ public struct UserProfileInput: Codable, Hashable, Sendable {
         self.birthDate = birthDate
         self.birthTime = birthTime
         self.birthOrder = birthOrder
+        self.siblingCount = siblingCount
         self.motherBirthOrder = motherBirthOrder
         self.fatherBirthOrder = fatherBirthOrder
+        self.userHairColor = userHairColor
+        self.userEyeColor = userEyeColor
+        self.userHeightCentimeters = userHeightCentimeters
         self.petNames = petNames
         self.significantNumbers = significantNumbers
         self.additionalStrings = additionalStrings
@@ -177,31 +189,27 @@ public final class DefaultSigilPipelineService: SigilPipelineService, Sendable {
         seed64: UInt64
     ) -> (LSystemDefinition, SigilGeometry) {
         let lsystem = lsystemEngine.makeConfig(core9D: core9D, seed64: seed64)
-        let projected = geometryBuilder9D.buildSegments(vector: vector)
-        let segments = deterministicSample(projected, maxCount: maxProjectedSegmentCount)
+        let projected = geometryBuilder9D.buildSegments(vector: vector, profileSeed: nil)
+        let geometrySeed = seed64 ^ core9D.seed
+        let segments = deterministicSample(projected, maxCount: maxProjectedSegmentCount, seed64: geometrySeed)
         let geometry = geometryNormalizer.normalize(segments: segments, canvas: canvasSize, padding: canvasPadding)
         return (lsystem, geometry)
     }
 
-    private func deterministicSample(_ segments: [SigilLine], maxCount: Int) -> [SigilLine] {
+    private func deterministicSample(_ segments: [SigilLine], maxCount: Int, seed64: UInt64) -> [SigilLine] {
         guard maxCount > 0, segments.count > maxCount else { return segments }
-        let stride = Int(ceil(Double(segments.count) / Double(maxCount)))
-        guard stride > 1 else { return Array(segments.prefix(maxCount)) }
+        var indices = Array(segments.indices)
+        var rng = XorShift64Star(seed: seed64 == 0 ? 0x9E37_79B9_7F4A_7C15 : seed64)
+        let count = indices.count
 
-        var sampled: [SigilLine] = []
-        sampled.reserveCapacity(maxCount)
-        for (index, segment) in segments.enumerated() where index.isMultiple(of: stride) {
-            sampled.append(segment)
-            if sampled.count == maxCount {
-                break
-            }
+        for i in 0..<maxCount {
+            let remaining = count - i
+            let j = i + rng.nextInt(max(1, remaining))
+            indices.swapAt(i, j)
         }
 
-        if sampled.count < maxCount {
-            let remaining = maxCount - sampled.count
-            sampled.append(contentsOf: segments.suffix(remaining))
-        }
-        return sampled
+        let selected = Array(indices.prefix(maxCount)).sorted()
+        return selected.map { segments[$0] }
     }
 
     private func deterministicUUID(fromHex hex: String) -> UUID {
@@ -315,8 +323,12 @@ private struct ProfileInputAdapter: ProfileInputAdapting {
             birthDate: dateTime.date,
             birthTime: dateTime.time,
             birthOrder: max(1, profile.birthOrder),
+            siblingCount: profile.birthOrderTotal.map { max(0, $0 - 1) },
             motherBirthOrder: max(1, profile.mother.birthOrder),
             fatherBirthOrder: max(1, profile.father.birthOrder),
+            userHairColor: profile.userHairColor,
+            userEyeColor: profile.userEyeColor,
+            userHeightCentimeters: profile.userHeightCentimeters,
             petNames: profile.traits.petNames,
             significantNumbers: numbers,
             additionalStrings: strings,
@@ -423,8 +435,12 @@ private struct InputCanonicalizer: InputCanonicalizing {
             birthDate: normalizeDate(input.birthDate),
             birthTime: normalizeTime(input.birthTime),
             birthOrder: max(1, input.birthOrder),
+            siblingCount: input.siblingCount.map { max(0, $0) },
             motherBirthOrder: max(1, input.motherBirthOrder),
             fatherBirthOrder: max(1, input.fatherBirthOrder),
+            userHairColor: normalizeString(input.userHairColor),
+            userEyeColor: normalizeString(input.userEyeColor),
+            userHeightCentimeters: input.userHeightCentimeters,
             petNames: input.petNames.map(normalizeName).filter { !$0.isEmpty },
             significantNumbers: input.significantNumbers,
             additionalStrings: input.additionalStrings.map(normalizeString).filter { !$0.isEmpty },
@@ -436,22 +452,25 @@ private struct InputCanonicalizer: InputCanonicalizing {
     func canonicalString(for input: UserProfileInput) -> String {
         let lat = input.birthLatitude.map { String(format: "%.6f", $0) } ?? ""
         let lon = input.birthLongitude.map { String(format: "%.6f", $0) } ?? ""
-
-        return [
+        let values: [String] = [
             input.firstName,
             input.lastName,
             input.birthDate,
             input.birthTime,
             String(input.birthOrder),
+            input.siblingCount.map { String($0) } ?? "",
             String(input.motherBirthOrder),
             String(input.fatherBirthOrder),
+            input.userHairColor,
+            input.userEyeColor,
+            input.userHeightCentimeters.map { String($0) } ?? "",
             input.petNames.joined(separator: ","),
-            input.significantNumbers.map(String.init).joined(separator: ","),
+            input.significantNumbers.map { String($0) }.joined(separator: ","),
             input.additionalStrings.joined(separator: ","),
             lat,
             lon
         ]
-        .joined(separator: "|")
+        return values.joined(separator: "|")
     }
 
     private func normalizeName(_ value: String) -> String {
@@ -516,66 +535,65 @@ private struct NumerologyReducer: Sendable {
 
 private struct AgentPatternVectorBuilder: PatternVectorBuilding {
     private let reducer = NumerologyReducer()
+    private let hairPalette: [String: Double] = [
+        "BLACK": 0.08,
+        "DARK BROWN": 0.16,
+        "BROWN": 0.22,
+        "LIGHT BROWN": 0.28,
+        "AUBURN": 0.34,
+        "RED": 0.42,
+        "STRAWBERRY BLONDE": 0.52,
+        "BLONDE": 0.58,
+        "GRAY": 0.74,
+        "GREY": 0.74,
+        "WHITE": 0.88
+    ]
+    private let eyePalette: [String: Double] = [
+        "BLACK": 0.10,
+        "DARK BROWN": 0.14,
+        "BROWN": 0.18,
+        "HAZEL": 0.32,
+        "GREEN": 0.46,
+        "AMBER": 0.52,
+        "BLUE": 0.64,
+        "GRAY": 0.79,
+        "GREY": 0.79
+    ]
 
     func buildPatternVector(input: UserProfileInput) -> PatternVectorBuildOutput {
-        let firstReduce = reducer.reduceToSingleDigit(reducer.letterOrdinalSum(input.firstName))
-        let lastReduce = reducer.reduceToSingleDigit(reducer.letterOrdinalSum(input.lastName))
-        let petReduces = input.petNames.map {
-            reducer.reduceToSingleDigit(reducer.letterOrdinalSum($0))
-        }
+        let normalizedDate = dateComponents(from: input.birthDate)
+        let year = normalizedDate.year
+        let month = normalizedDate.month
+        let day = normalizedDate.day
 
-        let nameReduces = [firstReduce, lastReduce] + petReduces
-        let nameAverage = reducer.reduceToSingleDigit(nameReduces.reduce(0, +))
+        let lifePath = reducer.reduceToSingleDigit(year + month + day)
+        let siblingCount = resolveSiblingCount(input: input)
+        let heightCm = Double((input.userHeightCentimeters ?? 170).clamped(to: 120...240))
 
-        let dateReduce = reducer.datetimeReduce(date: input.birthDate, time: input.birthTime)
-        let orderReduce = reducer.reduceToSingleDigit(input.birthOrder + input.motherBirthOrder + input.fatherBirthOrder)
+        let hairScalar = colorScalar(input.userHairColor, palette: hairPalette)
+        let eyeScalar = colorScalar(input.userEyeColor, palette: eyePalette)
 
-        let geoReduce: Int? = {
-            guard let latitude = input.birthLatitude, let longitude = input.birthLongitude else {
-                return nil
-            }
-            guard latitude.isFinite, longitude.isFinite else {
-                return nil
-            }
-            let latInt = Int(floor(abs(latitude) * 100.0))
-            let lonInt = Int(floor(abs(longitude) * 100.0))
-            let combined = latInt + lonInt
-            return reducer.reduceToSingleDigit(reducer.sumDigits(combined))
-        }()
+        let latNorm = ((input.birthLatitude?.finiteOr(0.0) ?? 0.0) + 90.0) / 180.0
+        let lonNorm = ((input.birthLongitude?.finiteOr(0.0) ?? 0.0) + 180.0) / 360.0
 
-        let additionalNumberReduces = input.significantNumbers.map { reducer.reduceToSingleDigit($0) }
-        let additionalStringReduces = input.additionalStrings.map {
-            reducer.reduceToSingleDigit(reducer.letterOrdinalSum($0))
-        }
-        let additionalReduces = additionalNumberReduces + additionalStringReduces
-        let hasAdditionalData = !additionalReduces.isEmpty
-        let additionalReduce = hasAdditionalData
-            ? reducer.reduceToSingleDigit(additionalReduces.reduce(0, +))
-            : 5
+        let f0 = (Double(day) / 31.0).clamped(to: 0...1)
+        let f1 = (Double(month) / 12.0).clamped(to: 0...1)
+        let f2 = (Double(lifePath) / 9.0).clamped(to: 0...1)
+        let f3 = (Double(max(0, input.birthOrder - 1)) / Double(max(1, siblingCount))).clamped(to: 0...1)
+        let f4 = (Double(siblingCount) / 10.0).clamped(to: 0...1)
+        let f5 = ((heightCm - 140.0) / 70.0).clamped(to: 0...1)
+        let f6 = hairScalar
+        let f7 = eyeScalar
+        let f8 = (0.5 * latNorm + 0.5 * lonNorm).clamped(to: 0...1)
 
-        let petAverage: Int = {
-            if petReduces.isEmpty {
-                return additionalReduce
-            }
-            let numerator = petReduces.reduce(0, +) + (hasAdditionalData ? additionalReduce : 0)
-            let divisor = petReduces.count + (hasAdditionalData ? 1 : 0)
-            let average = Int(floor(Double(numerator) / Double(max(1, divisor))))
-            return reducer.reduceToSingleDigit(average)
-        }()
+        let canonical = canonicalInputString(for: input)
+        let mix = inputMixFractions(fromCanonical: canonical)
 
-        let baseH = (Double(nameAverage) / 9.0).clamped(to: 0...1)
-        let baseK = (Double(dateReduce) / 9.0).clamped(to: 0...1)
-        let baseDNorm = (Double(orderReduce) / 9.0).clamped(to: 0...1)
-        let baseS = (Double(geoReduce ?? additionalReduce) / 9.0).clamped(to: 0...1)
-        let baseLNorm = (Double(petAverage) / 9.0).clamped(to: 0...1)
-
-        // Mix in a deterministic fingerprint of full profile input to reduce collisions.
-        let mix = inputMixFractions(from: input)
-        let h = (0.70 * baseH + 0.30 * mix[0]).clamped(to: 0...1)
-        let k = (0.70 * baseK + 0.30 * mix[1]).clamped(to: 0...1)
-        let dNorm = (0.70 * baseDNorm + 0.30 * mix[2]).clamped(to: 0...1)
-        let s = (0.70 * baseS + 0.30 * mix[3]).clamped(to: 0...1)
-        let lNorm = (0.70 * baseLNorm + 0.30 * mix[4]).clamped(to: 0...1)
+        let h = (0.52 * f0 + 0.16 * f5 + 0.16 * f6 + 0.16 * mix[0]).clamped(to: 0...1)
+        let k = (0.50 * f1 + 0.20 * f7 + 0.15 * f8 + 0.15 * mix[1]).clamped(to: 0...1)
+        let dNorm = (0.55 * f2 + 0.20 * f8 + 0.25 * mix[2]).clamped(to: 0...1)
+        let s = (0.55 * f3 + 0.25 * f4 + 0.20 * mix[3]).clamped(to: 0...1)
+        let lNorm = (0.45 * f4 + 0.20 * f5 + 0.15 * f6 + 0.20 * mix[4]).clamped(to: 0...1)
 
         let vector = CanonicalVector(
             H_entropy: h,
@@ -585,39 +603,90 @@ private struct AgentPatternVectorBuilder: PatternVectorBuilding {
             L_generator_length: (1 + Int(floor(lNorm * 998.0))).clamped(to: 1...999)
         )
 
-        return PatternVectorBuildOutput(vector: vector, dateReduce: dateReduce)
+        return PatternVectorBuildOutput(vector: vector, dateReduce: lifePath)
     }
 
-    private func inputMixFractions(from input: UserProfileInput) -> [Double] {
+    private func dateComponents(from value: String) -> (year: Int, month: Int, day: Int) {
+        let digits = value.filter(\.isNumber)
+        guard digits.count >= 8 else { return (1970, 1, 1) }
+        let y = Int(digits.prefix(4)) ?? 1970
+        let m = Int(digits.dropFirst(4).prefix(2)) ?? 1
+        let d = Int(digits.dropFirst(6).prefix(2)) ?? 1
+        return (
+            y.clamped(to: 1900...2200),
+            m.clamped(to: 1...12),
+            d.clamped(to: 1...31)
+        )
+    }
+
+    private func resolveSiblingCount(input: UserProfileInput) -> Int {
+        if let explicit = input.siblingCount {
+            return max(0, explicit)
+        }
+
+        let inferredTotals = [input.birthOrder, input.motherBirthOrder, input.fatherBirthOrder]
+        let inferred = max(1, inferredTotals.max() ?? input.birthOrder) - 1
+        return max(0, inferred)
+    }
+
+    private func colorScalar(_ value: String, palette: [String: Double]) -> Double {
+        let normalized = value.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        if let direct = palette[normalized] {
+            return direct.clamped(to: 0...1)
+        }
+
+        guard !normalized.isEmpty else { return 0.5 }
+        let digest = SHA256.hash(data: Data(normalized.utf8))
+        let bytes = Array(digest)
+        guard bytes.count >= 4 else { return 0.5 }
+        let raw =
+            (UInt32(bytes[0]) << 24)
+            | (UInt32(bytes[1]) << 16)
+            | (UInt32(bytes[2]) << 8)
+            | UInt32(bytes[3])
+        return (Double(raw) / Double(UInt32.max)).clamped(to: 0...1)
+    }
+
+    private func canonicalInputString(for input: UserProfileInput) -> String {
         let lat = input.birthLatitude.map { String(format: "%.6f", $0) } ?? ""
         let lon = input.birthLongitude.map { String(format: "%.6f", $0) } ?? ""
-        let canonical = [
+        let values: [String] = [
             input.firstName,
             input.lastName,
             input.birthDate,
             input.birthTime,
             String(input.birthOrder),
+            input.siblingCount.map { String($0) } ?? "",
             String(input.motherBirthOrder),
             String(input.fatherBirthOrder),
+            input.userHairColor,
+            input.userEyeColor,
+            input.userHeightCentimeters.map { String($0) } ?? "",
             input.petNames.joined(separator: ","),
-            input.significantNumbers.map(String.init).joined(separator: ","),
+            input.significantNumbers.map { String($0) }.joined(separator: ","),
             input.additionalStrings.joined(separator: ","),
             lat,
             lon
         ]
-        .joined(separator: "|")
+        return values.joined(separator: "|")
+    }
 
+    private func inputMixFractions(fromCanonical canonical: String) -> [Double] {
         let digest = SHA256.hash(data: Data(canonical.utf8))
         let bytes = Array(digest)
-        guard bytes.count >= 10 else {
+        guard bytes.count >= 20 else {
             return [0.5, 0.5, 0.5, 0.5, 0.5]
         }
 
         var values: [Double] = []
         values.reserveCapacity(5)
-        for index in stride(from: 0, to: 10, by: 2) {
-            let raw = (UInt16(bytes[index]) << 8) | UInt16(bytes[index + 1])
-            values.append(Double(raw) / 65535.0)
+        for index in stride(from: 0, to: 20, by: 4) {
+            let raw =
+                (UInt32(bytes[index]) << 24)
+                | (UInt32(bytes[index + 1]) << 16)
+                | (UInt32(bytes[index + 2]) << 8)
+                | UInt32(bytes[index + 3])
+            values.append(Double(raw) / Double(UInt32.max))
         }
         return values
     }
@@ -838,7 +907,7 @@ private struct RotationalSymmetryComposer: SymmetryComposing {
     }
 }
 
-private struct GeometryNormalizer: SegmentGeometryNormalizing {
+struct GeometryNormalizer: SegmentGeometryNormalizing {
     func normalize(segments: [SigilLine], canvas: CGSize, padding: Double) -> SigilGeometry {
         let finiteSegments = segments.filter {
             $0.startX.isFinite && $0.startY.isFinite && $0.endX.isFinite && $0.endY.isFinite
@@ -913,7 +982,9 @@ private struct GeometryNormalizer: SegmentGeometryNormalizing {
         canvas: CGSize
     ) -> (Double, Double) {
         let tx = ((x - sourceCenterX) * scale + targetCenterX) / Double(canvas.width)
-        let ty = ((y - sourceCenterY) * scale + targetCenterY) / Double(canvas.height)
+        // Rendering coordinates are top-left origin, while source geometry is Cartesian-like.
+        // Flip Y to avoid vertically inverted output.
+        let ty = ((sourceCenterY - y) * scale + targetCenterY) / Double(canvas.height)
 
         return (
             quantize(tx.clamped(to: 0...1)),

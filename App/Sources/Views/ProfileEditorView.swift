@@ -73,6 +73,27 @@ struct ProfileEditorView: View {
                 }
             }
 
+            Section("Physical Traits") {
+                textFieldRow(
+                    title: "Your Hair Color",
+                    help: "Your hair-color descriptor used in canonical and extension trait mapping.",
+                    placeholder: "e.g. Brown",
+                    text: $model.userHairColor
+                )
+                textFieldRow(
+                    title: "Your Eye Color",
+                    help: "Your eye-color descriptor used in canonical and extension trait mapping.",
+                    placeholder: "e.g. Hazel",
+                    text: $model.userEyeColor
+                )
+                numberFieldRow(
+                    title: "Your Height (cm, Optional)",
+                    help: "Optional integer height in centimeters included in deterministic generation.",
+                    placeholder: "e.g. 178",
+                    text: $model.userHeightCentimeters
+                )
+            }
+
             Section("Birthplace") {
                 textFieldRow(
                     title: "Birthplace Name",

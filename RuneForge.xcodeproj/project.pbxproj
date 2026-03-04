@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,7 +58,7 @@
 		0E8084D672ED2C78356ADA68 /* ProfileFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFormModel.swift; sourceTree = "<group>"; };
 		13082AF7DD57FAD75A1B982E /* RFSigilPipeline */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFSigilPipeline; path = Packages/RFSigilPipeline; sourceTree = SOURCE_ROOT; };
 		14F486100C989D4A10F841F5 /* RFExport */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFExport; path = Packages/RFExport; sourceTree = SOURCE_ROOT; };
-		1A2323F55D702CE848966C12 /* SigilApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SigilApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A2323F55D702CE848966C12 /* Sigil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sigil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25AF894FA2D7E106B83800AE /* RFStorage */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFStorage; path = Packages/RFStorage; sourceTree = SOURCE_ROOT; };
 		2FE845F818E01D91F1476A74 /* SigilAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilAppTests.swift; sourceTree = "<group>"; };
 		35186C8195C647B42C47AE01 /* RFMythosCatalog */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFMythosCatalog; path = Packages/RFMythosCatalog; sourceTree = SOURCE_ROOT; };
@@ -76,7 +76,7 @@
 		7EBCA3F133A36DFF287AA307 /* LoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoreView.swift; sourceTree = "<group>"; };
 		8B9163C969EE5D204D673D1A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		917C42439AB1FE89D970D6AE /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
-		999AF7E26D7724515F864813 /* Forsetti-Framwork */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Forsetti-Framwork"; path = "../Forsetti-Framwork"; sourceTree = SOURCE_ROOT; };
+		999AF7E26D7724515F864813 /* Forsetti-Framwork */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Forsetti-Framwork"; path = "Forsetti-Framwork"; sourceTree = SOURCE_ROOT; };
 		A008AF0FBDFE409F539EB43C /* RFCoreModels */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFCoreModels; path = Packages/RFCoreModels; sourceTree = SOURCE_ROOT; };
 		A497AECA34A9C492A4D36F17 /* SigilGeometryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilGeometryView.swift; sourceTree = "<group>"; };
 		A52E5EB198CB239D672BDD98 /* RFSigilForsettiModules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RFSigilForsettiModules; path = Packages/RFSigilForsettiModules; sourceTree = SOURCE_ROOT; };
@@ -167,7 +167,7 @@
 		67B81C872B238ABAC570A0E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A2323F55D702CE848966C12 /* SigilApp.app */,
+				1A2323F55D702CE848966C12 /* Sigil.app */,
 				E9E25C9CF3B644DC8FF19072 /* SigilAppTests.xctest */,
 			);
 			name = Products;
@@ -283,7 +283,7 @@
 				5B9133D3EAE60A2AB327AE65 /* RFSigilForsettiModules */,
 			);
 			productName = SigilApp;
-			productReference = 1A2323F55D702CE848966C12 /* SigilApp.app */;
+			productReference = 1A2323F55D702CE848966C12 /* Sigil.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -306,7 +306,7 @@
 			mainGroup = 5EFAA7C24F431AED3EC5224A;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				B5B2072CA4089435BAD264E3 /* XCLocalSwiftPackageReference "../Forsetti-Framwork" */,
+				B5B2072CA4089435BAD264E3 /* XCLocalSwiftPackageReference "Forsetti-Framwork" */,
 				5B7274B5F000B8E14871597D /* XCLocalSwiftPackageReference "Packages/RFCoreModels" */,
 				58A050879B634F92387924F3 /* XCLocalSwiftPackageReference "Packages/RFEditor" */,
 				8F64AF19D3ABAC389744C109 /* XCLocalSwiftPackageReference "Packages/RFEngineData" */,
@@ -320,7 +320,6 @@
 				68CFFCE13886BAC55A86741D /* XCLocalSwiftPackageReference "Packages/RFSigilPipeline" */,
 				39CE63460E64824E9BC2A411 /* XCLocalSwiftPackageReference "Packages/RFStorage" */,
 			);
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -470,6 +469,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Sigil;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Sigil uses location only for Apple Maps birthplace search.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Sigil does not use microphone access.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -497,6 +497,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Sigil;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Sigil uses location only for Apple Maps birthplace search.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Sigil does not use microphone access.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -677,9 +678,9 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/RFMythosCatalog;
 		};
-		B5B2072CA4089435BAD264E3 /* XCLocalSwiftPackageReference "../Forsetti-Framwork" */ = {
+		B5B2072CA4089435BAD264E3 /* XCLocalSwiftPackageReference "Forsetti-Framwork" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../Forsetti-Framwork";
+			relativePath = "Forsetti-Framwork";
 		};
 		D1CC929DB346848B45BE8BE0 /* XCLocalSwiftPackageReference "Packages/RFSecurity" */ = {
 			isa = XCLocalSwiftPackageReference;

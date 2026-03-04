@@ -3,6 +3,7 @@ import RFSigilForsettiModules
 import SwiftUI
 
 struct SigilForsettiHostView: View {
+    @EnvironmentObject private var coordinator: AppCoordinator
     @ObservedObject var controller: ForsettiHostController
     let injectionRegistry: ForsettiViewInjectionRegistry
     let primaryModuleID: String
@@ -32,25 +33,17 @@ struct SigilForsettiHostView: View {
             await controller.bootIfNeeded()
             await controller.openModule(moduleID: primaryModuleID)
         }
-        .alert(
-            "Forsetti Error",
-            isPresented: Binding(
-                get: { controller.errorMessage != nil },
-                set: { isPresented in
-                    if !isPresented {
-                        controller.clearError()
-                    }
-                }
-            ),
-            actions: {
-                Button("OK", role: .cancel) {
-                    controller.clearError()
-                }
-            },
-            message: {
-                Text(controller.errorMessage ?? "Unknown error")
+        .onChange(of: controller.errorMessage) { _, newValue in
+            guard let newValue, !newValue.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                return
             }
-        )
+            coordinator.dependencies.diagnostics.record(
+                "Forsetti runtime: \(newValue)",
+                level: .error,
+                category: "forsetti"
+            )
+            controller.clearError()
+        }
     }
 
     private var loadingOverlay: some View {
