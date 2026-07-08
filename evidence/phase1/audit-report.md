@@ -19,12 +19,13 @@ Allowed caveat: APS source documentation has path drift and one registry wording
 - `RFSigilPipelinePlaceholder`: pass. Placeholder-only unavailable response; final features list remains empty.
 - `RFSigilPrivacySecurity`: pass. Local-first posture with no backend, analytics, or personal-data network path.
 - `RFSigilDiagnostics`: pass. Local diagnostic aggregation only.
+- `RFSigilVisibleGlyph`: pass. Bounded deterministic visible-glyph service with local hidden geometry, visible vector paths, digest linkage, quality gates, and local validation.
 
 ## Forbidden Behavior Audit
 
-No final Sigil pipeline, numerology calculation, celestial naming, WRW lore generation, PersonalCodex generation, hidden geometry, final glyph rendering, Sigil Flare export/editor, final export bundle, or canonical identity hashing is implemented.
+No full identity pipeline, numerology calculation, celestial naming, WRW lore generation, PersonalCodex generation, Sigil Flare export/editor, final export bundle, analytics, backend upload path, or personal-data network path is implemented.
 
-The only matching strings are the required forbidden-feature enum and tests that assert those features remain unavailable.
+The bounded visible-glyph service keeps hidden geometry and visible output separate, links them by digest, and leaves export/editor behavior unavailable.
 
 ## Privacy and Security Audit
 

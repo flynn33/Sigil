@@ -7,6 +7,7 @@ import RFSigilPipelinePlaceholder
 import RFSigilPrivacySecurity
 import RFSigilSourceAuthority
 import RFSigilUIModule
+import RFSigilVisibleGlyph
 
 public struct SigilModuleDefinition {
     public let moduleID: String
@@ -32,6 +33,7 @@ public enum SigilModuleCatalog {
         uiDefinition,
         apsDefinition,
         aeostaraDefinition,
+        visibleGlyphDefinition,
         sourceAuthorityDefinition,
         pipelinePlaceholderDefinition,
         privacySecurityDefinition,
@@ -92,6 +94,18 @@ public enum SigilModuleCatalog {
             entryPoint: "RFSigilSourceAuthority.SigilSourceAuthorityModule"
         ) { descriptor, manifest in
             SigilSourceAuthorityModule(descriptor: descriptor, manifest: manifest)
+        }
+    }
+
+    private static var visibleGlyphDefinition: SigilModuleDefinition {
+        makeDefinition(
+            moduleID: .visibleGlyph,
+            displayName: "Sigil Visible Glyph",
+            moduleType: .service,
+            capabilities: [],
+            entryPoint: "RFSigilVisibleGlyph.SigilVisibleGlyphModule"
+        ) { descriptor, manifest in
+            SigilVisibleGlyphModule(descriptor: descriptor, manifest: manifest)
         }
     }
 

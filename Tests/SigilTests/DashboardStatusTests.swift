@@ -12,6 +12,7 @@ final class DashboardStatusTests: XCTestCase {
                 "forsetti",
                 "aps",
                 "aeostara",
+                "visible-glyph",
                 "source-authority",
                 "pipeline-placeholder",
                 "privacy-security"
@@ -22,7 +23,7 @@ final class DashboardStatusTests: XCTestCase {
     func testRuntimeAssemblyBuildsForsettiRuntime() {
         let assembly = SigilRuntimeAssembly()
 
-        XCTAssertEqual(assembly.registration.entryPoints.count, 7)
+        XCTAssertEqual(assembly.registration.entryPoints.count, 8)
         XCTAssertEqual(assembly.forsettiVersion, "0.1.4")
     }
 }

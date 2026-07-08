@@ -15,4 +15,4 @@ Build the native iOS Phase 1 foundation with a Forsetti-backed modular structure
 
 ## Boundaries
 
-Phase 1 does not implement final Sigil generation, numerology, celestial naming, WRW lore generation, PersonalCodex generation, hidden geometry, final glyph output, export bundles, analytics, backend upload paths, or personal-data network flows.
+Phase 1 now includes a bounded deterministic visible-glyph service with local hidden geometry, visible vector paths, digest linkage, and quality gates. The full identity pipeline, numerology calculation, celestial naming, WRW lore generation, PersonalCodex generation, export bundles, analytics, backend upload paths, and personal-data network flows remain unavailable.

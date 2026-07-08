@@ -7,13 +7,9 @@ public enum ForbiddenPhase1Feature: String, Codable, CaseIterable, Hashable, Sen
     case celestialNameGeneration = "celestial_name_generation"
     case wrwLoreGeneration = "WRW_lore_generation"
     case personalCodexGeneration = "PersonalCodex_generation"
-    case hiddenReversibleGeometry = "hidden_reversible_geometry"
-    case visibleSigilGrammarSynthesis = "visible_sigil_grammar_synthesis"
-    case finalGlyphRenderingAsOutput = "final_glyph_rendering_as_output"
     case sigilFlareExport = "Sigil_Flare_export"
     case sigilFlareEditor = "Sigil_Flare_editor"
     case excessPersonalDataPersistence = "excess_personal_data_persistence"
-    case canonicalProfileHashingForIdentity = "canonical_profile_hashing_for_identity"
     case finalExportBundleGeneration = "final_export_bundle_generation"
 }
 

@@ -1,0 +1,62 @@
+{
+  "artifact": "visible_glyph_acceptance_gates",
+  "version": "1.0.0",
+  "status": "PASS",
+  "gates": [
+    {
+      "id": "source_reading",
+      "status": "PASS",
+      "evidence": "ProjectEvidence/visible-glyph-source-reading.md"
+    },
+    {
+      "id": "data_models",
+      "status": "PASS",
+      "evidence": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift"
+    },
+    {
+      "id": "determinism",
+      "status": "PASS",
+      "evidence": "Tests/SigilTests/VisibleGlyphGenerationTests.swift"
+    },
+    {
+      "id": "golden_profile_uniqueness",
+      "status": "PASS",
+      "evidence": "ProjectEvidence/visible-glyph-snapshots/snapshot-summary.csv"
+    },
+    {
+      "id": "quality_gates",
+      "status": "PASS",
+      "evidence": "Tests/SigilTests/VisibleGlyphGenerationTests.swift"
+    },
+    {
+      "id": "hidden_visible_separation",
+      "status": "PASS",
+      "evidence": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift"
+    },
+    {
+      "id": "presentation_invariance",
+      "status": "PASS",
+      "evidence": "Tests/SigilTests/VisibleGlyphGenerationTests.swift"
+    },
+    {
+      "id": "local_validation",
+      "status": "PASS",
+      "evidence": "Tests/SigilTests/VisibleGlyphGenerationTests.swift"
+    },
+    {
+      "id": "privacy",
+      "status": "PASS",
+      "evidence": "ProjectEvidence/visible-glyph-security-privacy.md"
+    },
+    {
+      "id": "ide_build_test",
+      "status": "PASS",
+      "evidence": "ProjectEvidence/visible-glyph-build-test.md"
+    },
+    {
+      "id": "no_remote_mutation",
+      "status": "PASS",
+      "evidence": "local commit workflow; no push or PR opened"
+    }
+  ]
+}
