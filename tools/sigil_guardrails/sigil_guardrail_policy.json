@@ -1,0 +1,105 @@
+{
+  "artifact_type": "sigil_project_guardrail_policy",
+  "artifact_version": "1.0.0",
+  "project": {
+    "name": "Sigil",
+    "scope": "project-level implementation guardrails for future iOS/macOS application work",
+    "repository_state_assumption": "active Phase 1 project repository"
+  },
+  "source_authorities": [
+    {
+      "product": "ASH Pattern System for Mac/iOS",
+      "authority_scope": "ASH Pattern System semantic implementation behavior, conformance, diagnostics, codeword/state/recovery/topology semantics, Apple-native Swift package expectations",
+      "repo_reference": "ASH-Pattern-System-Mac-iOS-main.zip",
+      "hard_rules": [
+        "Treat full F2^9 state space as canonical.",
+        "Use the exact 16-member [9,4,4] doubly-even codeword set specified by ASH Pattern System.",
+        "Do not treat the superseded 8+1 decomposition or [8,4,4] projection as canonical implementation authority.",
+        "Do not invent or extend codewords.",
+        "Do not collapse GenerationPlanner and ArtifactEmitter responsibilities.",
+        "Every diagnostic must follow the ASH Pattern diagnostic schema and include taxonomy-valid rule identifiers.",
+        "Silent healing is prohibited; recovery, fallback, containment, or safe halt must leave diagnostics."
+      ]
+    },
+    {
+      "product": "Aeostara Mac/iOS",
+      "authority_scope": "Aeostara product usage, platform branch isolation, baseline provenance, and platform-specific realization boundaries",
+      "repo_reference": "Aeostara-Mac-iOS-main.zip",
+      "hard_rules": [
+        "Treat Aeostara as a distinct product, not as ASH Pattern System or Forsetti.",
+        "Respect permanent platform separation for macOS and iOS implementation lines.",
+        "Do not merge macOS implementation assumptions into iOS implementation assumptions or the reverse.",
+        "Validate Aeostara usage against pinned baseline documentation, not a floating branch."
+      ]
+    },
+    {
+      "product": "Forsetti Framework for Mac/iOS",
+      "authority_scope": "runtime framework integration, module boundaries, public API usage, Apple-native implementation policy, architecture guardrails",
+      "repo_reference": "Forsetti-Framework-Mac-iOS-main.zip",
+      "hard_rules": [
+        "Treat Forsetti as a sealed runtime dependency in Sigil consumer work.",
+        "Do not copy, fork, patch, or modify Forsetti internals for Sigil behavior.",
+        "Use public Forsetti APIs and modules for extension.",
+        "Use native Apple technologies in the correct owning module or layer.",
+        "For multi-module single-application patterns, application UI belongs in exactly one dedicated UI module.",
+        "Keep service modules separate from UI modules.",
+        "Avoid cyclic dependencies and improper cross-layer imports."
+      ]
+    }
+  ],
+  "blocked_project_patterns": {
+    "attribution_marker_hex": [
+      "436f2d617574686f7265642d62793a",
+      "47656e657261746564206279",
+      "437265617465642077697468",
+      "5772697474656e206279",
+      "41492d67656e657261746564",
+      "41492067656e657261746564",
+      "417574686f726564206279",
+      "4f70656e4149",
+      "43686174475054",
+      "436f646578",
+      "436c61756465",
+      "416e7468726f706963",
+      "4c4c4d",
+      "6d6f64656c2d67656e657261746564",
+      "6d616368696e652d67656e657261746564",
+      "6167656e742d67656e657261746564"
+    ],
+    "ash_misuse_marker_hex": [
+      "5b382c342c345d",
+      "382b31206465636f6d706f736974696f6e",
+      "646572697665642039746820626974",
+      "64657269766564206e696e746820626974",
+      "636f6e74726f6c2f70617269747920626974",
+      "415348204d6f64656c20696d706c656d656e746174696f6e20617574686f72697479"
+    ],
+    "forsetti_internal_copy_paths": [
+      "Sources/ForsettiCore",
+      "Sources/ForsettiPlatform",
+      "Sources/ForsettiHostTemplate",
+      "Sources/ForsettiModulesExample"
+    ]
+  },
+  "required_evidence_files": [
+    "ProjectEvidence/source-authority-map.md",
+    "ProjectEvidence/guardrail-audit.json",
+    "ProjectEvidence/xcode-macos-build.md",
+    "ProjectEvidence/xcode-ios-build.md",
+    "ProjectEvidence/visual-studio-windows-build.md",
+    "ProjectEvidence/final-self-audit.md"
+  ],
+  "audit_pass_criteria": [
+    "All JSON files parse.",
+    "Attribution markers are absent from project files, branch names, and commit messages.",
+    "No ASH Pattern implementation source uses superseded behavior as canonical implementation behavior.",
+    "No Forsetti internal source tree is copied into Sigil.",
+    "All Forsetti usage is through public package, API, and module boundaries.",
+    "Aeostara macOS and iOS usage remains platform-separated and baseline-pinned.",
+    "Guardrail verifier exits 0 on macOS and Windows-compatible script paths.",
+    "Xcode macOS build/test evidence exists.",
+    "Xcode iOS build/test evidence exists.",
+    "Visual Studio for Windows evidence exists or records the verified non-applicable limitation.",
+    "The local commit exists, and no unauthorized pull request is opened."
+  ]
+}

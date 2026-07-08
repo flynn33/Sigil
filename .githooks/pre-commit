@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+python3 "$ROOT/tools/sigil_guardrails/verify_sigil_guardrails.py" \
+  --project-root "$ROOT" \
+  --policy "$ROOT/tools/sigil_guardrails/sigil_guardrail_policy.json" \
+  --strict
