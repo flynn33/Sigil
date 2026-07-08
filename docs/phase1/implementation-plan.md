@@ -12,7 +12,15 @@ Build the native iOS Phase 1 foundation with a Forsetti-backed modular structure
 4. Add a Forsetti module catalog that owns descriptors, manifests, schema `1.1`, runtime requirements, capability declarations, and public module registration.
 5. Add a runtime assembly that composes services and feeds the dashboard through app-owned view models.
 6. Validate with SwiftPM, Xcode simulator build/test, static analysis, and source-authority package commands.
+7. Maintain repository documentation, wiki documentation, and changelog entries as the implementation surface expands.
 
 ## Boundaries
 
-Phase 1 now includes a bounded deterministic visible-glyph service with local hidden geometry, visible vector paths, digest linkage, and quality gates. The full identity pipeline, numerology calculation, celestial naming, WRW lore generation, PersonalCodex generation, export bundles, analytics, backend upload paths, and personal-data network flows remain unavailable.
+Phase 1 now includes a bounded deterministic visible-glyph service with local hidden geometry, visible vector paths, digest linkage, and quality gates. The full identity pipeline, numerology calculation, celestial naming, WRW lore generation, personal artifact package generation, export bundles, analytics, backend upload paths, and personal-data network flows remain unavailable.
+
+## Documentation Surfaces
+
+- `README.md` is the repository entry point for current status, architecture, verification, versioning, and boundaries.
+- `docs/architecture.md` records module ownership, runtime composition, capability policy, and phase boundaries.
+- `docs/visible-glyph-engine.md` records visible-glyph data flow, quality gates, validation behavior, and fixture evidence.
+- `docs/verification.md` records local verification commands, test inventory, workflow expectations, and guardrail scope.
