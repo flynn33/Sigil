@@ -17,6 +17,7 @@ let package = Package(
         .library(name: "RFSigilSourceAuthority", targets: ["RFSigilSourceAuthority"]),
         .library(name: "RFSigilAPSIntegration", targets: ["RFSigilAPSIntegration"]),
         .library(name: "RFSigilAeostaraIntegration", targets: ["RFSigilAeostaraIntegration"]),
+        .library(name: "RFSigilVisibleGlyph", targets: ["RFSigilVisibleGlyph"]),
         .library(name: "RFSigilPipelinePlaceholder", targets: ["RFSigilPipelinePlaceholder"]),
         .library(name: "RFSigilPrivacySecurity", targets: ["RFSigilPrivacySecurity"]),
         .library(name: "RFSigilDiagnostics", targets: ["RFSigilDiagnostics"]),
@@ -45,6 +46,10 @@ let package = Package(
             dependencies: ["RFSigilCoreModels", forsettiDependency]
         ),
         .target(
+            name: "RFSigilVisibleGlyph",
+            dependencies: ["RFSigilCoreModels", forsettiDependency]
+        ),
+        .target(
             name: "RFSigilPipelinePlaceholder",
             dependencies: ["RFSigilCoreModels", forsettiDependency]
         ),
@@ -67,6 +72,7 @@ let package = Package(
                 "RFSigilSourceAuthority",
                 "RFSigilAPSIntegration",
                 "RFSigilAeostaraIntegration",
+                "RFSigilVisibleGlyph",
                 "RFSigilPipelinePlaceholder",
                 "RFSigilPrivacySecurity",
                 "RFSigilDiagnostics",
@@ -81,6 +87,7 @@ let package = Package(
                 "RFSigilSourceAuthority",
                 "RFSigilAPSIntegration",
                 "RFSigilAeostaraIntegration",
+                "RFSigilVisibleGlyph",
                 "RFSigilPipelinePlaceholder",
                 "RFSigilPrivacySecurity",
                 "RFSigilDiagnostics",
@@ -95,6 +102,7 @@ let package = Package(
                 "RFSigilSourceAuthority",
                 "RFSigilAPSIntegration",
                 "RFSigilAeostaraIntegration",
+                "RFSigilVisibleGlyph",
                 "RFSigilPipelinePlaceholder",
                 "RFSigilPrivacySecurity",
                 "RFSigilDiagnostics",

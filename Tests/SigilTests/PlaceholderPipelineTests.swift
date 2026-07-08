@@ -22,13 +22,9 @@ final class PlaceholderPipelineTests: XCTestCase {
                 "celestial_name_generation",
                 "WRW_lore_generation",
                 "PersonalCodex_generation",
-                "hidden_reversible_geometry",
-                "visible_sigil_grammar_synthesis",
-                "final_glyph_rendering_as_output",
                 "Sigil_Flare_export",
                 "Sigil_Flare_editor",
                 "excess_personal_data_persistence",
-                "canonical_profile_hashing_for_identity",
                 "final_export_bundle_generation"
             ]
         )
