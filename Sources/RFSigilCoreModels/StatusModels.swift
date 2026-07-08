@@ -52,6 +52,7 @@ public enum SigilModuleID: String, Codable, CaseIterable, Hashable, Sendable {
     case ui = "com.ravenforge.sigil.ui"
     case aps = "com.ravenforge.sigil.aps"
     case aeostara = "com.ravenforge.sigil.aeostara"
+    case visibleGlyph = "com.ravenforge.sigil.visible-glyph"
     case sourceAuthority = "com.ravenforge.sigil.source-authority"
     case pipelinePlaceholder = "com.ravenforge.sigil.pipeline-placeholder"
     case privacySecurity = "com.ravenforge.sigil.privacy-security"
