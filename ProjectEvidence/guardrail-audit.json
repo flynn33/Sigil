@@ -1,0 +1,29 @@
+{
+  "artifact_type": "sigil_guardrail_audit",
+  "artifact_version": "1.0.0",
+  "result": "PASS_WITH_RECORDED_LIMITATIONS",
+  "commands": [
+    "python3 -m unittest Tests/SigilGuardrailTests/test_sigil_guardrails.py",
+    "python3 tools/sigil_guardrails/verify_sigil_guardrails.py --project-root . --policy tools/sigil_guardrails/sigil_guardrail_policy.json",
+    "python3 tools/sigil_guardrails/verify_sigil_guardrails.py --project-root . --policy tools/sigil_guardrails/sigil_guardrail_policy.json --strict",
+    "bash scripts/verify-sigil-guardrails.sh",
+    "command -v pwsh"
+  ],
+  "failures_found": [
+    {
+      "surface": "macOS Xcode test on My Mac destination",
+      "status": "blocked",
+      "reason": "Local Mac installation of the unsigned iOS app failed signature verification; SwiftPM macOS-host tests and Xcode build evidence are recorded separately."
+    },
+    {
+      "surface": "Visual Studio for Windows",
+      "status": "not_run",
+      "reason": "Visual Studio for Windows and PowerShell were unavailable in this macOS environment; no Windows solution exists in the repository."
+    }
+  ],
+  "repairs_performed": [
+    "Encoded blocked attribution marker policy values to avoid committing readable prohibited markers.",
+    "Changed attribution marker matching from substring matching to word and phrase boundary matching."
+  ],
+  "operator_notes": "No new pull request was opened for this guardrail package. Guardrail wrapper paths use the existing lowercase scripts directory."
+}

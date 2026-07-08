@@ -1,0 +1,26 @@
+name: Sigil Project Guardrails
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guardrails:
+    name: Sigil Project Guardrails
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify project guardrails
+        run: |
+          bash scripts/verify-sigil-guardrails.sh
+
+      - name: Xcode inventory
+        run: |
+          xcodebuild -version
+          xcodebuild -list -project Sigil.xcodeproj
