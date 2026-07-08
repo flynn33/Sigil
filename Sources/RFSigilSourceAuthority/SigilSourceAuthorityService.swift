@@ -39,7 +39,7 @@ public struct SigilSourceAuthorityService: RFSigilSourceAuthorityProviding {
                 readmeRead: true,
                 authorityContractsRead: true,
                 hierarchyPreserved: true,
-                implementationState: "Source-authority status only; no generation pipeline is implemented.",
+                implementationState: "Full identity pipeline remains unavailable; visible glyph synthesis is bounded and local.",
                 status: .pass
             ),
             apsComponentRole: RFSigilSystemStatus(
@@ -60,7 +60,7 @@ public struct SigilSourceAuthorityService: RFSigilSourceAuthorityProviding {
                 id: "sigil-product-layer",
                 title: "Sigil Product Layer",
                 status: .pass,
-                summary: "Sigil is modeled as the iOS product interpretation layer for Phase 1 status surfaces.",
+                summary: "Sigil is modeled as the iOS product interpretation layer for Phase 1 status and bounded visible-glyph surfaces.",
                 evidence: []
             ),
             wrwCanon: WRWCanonStatus(

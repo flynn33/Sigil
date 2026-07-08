@@ -7,10 +7,12 @@ import RFSigilForsettiModules
 import RFSigilPipelinePlaceholder
 import RFSigilPrivacySecurity
 import RFSigilSourceAuthority
+import RFSigilVisibleGlyph
 
 public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
     public let apsGateway: SigilAPSIntegrationGateway
     public let aeostaraGateway: SigilAeostaraIntegrationGateway
+    public let visibleGlyphService: SigilVisibleGlyphService
     public let sourceAuthorityService: SigilSourceAuthorityService
     public let pipelinePlaceholderService: SigilPipelinePlaceholderService
     public let privacySecurityService: SigilPrivacySecurityService
@@ -20,6 +22,7 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
     public init(
         apsGateway: SigilAPSIntegrationGateway = SigilAPSIntegrationGateway(),
         aeostaraGateway: SigilAeostaraIntegrationGateway = SigilAeostaraIntegrationGateway(),
+        visibleGlyphService: SigilVisibleGlyphService = SigilVisibleGlyphService(),
         sourceAuthorityService: SigilSourceAuthorityService = SigilSourceAuthorityService(),
         pipelinePlaceholderService: SigilPipelinePlaceholderService = SigilPipelinePlaceholderService(),
         privacySecurityService: SigilPrivacySecurityService = SigilPrivacySecurityService(),
@@ -28,6 +31,7 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
     ) {
         self.apsGateway = apsGateway
         self.aeostaraGateway = aeostaraGateway
+        self.visibleGlyphService = visibleGlyphService
         self.sourceAuthorityService = sourceAuthorityService
         self.pipelinePlaceholderService = pipelinePlaceholderService
         self.privacySecurityService = privacySecurityService
@@ -76,6 +80,14 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
                 summary: "platform/ios authority, products, baseline, and migration provenance are recorded.",
                 detail: "Products: \(aeostaraProducts).",
                 symbolName: "waveform.path.ecg"
+            ),
+            RFSigilDashboardCard(
+                id: "visible-glyph",
+                title: "Visible Glyph",
+                status: .pass,
+                summary: "Deterministic visible glyph synthesis is available as a local bounded service.",
+                detail: "Canonical hidden geometry, visible vector paths, quality gates, and validation stay local.",
+                symbolName: "scribble.variable"
             ),
             RFSigilDashboardCard(
                 id: "source-authority",
