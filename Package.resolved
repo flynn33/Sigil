@@ -1,0 +1,14 @@
+{
+  "originHash" : "afd79db466563df4bbd846f4befcc90df5e49b474e879d9e5e96994f067f3a6a",
+  "pins" : [
+    {
+      "identity" : "forsetti-framework-mac-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/flynn33/Forsetti-Framework-Mac-iOS.git",
+      "state" : {
+        "revision" : "43eef7a739f3b78253c64aa4b070521ab5b1f43c"
+      }
+    }
+  ],
+  "version" : 3
+}
