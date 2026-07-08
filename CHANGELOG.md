@@ -6,3 +6,4 @@
 - Added repository governance checks for attribution, version policy, and changelog coverage.
 - Added project-level source authority guardrails, local hooks, verification wrappers, and evidence records.
 - Added deterministic visible-glyph generation with local hidden geometry, digest linkage, quality gates, SVG rendering evidence, and fail-closed artifact validation.
+- Added repository README and expanded architecture, visible-glyph, verification, and wiki documentation.
