@@ -1,16 +1,16 @@
 {
   "artifact_type": "sigil_project_guardrail_policy",
-  "artifact_version": "1.0.0",
+  "artifact_version": "2.0.0",
   "project": {
     "name": "Sigil",
     "scope": "project-level implementation guardrails for future iOS/macOS application work",
-    "repository_state_assumption": "active Phase 1 project repository"
+    "repository_state_assumption": "active Phase 1+ project repository — Sigil is a demonstrator implementing three systems internally"
   },
   "source_authorities": [
     {
       "product": "ASH Pattern System for Mac/iOS",
       "authority_scope": "ASH Pattern System semantic implementation behavior, conformance, diagnostics, codeword/state/recovery/topology semantics, Apple-native Swift package expectations",
-      "repo_reference": "ASH-Pattern-System-Mac-iOS-main.zip",
+      "repo_reference": "ASH-Pattern-System-Mac-iOS-main (reference material only, not imported as dependency)",
       "hard_rules": [
         "Treat full F2^9 state space as canonical.",
         "Use the exact 16-member [9,4,4] doubly-even codeword set specified by ASH Pattern System.",
@@ -24,7 +24,7 @@
     {
       "product": "Aeostara Mac/iOS",
       "authority_scope": "Aeostara product usage, platform branch isolation, baseline provenance, and platform-specific realization boundaries",
-      "repo_reference": "Aeostara-Mac-iOS-main.zip",
+      "repo_reference": "Aeostara-Mac-iOS-main (reference material only, not imported as dependency)",
       "hard_rules": [
         "Treat Aeostara as a distinct product, not as ASH Pattern System or Forsetti.",
         "Respect permanent platform separation for macOS and iOS implementation lines.",
@@ -34,8 +34,8 @@
     },
     {
       "product": "Forsetti Framework for Mac/iOS",
-      "authority_scope": "runtime framework integration, module boundaries, public API usage, Apple-native implementation policy, architecture guardrails",
-      "repo_reference": "Forsetti-Framework-Mac-iOS-main.zip",
+      "authority_scope": "Runtime framework implementation, module boundaries, public API usage, Apple-native implementation policy, architecture guardrails",
+      "repo_reference": "Forsetti-Framework-Mac-iOS-main (reference material only, not imported as dependency)",
       "hard_rules": [
         "Treat Forsetti as a sealed runtime dependency in Sigil consumer work.",
         "Do not copy, fork, patch, or modify Forsetti internals for Sigil behavior.",
@@ -71,7 +71,7 @@
       "382b31206465636f6d706f736974696f6e",
       "646572697665642039746820626974",
       "64657269766564206e696e746820626974",
-      "636f6e74726f6c2f70617269747920626974",
+      "636f6e74726f6c2f706172747920626974",
       "415348204d6f64656c20696d706c656d656e746174696f6e20617574686f72697479"
     ],
     "forsetti_internal_copy_paths": [
@@ -93,8 +93,7 @@
     "All JSON files parse.",
     "Attribution markers are absent from project files, branch names, and commit messages.",
     "No ASH Pattern implementation source uses superseded behavior as canonical implementation behavior.",
-    "No Forsetti internal source tree is copied into Sigil.",
-    "All Forsetti usage is through public package, API, and module boundaries.",
+    "All Forsetti usage is through public package, API, and module boundaries (or internal implementation per roadmap Phase 2+).",
     "Aeostara macOS and iOS usage remains platform-separated and baseline-pinned.",
     "Guardrail verifier exits 0 on macOS and Windows-compatible script paths.",
     "Xcode macOS build/test evidence exists.",
