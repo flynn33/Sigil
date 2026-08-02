@@ -17,7 +17,7 @@ Sigil is a native Apple-platform (iOS 17+, macOS 14+) application that serves as
 
 The current Phase 1 establishes a modular runtime, dashboard, and a bounded local visible-glyph service. **This roadmap defines the path from pre-alpha to a shippable product by implementing all three systems within Sigil.**
 
-**Critical constraint:** The three system repositories at `/Users/jimdaley/ai/qwen/sigil/` are **reference material only**. They must never be imported as dependencies. Templates may be copied, but implementation means coding according to the design specifications laid out in those repositories.
+**Critical constraint:** The three system repositories at `/Users/jimdaley/projects/qwen/sigil/` are **reference material only**. They must never be imported as dependencies. Templates may be copied, but implementation means coding according to the design specifications laid out in those repositories.
 
 ---
 
@@ -471,7 +471,7 @@ SigilApp (iOS app)
 
 **Key invariant:** Canonical data (profile digest, hidden geometry, vector paths) is never modified by presentation, editing, or export operations.
 
-**Critical constraint:** The three system repositories at `/Users/jimdaley/ai/qwen/sigil/` are **reference material only**. They must never be imported as dependencies. Templates may be copied, but implementation means coding according to the design specifications.
+**Critical constraint:** The three system repositories at `/Users/jimdaley/projects/qwen/sigil/` are **reference material only**. They must never be imported as dependencies. Templates may be copied, but implementation means coding according to the design specifications.
 
 ---
 
@@ -508,9 +508,9 @@ A shippable Sigil product (R.1.0+) should:
 
 The following repositories contain the design specifications for the three systems. They are **reference material only** and must never be imported as dependencies:
 
-- `/Users/jimdaley/ai/qwen/sigil/Forsetti-Framework-Mac-iOS-main/` — Forsetti Framework (module discovery, validation, activation, entitlements, UI contributions)
-- `/Users/jimdaley/ai/qwen/sigil/ASH-Pattern-System-Mac-iOS-main/` — ASH Pattern System (9 semantic modules, F2^9 state space)
-- `/Users/jimdaley/ai/qwen/sigil/Aeostara-Mac-iOS-main/` — Aeostara (platform isolation, baseline pinning, migration provenance)
+- `/Users/jimdaley/projects/qwen/sigil/Forsetti-Framework-Mac-iOS-main/` — Forsetti Framework (module discovery, validation, activation, entitlements, UI contributions)
+- `/Users/jimdaley/projects/qwen/sigil/ASH-Pattern-System-Mac-iOS-main/` — ASH Pattern System (9 semantic modules, F2^9 state space)
+- `/Users/jimdaley/projects/qwen/sigil/Aeostara-Mac-iOS-main/` — Aeostara (platform isolation, baseline pinning, migration provenance)
 
 Templates from these repositories may be copied for use in Sigil. Implementation means coding according to the design specifications laid out in those repositories.
 
