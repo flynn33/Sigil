@@ -332,7 +332,7 @@ STABLE < UNSTABLE < CORRECTABLE < DEGRADED < CONTAINED < FAILED < SAFE_HALT
    - Relationship dynamics
    - Growth opportunities
 3. **Narrative-to-glyph linkage** — Lore influences presentation styling (not canonical data)
-4. **Personal Codex** — Generate a structured personal narrative document
+4. **Personal Narrative** — Generate a structured personal narrative document
 
 **Key files:**
 - `Sources/RFSigilVisibleGlyph/` — Integrate WRW narrative into presentation layer
@@ -384,7 +384,7 @@ STABLE < UNSTABLE < CORRECTABLE < DEGRADED < CONTAINED < FAILED < SAFE_HALT
    - SVG files (high-res)
    - Numerology report (PDF)
    - Celestial name document
-   - Personal Codex (narrative)
+   - Personal Narrative (narrative)
    - Metadata (JSON)
 2. **Share sheet integration** — Native iOS share sheet for exported bundles
 3. **File format support** — SVG, PDF, PNG, JSON
