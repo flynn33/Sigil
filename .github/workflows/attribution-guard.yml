@@ -1,0 +1,50 @@
+name: Attribution Guard
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+      - edited
+
+permissions:
+  contents: read
+
+jobs:
+  attribution-guard:
+    name: Attribution Guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Collect changed paths
+        shell: bash
+        run: |
+          git diff --name-only -z "${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}" > "$RUNNER_TEMP/changed-paths"
+
+      - name: Collect pull request text
+        shell: bash
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          printf '%s' "$PR_TITLE" > "$RUNNER_TEMP/pr-title"
+          printf '%s' "$PR_BODY" > "$RUNNER_TEMP/pr-body"
+          git log --format=%B -z "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}" > "$RUNNER_TEMP/commit-messages"
+
+      - name: Run attribution guard
+        shell: bash
+        run: |
+          python3 scripts/attribution_guard.py \
+            --branch "${{ github.head_ref }}" \
+            --paths-from "$RUNNER_TEMP/changed-paths" \
+            --text-from "pull request title=$RUNNER_TEMP/pr-title" \
+            --text-from "pull request body=$RUNNER_TEMP/pr-body" \
+            --text-from "commit messages=$RUNNER_TEMP/commit-messages" \
+            --repo-root "$GITHUB_WORKSPACE"
