@@ -6,6 +6,12 @@ Sigil Phase 1 establishes the project runtime foundation before the full identit
 
 The architecture is intentionally modular. Each target owns one responsibility and communicates through shared status, evidence, and artifact types in `RFSigilCoreModels`.
 
+## Current Implementation Versus Product Direction
+
+This page describes the implemented Phase 1 foundation. The [project plan](project-plan.md) and [roadmap](roadmap.md) describe remaining work. The next approved engineering investigation traces the existing glyph path to ASH mathematics before a formula change; it is not a mandate to replace Forsetti or recreate all upstream systems.
+
+The additional personal-payload embedding/recovery requirement is [removed](decisions/2026-10-10-no-personal-data-embedding.md). Internal mathematical geometry, canonical state, integrity, validation, and non-authoritative Flare remain distinct responsibilities. PersonalCodex remains a separate local record, not a payload the glyph must carry.
+
 ## Target Graph
 
 ```mermaid

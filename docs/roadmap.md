@@ -1,526 +1,125 @@
 # Sigil — Product Roadmap
 
-**Version:** 2026-08-02  
-**Current State:** PA.0.1.0 (Pre-Alpha, Phase 1 Foundation)  
-**Target:** Shippable consumer product for iOS  
-**Nature:** Sigil is a demonstrator for three underlying systems: Forsetti Framework, ASH Pattern System, and Aeostara.
-
----
-
-## Executive Summary
-
-Sigil is a native Apple-platform (iOS 17+, macOS 14+) application that serves as a **demonstrator and integration platform** for three underlying systems:
-
-1. **The Forsetti Framework** — A modular runtime framework for iOS/macOS (module discovery, validation, activation, entitlements, UI contributions)
-2. **The ASH Pattern System** — A semantic core implementing 9 modules operating on F2^9 state space (512 states) with XOR-by-codeword transitions, state classification, and recovery
-3. **Aeostara** — A platform-specific realization providing platform isolation, baseline pinning, and migration provenance
-
-The current Phase 1 establishes a modular runtime, dashboard, and a bounded local visible-glyph service. **This roadmap defines the path from pre-alpha to a shippable product by implementing all three systems within Sigil.**
-
-**Critical constraint:** The three system repositories at `/Users/jimdaley/projects/qwen/sigil/` are **reference material only**. They must never be imported as dependencies. Templates may be copied, but implementation means coding according to the design specifications laid out in those repositories.
-
----
-
-## Current State (PA.0.1.0 — Phase 1)
-
-**Completed:**
-- Modular runtime with 8 service modules (APS, Aeostara, VisibleGlyph, SourceAuthority, PipelinePlaceholder, PrivacySecurity, Diagnostics)
-- Single SwiftUI dashboard (NavigationStack + LazyVGrid cards)
-- Deterministic visible-glyph service (profile input → hidden geometry → family key → vector paths → quality gate → SVG artifact)
-- Source authority hierarchy (ASH Model → Yggdrasil World Engine → APS → WRW → Sigil)
-- Local-only privacy posture (no analytics, no backend, no network)
-- 22 passing Swift tests, 0 failures
-- Repository guardrails (attribution, version, changelog, source authority)
-
-**Current architecture uses Forsetti as an external dependency** (pinned commit). This must change: Sigil must **implement** Forsetti, not depend on it.
-
----
-
-## The Three Systems to Implement
-
-### System 1: Forsetti Framework
-
-**What it is:** A modularity-first, object-oriented Apple-platform framework for iOS and macOS applications.
-
-**Core capabilities:**
-- Module discovery from bundled manifests
-- Compatibility validation before activation
-- Entitlement-aware module locking/unlocking
-- Flexible module activation (4 deployment patterns)
-- Structured UI contributions (toolbar, theme tokens, overlays, view injection)
-
-**Key contracts to implement:**
-- `ForsettiModule`, `ForsettiAppModule`, `ForsettiUIModule`
-- `ModuleManifest`, `ModuleDescriptor`
-- `ModuleRegistry` (entry-point factories)
-- `ManifestLoader` (discovers manifests from bundles)
-- `CompatibilityChecker` (validates compatibility/capability/version)
-- `CapabilityPolicy` (AllowAll or Fixed)
-- `ActivationStore` (restores prior activation state)
-- `ForsettiEntitlementProvider` (determines lock/unlock)
-- `ForsettiServiceProviding` / `ForsettiServiceContainer`
-- `UISurfaceManager` (reflects UI contributions)
-
-**Deployment patterns to support:**
-- Pattern A: Single-module app (most common)
-- Pattern B: Multi-module single application (one UI module + service modules)
-- Pattern C: Developer testing (multiple single-module apps)
-- Pattern D: Dashboard deployment (end-user multi-app)
-
-**Manifest contract (schema 1.1):**
-- Required: `schemaVersion`, `manifestTemplateVersion`, `moduleID`, `displayName`, `moduleVersion`, `moduleType`, `supportedPlatforms`, `minForsettiVersion`, `capabilitiesRequested`, `entryPoint`, `runtimeRequirements`
-- Optional: `maxForsettiVersion`, `iapProductID`, `defaultModuleRole`
-
-### System 2: ASH Pattern System
-
-**What it is:** A semantic core implementing 9 modules operating on the F2^9 state space (512 states).
-
-**Nine semantic modules to implement:**
-1. `ASHStateModel` — Full 9-bit state classification, admissibility, validity diagnostics
-2. `ASHRecoveryEngine` — Recovery, fallback, containment, safe halt behavior
-3. `ASHRealmEncoder` — Realm identity encoding from full 9-bit state
-4. `ASHTransitionRegistry` — Transition definitions, applicability rules, transition chains
-5. `ASHTopologyGenerator` — Topology expansion over codeword transformations
-6. `ASHAxiomEvaluator` — Axiom evaluation (passed, failed, indeterminate)
-7. `ASHGenerationPlanner` — Inspectable planning before materialization
-8. `ASHArtifactEmitter` — Traceable descriptor emission from plans
-9. `ASHDiagnosticsModule` — Explainable diagnostics (why states are valid/invalid, why transitions accepted/rejected, why recovery/fallback/containment/safe-halt occurred)
-
-**Core semantics:**
-- **State space:** F2^9 (512 states), each state is a vertex in the state space
-- **Transitions:** XOR-by-codeword on the full 9-bit state: `x' = x ⊕ c`
-- **Codeword set:** Canonical codewords used in transformations
-- **Realm identity:** Stable semantic encoding of an ASH state (deterministic, same state → same identity)
-- **System-state classification:** STABLE, UNSTABLE, CORRECTABLE, DEGRADED, CONTAINED, FAILED, SAFE_HALT
-- **Determinism:** Equal inputs must produce equal semantic outputs for state classification, normalization, realm/orbit identity, transition application, topology generation, axiom evaluation, generation planning, artifact emission
-- **Diagnostics:** Must explain why states are valid/invalid, why transitions accepted/rejected, why recovery/fallback/containment/safe-halt occurred. Silent correction and silent failure are not acceptable.
-
-**Classification hierarchy (monotonic severity):**
-STABLE < UNSTABLE < CORRECTABLE < DEGRADED < CONTAINED < FAILED < SAFE_HALT
-
-**Recovery categories:**
-- STABLE → NO_ACTION (normal operation)
-- UNSTABLE → NORMALIZE_STATE (codeword-based normalization)
-- CORRECTABLE → APPLY_CORRECTION (known codeword correction sequence)
-- DEGRADED → FALLBACK_REQUIRED (select known-good state from fallback-policy registry)
-- CONTAINED → CONTAINMENT_REQUIRED (restrict operations, await resolution)
-- FAILED → ESCALATION_REQUIRED (escalate to external authority)
-- SAFE_HALT → TERMINAL_NO_RECOVERY (irrevocable terminal action)
-
-### System 3: Aeostara
-
-**What it is:** A platform-specific realization providing platform isolation, baseline pinning, and migration provenance.
-
-**Key responsibilities:**
-- Platform branch isolation (macOS and iOS branches are permanent, non-merging)
-- Baseline pinning to Aeostara base release v1.0.0
-- Migration provenance tracking (immutable import tags)
-- Platform-specific realization requiring independent platform audit
-- Platform status matrix (coordination vs. runtime product)
-
-**Branch model:**
-- `main` — Coordination and governance only (no platform implementation)
-- `platform/macos` — Native macOS realization (permanent, non-merging)
-- `platform/ios` — Native iOS realization (permanent, non-merging)
-
-**Implementation requirements:**
-- Platform-specific realization must validate against pinned base release
-- No floating source branch as semantic authority
-- Independent platform audit required for each platform
-
----
-
-## Roadmap
-
-### Phase 2 — Forsetti Framework Implementation (Alpha — A.1.0)
-
-**Goal:** Implement the Forsetti Framework within Sigil, replacing the external dependency.
-
-**Scope:**
-1. **Core runtime contracts** — Implement `ForsettiCore` with:
-   - `ModuleRegistry` (entry-point factories, registration)
-   - `ModuleManifest` / `ModuleDescriptor` (schema 1.1)
-   - `ManifestLoader` (discovers manifests from bundles)
-   - `CompatibilityChecker` (validates compatibility/capability/version)
-   - `CapabilityPolicy` (AllowAll and Fixed implementations)
-   - `ActivationStore` (restores prior activation state)
-   - `ForsettiEntitlementProvider` (default and debug implementations)
-   - `ForsettiServiceProviding` / `ForsettiServiceContainer`
-
-2. **Platform services** — Implement `ForsettiPlatform` with:
-   - Native platform service adapters (Apple-native networking, storage, Keychain-backed secure storage, local file export, telemetry placeholders)
-   - Default entitlement provider (StoreKit 2 for iOS, static allowlist for macOS)
-   - In-memory secure storage (explicit test/debug composition only)
-
-3. **Host template** — Implement `ForsettiHostTemplate` with:
-   - SwiftUI host controller/views for module discovery and activation UI
-   - `ForsettiHostTemplateBootstrap` (makes controller from manifests, registry, entitlement provider)
-   - `ForsettiHostRootView` (renders host UI)
-
-4. **Deployment patterns** — Support all four patterns:
-   - Pattern A: Single-module app (default)
-   - Pattern B: Multi-module single application
-   - Pattern C: Developer testing
-   - Pattern D: Dashboard deployment
-
-5. **Module authoring workflow** — Provide Xcode templates for:
-   - Forsetti App (production starter)
-   - Forsetti UI Module
-   - Forsetti Service Module
-   - Forsetti Manifest
-
-**Key files (new targets in Sigil):**
-- `Sources/ForsettiCore/` — Runtime contracts, models, compatibility checks, activation orchestration
-- `Sources/ForsettiPlatform/` — Native platform service adapters and entitlement implementations
-- `Sources/ForsettiHostTemplate/` — SwiftUI host controller/views for module discovery and activation UI
-
-**Verification:**
-- Module registry registers and discovers modules from manifests
-- Compatibility validation rejects incompatible modules (platform mismatch, version range mismatch, denied capability, schema mismatch)
-- Entitlement provider correctly locks/unlocks modules
-- All four deployment patterns function correctly
-- Existing 22 tests still pass (visible-glyph service unchanged)
-
-**Exit criteria:** Forsetti Framework fully implemented within Sigil; external Forsetti dependency removed; all four deployment patterns functional; module manifests (schema 1.1) properly discovered and validated.
-
----
-
-### Phase 3 — ASH Pattern System Implementation (Alpha — A.2.0)
-
-**Goal:** Implement the ASH Pattern System within Sigil, replacing the external dependency.
-
-**Scope:**
-1. **ASHCore library** — Implement all 9 semantic modules:
-   - `ASHStateModel` — Full 9-bit state classification, admissibility, validity diagnostics
-   - `ASHRecoveryEngine` — Recovery, fallback, containment, safe halt behavior
-   - `ASHRealmEncoder` — Realm identity encoding from full 9-bit state
-   - `ASHTransitionRegistry` — Transition definitions, applicability rules, transition chains
-   - `ASHTopologyGenerator` — Topology expansion over codeword transformations
-   - `ASHAxiomEvaluator` — Axiom evaluation (passed, failed, indeterminate)
-   - `ASHGenerationPlanner` — Inspectable planning before materialization
-   - `ASHArtifactEmitter` — Traceable descriptor emission from plans
-   - `ASHDiagnosticsModule` — Explainable diagnostics
-
-2. **ASHPatternSystem library** — Composition root for all 9 modules
-
-3. **Core semantics:**
-   - F2^9 state space (512 states)
-   - XOR-by-codeword transitions: `x' = x ⊕ c`
-   - Canonical codeword set
-   - Realm identity (deterministic, same state → same identity)
-   - System-state classification (STABLE, UNSTABLE, CORRECTABLE, DEGRADED, CONTAINED, FAILED, SAFE_HALT)
-   - Deterministic output: same input always produces same output
-
-4. **Diagnostics:** Must explain why states are valid/invalid, why transitions accepted/rejected, why recovery/fallback/containment/safe-halt occurred. Silent correction and silent failure are not acceptable.
-
-**Key files (new targets in Sigil):**
-- `Sources/ASHCore/` — All 9 semantic modules (StateModel, RecoveryEngine, RealmEncoder, TransitionRegistry, TopologyGenerator, AxiomEvaluator, GenerationPlanner, ArtifactEmitter, DiagnosticsModule)
-- `Sources/ASHPatternSystem/` — Composition root
-
-**Verification:**
-- Unit tests for each semantic module against canonical corpus fixtures
-- Deterministic output: same input → same state classification, realm identity, topology, axiom evaluation, generation plan, artifact emission
-- Diagnostics explain all state transitions, recoveries, and failures
-- Classification hierarchy monotonic: STABLE < UNSTABLE < CORRECTABLE < DEGRADED < CONTAINED < FAILED < SAFE_HALT
-- All 512 states in F2^9 can be encoded as realm identities
-- Codeword transformations are deterministic and pure: `(x ⊕ c) ⊕ c = x`
-
-**Exit criteria:** All 9 ASH semantic modules implemented and tested; deterministic output verified; diagnostics explain all behavior; all 512 states encodable as realm identities.
-
----
-
-### Phase 4 — Aeostara Implementation (Alpha → Beta — R.1.0)
-
-**Goal:** Implement Aeostara within Sigil, providing platform isolation, baseline pinning, and migration provenance.
-
-**Scope:**
-1. **Platform isolation** — Implement branch isolation model:
-   - `main` — Coordination and governance only (no platform implementation)
-   - `platform/macos` — Native macOS realization (permanent, non-merging)
-   - `platform/ios` — Native iOS realization (permanent, non-merging)
-
-2. **Baseline pinning** — Pin to Aeostara base release v1.0.0:
-   - Validate all implementations against pinned base release
-   - No floating source branch as semantic authority
-
-3. **Migration provenance** — Track platform-specific realizations:
-   - Immutable import tags preserving branch histories
-   - Provenance tracking for platform-specific changes
-
-4. **Platform status matrix** — Implement platform-specific realization requiring independent platform audit:
-   - `main` — Coordination and governance only (not a runtime product)
-   - `platform/macos` — Native macOS realization (requires independent platform audit)
-   - `platform/ios` — Native iOS realization (requires independent platform audit)
-
-**Key files (new targets in Sigil):**
-- `Sources/AeostaraCore/` — Platform isolation, baseline pinning, migration provenance
-- `Sources/AeostaraPlatform/` — Platform-specific realization (macOS and iOS)
-
-**Verification:**
-- Platform branches remain isolated (no merging between macOS and iOS)
-- Baseline pinning validated against v1.0.0
-- Migration provenance correctly tracked with immutable import tags
-- Platform status matrix accurately reflects each platform's audit status
-
-**Exit criteria:** Aeostara fully implemented within Sigil; platform isolation enforced; baseline pinning validated; migration provenance tracked.
-
----
-
-### Phase 5 — Identity Pipeline (Beta — R.1.1)
-
-**Goal:** Complete the core identity processing pipeline from profile input to numerological output, integrating all three systems.
-
-**Scope:**
-1. **Profile ingestion** — Accept full profile data (name, birth date/time/location, other identity fields)
-2. **Numerology calculation engine** — Implement standard numerology calculations:
-   - Life path number (birth date reduction)
-   - Expression/destiny number (name letter values)
-   - Soul urge number (vowels)
-   - Personality number (consonants)
-   - Maturity number, birthday number, sub-cycle numbers
-3. **Hidden geometry expansion** — Extend current `HiddenCanonicalGeometry` to include full numerology vectors
-4. **Life-path root derivation** — Map numerology results to visible shape families
-5. **Source authority integration** — Connect ASH Model → Yggdrasil World Engine → APS calculations
-
-**Key files:**
-- `Sources/RFSigilVisibleGlyph/` — Extend `HiddenCanonicalGeometry`, `SigilFamilyKey`
-- `Sources/RFSigilCoreModels/` — Add numerology model types
-- `Sources/RFSigilSourceAuthority/` — Connect ASH/YWE/APS calculation chains
-
-**Verification:**
-- Unit tests for each numerology calculation against known reference values
-- Deterministic output: same input → same numerology → same visible glyph
-- Regression: existing tests still pass
-
-**Exit criteria:** All 8 standard numerology calculations implemented and tested; visible glyphs remain deterministic and quality-gated.
-
----
-
-### Phase 6 — Celestial Naming (Beta — R.1.2)
-
-**Goal:** Generate celestial names from profile data, integrated with the visible-glyph service.
-
-**Scope:**
-1. **Celestial name algorithm** — Derive names from numerology + profile data
-2. **Name-to-glyph linkage** — Celestial names influence visible path synthesis (stroke selection, ornaments)
-3. **Presentation layer** — Display celestial names in the dashboard alongside visible glyphs
-4. **Quality gate integration** — Celestial name variations tested for collision handling
-
-**Key files:**
-- `Sources/RFSigilVisibleGlyph/` — Add celestial name generation to artifact flow
-- `Sources/RFSigilUIModule/` — Display celestial names in dashboard cards
-- `Sources/RFSigilCoreModels/` — Add `CelestialName` model type
-
-**Verification:**
-- Deterministic: same profile → same celestial name
-- Collision handling: multiple candidates resolved deterministically
-- Dashboard displays names alongside glyphs
-
-**Exit criteria:** Celestial names generated deterministically for all golden fixtures; displayed in dashboard.
-
----
-
-### Phase 7 — WRW Lore Generation (Beta → Release — R.2.0)
-
-**Goal:** Generate narrative/story interpretation from profile + numerology + celestial data.
-
-**Scope:**
-1. **WRW (World Engine) integration** — Connect Yggdrasil World Engine simulation framework
-2. **Lore generation** — Generate narrative interpretation from profile data:
-   - Character archetypes
-   - Life themes and challenges
-   - Relationship dynamics
-   - Growth opportunities
-3. **Narrative-to-glyph linkage** — Lore influences presentation styling (not canonical data)
-4. **Personal Narrative** — Generate a structured personal narrative document
-
-**Key files:**
-- `Sources/RFSigilVisibleGlyph/` — Integrate WRW narrative into presentation layer
-- `Sources/RFSigilCoreModels/` — Add `PersonalCodex` model type
-- `Sources/RFSigilUIModule/` — Display narrative in dashboard
-
-**Verification:**
-- Output is deterministic (same input → same narrative)
-- Narrative is bounded (no harmful or misleading content)
-- Presentation changes don't affect canonical glyph data
-
-**Exit criteria:** WRW lore generation produces deterministic, bounded narratives for all golden fixtures.
-
----
-
-### Phase 8 — Sigil Flare Editor (Release — R.2.1)
-
-**Goal:** Provide visual editing and customization of generated sigils.
-
-**Scope:**
-1. **Interactive editor** — Allow users to modify visible glyphs:
-   - Adjust stroke weight, color, opacity
-   - Add/remove ornaments
-   - Modify presentation metadata (palette, glow, background)
-2. **Canonical preservation** — Editor changes affect presentation only, not canonical data
-3. **Version tracking** — Track editing history, allow revert
-4. **Export preview** — Real-time preview of edited sigil
-
-**Key files:**
-- `Sources/RFSigilUIModule/` — Add editor views and view models
-- `Sources/RFSigilCoreModels/` — Extend `SigilFlarePresentation` with editing support
-- `Sources/RFSigilVisibleGlyph/` — Editor integration with quality gates
-
-**Verification:**
-- Editor changes don't affect canonical digest or vector paths
-- Quality gates still apply to edited output
-- Editing history is trackable and reversible
-
-**Exit criteria:** Interactive editor functional; edited sigils pass quality gates; canonical data unchanged by editing.
-
----
-
-### Phase 9 — Export & Bundles (Release — R.2.2)
-
-**Goal:** Generate and export personal artifact packages.
-
-**Scope:**
-1. **Export bundle generation** — Package complete sigil artifacts:
-   - SVG files (high-res)
-   - Numerology report (PDF)
-   - Celestial name document
-   - Personal Narrative (narrative)
-   - Metadata (JSON)
-2. **Share sheet integration** — Native iOS share sheet for exported bundles
-3. **File format support** — SVG, PDF, PNG, JSON
-4. **Bundle naming convention** — Deterministic bundle names from profile digest
-
-**Key files:**
-- `Sources/RFSigilUIModule/` — Add export/share sheet views
-- `Sources/RFSigilCoreModels/` — Add `ExportBundle` model type
-- `Sources/SigilApp/` — Add file sharing handlers
-
-**Verification:**
-- Exported bundles contain all expected artifacts
-- Files are valid (SVG validates, PDF renders, JSON parses)
-- Bundle names are deterministic
-
-**Exit criteria:** Complete export bundles generated and shareable via iOS share sheet.
-
----
-
-### Phase 10 — Optional Network Features (Release — R.2.3+)
-
-**Goal:** Add optional network features, always opt-in and user-controlled.
-
-**Scope:**
-1. **Analytics (opt-in)** — Anonymous usage analytics (which features used, not personal data)
-2. **Backend upload (opt-in)** — User-initiated upload of exported bundles to cloud storage
-3. **Personal-data network (opt-in)** — User-controlled sharing of sigils with other users
-4. **Sync across devices** — User-initiated sync of personal data (encrypted at rest)
-
-**Key files:**
-- `Sources/RFSigilDiagnostics/` — Add optional analytics collection
-- `Sources/RFSigilAPSIntegration/` — Add optional backend upload
-- `Sources/RFSigilPrivacySecurity/` — Add network opt-in controls
-
-**Verification:**
-- All network features are opt-in with clear user controls
-- No network activity occurs without explicit user consent
-- Sensitive data never leaves device without encryption and user approval
-
-**Exit criteria:** All network features are opt-in, user-controlled, and respect privacy boundaries.
-
----
-
-## Version Progression
-
-| Stage | Version | Description |
-|-------|---------|-------------|
-| **PA** (Pre-Alpha) | PA.0.1.0 | Current state — modular runtime, dashboard, bounded visible-glyph service (Forsetti as external dependency) |
-| **A** (Alpha) | A.1.0 | Phase 2 — Forsetti Framework implementation (replacing external dependency) |
-| | A.2.0 | Phase 3 — ASH Pattern System implementation (replacing external dependency) |
-| **R** (Release) | R.1.0 | Phase 4 — Aeostara implementation (replacing external dependency) |
-| | R.1.1 | Phase 5 — Identity pipeline (numerology) |
-| | R.1.2 | Phase 6 — Celestial naming |
-| | R.2.0 | Phase 7 — WRW lore generation (first shippable product) |
-| | R.2.1 | Phase 8 — Sigil Flare editor |
-| | R.2.2 | Phase 9 — Export & bundles |
-| | R.2.3+ | Phase 10 — Optional network features |
-
----
-
-## Architecture Dependencies
-
-The roadmap builds on the existing Phase 1 architecture and adds three internal systems:
-
-```
-SigilApp (iOS app)
-  └── SigilRuntime (runtime assembly)
-        └── SigilForsettiModules (module catalog)
-              ├── ForsettiCore (NEW — internal implementation)
-              ├── ForsettiPlatform (NEW — internal implementation)
-              ├── ForsettiHostTemplate (NEW — internal implementation)
-              ├── ASHCore (NEW — internal implementation)
-              ├── ASHPatternSystem (NEW — internal implementation)
-              ├── AeostaraCore (NEW — internal implementation)
-              ├── AeostaraPlatform (NEW — internal implementation)
-              ├── RFSigilVisibleGlyph (visible-glyph service)
-              ├── RFSigilSourceAuthority (source hierarchy)
-              ├── RFSigilAPSIntegration (APS gateway)
-              ├── RFSigilAeostaraIntegration (platform gateway)
-              ├── RFSigilPrivacySecurity (privacy status)
-              ├── RFSigilDiagnostics (local diagnostics)
-              └── RFSigilUIModule (dashboard + editor + export)
-```
-
-**Key invariant:** Canonical data (profile digest, hidden geometry, vector paths) is never modified by presentation, editing, or export operations.
-
-**Critical constraint:** The three system repositories at `/Users/jimdaley/projects/qwen/sigil/` are **reference material only**. They must never be imported as dependencies. Templates may be copied, but implementation means coding according to the design specifications.
-
----
-
-## Risk Mitigation
-
-| Risk | Mitigation |
-|------|-----------|
-| Forsetti implementation complexity (ModuleRegistry, ManifestLoader, CompatibilityChecker, CapabilityPolicy, ActivationStore, EntitlementProvider) | Implement incrementally; start with Pattern A (single-module); add patterns B/C/D as needed |
-| ASH Pattern System complexity (9 semantic modules, F2^9 state space, 512 states, XOR-by-codeword) | Implement incrementally; start with StateModel and TransitionRegistry; add remaining modules; verify determinism at each step |
-| Aeostara platform isolation (permanent branches, baseline pinning, migration provenance) | Implement platform isolation first; add baseline pinning; verify against v1.0.0 |
-| Numerology calculations may produce unexpected results | Extensive unit tests against known reference values; deterministic output guaranteed |
-| WRW lore generation may produce harmful content | Bounded output with quality gates; no unbounded generation |
-| Editor may corrupt canonical data | Editor operates on presentation layer only; canonical data immutable |
-| Network features may violate privacy | All network features opt-in; no network activity without consent; encrypted at rest |
-| Dual build system (xcodegen + SwiftPM) drift | Guardrail validator checks both manifests; CI checks both |
-
----
-
-## Success Metrics
-
-A shippable Sigil product (R.1.0+) should:
-
-1. **Demonstrate all three systems** — Forsetti Framework, ASH Pattern System, and Aeostara fully implemented within Sigil (not as dependencies)
-2. **Be functional** — Users can input profile data and receive complete sigils with numerology, celestial names, and narrative
-3. **Be deterministic** — Same input always produces same output (no randomness)
-4. **Be private** — All processing local; no network required
-5. **Be beautiful** — High-quality SVG output with quality gates
-6. **Be exportable** — Complete artifact packages shareable via iOS share sheet
-7. **Be stable** — 22+ passing tests, no regressions
-
----
-
-## Reference Material
-
-The following repositories contain the design specifications for the three systems. They are **reference material only** and must never be imported as dependencies:
-
-- `/Users/jimdaley/projects/qwen/sigil/Forsetti-Framework-Mac-iOS-main/` — Forsetti Framework (module discovery, validation, activation, entitlements, UI contributions)
-- `/Users/jimdaley/projects/qwen/sigil/ASH-Pattern-System-Mac-iOS-main/` — ASH Pattern System (9 semantic modules, F2^9 state space)
-- `/Users/jimdaley/projects/qwen/sigil/Aeostara-Mac-iOS-main/` — Aeostara (platform isolation, baseline pinning, migration provenance)
-
-Templates from these repositories may be copied for use in Sigil. Implementation means coding according to the design specifications laid out in those repositories.
-
----
-
-## Notes
-
-- This roadmap is **software-focused**, not business-focused. It describes what the software must do, not pricing, marketing, or distribution.
-- The visible-glyph service (Phase 1) is the foundation for all future phases — it will grow in capability but not change its core contract.
-- Privacy is a **hard constraint**, not a feature. Network features are optional and always user-controlled.
-- The product is designed for **local-first** operation. Network features, when added, are supplements, not requirements.
-- **Sigil is a demonstrator.** The three systems (Forsetti, ASH Pattern System, Aeostara) are the primary focus. The visible-glyph service, numerology, celestial naming, and narrative are secondary features that demonstrate the systems' capabilities.
-- The three system repositories are **reference material only**. They must never be imported as dependencies. Templates may be copied, but implementation means coding according to the design specifications.
+**Planning revision:** 2026-10-10
+**Observed product baseline:** `PA.0.1.0`, Phase 1 foundation
+**Inspected source:** `main` at `19a0e2b9e9ad6fbaec06b62d2e084f444e92e84b`
+**Target product:** Native iOS Sigil application
+**Current product plan:** [Project plan](project-plan.md)
+
+## Direction and decision history
+
+Sigil uses ASH cosmological mathematics to derive its generated form. It is not merely a themed symbol generator, and it is not required to be a container for an embedded personal record.
+
+The October 10 owner decision removes the additional personal-data embedding layer from the product requirements. Payload encoding, decoding, and recovery from a Sigil are **removed, not deferred**. Do not reinstate the same requirement as a mandatory hidden layer, metadata payload, or sidecar. The exact decision and retained boundaries are recorded in [Remove personal-data embedding](decisions/2026-10-10-no-personal-data-embedding.md).
+
+The approved next engineering action remains the bounded ASH-to-Sigil source trace recorded as `SIGIL-DEC-2026-10-09-ASH-TRACE`, amended by `SIGIL-DEC-2026-10-10-NO-EMBEDDING`. Neither this roadmap nor its publication authorizes an unspecified formula change or a full framework rewrite.
+
+This revision reconciles the August 2 roadmap with the current project direction. Earlier text remains available in Git history; historical phase numbers and projected releases do not constitute completed work or an execution grant.
+
+## Current state: retain the foundation
+
+| Area | State at the inspected baseline |
+| --- | --- |
+| Runtime | Existing Forsetti-backed app-owned assembly and module catalog; one SwiftUI UI module and seven service modules. |
+| Visible glyph | Bounded local geometry and SVG service, quality/collision checks, digest linkage, and separate Flare presentation. |
+| ASH integration | Status/evidence gateway exists; mathematical identity resolution through that gateway is not established by its status output. |
+| Generation path | `SigilVisibleGlyphService.makeHiddenGeometry(for:)` constructs local digest-derived state. The approved trace must establish each required mathematical relationship before changing this formula. |
+| Full workflow | Input workflow, complete numerology/ASH resolution, naming, lore, PersonalCodex, encrypted persistence, editor, and final exports are not completed by Phase 1. |
+| Evidence | Stored evidence reports 22 Swift tests and simulator results. These are inherited results, not fresh verification of this planning revision or ASH conformance. |
+| Native targets | iOS 17+ app; Swift package declares macOS 14+ support. This does not add a separate macOS consumer-product milestone. |
+
+Do not restart the app, relabel gateway status as a completed resolver, remove working internal geometry because it is called “hidden,” or declare encrypted storage implemented because readiness is modeled.
+
+Source references: [architecture](architecture.md), [visible-glyph engine](visible-glyph-engine.md), [verification](verification.md), `Package.swift`, and the generation service and tests named below.
+
+## Required product flow
+
+Mortal input → local canonicalization and validation → standard numerology → source-backed ASH state/orbit/class resolution with APS stabilization → applicable Aeostara health validation → WRW interpretation → PersonalCodex → canonical ASH-derived Sigil → optional non-authoritative Flare → user-initiated display/export.
+
+Health validation applies at the artifact boundaries that own the data; the sequence does not require validating a not-yet-created document. PersonalCodex is a separate local product record, not a payload the Sigil must carry.
+
+No extra encoder/decoder stage appears in this flow. Reproducible generation from retained inputs and safe recovery of valid local artifacts remain distinct from reconstructing an embedded personal record from a glyph.
+
+## Delivery workstreams
+
+The following labels organize retained work. They are not newly approved algorithms, deadlines, product versions, or blanket implementation authority. Only the source trace is the currently approved next engineering investigation; later work needs a concrete source-backed assignment under the existing authorization rules.
+
+### ASH-TRACE — Next eligible engineering action
+
+**State:** Approved investigation; not recorded complete.
+
+Start at `Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift::makeHiddenGeometry(for:)`. Trace callers, helpers, shared models, consumers, and tests. Map each identity-bearing intermediate and geometric output to the applicable ASH mathematics, canonical data, and referenced binary artifacts. Follow APS, Aeostara, and Forsetti contracts where the actual path requires them.
+
+**Deliverables:** A source-to-output map with exact source revisions and locators; supported conformance findings; temporary substitutions; unresolved evidence; any embedding-only responsibilities actually found; the smallest necessary change and its consumer/compatibility impact; and source-backed verification cases.
+
+**Exit condition:** Each mapped result is supported or explicitly unresolved. Proposed tests identify expected results and their source, separately from commands actually executed. Embedded-payload round-trip recovery is not an exit gate. Do not change application source during this investigation merely because a candidate fix is identified.
+
+### IDENTITY-PIPELINE — Inputs, numerology, and ASH/APS realization
+
+**State:** Remaining product work; implementation detail depends on ASH-TRACE.
+
+Implement the retained input model and local validation; make the standard numerology bridge explicit and source-backed; resolve the applicable ASH state/orbit/celestial-class basis through the governing contracts. Preserve all supported input signals rather than replacing them with profile-hash state selection. Reuse and extend the existing product-owned modules where the trace supports that choice.
+
+**Exit condition:** End-to-end fixtures establish the agreed input reductions and ASH semantics, deterministic results, invalid/partial input behavior, and diagnostic explanations. Exact numerology policy choices are resolved from authoritative records and applicable sources before dependent behavior is implemented; this roadmap does not choose new weights or algorithms.
+
+### ARTIFACT-HEALTH — Validation, privacy, and local persistence
+
+**State:** Remaining product work; some status and validation surfaces already exist.
+
+Apply source-backed Aeostara health checks to the actual records, geometry, schemas, and integrity relationships. Preserve safe failure, containment, and recovery of derivable optional metadata. Implement Apple-native encrypted-at-rest storage before introducing persistent sensitive records. Maintain local, redacted diagnostics and explicit error handling.
+
+**Exit condition:** Tests cover invalid/corrupt records, schema and integrity failures, persistence failure and interruption, safe recovery, and the no-backend/no-analytics boundary. A passing local status object is not sufficient evidence. This workstream is not a personal-payload decoder and does not transfer another repository's branch layout into Sigil.
+
+### CANON-AND-PersonalCodex — Celestial naming and WRW interpretation
+
+**State:** Remaining product work; depends on source-backed identity data and safe artifact handling.
+
+Use the typed canon/specification resources for celestial naming, plane attunement, wolf balance, ancestry, bounded Trials/branch interpretation, and the user-facing PersonalCodex sections in the [project plan](project-plan.md). ASH supplies the structural identity; WRW interprets it. Do not substitute an unrelated world-simulation runtime or generic generated prose.
+
+**Exit condition:** Approved fixtures demonstrate deterministic names, interpretations, and PersonalCodex records with provenance and bounded narrative behavior. Missing source rules are explicit rather than filled with invented identity meaning. The PersonalCodex is readable in the app and need not be recoverable from the Sigil.
+
+### ASH-GLYPH — Mathematical materialization and visible quality
+
+**State:** Existing bounded generator is the starting point; final mathematical connection remains to be established.
+
+Apply the smallest ASH-TRACE-supported change so governing cosmological mathematics determines canonical form. Preserve deterministic generation and the existing quality, integrity, and presentation boundaries where compatible with the verified contract. Inspect internal geometry on its mathematical merits; do not delete it solely because its type name contains “Hidden.”
+
+**Exit condition:** Source-backed fixtures connect mathematical state to actual geometry; generation is reproducible with fixed input, source/policy versions, and declared candidate-selection context; geometry and thumbnail-quality checks are meaningful; Flare does not mutate canonical identity. Fixture distinctness and collision handling must not be presented as a proof of universal uniqueness. No payload capacity, scan-to-record, or embedded-record recovery requirement is added.
+
+### EXPERIENCE-AND-EXPORT — Native workflow, Flare, and explicit sharing
+
+**State:** Remaining product work; depends on stable identity, PersonalCodex, geometry, and storage contracts.
+
+Complete the native input/results experience, user-facing PersonalCodex, presentation-only Flare editor, and explicit export/share workflow. Separate canonical content from display effects. Local export of a user-selected PersonalCodex/report is distinct from making the glyph an encoded personal record. Final export formats and metadata content remain governed by the applicable product decision, not by a reinstated embedding requirement.
+
+**Exit condition:** UI and accessibility checks exercise empty, invalid, loading, cancelled, failure, and successful states. Editor changes preserve canonical identity. Export validation covers output correctness, selected content, error handling, and privacy. No analytics, application backend, automatic personal-data upload, or sync feature is introduced under an “optional” label.
+
+### CANDIDATE-VALIDATION — Evidence-backed delivery
+
+**State:** Future candidate work, not a release granted by this roadmap.
+
+Run the applicable native host/simulator checks, source-conformance tests, privacy/storage checks, and repository guardrails against an identified source revision. Keep README, changelog, project configuration, versions, and wiki consistent with actual delivered behavior. Prepare owner hardware-validation procedures when a candidate exists.
+
+**Exit condition:** Required evidence identifies actual commands, environment, results, limits, and source version. Unrun checks and owner physical-device validation remain distinct from host/simulator passes. Candidate delivery, repository publication, and release approval are separate states.
+
+## Disposition of the previous roadmap
+
+| August 2 item | Current disposition |
+| --- | --- |
+| Phase 1 foundation | Retained; correct the module count to eight total, not eight service modules. |
+| Phases 2–4: implement all three systems before product work | Not an active blanket rewrite mandate. Preserve existing boundaries; let the source trace and applicable contracts establish necessary product-owned realization. Do not change dependencies or adopt a new system architecture in this documentation update. |
+| “Never import any dependency” statements | Not a replacement for exact source-role and public-product classification. The observed `ForsettiCore` dependency is pinned at `43eef7a739f3b78253c64aa4b070521ab5b1f43c`; preserve it for this bounded update without treating presence as a conformance certificate. |
+| Aeostara permanent branch scheme copied into Sigil | Not an approved Sigil branch migration. Keep upstream source-platform boundaries separate from product repository organization. |
+| Phases 5–7: input/numerology, names, lore | Retained within IDENTITY-PIPELINE and CANON-AND-PersonalCodex, with the governing ASH connection and full PersonalCodex restored to the foreground. |
+| Phases 8–9: Flare and exports | Retained without a recoverable personal payload inside the glyph or a mandatory substitute carrier. |
+| Phase 10: analytics, upload, network sharing, sync | Excluded by the retained product privacy boundary; not merely delayed until a later version. User-initiated native export and disclosed Apple system-service behavior remain separate. |
+| Projected `A.1.0` / `R.1.0` style milestones | Not release commitments. Use the repository's four-part version policy when a real version change is justified. No candidate or stage advance is established here. |
+| Older project notes requiring a reversible personal-data carrier | Superseded only for added payload embedding/recovery; retain mathematical transformations, canonical source data, and safety recovery. |
+
+## Unresolved items and continuity
+
+The exact mathematical mapping, smallest code change, test expectations, and any required compatibility migration remain investigation outputs. Older context questions about master-number handling, weekday authority, location precision, birth-order/ancestry rules, bounded Trials summaries, and export details must first be reconciled with existing decisions; they are not a request to repeat answered questions.
+
+The exact authoritative Project Record/handoff location and adopted immutable playbook binding were not verified in the supplied continuation records. Preserve any binding retrieved at execution time. The attached policy archive's version, the Phase 1 package revision, this planning date, and the application version are different identities; none substitutes for the missing binding. This document is the repository's product roadmap, not a claim to have recovered or replaced an external authoritative Project Record.
+
+**Next engineering action after documentation synchronization:** ASH-TRACE, with the additional embedding requirement removed.

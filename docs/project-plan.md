@@ -1,0 +1,85 @@
+# Sigil — Current Project Plan
+
+**Planning revision:** 2026-10-10
+**Scope:** Retained product requirements and current direction; not a completed-implementation report
+**Delivery sequence and status:** [Product roadmap](roadmap.md)
+
+## Product outcome
+
+Sigil is a native, local-first iOS application for deterministic ASH/WRW identity interpretation and Sigil generation. The governing ASH cosmological mathematics must produce the structural identity and canonical form; an ASH visual theme or a digest-derived placeholder is not sufficient.
+
+This plan continues the existing Phase 1 foundation. Forsetti, APS, and Aeostara support the product through their applicable contracts and product-owned realization; demonstrating those systems does not replace the user's identity/PersonalCodex/Sigil workflow with a project to rewrite every framework.
+
+## Controlling decisions
+
+| Record | Retained effect |
+| --- | --- |
+| July 8 context lock, subject to subsequent owner corrections | Native/local-first product, standard numerology input bridge, ASH/APS resolution, Aeostara health gates, WRW interpretation, PersonalCodex, canonical materialization, and non-authoritative Flare. Its old statement that the repository was empty is historical, not current state. |
+| ASH mathematical requirement retained by the October 9 approval and October 10 amendment | The generation formula must be based on ASH mathematics and cosmology. Relevant canonical data and binary artifacts are not dismissed as unrelated. |
+| `SIGIL-DEC-2026-10-09-ASH-TRACE` | Inspect the existing generation path and its source authority before choosing or applying a formula change. This is not a full framework-rewrite approval. |
+| `SIGIL-DEC-2026-10-10-NO-EMBEDDING` | Remove the added data-embedding/personal-payload recovery requirement, rather than defer it. [Exact amendment](decisions/2026-10-10-no-personal-data-embedding.md). |
+
+Later explicit owner decisions govern conflicts. Historical assistant proposals are not adopted wholesale. This plan and the roadmap do not silently upgrade the development playbook or select new source revisions.
+
+## Inputs and deterministic bridge
+
+The retained input model includes first and last name, date of birth, birth weekday, birth time, birth location with the specified Apple Maps/geocoding support, birth order, hair and eye color, parents' birth order, family/ancestral surnames, and heritage groups.
+
+Canonicalize and validate locally. Apply the established standard numerology policy before ASH/WRW consumption. The recorded life-path requirement uses the full birth date in MMDDYYYY digit form, reduced under the selected policy. Every supported input needs an explicit deterministic treatment rather than an invented weighting rule or silent omission.
+
+The historical celestial-name generator lists heritage, birth date, weekday, time, hair, eyes, and mortal name. Additional Sigil inputs require explicit policy and source-backed treatment; their presence in a UI or hash does not establish that mathematical integration.
+
+Master-number handling, weekday authority, location precision/storage, birth-order treatment, and ancestry weighting must be recovered from applicable approved records and source contracts before dependent implementation. Do not infer approval from the current placeholder implementation.
+
+## Source and component responsibilities
+
+| Source/component | Required role and boundary |
+| --- | --- |
+| ASH Model | Governing cosmological/mathematical foundation. Trace applicable state, orbit, class, geometric relationships, source datasets, and referenced binary artifacts without inventing replacements. |
+| APS | Source-backed ASH state resolution/stabilization, invariants, transitions and conformance/diagnostics under the applicable canonical and native contracts. Not a lore author or decorative style selector. |
+| Forsetti | Sealed public runtime/module boundary with product-owned composition and services. Preserve the observed dependency for this update; future treatment must follow exact contracts, not whole-repository copying or a blanket rewrite rule. |
+| Aeostara | Health validation of records and geometry, schemas, integrity, derivable optional metadata recovery, containment, and safe failure. Not a creator of identity, names, lore, or missing ASH facts. |
+| WRW / Yggdrasil | Canon, lore, and character/world interpretation through typed resources and deterministic engines. Do not introduce a world-simulation runtime dependency merely to obtain lore. |
+| Sigil application | Own input handling, policy bridge, orchestration, native UI, local records, mathematical materialization, quality checks, privacy, Flare, and explicit exports in cohesive modules. |
+
+Source repositories are authority containers, not undifferentiated runtime dependencies. Canonical specifications, base designs, native implementations, governance, templates, examples, tests, corpora, binaries, and tools must retain their actual roles. A source-derived mathematical encoding or reversible transform is not the removed personal-payload layer.
+
+## ASH/WRW identity and PersonalCodex
+
+Preserve the nine-plane model: Physical, Etheric, Astral, Mental, Causal, Celestial, Shadow, Void, and Divine Core. The product uses a plane-attunement vector, not just a dominant-plane label. Retain the origin cosmology, White Wolf/Dark Wolf interpretation, and deterministic ancestry/bloodline treatment from the governing canon. Do not recast the wolves as simple good/evil opposites.
+
+Retain the celestial-class/mortal-incarnation/branch-instance ontology, bounded Trials and branch summaries, and source-backed celestial naming. Model these as deterministic software interpretation, not proof of metaphysical truth. Mortal name, ASH structural identity, and WRW celestial name remain distinct concepts.
+
+The user-facing PersonalCodex retains: Mortal Incarnation Record; Numerology Profile; ASH Identity / Advanced Canon Record; Plane Attunement Vector; Celestial Class / Origin Attribution; Celestial Name and Epithet; Wolf Balance; Bloodline / Heritage Resonance; Trials / Branch Echoes; Gifts, Burdens, Thresholds; Sigil Reading; and export/provenance/integrity information. Technical diagnostics and geometry belong under advanced provenance, not as a substitute for readable lore.
+
+The PersonalCodex is a separate local record. It is not a payload required inside a visible or hidden Sigil layer.
+
+## Canonical Sigil, internal geometry, and Flare
+
+Materialize the Sigil after source-backed identity resolution, rather than using an arbitrary visible form as the identity source. The approved source trace must connect actual mathematical outputs to geometry and identify the smallest supported correction to the current local generator.
+
+Retain determinism, meaningful geometry/visual-quality gates, provenance, and declared collision handling. Preserve existing tests until a separately scoped implementation change establishes that a test encodes a superseded contract. Do not assume a digest proves mathematical conformance, universal uniqueness, encryption, or non-disclosure.
+
+Internal geometry and intermediate state may remain when needed for ASH mathematics, validation, rendering, or reproducibility. No added encoder, personal-payload storage channel, decoder, photograph-to-record function, or payload round-trip test is required. Do not rename a payload carrier “provenance” or move it to a mandatory sidecar to preserve the removed feature.
+
+Flare is presentation only: effects, color, background, filters, and permitted overlays do not mutate canonical identity or its authoritative geometry. Reversible editing history is not the same as reconstructing an embedded personal record.
+
+## Privacy, storage, diagnostics, and export
+
+Process personal data on device. Preserve the no-analytics, no-app-backend, and no-personal-data-upload boundary. Do not create an optional-network phase as an exception. Disclose the specified Apple Maps/geocoding and other Apple system-service behavior separately from application data collection.
+
+Use Apple-native secure storage/key handling and encryption at rest for persistent profiles, codices, and artifacts. The existing status-only readiness model is not proof of this implementation. Local diagnostics must not store unnecessary personal input or secrets; retain actionable failure evidence without hidden telemetry.
+
+Export and sharing are user-initiated. Canonical and Flare outputs must be distinguishable. A separately selected PersonalCodex/report export is not an embedding layer; the final format, selected fields, and privacy validation remain explicit design work. No guarantee that a deterministic Sigil reveals nothing about its inputs is created by removing embedding.
+
+## Current execution boundary
+
+The immediate repository assignment updates planning, current documentation, and narrowly affected descriptive metadata; it does not implement the mathematical pipeline or delete application types, tests, canonical resources, or binaries. Retain `PA.0.1.0` for a documentation-only synchronization unless an actually adopted project rule requires otherwise. Product version, Apple build metadata, schema versions, planning revision, and playbook binding remain distinct.
+
+Repository publication is governed separately by the owner's standing publication instructions for an authorized bounded assignment. Publishing this plan is not authorization for an application release, upstream changes, dependency migration, branch restructuring, or implementation of all roadmap workstreams.
+
+After documentation synchronization, the next eligible engineering investigation is the approved ASH-to-Sigil source trace. Record its results and unresolved decisions before issuing a concrete implementation assignment.
+
+## Source continuity
+
+The original context lock and approval/amendment records are supplied in the project context. Their relevant requirements are reconciled here, not represented as a newly recovered authoritative Project Record. When the existing authoritative record and handoff are located, append/link the decisions and preserve their revision history through the authorized saving route. If unavailable, report that incorporation separately without blocking independently authorized repository documentation work or inventing a playbook binding.

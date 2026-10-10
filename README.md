@@ -4,6 +4,14 @@ Sigil is a native Apple-platform project in pre-alpha. The current implementatio
 
 The repository is intentionally foundation-first. It exposes verified status surfaces and local artifact generation without implementing the full identity pipeline, lore generation, export bundles, analytics, backend upload, or personal-data network flows.
 
+## Product Direction And Roadmap
+
+The [current project plan](docs/project-plan.md) and [product roadmap](docs/roadmap.md) govern planned work. Sigil's canonical form must derive from ASH cosmological mathematics; the existing bounded local generator is not evidence that the final ASH identity pipeline is complete.
+
+The owner has [removed the additional personal-data embedding requirement](docs/decisions/2026-10-10-no-personal-data-embedding.md). The Sigil need not carry a recoverable personal record. Personal input, internal mathematical geometry, PersonalCodex, deterministic generation, integrity/safety checks, and canonical/Flare separation remain in scope. Do not reintroduce the removed feature as a mandatory hidden payload or sidecar.
+
+The next approved engineering action is a read-only source trace from `SigilVisibleGlyphService.makeHiddenGeometry(for:)` to the governing ASH mathematics, canonical data, and referenced binary artifacts. A concrete code change follows the evidence; this documentation update does not implement that change or authorize a broad framework rewrite. Analytics and application-backend/personal-data upload features are excluded by the product privacy boundary, not scheduled for a later phase.
+
 ## Current Status
 
 | Area | State |
@@ -154,6 +162,9 @@ The visible-glyph service is bounded local foundation work, not the final pipeli
 
 ## Documentation
 
+- [Project Plan](docs/project-plan.md)
+- [Product Roadmap](docs/roadmap.md)
+- [No Personal-Data Embedding Decision](docs/decisions/2026-10-10-no-personal-data-embedding.md)
 - [Architecture](docs/architecture.md)
 - [Visible Glyph Engine](docs/visible-glyph-engine.md)
 - [Verification](docs/verification.md)

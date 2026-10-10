@@ -6,6 +6,12 @@
 
 This is not the final identity pipeline. It is a local deterministic artifact service with quality gates, collision handling, digest linkage, and fail-closed validation.
 
+## Mathematical Direction And Removed Payload Requirement
+
+The [current project plan](project-plan.md) requires source-backed ASH cosmological mathematics to determine canonical form. `makeHiddenGeometry(for:)` currently derives local values using profile digests; naming its result a stabilized state does not establish the final ASH resolver. The approved source trace must map these outputs to governing mathematics, canonical data, and applicable binary artifacts before a formula change.
+
+An additional personal-data carrier, encoder/decoder, or payload-recovery layer is [no longer required](decisions/2026-10-10-no-personal-data-embedding.md). The “payload” descriptions below mean structured in-process values, not a requirement to encode a personal record into a glyph. `HiddenCanonicalGeometry`, digest linkage, local artifact validation, mathematical transforms, and Flare isolation are not removed solely by this decision. No application code or test removal is implied by this documentation change.
+
 ## Public Surface
 
 | Type | Purpose |
