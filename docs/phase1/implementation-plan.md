@@ -1,5 +1,9 @@
 # Sigil Phase 1 Implementation Plan
 
+## Relationship To The Current Plan
+
+This document retains the Phase 1 foundation scope and implementation history. Use the [current project plan](../project-plan.md) and [product roadmap](../roadmap.md) for next work. The [October 10 decision](../decisions/2026-10-10-no-personal-data-embedding.md) removes added personal-data embedding and payload-recovery requirements without deleting mathematical geometry or valid safety behavior. The next approved engineering action is the ASH source trace, not a repeat of this foundation phase.
+
 ## Scope
 
 Build the native iOS Phase 1 foundation with a Forsetti-backed modular structure, app-owned status gateways, one SwiftUI dashboard module, local-only diagnostics, and placeholder-only pipeline status.
