@@ -16,6 +16,13 @@
 - Clarified current hosted-workflow status in the verification documentation against the 2026-10-24 removal; historical baseline text retained.
 - No application source, test, dependency, version, enforcement, or native project configuration changes.
 
+### Version alignment and Xcode verification — 2026-11-01
+
+- Aligned application version surfaces with the repository `VERSION` (`PA.0.1.0`): SigilApp `MARKETING_VERSION` in `Sigil.xcodeproj` and the XcodeGen manifest `project.yml`; `Info.plist` now references `$(MARKETING_VERSION)` and `$(CURRENT_PROJECT_VERSION)` instead of hard-coded values.
+- Verified a fresh Xcode iOS-simulator build of `SigilApp` (Debug): `BUILD SUCCEEDED`, 0 errors, 0 code warnings; built `Info.plist` reports `CFBundleShortVersionString = PA.0.1.0` and `CFBundleVersion = 1`.
+- Published the project wiki pages (Home, Architecture, Visible Glyph, Release Governance); repository documentation remains the authoritative reference.
+- No application source, test, dependency, schema-version, or repository version changes.
+
 ### Foundation
 
 - Established the Phase 1 foundation for the Sigil iOS runtime surface.
