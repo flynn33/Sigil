@@ -37,6 +37,8 @@ python3 -m unittest Tests/VersionGuardTests/test_version_guard.py
 
 ## GitHub Actions
 
+At the current HEAD `1f8ec799c7790d3123114db2d6f8f8f0500e395b`, no hosted GitHub Actions workflows are tracked; the hosted workflows were removed on 2026-10-24 to stop runner spend. The local scripts and wrapper above are the verification route; the baseline-scoped status below is historical.
+
 At the inspected source baseline `19a0e2b9e9ad6fbaec06b62d2e084f444e92e84b`, the only tracked workflow is `.github/workflows/attribution-guard.yml`, triggered by pull-request events. Version and strict project guardrails have local scripts; this baseline does not establish active workflows for them.
 
 A direct push does not establish that pull-request-triggered checks ran. Report actual local command results and remote checks separately; do not infer a current pass from historical evidence. Repository publication must follow the separately recorded authority.

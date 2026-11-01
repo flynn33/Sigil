@@ -114,7 +114,6 @@ The canonical identity data and presentation styling remain separate. `SigilFlar
 | `ProjectEvidence/` | Project-level guardrail, build, source, and visible-glyph evidence |
 | `scripts/` | Local verification scripts |
 | `tools/sigil_guardrails/` | Strict repository guardrail validator |
-| `.github/workflows/` | GitHub Actions guardrails |
 
 ## Verification
 
@@ -171,4 +170,4 @@ The visible-glyph service is bounded local foundation work, not the final pipeli
 - [Version Policy](docs/release/version-policy.md)
 - [Phase 1 Implementation Plan](docs/phase1/implementation-plan.md)
 
-The project wiki provides the narrative architecture, module map, visual evidence, and release governance pages for broader review.
+A project wiki is not currently available for this repository; the documentation pages above are the current reference set.
