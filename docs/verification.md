@@ -95,3 +95,9 @@ The stored Phase 1 evidence records the following inherited results; they are no
 - version guard passed
 - strict project guardrails passed
 - golden visible-glyph SVG fixtures and snapshot summary recorded under `ProjectEvidence/visible-glyph-snapshots/`
+
+Fresh 2026-11-01 run (version alignment publication):
+
+- Xcode iOS-simulator build for `SigilApp` (Debug, `generic/platform=iOS Simulator`): `BUILD SUCCEEDED`, 0 errors, 0 code warnings; built `Info.plist` reports `CFBundleShortVersionString = PA.0.1.0`, `CFBundleVersion = 1`, bundle identifier `com.ravenforge.sigil`.
+- The build log contains 12 `appintentsmetadataprocessor` "Metadata extraction skipped, no AppIntents.framework dependency found" lines; these are Xcode 27 metadata-phase notices, not project warnings.
+- Repository guards (strict project guardrail validator, version guard, attribution guard, guard unit tests, `git diff --check`, verification wrapper) re-ran fresh for this publication; raw logs are stored outside the repository.
