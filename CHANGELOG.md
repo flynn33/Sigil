@@ -10,6 +10,12 @@
 - Clarified current versus planned behavior, inherited versus fresh verification, and the actual tracked workflow inventory; aligned descriptive guardrail references without changing enforcement.
 - Kept application source, dependencies, tests, product/build/schema versions, and native project configuration unchanged.
 
+### Documentation clarification — 2026-11-01
+
+- Corrected stale README statements about the tracked workflow inventory and project wiki to match the actual repository state at `1f8ec799c7790d3123114db2d6f8f8f0500e395b`.
+- Clarified current hosted-workflow status in the verification documentation against the 2026-10-24 removal; historical baseline text retained.
+- No application source, test, dependency, version, enforcement, or native project configuration changes.
+
 ### Foundation
 
 - Established the Phase 1 foundation for the Sigil iOS runtime surface.
