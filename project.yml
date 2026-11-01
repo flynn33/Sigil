@@ -15,7 +15,7 @@ settings:
     CODE_SIGNING_REQUIRED: "NO"
     DEVELOPMENT_TEAM: ""
     PRODUCT_BUNDLE_IDENTIFIER: "com.ravenforge.sigil.$(PRODUCT_NAME:rfc1034identifier)"
-    MARKETING_VERSION: "0.1.0"
+    MARKETING_VERSION: "PA.0.1.0"
     CURRENT_PROJECT_VERSION: "1"
 targets:
   RFSigilCoreModels:
@@ -171,6 +171,8 @@ targets:
       path: Sources/SigilApp/Info.plist
       properties:
         CFBundleDisplayName: Sigil
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         UILaunchStoryboardName: LaunchScreen
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
