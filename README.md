@@ -170,4 +170,4 @@ The visible-glyph service is bounded local foundation work, not the final pipeli
 - [Version Policy](docs/release/version-policy.md)
 - [Phase 1 Implementation Plan](docs/phase1/implementation-plan.md)
 
-A project wiki is not currently available for this repository; the documentation pages above are the current reference set.
+The project wiki provides the narrative architecture, module map, visual evidence, and release governance pages for broader review; the repository documentation pages above remain the authoritative reference.
