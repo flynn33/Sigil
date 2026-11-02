@@ -101,3 +101,11 @@ Fresh 2026-11-01 run (version alignment publication):
 - Xcode iOS-simulator build for `SigilApp` (Debug, `generic/platform=iOS Simulator`): `BUILD SUCCEEDED`, 0 errors, 0 code warnings; built `Info.plist` reports `CFBundleShortVersionString = PA.0.1.0`, `CFBundleVersion = 1`, bundle identifier `com.ravenforge.sigil`.
 - The build log contains 12 `appintentsmetadataprocessor` "Metadata extraction skipped, no AppIntents.framework dependency found" lines; these are Xcode 27 metadata-phase notices, not project warnings.
 - Repository guards (strict project guardrail validator, version guard, attribution guard, guard unit tests, `git diff --check`, verification wrapper) re-ran fresh for this publication; raw logs are stored outside the repository.
+
+Fresh 2026-11-02 run (ASH-TRACE investigation at `53ba4895cdea2cb5d9188c369e1f980a2580067`):
+
+- Xcode iOS-simulator build for `SigilApp` (Debug, `generic/platform=iOS Simulator`, fresh DerivedData): `BUILD SUCCEEDED`, 0 errors, 0 project-code warnings; 12 `appintentsmetadataprocessor` toolchain notices (non-project).
+- Xcode iOS-simulator test for `SigilApp` (fresh DerivedData and result bundle): `TEST SUCCEEDED`, 22 tests, 0 failures, 0 unexpected.
+- Repository guards re-ran fresh: strict project guardrail validator, version guard, attribution guard (branch `main`), 17 guard unit tests, `git diff --check`, and the verification wrapper (strict guard plus 22/22 Swift package tests) — all passed.
+- Instruction-package integrity check and 20 helper unit tests passed; the completed 34-row trace ledger passed the external structural validator.
+- Raw logs and the result bundle are stored in the owner-external evidence root and cited by measured SHA-256 in [docs/ash-trace/trace-ledger.json](ash-trace/trace-ledger.json).
