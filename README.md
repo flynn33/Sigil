@@ -10,7 +10,7 @@ The [current project plan](docs/project-plan.md) and [product roadmap](docs/road
 
 The owner has [removed the additional personal-data embedding requirement](docs/decisions/2026-10-10-no-personal-data-embedding.md). The Sigil need not carry a recoverable personal record. Personal input, internal mathematical geometry, PersonalCodex, deterministic generation, integrity/safety checks, and canonical/Flare separation remain in scope. Do not reintroduce the removed feature as a mandatory hidden payload or sidecar.
 
-The next approved engineering action is a read-only source trace from `SigilVisibleGlyphService.makeHiddenGeometry(for:)` to the governing ASH mathematics, canonical data, and referenced binary artifacts. A concrete code change follows the evidence; this documentation update does not implement that change or authorize a broad framework rewrite. Analytics and application-backend/personal-data upload features are excluded by the product privacy boundary, not scheduled for a later phase.
+The approved read-only source trace from `SigilVisibleGlyphService.makeHiddenGeometry(for:)` to the governing ASH mathematics, canonical data, and referenced binary artifacts is complete; its results are in the [ASH source trace report](docs/ash-trace/source-to-output-map.md). The trace records which relationships are supported, which are evidenced local substitutions, and which remain unresolved owner decisions; it authorizes no implementation. A concrete code change follows the recorded evidence and the owner's decisions on the unresolved items; no framework rewrite is authorized. Analytics and application-backend/personal-data upload features are excluded by the product privacy boundary, not scheduled for a later phase.
 
 ## Current Status
 
@@ -163,6 +163,8 @@ The visible-glyph service is bounded local foundation work, not the final pipeli
 
 - [Project Plan](docs/project-plan.md)
 - [Product Roadmap](docs/roadmap.md)
+- [ASH Source Trace](docs/ash-trace/source-to-output-map.md) (map, trace ledger, findings and next change, verification cases)
+- [ASH-Trace Handoff](docs/handoffs/ash-trace.md)
 - [No Personal-Data Embedding Decision](docs/decisions/2026-10-10-no-personal-data-embedding.md)
 - [Architecture](docs/architecture.md)
 - [Visible Glyph Engine](docs/visible-glyph-engine.md)
