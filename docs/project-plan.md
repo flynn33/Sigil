@@ -78,8 +78,12 @@ The immediate repository assignment updates planning, current documentation, and
 
 Repository publication is governed separately by the owner's standing publication instructions for an authorized bounded assignment. Publishing this plan is not authorization for an application release, upstream changes, dependency migration, branch restructuring, or implementation of all roadmap workstreams.
 
-After documentation synchronization, the next eligible engineering investigation is the approved ASH-to-Sigil source trace. Record its results and unresolved decisions before issuing a concrete implementation assignment.
+After documentation synchronization, the approved ASH-to-Sigil source trace was completed on 2026-11-02; its results and unresolved decisions are recorded in [docs/ash-trace/](ash-trace/source-to-output-map.md) and [docs/handoffs/ash-trace.md](handoffs/ash-trace.md). A concrete implementation assignment requires the owner decisions recorded in the findings first.
 
 ## Source continuity
 
-The original context lock and approval/amendment records are supplied in the project context. Their relevant requirements are reconciled here, not represented as a newly recovered authoritative Project Record. When the existing authoritative record and handoff are located, append/link the decisions and preserve their revision history through the authorized saving route. If unavailable, report that incorporation separately without blocking independently authorized repository documentation work or inventing a playbook binding.
+The original context lock and approval/amendment records are supplied in the project context. Their relevant requirements are reconciled here, not represented as a newly recovered authoritative Project Record.
+
+The owner has designated this repository (flynn33/Sigil) as the authoritative Project Record: the planning documents, decisions, evidence records, and handoffs in this repository are the project record. External execution state (session checkpoints, raw logs, instruction-package working state) remains outside the repository and does not replace it.
+
+The development-policy binding in effect during the 2026-11-02 ASH-TRACE execution was Raven Forge Development 0.8.0. The instruction package's intake/reference pin is commit `5df71a97a7a3500d31a5ab0b07dd9f987c00be01` (0.8.0). These are distinct identities: the intake pin is preserved as the package reference, is not claimed as a historical repository adoption, and is not treated as an automatic upgrade.

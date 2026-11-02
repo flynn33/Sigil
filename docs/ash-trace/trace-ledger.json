@@ -1,0 +1,607 @@
+{
+ "schema_version": 1,
+ "phase_id": "ASH-TRACE",
+ "product_commit": "53ba4895cdea2cb5d91888c369e1f980a2580067",
+ "note": "External evidence format for ASH-TRACE (SIGIL-DEC-2026-10-09-ASH-TRACE, amended by SIGIL-DEC-2026-10-10-NO-EMBEDDING). Raw logs and result bundles remain in the owner-external evidence root; this ledger cites them by measured SHA-256. Structural validation of this file does not certify its claims.",
+ "sources": [
+  {"id": "sigil", "kind": "git", "identity": "53ba4895cdea2cb5d91888c369e1f980a2580067", "location": "flynn33/Sigil, main (product checkout examined)"},
+  {"id": "ash-model", "kind": "archive", "identity": "a40206150252bd5caecd55a4a97bf8938b25b39664e737148ba381997a57de09", "location": "Supplied ASH-Model-main.zip (ASH-Model v1.1.0), extracted in the external evidence root refs/"},
+  {"id": "aps-native", "kind": "archive", "identity": "1ac756bcbd2783dea9bd0f5dc3f2886f2fc02d7399bfba31c8bcaddebbaca6a6", "location": "Supplied ASH-Pattern-System-Mac-iOS-main.zip, extracted in the external evidence root refs/"},
+  {"id": "aeostara", "kind": "archive", "identity": "ea1b6e444284dedec05653d2157dfe0bc3f731f69865199743d8fb66b4468904", "location": "Supplied Aeostara-Mac-iOS-main.zip (governance main), extracted in the external evidence root refs/"},
+  {"id": "forsetti", "kind": "git", "identity": "43eef7a739f3b78253c64aa4b070521ab5b1f43c", "location": "flynn33/Forsetti-Framework-Mac-iOS (observed product dependency pin, ForsettiCore, per Package.resolved at 53ba489)"},
+  {"id": "ywe", "kind": "archive", "identity": "4c4d3c29692c55c809ceb318c63947c897debd57b4a91056a2eda509a9227719", "location": "Supplied yggdrasil-world-engine-main.zip, extracted in the external evidence root refs/"},
+  {"id": "celestial-gen", "kind": "file", "identity": "91fe15c05026621f2956ec0998dde384101bffab6b778bba92d0d03d090d04fb", "location": "Supplied celestial-name-generator.json (model v1.0.0)"},
+  {"id": "celestial-gen-pseudo", "kind": "file", "identity": "2232c6e1460919b37cefd30af007178c99800b55efed8e247b6c84095e620cfa", "location": "Supplied celestial-name-generator-pseudocode.json (algorithm v1.0.1)"},
+  {"id": "nine-planes", "kind": "file", "identity": "f0f893c791262c47e2294f2e30d7ad38e8d1890c46c4c25f7a20eee693c96b1e", "location": "Supplied nine-planes-of-existence.json"},
+  {"id": "mythic-map", "kind": "file", "identity": "a9235762a0b5d4f9c146abd547a65a1e585be94af301b27c06590f74eacfcee6", "location": "Supplied master-mythic-mapping.json"},
+  {"id": "pattern-sheets", "kind": "file", "identity": "45ff9abc31532756f2851961932a6e498bc4674c25111b98a96e64a66a538a4c", "location": "Supplied pattern-vector-char-sheets.json"},
+  {"id": "wrw-ontology", "kind": "file", "identity": "527f8d89226f8c7d363efbf10c7b95ce027e9a58cf8650c7f55ccb62c8b22323", "location": "Supplied Where Ravens Wait master-ontology JSON (v2.0.0-luciferian-merged); exact supplied filename recorded in the external evidence register"},
+  {"id": "ev-guards", "kind": "file", "identity": "8e5ed6da06d545dd0226b4715fe080aec25c30812dfc5e49601da83edcac55c9", "location": "External evidence root: t130-repo-guards.log (fresh run at 53ba489, 2026-11-02)"},
+  {"id": "ev-unit", "kind": "file", "identity": "8f21a3cf2d0c686447e8b1be94badeed297d67f680d616d787e8ec9aa422832b", "location": "External evidence root: t130-guard-unittests.log (17 guard unit tests, fresh run 2026-11-02)"},
+  {"id": "ev-pkg", "kind": "file", "identity": "9bc4dc60191ef5034c6f18d123b97da442d0d81bfa8ef04d76c42debd1976297", "location": "External evidence root: t130-package-checks.log (package integrity + helper tests, fresh run 2026-11-02)"},
+  {"id": "ev-wrapper", "kind": "file", "identity": "5ebf6d1157f7319faf7e60d38415d0046773558b40e28d40acc25658181c13ff", "location": "External evidence root: t130-wrapper.log (verify-sigil-guardrails.sh, fresh run 2026-11-02)"},
+  {"id": "ev-native", "kind": "file", "identity": "c61ddd4f3e01de550bfdb97fa6b688542dce91b95658a240ab9422bdfda34ade", "location": "External evidence root: t130-native-inspection.log (host/toolchain/simulator inspection, 2026-11-02)"},
+  {"id": "ev-build", "kind": "file", "identity": "44d9d7960cf2d0b4834aef1eba33534efa4b6de8b7c7939f2bfee460c34106bc", "location": "External evidence root: t130-ios-build.log (Debug iOS simulator build, fresh 2026-11-02)"},
+  {"id": "ev-sim", "kind": "file", "identity": "002b2de49beeae87a935554039edf2e792ab68a39f74238f4e8e2572175e4408", "location": "External evidence root: t130-ios-sim-tests.log (iOS simulator test run, 22/22, fresh 2026-11-02)"}
+ ],
+ "rows": [
+  {"id": "input.profile_identity", "status": "supported",
+   "observation": "SigilProfileInput (SigilVisibleGlyphModels.swift:4) declares id, name, birthDate, birthTime, birthCity, birthOrder, eyes, hair, heritage. The service canonicalizes through Codable JSON plus SHA-256 digest (SigilVisibleGlyphService.swift:469, :473) before any derivation; equality and hashing are value-based. Retained plan inputs absent from the type: birth weekday, parents' birth order, separate first/last name, ancestral surnames (docs/project-plan.md).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct SigilProfileInput, line 4"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "static digest / sha256Hex, lines 469-476"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Inputs and deterministic bridge: retained input model"},
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "input schema (heritage, birth date, weekday, time, hair, eyes, mortal name)"}
+   ],
+   "finding": "Identity handling is deterministic and local. The retained plan input model is broader than the current type; the missing fields are tracked on their own input rows.",
+   "consumer_impact": "Every downstream derivation and all visible-glyph tests consume SigilProfileInput; extending the type changes the digest domain and all dependent hashes.",
+   "verification_case_ids": ["VC-PROP-08"], "gap": null, "not_applicable_reason": null},
+  {"id": "input.names", "status": "substitution",
+   "observation": "The name field feeds the profile digest and expressionDestinyRoot = reducedRoot(sum of Unicode scalar values of the name) (SigilVisibleGlyphService.swift:490). No first/last split exists in the input type.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "expressionDestinyRoot derivation, line 490"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "NumerologyVector.expressionDestinyRoot, line 42"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "name as generator input; name synthesis rules"},
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Inputs: first and last name retained"}
+   ],
+   "finding": "Standard numerology derives the expression (destiny) number from name letter values under a fixed letter-to-number mapping; a Unicode scalar sum is a local substitution that is not letter-based. The retained plan requires first and last name as distinct inputs.",
+   "consumer_impact": "expressionDestinyRoot feeds the numerology record and any future numerology bridge; a corrected derivation changes artifact digests for all profiles.",
+   "verification_case_ids": ["VC-PROP-08"], "gap": null, "not_applicable_reason": null},
+  {"id": "input.birth_date", "status": "supported",
+   "observation": "birthDate drives lifePathRoot by digit-sum reduction of the date digits (SigilVisibleGlyphService.swift:488-489) and the master-number check on the date total (line 488). The reducedRoot helper reduces to a single digit.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "lifePathRoot / preservedMasterNumbers construction, lines 486-492"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "life path rule: sum digits of YYYYMMDD to a single digit (1977-11-04 -> 30 -> 3)"},
+    {"source_id": "celestial-gen-pseudo", "path": "celestial-name-generator-pseudocode.json", "locator": "life-path algorithm section"}
+   ],
+   "finding": "Life-path digit-sum reduction matches the canonical celestial generator rule; the digit sum is order-independent, so YYYYMMDD and MMDDYYYY forms agree. Master-number divergence is tracked separately under bridge.master_numbers.",
+   "consumer_impact": "Life path is the seed of the canonical dominant plane and a wolf-score term; a supported match here anchors VC-PROP-01.",
+   "verification_case_ids": ["VC-PROP-01"], "gap": null, "not_applicable_reason": null},
+  {"id": "input.weekday", "status": "unresolved",
+   "observation": "No weekday field exists in SigilProfileInput and no weekday derivation exists anywhere in Sources (full source read at 53ba489). The canonical celestial generator consumes weekday as an input with a seven-day archetype table (deity axis, tone, role bias); the retained plan lists birth weekday as a required input.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct SigilProfileInput, line 4 (no weekday member)"},
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Inputs and deterministic bridge: birth weekday retained"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "weekday archetypes: 7 days with deity_axis/tone/role_bias"}
+   ],
+   "finding": "Canonical weekday treatment is documented and central to the celestial algorithm, but entirely absent from the product; its integration point in Sigil identity (attunement, wolf input, or naming context) is not decided by any retrieved record.",
+   "consumer_impact": "Blocks a complete input-to-identity map; weekday is a planned driver of archetypal context and name flavor.",
+   "verification_case_ids": ["VC-PROP-03", "VC-PROP-08"],
+   "gap": {
+    "reason": "No approved record specifies how weekday enters Sigil identity derivation beyond the canonical generator archetype table; the plan requires the input without specifying its mathematical role.",
+    "affected_decision": "IDENTITY-PIPELINE input expansion and the ASH-GLYPH smallest-change scope.",
+    "next_action": "Owner decision on weekday's canonical role from the celestial generator archetype table and YWE plane-attunement/celestial-identity contracts before implementation.",
+    "retrieval_attempts": [
+     {"operation": "Full read of all 17 product source files at 53ba489", "result": "No weekday field or derivation found anywhere"},
+     {"operation": "Full read of celestial-name-generator.json and celestial-name-generator-pseudocode.json", "result": "Weekday is a generator input with a 7-day archetype table"},
+     {"operation": "Full read of docs/project-plan.md and docs/roadmap.md", "result": "Birth weekday is a retained required input; weekday authority is an open question"}
+    ]
+   },
+   "not_applicable_reason": null},
+  {"id": "input.birth_time", "status": "substitution",
+   "observation": "birthTime participates only in the profile digest; there is no time-bucket derivation. The canonical wolf score includes an explicit time-bucket modifier (night/dawn/day/dusk/late buckets with fixed signed weights).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "SigilProfileInput.birthTime, line 4 struct"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "digest over full input, lines 469-476 (time included opaquely)"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "time buckets and time_bucket_mod table"},
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Every supported input needs an explicit deterministic treatment"}
+   ],
+   "finding": "Digest-only inclusion is a local substitution for the canonical deterministic time treatment required by the plan; the canonical bucket weights are cited.",
+   "consumer_impact": "Time is a canonical wolf-score term; without an explicit treatment the wolf balance cannot follow the governing equation (VC-PROP-02).",
+   "verification_case_ids": ["VC-PROP-02", "VC-PROP-08"], "gap": null, "not_applicable_reason": null},
+  {"id": "input.birth_location", "status": "unresolved",
+   "observation": "birthCity participates only in the profile digest. The retained plan requires birth location with Apple Maps/geocoding support; the canonical celestial generator does not consume location at all; no retrieved approved record specifies location precision or the mathematical role of geocoding.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "SigilProfileInput.birthCity, line 4 struct"},
+    {"source_id": "sigil", "path": "docs/roadmap.md", "locator": "Unresolved items: location precision open question"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Inputs: birth location with the specified Apple Maps/geocoding support"},
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "input schema (location absent)"}
+   ],
+   "finding": "Observed digest-only treatment versus the plan requirement is documented, but the required canonical behavior (precision, geocoding use, privacy handling) is not established by any retrieved source.",
+   "consumer_impact": "Privacy/storage design and IDENTITY-PIPELINE scope depend on the undecided location treatment; no implementation should be built on an assumed role.",
+   "verification_case_ids": ["VC-PROP-08"],
+   "gap": {
+    "reason": "The canonical sources are silent on location; the plan mandates geocoding support without specifying its mathematical role; the roadmap lists location precision as an open question.",
+    "affected_decision": "Privacy/storage design and IDENTITY-PIPELINE input scope.",
+    "next_action": "Owner decision reconciling the plan geocoding requirement with the privacy boundary and the canonical silence, before any location-derived identity term is implemented.",
+    "retrieval_attempts": [
+     {"operation": "Full source read at 53ba489", "result": "birthCity present only in the digest"},
+     {"operation": "Full read of celestial-name-generator.json and pseudocode", "result": "Location is not a generator input"},
+     {"operation": "Full read of project plan, roadmap, and privacy sections", "result": "Geocoding support required; precision and role undecided"}
+    ]
+   },
+   "not_applicable_reason": null},
+  {"id": "input.birth_order", "status": "substitution",
+   "observation": "birthOrder participates only in the profile digest; no numerological or canonical treatment exists. The canonical celestial generator does not consume birth order.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "SigilProfileInput.birthOrder, line 4 struct"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Every supported input needs an explicit deterministic treatment"},
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "input schema (birth order absent)"}
+   ],
+   "finding": "Plan requires explicit deterministic treatment for every supported input; digest-only inclusion is a local substitution, and no canonical source prescribes a birth-order rule, so the correction target is a product policy decision, not an implementation of an existing rule.",
+   "consumer_impact": "Any birth-order term must be policy-adopted before it can be source-backed.",
+   "verification_case_ids": ["VC-PROP-08"], "gap": null, "not_applicable_reason": null},
+  {"id": "input.parent_birth_order", "status": "unresolved",
+   "observation": "No parents'-birth-order field exists in SigilProfileInput and nothing in Sources references it (full read). The retained plan lists parents' birth order among the retained inputs; no canonical source defines its treatment.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct SigilProfileInput, line 4 (field absent)"},
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Inputs: parents' birth order retained"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "input schema (parents' birth order absent)"}
+   ],
+   "finding": "Absent required input; the required mathematical treatment is not established by any retrieved source.",
+   "consumer_impact": "Cannot be traced until an owner-adopted rule exists; blocks a complete input map.",
+   "verification_case_ids": ["VC-PROP-08"],
+   "gap": {
+    "reason": "No source (canonical generator, YWE contracts, WRW master ontology) specifies a parents'-birth-order rule; the plan lists the input without a treatment rule.",
+    "affected_decision": "IDENTITY-PIPELINE input model and numerology policy.",
+    "next_action": "Owner decision: adopt a rule from an approved record or explicitly scope it within IDENTITY-PIPELINE.",
+    "retrieval_attempts": [
+     {"operation": "Full source read at 53ba489", "result": "Field absent from the input type and all sources"},
+     {"operation": "Full read of celestial-name-generator.json and pseudocode", "result": "Not a generator input"},
+     {"operation": "Full read of the project plan input model", "result": "Listed as a retained input without a treatment rule"}
+    ]
+   },
+   "not_applicable_reason": null},
+  {"id": "input.eyes_hair", "status": "substitution",
+   "observation": "eyes and hair feed the profile digest plus soulUrgeRoot = reducedRoot(Unicode scalar sum of eyes) and personalityRoot = reducedRoot(Unicode scalar sum of hair) (SigilVisibleGlyphService.swift:491-492). The canonical wolf score uses explicit modifiers: hair blonde +1 through black -1 (red 0); eyes blue +1 through brown -0.25.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "soulUrgeRoot/personalityRoot derivations, lines 491-492"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "NumerologyVector fields, lines 43-44"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "hair_mod and eye_mod tables and wolf score equation"},
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Standard numerology policy before ASH/WRW consumption"}
+   ],
+   "finding": "Color-string scalar sums are a local substitution for both the standard name-based soul-urge/personality roots and the canonical modifier-based wolf inputs; the canonical treatment is deterministic and cited.",
+   "consumer_impact": "Wolf balance (identity.wolf_balance) and the numerology record both depend on these fields; correcting them changes digests and geometry.",
+   "verification_case_ids": ["VC-PROP-02", "VC-PROP-08"], "gap": null, "not_applicable_reason": null},
+  {"id": "input.heritage_surnames", "status": "substitution",
+   "observation": "heritage drives a local switch (Scandinavian/Celtic/Slavic/Germanic ornament and taxonomy paths) in the generator; no ancestral-surname field exists in the input type. The canonical heritage priority is scandinavian > celtic > germanic > other -> generic_northern; the retained plan includes family/ancestral surnames.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "heritage-driven ornament selection and ancestry construction, lines 177-230 and 325"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "heritage priority scandinavian > celtic > germanic > other -> generic_northern"},
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Inputs: family/ancestral surnames and heritage groups retained"}
+   ],
+   "finding": "The local taxonomy and priority order are a substitution for the canonical priority; the missing ancestral-surnames input is a plan gap tracked with VC-PROP-08.",
+   "consumer_impact": "Heritage drives ornaments, ancestry weights, and name context; a corrected priority changes the visible output for mixed-heritage profiles.",
+   "verification_case_ids": ["VC-PROP-08"], "gap": null, "not_applicable_reason": null},
+  {"id": "bridge.canonicalization", "status": "supported",
+   "observation": "Local canonicalization is Codable JSON normalization followed by SHA-256 digesting before any derivation (SigilVisibleGlyphService.swift:469-476); deterministic behavior is test-verified (VC-EXEC-01 passed).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "digest/sha256Hex and canonical JSON, lines 440-476"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Canonicalize and validate locally"}
+   ],
+   "finding": "No canonical source conflicts with product-owned canonicalization; this is a product boundary rather than an ASH relationship.",
+   "consumer_impact": "Any canonicalization change re-hashes every profile; kept stable by tests.",
+   "verification_case_ids": ["VC-EXEC-01"], "gap": null, "not_applicable_reason": null},
+  {"id": "bridge.numerology", "status": "substitution",
+   "observation": "NumerologyVector (SigilVisibleGlyphModels.swift:38) combines: lifePathRoot matching the canonical digit-sum rule; preservedMasterNumbers retaining 11/22/33 when the date total is in the set (SigilVisibleGlyphService.swift:488); expression/soul/personality roots from scalar sums (lines 490-492); birthDayRoot from the birth day.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct NumerologyVector, lines 38-66"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "numerology construction, lines 486-492"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "life path and master-number treatment (full reduction to 1-9)"},
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Established standard numerology policy before ASH/WRW consumption"}
+   ],
+   "finding": "Mixed row: life path is supported; the expression/soul/personality roots are local substitutions (see input.names, input.eyes_hair); the master-number policy is unresolved (see bridge.master_numbers).",
+   "consumer_impact": "The numerology record is a PersonalCodex input and feeds geometry accents (master numbers) and wolf terms (life path).",
+   "verification_case_ids": ["VC-EXEC-01", "VC-PROP-01"], "gap": null, "not_applicable_reason": null},
+  {"id": "bridge.master_numbers", "status": "unresolved",
+   "observation": "Product: preservedMasterNumbers = [dateTotal] when dateTotal is in {11, 22, 33} (SigilVisibleGlyphService.swift:488); master numbers add an accent path in makeVectorPaths (line 325). Canonical generator: the date total is reduced all the way to one digit; no master-number preservation rule exists in any retrieved canonical source.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "master-number preservation, line 488; accent path, line 325"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "NumerologyVector.preservedMasterNumbers, line 40"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "life path reduction without master-number preservation"},
+    {"source_id": "sigil", "path": "docs/roadmap.md", "locator": "Unresolved items: master-number handling to reconcile from sources"}
+   ],
+   "finding": "The two behaviors are citable and divergent; no approved record decides the policy. This is a missing source decision, not an implementation defect.",
+   "consumer_impact": "Affects the numerology record, the accent-path geometry, and any numerology policy adopted in IDENTITY-PIPELINE.",
+   "verification_case_ids": ["VC-PROP-07"],
+   "gap": {
+    "reason": "Missing source decision: retain 11/22/33 preservation (current product) or adopt the canonical generator's full reduction to 1-9.",
+    "affected_decision": "Numerology bridge and geometry accents in IDENTITY-PIPELINE and ASH-GLYPH.",
+    "next_action": "Owner decision from authoritative records before dependent implementation; until then both behaviors are recorded and no test may treat either as canonical.",
+    "retrieval_attempts": [
+     {"operation": "Full read of celestial-name-generator.json and pseudocode", "result": "Full reduction to 1-9; no master-number preservation rule"},
+     {"operation": "Full read of product service and tests at 53ba489", "result": "Preservation present; accent path keyed to preservedMasterNumbers"},
+     {"operation": "Full read of roadmap unresolved items", "result": "Master-number handling explicitly flagged for reconciliation from sources"}
+    ]
+   },
+   "not_applicable_reason": null},
+  {"id": "identity.ash_state", "status": "substitution",
+   "observation": "ashState = SigilStabilizedState(stateDigest: sha256('state:{profileHash}:{dominantPlaneId}'), stabilizerClass: 'local_stable_basis') (SigilVisibleGlyphService.swift:180; type at SigilVisibleGlyphModels.swift:69). No F2^9 state vector, no codeword, and no orbit are computed; the 'state' is a digest string.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "ashState construction, lines 180-184"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct SigilStabilizedState, lines 69-79"}
+   ],
+   "authority_refs": [
+    {"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Sections 2-3: F2^9 state space and 256-state integrity hyperplane E"},
+    {"source_id": "aps-native", "path": "specs/core/ash-state-space.pseudo.md", "locator": "R1 realignment: full 9D, no coordinate privileged"}
+   ],
+   "finding": "Name-only stabilization substitutes for the governing F2^9 state construction. The 8+1 parity structure (ASH-Model) versus full-9D (APS R1) formalization conflict is recorded as unresolved (F-01 in findings-and-next-change.md).",
+   "consumer_impact": "Every downstream identity concept (orbit, plane, wolf, geometry) currently hangs off this digest string; replacing it re-derives the identity layer.",
+   "verification_case_ids": ["VC-PROP-04"], "gap": null, "not_applicable_reason": null},
+  {"id": "identity.closure_orbit_class", "status": "substitution",
+   "observation": "No orbit or closure computation exists in the service; SigilStabilizedState carries only stateDigest and stabilizerClass (SigilVisibleGlyphModels.swift:69-79).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct SigilStabilizedState, lines 69-79 (no orbit field)"}
+   ],
+   "authority_refs": [
+    {"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Section 6: code orbits, 32 total / 16 in E, coordinate 8 constant per orbit"},
+    {"source_id": "aps-native", "path": "specs/core/state-admissibility.pseudo.md", "locator": "orbit-based admissibility classes"}
+   ],
+   "finding": "Canonical orbits are 16-state cosets under the closed 16-codeword set with coordinate 8 orbit-constant; the product's local stabilizer label is a substitution for orbit classification.",
+   "consumer_impact": "Orbit class is a required identity datum for stabilization semantics and future recovery/containment behavior.",
+   "verification_case_ids": ["VC-PROP-05"], "gap": null, "not_applicable_reason": null},
+  {"id": "identity.plane_vector", "status": "substitution",
+   "observation": "planeVector: nine values derived from digestBytes[0..8] by modulo-89 plus 11, normalized to sum 1; dominantPlaneId is the argmax index (1-based) (SigilVisibleGlyphService.swift:172-173, helpers below the makeHiddenGeometry body).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "makePlaneVector / dominantPlaneID, lines 172-173 and helper bodies"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "planeAttunementVector in HiddenCanonicalGeometry/SigilFamilyKey, lines 139-208"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "dominant plane = plane whose numerology values contain the life path"},
+    {"source_id": "nine-planes", "path": "nine-planes-of-existence.json", "locator": "P1-P9 with mathematical types"},
+    {"source_id": "ywe", "path": "docs/architecture/plane_attunement_runtime_contract.md", "locator": "attunement model with provenance; forbidden fixed plane class"}
+   ],
+   "finding": "The canonical dominant plane derives from the life path over the named nine planes, and attunement is a provenance-bearing dynamic quantity; the digest-byte vector with argmax is a local substitution that matches neither formulation's derivation.",
+   "consumer_impact": "Dominant plane feeds celestialBasisID, anchors, and the family key; a corrected derivation changes the identity basis for every profile.",
+   "verification_case_ids": ["VC-PROP-01"], "gap": null, "not_applicable_reason": null},
+  {"id": "identity.wolf_balance", "status": "substitution",
+   "observation": "wolfBalance: white and dark values derived from digestBytes[9..10] (modulo-80 plus 10 form); category by threshold on the absolute difference (balanced band) (SigilVisibleGlyphService.swift:174; type at SigilVisibleGlyphModels.swift:81).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "makeWolfBalance, line 174 and helper body"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct WolfBalance, lines 81-91"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "wolf score equation and white >= 1.0 / dark <= -1.0 thresholds"},
+    {"source_id": "mythic-map", "path": "master-mythic-mapping.json", "locator": "White/Dark Wolves as symbiotic dual attractors, not moral poles"},
+    {"source_id": "ywe", "path": "docs/architecture/twin_wolf_companion_canon_contract.md", "locator": "functional poles; balance and integration; forbidden morality meter"}
+   ],
+   "finding": "The canonical wolf score is an explicit modifier equation (hair, eyes, time bucket, life path) with fixed thresholds; the digest derivation is a local substitution. The non-moral dual-attractor canon constrains any interpretation of the balance values.",
+   "consumer_impact": "Wolf balance drives celestialBasisID, ornaments, and the PersonalCodex Wolf Balance section; correction changes digests and visible output.",
+   "verification_case_ids": ["VC-PROP-02"], "gap": null, "not_applicable_reason": null},
+  {"id": "identity.ancestry_weights", "status": "substitution",
+   "observation": "AncestryWeight entries (SigilVisibleGlyphModels.swift:93-101) are built from a local family taxonomy keyed on heritage and digest values inside makeHiddenGeometry.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct AncestryWeight, lines 93-101"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "ancestry construction within makeHiddenGeometry, lines 168-230"}
+   ],
+   "authority_refs": [
+    {"source_id": "ywe", "path": "docs/architecture/bloodline_resonance_runtime_contract.md", "locator": "per-signal status/score/stability/source_refs; forbidden static class lock"},
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "heritage priority order"}
+   ],
+   "finding": "Canonical bloodline resonance is per-lineage pressure with status, score, stability, and source references, explicitly not a static class lock; the local static taxonomy and weights are a substitution.",
+   "consumer_impact": "Ancestry feeds the family key and the PersonalCodex Bloodline/Heritage Resonance section.",
+   "verification_case_ids": ["VC-PROP-08"], "gap": null, "not_applicable_reason": null},
+  {"id": "geometry.anchors", "status": "substitution",
+   "observation": "anchorPoints = five fixed anchor definitions with digest-byte offsets (SigilVisibleGlyphService.swift:185; type SigilAnchorPoint at SigilVisibleGlyphModels.swift:113).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "makeHiddenAnchors, line 185 and helper body"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct SigilAnchorPoint, lines 113-125"}
+   ],
+   "authority_refs": [
+    {"source_id": "ash-model", "path": "data/branch-topology.json", "locator": "121 nodes / 81 leaves with per-node state, codeword, message, and 2D segment start/end/heading"},
+    {"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Section 9: branch geometry, 25-degree turn, 0.72 decay"}
+   ],
+   "finding": "The canonical geometry reference is the branch topology with per-node states and segments; five fixed anchors with digest offsets are a local substitution.",
+   "consumer_impact": "Anchors define the geometry skeleton consumed by vector-path synthesis and quality checks.",
+   "verification_case_ids": ["VC-PROP-06"], "gap": null, "not_applicable_reason": null},
+  {"id": "geometry.edges_roles", "status": "substitution",
+   "observation": "A fixed edge list with fixed semantic role labels connects the anchors (SigilGeometryEdge at SigilVisibleGlyphModels.swift:127; construction in the service).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct SigilGeometryEdge, lines 127-137"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "edge/semantic-role construction in makeHiddenGeometry, lines 168-230"}
+   ],
+   "authority_refs": [
+    {"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Section 9: branch actions 0/+/−, message toggling, node state x xor enc(m)"},
+    {"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Section 12: Adinkra colored edges with one-based color permutation"}
+   ],
+   "finding": "Canonical edge semantics come from the branch grammar and the Adinkra colored-edge structure; fixed role labels are a local substitution.",
+   "consumer_impact": "Edge semantics feed rendering and future ASH-GLYPH materialization mapping.",
+   "verification_case_ids": ["VC-PROP-06"], "gap": null, "not_applicable_reason": null},
+  {"id": "geometry.family_key", "status": "substitution",
+   "observation": "SigilFamilyKey (SigilVisibleGlyphModels.swift:182-208) carries celestialBasisID from a local switch on (dominantPlaneId, wolfCategory) producing five local basis names with source 'derived_local_profile_basis' (SigilVisibleGlyphService.swift:177, :573), plus the planeAttunementVector (lines 204, 218).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "celestialBasisID switch, lines 177 and 573-600"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct SigilFamilyKey, lines 182-208"}
+   ],
+   "authority_refs": [
+    {"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "name synthesis from root, plane, and wolf syllables"},
+    {"source_id": "ywe", "path": "docs/architecture/celestial_identity_progression_contract.md", "locator": "celestial identity layers and reveal states; veiled at start"},
+    {"source_id": "wrw-ontology", "path": "WRW master-ontology JSON v2.0.0-luciferian-merged", "locator": "entities.mortal_class / mortal_instance / celestial_beings"}
+   ],
+   "finding": "The local basis names (crown-bearer/root-walker/veil-crossing/wolf-balanced/star-bound) are not canonical celestial-class terms; the canonical identity derives from life-path plane, wolf score, weekday archetype, and heritage. The local switch is a substitution.",
+   "consumer_impact": "The family key partitions geometry families and appears in digests; renaming the basis changes identity partitioning.",
+   "verification_case_ids": ["VC-PROP-01", "VC-PROP-02"], "gap": null, "not_applicable_reason": null},
+  {"id": "geometry.candidates", "status": "substitution",
+   "observation": "A 64-candidate collision window iterates candidateIndex 0..63 (SigilVisibleGlyphService.swift:72); the parameter seed is sha256(profileHash:canonicalGeometryDigest:candidateIndex) (line 265); collisions advance the index deterministically.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "candidate loop, line 72; seed, line 265"}
+   ],
+   "authority_refs": [
+    {"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Section 11: deterministic ranking log P(message) + log S, top-k pruning, no repair beyond radius 1"},
+    {"source_id": "ash-model", "path": "data/branch-topology.json", "locator": "duplicate leaf prior weights summed before reconstruction"}
+   ],
+   "finding": "The canonical selection pattern is deterministic prior-plus-score ranking over message/codeword candidates with deterministic pruning; the image-specific loss terms are not portable, but the pattern is the cited governing one. Collision-advance over a hash seed is a local substitution.",
+   "consumer_impact": "Candidate selection is part of the declared generation context; a changed selection rule changes outputs for collision-prone profiles.",
+   "verification_case_ids": ["VC-EXEC-04", "VC-PROP-04"], "gap": null, "not_applicable_reason": null},
+  {"id": "geometry.vector_paths", "status": "substitution",
+   "observation": "makeVectorPaths (SigilVisibleGlyphService.swift:259) synthesizes 11 base paths plus conditional ornaments (celtic/balanced -> left-side ornament; slavic/dark-dominant -> right-side; master numbers -> accent), capped at 14, from SHA-256-parameterized coordinates.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "makeVectorPaths and ornament conditions, lines 259-340"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct VisibleVectorPath, lines 221-241"}
+   ],
+   "authority_refs": [
+    {"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Section 9: L-system F -> FF[+F]F[-F], 25-degree turn, 0.72 length decay, per-node segments"},
+    {"source_id": "ash-model", "path": "data/branch-topology.json", "locator": "generated 2D segment geometry per node"}
+   ],
+   "finding": "The canonical visible geometry is the bounded-branch L-system structure with per-node state; hash-parameterized path synthesis is a local substitution.",
+   "consumer_impact": "Vector paths are the visible sigil itself; a canonical materialization replaces this synthesis (ASH-GLYPH).",
+   "verification_case_ids": ["VC-PROP-06"], "gap": null, "not_applicable_reason": null},
+  {"id": "geometry.quality", "status": "supported",
+   "observation": "SigilVisibleQualityGate (SigilVisibleGlyphService.swift:6) enforces segment count 10-14, major crossings <= 3 (lines 334-335), duplicates <= 2, and score >= 0.70; VisibleSigilQualityReport (SigilVisibleGlyphModels.swift:251) records the outcome; gate failure blocks the artifact.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "gate definition, line 6; crossing count, lines 334-340"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct VisibleSigilQualityReport, lines 251-286"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Retain determinism, meaningful geometry/visual-quality gates"}
+   ],
+   "finding": "Product-owned bounded quality gate; no canonical source prescribes sigil visual-quality thresholds, so no conflict exists. The gate is local policy, retained as required.",
+   "consumer_impact": "Gate thresholds shape the visible output population; changes require test updates within a scoped implementation change.",
+   "verification_case_ids": ["VC-EXEC-03"], "gap": null, "not_applicable_reason": null},
+  {"id": "integrity.digests", "status": "supported",
+   "observation": "A digest chain runs from profileHash to canonicalGeometryDigest to the artifact digest; validation fails closed on any mismatch (SigilVisibleGlyphService.swift:164, :369-394; digest payload at :440-458).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "validate/validateArtifact, lines 164 and 369-394"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "SigilVisibleGlyphArtifact digest fields, lines 375-395"}
+   ],
+   "authority_refs": [
+    {"source_id": "aps-native", "path": "specs/algorithms/containment-safe-failure-semantics.pseudo.md", "locator": "no silent failure; diagnostic records for failure paths"},
+    {"source_id": "aeostara", "path": "AEOSTARA_BASELINE_REFERENCE.md", "locator": "base pin v1.0.0 at 774b981ef2267a41c1b1a59497b2b0746a86f32b"}
+   ],
+   "finding": "The local integrity chain is deterministic and consistent with safe-failure semantics; no canonical conflict.",
+   "consumer_impact": "Digest linkage is the artifact trust boundary; consumers may rely on fail-closed validation.",
+   "verification_case_ids": ["VC-EXEC-06"], "gap": null, "not_applicable_reason": null},
+  {"id": "integrity.artifact_validation", "status": "supported",
+   "observation": "validateArtifact returns AeostaraHealthDecision; the blocked-decision path (SigilVisibleGlyphService.swift:393-394) fails closed for invalid artifacts; tests confirm fail-closed behavior for digest mismatch and invalid artifacts (VC-EXEC-06, VC-EXEC-07 passed).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "validateArtifact and blockedDecision, lines 164 and 393-394"},
+    {"source_id": "sigil", "path": "Tests/SigilTests/VisibleGlyphGenerationTests.swift", "locator": "testArtifactValidationPassesAndFailsClosedForDigestMismatch"}
+   ],
+   "authority_refs": [
+    {"source_id": "aps-native", "path": "specs/algorithms/containment-safe-failure-semantics.pseudo.md", "locator": "invariants: monotonic escalation, terminal SAFE_HALT, no silent containment/halt, diagnostic chaining"},
+    {"source_id": "aeostara", "path": "AEOSTARA_BASELINE_REFERENCE.md", "locator": "pinned base release; no floating source as semantic authority"}
+   ],
+   "finding": "Fail-closed validation is consistent with the APS containment/safe-failure invariants and respects the pinned Aeostara base; behavior is test-proven.",
+   "consumer_impact": "Consumers receive explicit health decisions; no silent degradation path exists.",
+   "verification_case_ids": ["VC-EXEC-06", "VC-EXEC-07"], "gap": null, "not_applicable_reason": null},
+  {"id": "presentation.flare", "status": "supported",
+   "observation": "makeFlarePresentation (SigilVisibleGlyphService.swift:151) produces SigilFlarePresentation by copying canonical fields plus SigilFlareStyle; testFlarePresentationDoesNotMutateCanonicalIdentityOrVectorData passed in the fresh 2026-11-02 simulator run.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "makeFlarePresentation, lines 151-162"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "struct SigilFlarePresentation, lines 353-373"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Flare is presentation only; non-authoritative"}
+   ],
+   "finding": "The presentation-only boundary holds and is test-proven; consistent with the plan's non-authoritative Flare.",
+   "consumer_impact": "Styling workflows can mutate presentation metadata without affecting canonical identity.",
+   "verification_case_ids": ["VC-EXEC-05"], "gap": null, "not_applicable_reason": null},
+  {"id": "output.render_export", "status": "supported",
+   "observation": "The artifact renders a local SVG string; no export bundle, sharing, or editor path exists in this phase (bounded by design).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "SVG rendering within artifact construction, lines 232-258"},
+    {"source_id": "sigil", "path": "README.md", "locator": "Boundaries: final export bundle generation intentionally unavailable"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/roadmap.md", "locator": "EXPERIENCE-AND-EXPORT workstream: remaining product work"}
+   ],
+   "finding": "Bounded local rendering is consistent with the plan; export remains pending product work, not a defect of this phase.",
+   "consumer_impact": "Export consumers are future work; current SVG output is the only render surface.",
+   "verification_case_ids": ["VC-EXEC-11"], "gap": null, "not_applicable_reason": null},
+  {"id": "runtime.integration", "status": "supported",
+   "observation": "The Forsetti runtime assembly builds 8 modules (1 UI + 7 service); testRuntimeAssemblyBuildsForsettiRuntime asserts entryPoints.count == 8 and forsettiVersion == 0.1.4 (passed in the fresh 2026-11-02 run); ForsettiCore is pinned at 43eef7a739f3b78253c64aa4b070521ab5b1f43c per Package.resolved.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Tests/SigilTests/DashboardStatusTests.swift", "locator": "testRuntimeAssemblyBuildsForsettiRuntime"},
+    {"source_id": "sigil", "path": "Package.resolved", "locator": "ForsettiCore revision 43eef7a739f3b78253c64aa4b070521ab5b1f43c"}
+   ],
+   "authority_refs": [
+    {"source_id": "forsetti", "path": "repository root", "locator": "dependency pin identity"},
+    {"source_id": "sigil", "path": "docs/roadmap.md", "locator": "Disposition: module count corrected to eight total"}
+   ],
+   "finding": "Runtime integration matches the observed dependency pin and the roadmap module-count disposition. Record-only defect: a stale 'Seven Sigil modules... one UI module and six service modules' dashboard string in SigilRuntimeAssembly.swift (source edit outside this documentation assignment).",
+   "consumer_impact": "Module surface is stable; the stale string is cosmetic but should be corrected in a future source change.",
+   "verification_case_ids": ["VC-EXEC-08"], "gap": null, "not_applicable_reason": null},
+  {"id": "privacy.diagnostics", "status": "supported",
+   "observation": "Local-only diagnostics; the capability policy excludes network and telemetry; testPrivacyPostureIsLocalOnly and testCapabilityPolicyExcludesNetworkAndTelemetry passed in the fresh 2026-11-02 run.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Tests/SigilTests/PrivacySecurityTests.swift", "locator": "testPrivacyPostureIsLocalOnly"},
+    {"source_id": "sigil", "path": "Tests/SigilTests/ForsettiModuleRegistrationTests.swift", "locator": "testCapabilityPolicyExcludesNetworkAndTelemetry"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Privacy: no analytics, no app backend, no personal-data upload"}
+   ],
+   "finding": "Consistent with the product privacy boundary; test-proven.",
+   "consumer_impact": "No network/telemetry surface exists to constrain; the boundary is enforced by capability policy.",
+   "verification_case_ids": ["VC-EXEC-09"], "gap": null, "not_applicable_reason": null},
+  {"id": "requirements.embedding_disposition", "status": "supported",
+   "observation": "Full read of all 17 product source files at 53ba489 found no payload encoder, decoder, sidecar channel, scan-to-record path, or embedded-record recovery logic; the hidden geometry is internal mathematical/visual state, not a data carrier.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "full file read (662 lines): no payload machinery"},
+    {"source_id": "sigil", "path": "docs/decisions/2026-10-10-no-personal-data-embedding.md", "locator": "decision: removed, not deferred"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/decisions/2026-10-10-no-personal-data-embedding.md", "locator": "retained boundaries list"},
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "No added encoder, personal-payload storage channel, decoder, or payload round-trip test is required"}
+   ],
+   "finding": "The removed embedding requirement is not present under any other name; SIGIL-DEC-2026-10-10-NO-EMBEDDING is preserved.",
+   "consumer_impact": "No payload round-trip acceptance gate exists or is required; future work must not reintroduce a carrier.",
+   "verification_case_ids": ["VC-PROP-09"], "gap": null, "not_applicable_reason": null},
+  {"id": "geometry.semantic_motifs", "status": "supported",
+   "observation": "Conditional ornament motifs are keyed to heritage/wolf/master-number categories (SigilVisibleGlyphService.swift:325 and the ornament blocks in makeVectorPaths), with fixed anchor semantic roles.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "ornament conditions, lines 290-340"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Inspect internal geometry on its mathematical merits"}
+   ],
+   "finding": "Product design-space choices; no canonical source prescribes sigil motifs, so no substitution finding is made. The motifs are retained for future ASH-GLYPH materialization review on their mathematical merits.",
+   "consumer_impact": "Motifs distinguish families visually; their keep/remove decision belongs to the ASH-GLYPH implementation scope.",
+   "verification_case_ids": ["VC-EXEC-02"], "gap": null, "not_applicable_reason": null},
+  {"id": "geometry.style_metadata", "status": "supported",
+   "observation": "VisibleStyleMetadata (SigilVisibleGlyphModels.swift:288-308) and SigilFlareStyle (:341-351) are separate from canonical fields; style changes do not touch canonical digests (VC-EXEC-05 passed).",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "VisibleStyleMetadata and SigilFlareStyle, lines 288-351"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Canonical and Flare outputs must be distinguishable"}
+   ],
+   "finding": "The canonical/style separation holds; consistent with the Flare boundary.",
+   "consumer_impact": "Presentation metadata is safe to evolve independently of canonical identity.",
+   "verification_case_ids": ["VC-EXEC-05"], "gap": null, "not_applicable_reason": null},
+  {"id": "output.canonical_serialization", "status": "supported",
+   "observation": "All identity/geometry types are Codable (SigilVisibleGlyphModels.swift); artifacts serialize with digest linkage; deterministic round-trip behavior is verified by the passing determinism and validation tests.",
+   "product_refs": [
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphModels.swift", "locator": "Codable conformances, lines 4-395"},
+    {"source_id": "sigil", "path": "Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift", "locator": "canonical JSON encoding, lines 440-476"}
+   ],
+   "authority_refs": [
+    {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Retain applicable canonical data and binary artifacts"}
+   ],
+   "finding": "Local canonical serialization is consistent with the plan's retention of canonical data; no canonical-format conflict found.",
+   "consumer_impact": "Serialization format is a compatibility surface; changes require versioned handling in a scoped implementation change.",
+   "verification_case_ids": ["VC-EXEC-01"], "gap": null, "not_applicable_reason": null}
+ ],
+ "verification_cases": [
+  {"id": "VC-EXEC-01", "description": "Determinism: repeated generation for a fixed profile yields identical hidden geometry, family key, vector paths, and digests.",
+   "input_or_fixture": "Existing synthetic canonical profile fixture in Tests/SigilTests/VisibleGlyphGenerationTests.swift",
+   "expected_result": {"kind": "invariant", "text": "Byte-identical canonical and visible artifacts across repeated generations for a fixed profile."},
+   "authority_refs": [{"source_id": "sigil", "path": "Tests/SigilTests/VisibleGlyphGenerationTests.swift", "locator": "testCanonicalProfileGeneratesDeterministicHiddenAndVisibleArtifacts"}],
+   "execution": {"status": "passed", "command": "xcodebuild -project Sigil.xcodeproj -scheme SigilApp -configuration Debug -destination 'platform=iOS Simulator,id=<SigilTraceiPhone17 UDID>' -derivedDataPath <evidence>/DerivedData-tests -resultBundlePath <evidence>/SigilApp-tests.xcresult test (run 2026-11-02 at 53ba489; fresh DerivedData)", "evidence_refs": [{"source_id": "ev-sim", "path": "t130-ios-sim-tests.log", "locator": "Test Suite 'All tests' passed: Executed 22 tests, with 0 failures"}], "reason": null}},
+  {"id": "VC-EXEC-02", "description": "Golden-profile uniqueness: four synthetic golden profiles produce unique visible signatures and passing quality reports.",
+   "input_or_fixture": "Synthetic golden profiles a-d in Tests/SigilTests/VisibleGlyphGenerationTests.swift (profile d carries birth date 1977-11-04)",
+   "expected_result": {"kind": "invariant", "text": "Pairwise-unique visible signatures across the four golden profiles, each passing the quality gate."},
+   "authority_refs": [{"source_id": "sigil", "path": "Tests/SigilTests/VisibleGlyphGenerationTests.swift", "locator": "testGoldenProfilesProduceUniqueVisibleSignaturesAndPassingQualityReports"}],
+   "execution": {"status": "passed", "command": "xcodebuild test (same invocation as VC-EXEC-01, 2026-11-02)", "evidence_refs": [{"source_id": "ev-sim", "path": "t130-ios-sim-tests.log", "locator": "Executed 22 tests, with 0 failures"}], "reason": null}},
+  {"id": "VC-EXEC-03", "description": "Quality gate rejects scribble-like output below the bounded thresholds.",
+   "input_or_fixture": "Synthetic low-quality input fixture in the visible-glyph tests",
+   "expected_result": {"kind": "invariant", "text": "Gate failure (segment/crossing/duplicate/score bounds) blocks the artifact; fail-closed decision returned."},
+   "authority_refs": [{"source_id": "sigil", "path": "Tests/SigilTests/VisibleGlyphGenerationTests.swift", "locator": "testQualityGateRejectsScribbleLikeOutput"}],
+   "execution": {"status": "passed", "command": "xcodebuild test (same invocation as VC-EXEC-01, 2026-11-02)", "evidence_refs": [{"source_id": "ev-sim", "path": "t130-ios-sim-tests.log", "locator": "Executed 22 tests, with 0 failures"}], "reason": null}},
+  {"id": "VC-EXEC-04", "description": "Collision resolution advances the candidate index deterministically within the 64-candidate window.",
+   "input_or_fixture": "Fixture profiles engineered to collide in the visible-glyph tests",
+   "expected_result": {"kind": "invariant", "text": "On digest collision the candidate index advances deterministically; the resolved artifact remains valid and deterministic."},
+   "authority_refs": [{"source_id": "sigil", "path": "Tests/SigilTests/VisibleGlyphGenerationTests.swift", "locator": "testCollisionResolutionAdvancesCandidateDeterministically"}],
+   "execution": {"status": "passed", "command": "xcodebuild test (same invocation as VC-EXEC-01, 2026-11-02)", "evidence_refs": [{"source_id": "ev-sim", "path": "t130-ios-sim-tests.log", "locator": "Executed 22 tests, with 0 failures"}], "reason": null}},
+  {"id": "VC-EXEC-05", "description": "Flare presentation does not mutate canonical identity or vector path data.",
+   "input_or_fixture": "Generated artifact plus flare style mutation in the visible-glyph tests",
+   "expected_result": {"kind": "invariant", "text": "Canonical digests and vector path data are unchanged after flare style application."},
+   "authority_refs": [{"source_id": "sigil", "path": "Tests/SigilTests/VisibleGlyphGenerationTests.swift", "locator": "testFlarePresentationDoesNotMutateCanonicalIdentityOrVectorData"}],
+   "execution": {"status": "passed", "command": "xcodebuild test (same invocation as VC-EXEC-01, 2026-11-02)", "evidence_refs": [{"source_id": "ev-sim", "path": "t130-ios-sim-tests.log", "locator": "Executed 22 tests, with 0 failures"}], "reason": null}},
+  {"id": "VC-EXEC-06", "description": "Artifact validation passes for valid artifacts and fails closed on digest mismatch.",
+   "input_or_fixture": "Valid artifact and tampered-digest fixture in the visible-glyph tests",
+   "expected_result": {"kind": "invariant", "text": "Valid artifact passes; mismatched digest yields a fail-closed AeostaraHealthDecision without silent acceptance."},
+   "authority_refs": [{"source_id": "sigil", "path": "Tests/SigilTests/VisibleGlyphGenerationTests.swift", "locator": "testArtifactValidationPassesAndFailsClosedForDigestMismatch"}],
+   "execution": {"status": "passed", "command": "xcodebuild test (same invocation as VC-EXEC-01, 2026-11-02)", "evidence_refs": [{"source_id": "ev-sim", "path": "t130-ios-sim-tests.log", "locator": "Executed 22 tests, with 0 failures"}], "reason": null}},
+  {"id": "VC-EXEC-07", "description": "Aeostara health decision fails closed for invalid artifacts at the integration gateway.",
+   "input_or_fixture": "Invalid artifact fixture in Tests/SigilTests/IntegrationGatewayTests.swift",
+   "expected_result": {"kind": "invariant", "text": "Invalid artifact produces a fail-closed health decision with diagnostic content."},
+   "authority_refs": [{"source_id": "sigil", "path": "Tests/SigilTests/IntegrationGatewayTests.swift", "locator": "testAeostaraHealthDecisionFailsClosedForInvalidArtifacts"}],
+   "execution": {"status": "passed", "command": "xcodebuild test (same invocation as VC-EXEC-01, 2026-11-02)", "evidence_refs": [{"source_id": "ev-sim", "path": "t130-ios-sim-tests.log", "locator": "Executed 22 tests, with 0 failures"}], "reason": null}},
+  {"id": "VC-EXEC-08", "description": "Runtime assembly builds the Forsetti runtime with 8 registered modules (1 UI + 7 service) at forsettiVersion 0.1.4.",
+   "input_or_fixture": "Runtime assembly construction in Tests/SigilTests/DashboardStatusTests.swift",
+   "expected_result": {"kind": "value", "text": "entryPoints.count == 8 and forsettiVersion == '0.1.4' with ForsettiCore pinned at 43eef7a739f3b78253c64aa4b070521ab5b1f43c."},
+   "authority_refs": [{"source_id": "sigil", "path": "Tests/SigilTests/DashboardStatusTests.swift", "locator": "testRuntimeAssemblyBuildsForsettiRuntime"}, {"source_id": "sigil", "path": "Package.resolved", "locator": "ForsettiCore revision"}],
+   "execution": {"status": "passed", "command": "xcodebuild test (same invocation as VC-EXEC-01, 2026-11-02)", "evidence_refs": [{"source_id": "ev-sim", "path": "t130-ios-sim-tests.log", "locator": "Executed 22 tests, with 0 failures"}], "reason": null}},
+  {"id": "VC-EXEC-09", "description": "Privacy posture is local-only: no analytics SDK, no network/telemetry capability.",
+   "input_or_fixture": "Privacy and capability-policy fixtures in Tests/SigilTests/PrivacySecurityTests.swift and ForsettiModuleRegistrationTests.swift",
+   "expected_result": {"kind": "invariant", "text": "Capability policy excludes network and telemetry; diagnostics are local-only."},
+   "authority_refs": [{"source_id": "sigil", "path": "Tests/SigilTests/PrivacySecurityTests.swift", "locator": "testPrivacyPostureIsLocalOnly"}],
+   "execution": {"status": "passed", "command": "xcodebuild test (same invocation as VC-EXEC-01, 2026-11-02)", "evidence_refs": [{"source_id": "ev-sim", "path": "t130-ios-sim-tests.log", "locator": "Executed 22 tests, with 0 failures"}], "reason": null}},
+  {"id": "VC-EXEC-10", "description": "Repository guardrails at the product commit: strict project guardrail validator, version guard, attribution guard, and the guard unit-test suites.",
+   "input_or_fixture": "Product checkout at 53ba4895cdea2cb5d91888c369e1f980a2580067 (clean tree)",
+   "expected_result": {"kind": "invariant", "text": "Strict validator passes; version guard passes; attribution guard passes on branch main; 17 guard unit tests pass; git diff --check clean."},
+   "authority_refs": [{"source_id": "sigil", "path": "scripts/verify-sigil-guardrails.sh", "locator": "wrapper stage definitions"}, {"source_id": "sigil", "path": "tools/sigil_guardrails/verify_sigil_guardrails.py", "locator": "strict validation entry point"}],
+   "execution": {"status": "passed", "command": "git diff --check; python3 tools/sigil_guardrails/verify_sigil_guardrails.py --project-root . --policy tools/sigil_guardrails/sigil_guardrail_policy.json --strict; python3 scripts/version_guard.py --repo-root .; python3 scripts/attribution_guard.py --branch main --repo-root .; python3 -m unittest Tests/SigilGuardrailTests/test_sigil_guardrails.py Tests/AttributionGuardTests/test_attribution_guard.py Tests/VersionGuardTests/test_version_guard.py; bash scripts/verify-sigil-guardrails.sh (all from the product root, 2026-11-02)", "evidence_refs": [{"source_id": "ev-guards", "path": "t130-repo-guards.log", "locator": "all four guards exit=0 at HEAD 53ba489"}, {"source_id": "ev-unit", "path": "t130-guard-unittests.log", "locator": "Ran 6 / 5 / 6 tests, OK, exit=0 each"}, {"source_id": "ev-wrapper", "path": "t130-wrapper.log", "locator": "SIGIL PROJECT GUARDRAILS PASSED + 22/22 Swift tests, exit=0"}], "reason": null}},
+  {"id": "VC-EXEC-11", "description": "Debug iOS simulator build of SigilApp on the actual host.",
+   "input_or_fixture": "Product checkout at 53ba4895cdea2cb5d91888c369e1f980a2580067; Xcode 27.0 (27A266a) on macOS 27.0.1 arm64",
+   "expected_result": {"kind": "invariant", "text": "BUILD SUCCEEDED with 0 errors and 0 project-code warnings (12 appintentsmetadataprocessor toolchain notices recorded as non-project)."},
+   "authority_refs": [{"source_id": "sigil", "path": "Sigil.xcodeproj", "locator": "SigilApp scheme, Debug configuration"}],
+   "execution": {"status": "passed", "command": "xcodebuild -project Sigil.xcodeproj -scheme SigilApp -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath <evidence>/DerivedData-build build (fresh DerivedData, 2026-11-02)", "evidence_refs": [{"source_id": "ev-build", "path": "t130-ios-build.log", "locator": "BUILD SUCCEEDED; exit=0; warning count 12 (all appintentsmetadataprocessor); error count 0"}], "reason": null}},
+  {"id": "VC-EXEC-12", "description": "Instruction-package integrity and helper-test suite for the trace tooling.",
+   "input_or_fixture": "Package directory (external to the product repository)",
+   "expected_result": {"kind": "invariant", "text": "Package check passes (39 hashed payload files; archive CRCs and JSON parsed) and all 20 helper unit tests pass."},
+   "authority_refs": [{"source_id": "ev-pkg", "path": "t130-package-checks.log", "locator": "PACKAGE CHECK PASSED line and Ran 20 tests OK"}],
+   "execution": {"status": "passed", "command": "python3 tools/check_package.py; python3 -m unittest discover -s tests -v (from the package directory, 2026-11-02)", "evidence_refs": [{"source_id": "ev-pkg", "path": "t130-package-checks.log", "locator": "PACKAGE CHECK PASSED; Ran 20 tests in 0.006s OK"}], "reason": null}},
+  {"id": "VC-PROP-01", "description": "Canonical dominant plane from life path: the dominant plane is the plane whose numerology values contain the life path (digit sum of the full birth date reduced to one digit).",
+   "input_or_fixture": "Synthetic profile with birth date 1977-11-04 (life path 30 -> 3)",
+   "expected_result": {"kind": "value", "text": "Dominant plane is the plane whose numerology values contain 3 per the celestial generator table, represented with provenance in the identity output."},
+   "authority_refs": [{"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "dominant plane rule and plane numerology values"}, {"source_id": "nine-planes", "path": "nine-planes-of-existence.json", "locator": "plane definitions P1-P9"}],
+   "execution": {"status": "proposed", "command": null, "evidence_refs": [], "reason": "Not executed: the product derives the dominant plane from digest bytes (ledger row identity.plane_vector); this case becomes runnable when the canonical derivation is implemented."}},
+  {"id": "VC-PROP-02", "description": "Canonical wolf score: hair modifier + eye modifier + time-bucket modifier + life-path modifier with white >= 1.0 / dark <= -1.0 / otherwise balanced thresholds, interpreted as non-moral dual attractors.",
+   "input_or_fixture": "Synthetic profile with blonde hair (+1), blue eyes (+1), a declared time bucket, and life path 3 (+0.25)",
+   "expected_result": {"kind": "invariant", "text": "Wolf balance values and category follow the cited modifier equation and thresholds; no morality interpretation is applied."},
+   "authority_refs": [{"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "wolf score equation, modifier tables, thresholds"}, {"source_id": "mythic-map", "path": "master-mythic-mapping.json", "locator": "dual attractor, non-moral characterization"}],
+   "execution": {"status": "proposed", "command": null, "evidence_refs": [], "reason": "Not executed: the product derives wolf balance from digest bytes (ledger row identity.wolf_balance); runnable once the canonical equation is implemented."}},
+  {"id": "VC-PROP-03", "description": "Weekday archetype: the birth weekday maps to its canonical archetype (deity axis, tone, role bias) and the mapping is exposed with provenance.",
+   "input_or_fixture": "Birth date 1977-11-04 (Friday)",
+   "expected_result": {"kind": "value", "text": "The Friday archetype from the canonical 7-day table is represented in the identity output."},
+   "authority_refs": [{"source_id": "celestial-gen", "path": "celestial-name-generator.json", "locator": "weekday archetype table (7 days)"}],
+   "execution": {"status": "proposed", "command": null, "evidence_refs": [], "reason": "Not executed: weekday is absent from the product input type (ledger row input.weekday)."}},
+  {"id": "VC-PROP-04", "description": "ASH state derivation: a decided profile-to-F2^9 mapping produces a 9-bit state whose integrity relation matches the adopted formalization, with decoder status against the closed 16-codeword set.",
+   "input_or_fixture": "Synthetic profile through the owner-decided mapping (prerequisite F-02)",
+   "expected_result": {"kind": "invariant", "text": "Derived state is a 9-bit vector; under the ASH-Model formalization bit 9 equals the parity of bits 1-8 (state in E); under the APS R1 formalization all 9 coordinates are first-class; decoder status is exact/corrected/uncorrectable per the one-bit radius. The formalization choice is the open owner decision F-01 and must be recorded before this case can pass."},
+   "authority_refs": [{"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Sections 2-5: state space, integrity hyperplane, code, decoding"}, {"source_id": "ash-model", "path": "data/codewords.csv", "locator": "the closed 16-codeword set"}, {"source_id": "aps-native", "path": "specs/core/ash-state-space.pseudo.md", "locator": "R1 realignment: full 9D, no coordinate privileged"}],
+   "execution": {"status": "proposed", "command": null, "evidence_refs": [], "reason": "Not executed: no canonical profile-to-F2^9 mapping exists in the retrieved sources (finding F-02) and the 8+1 vs full-9D formalization is unresolved (finding F-01)."}},
+  {"id": "VC-PROP-05", "description": "Orbit and codeword closure: the code orbit of any derived state has exactly 16 states under the enumerated codeword set, with coordinate 8 constant within the orbit.",
+   "input_or_fixture": "Any derived 9-bit state x",
+   "expected_result": {"kind": "invariant", "text": "[x]_C has exactly 16 distinct states; coordinate 8 is invariant under code translation; no codeword outside the enumerated 16 is used (invented codewords are a non-conformance)."},
+   "authority_refs": [{"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Section 6: orbits, 32 total / 16 in E, coordinate 8 constant"}, {"source_id": "aps-native", "path": "specs/core/codeword-set.pseudo.md", "locator": "FULLY CLOSED: exactly the 16 enumerated codewords; b8 = 0 for all 16"}],
+   "execution": {"status": "proposed", "command": null, "evidence_refs": [], "reason": "Not executed: the product computes no orbit (ledger row identity.closure_orbit_class)."}},
+  {"id": "VC-PROP-06", "description": "Branch geometry: depth-4 branching from the derived state yields the canonical topology and L-system geometry.",
+   "input_or_fixture": "Derived state at depth 4 with actions 0/+/− (priors 0.5/0.25/0.25)",
+   "expected_result": {"kind": "invariant", "text": "81 leaves and 121 nodes; all 16 messages reachable; node state = x xor enc(m); geometry follows the L-system F -> FF[+F]F[-F] with 25-degree turns and 0.72 length decay; duplicate leaf priors are summed."},
+   "authority_refs": [{"source_id": "ash-model", "path": "data/branch-topology.json", "locator": "leaf_count 81, node_count 121, per-node state/codeword/segment geometry"}, {"source_id": "ash-model", "path": "docs/canonical-computational-specification.md", "locator": "Section 9: branch grammar, state mapping, geometry constants"}],
+   "execution": {"status": "proposed", "command": null, "evidence_refs": [], "reason": "Not executed: the product uses fixed anchors with digest offsets and hash-parameterized paths (ledger rows geometry.anchors, geometry.vector_paths)."}},
+  {"id": "VC-PROP-07", "description": "Master-number policy: whether 11/22/33 are preserved or reduced fully to 1-9.",
+   "input_or_fixture": "Synthetic profiles with date totals 11, 22, 33, and a non-master total",
+   "expected_result": {"kind": "unresolved", "text": "No approved record decides the policy. The canonical generator reduces all the way to 1-9 (no preservation); the current product preserves 11/22/33 and keys an accent path to them. The case remains a planning gap until the owner decision is recorded."},
+   "authority_refs": [],
+   "execution": {"status": "proposed", "command": null, "evidence_refs": [], "reason": "Not executed: the expectation is explicitly unresolved; an unresolved expectation cannot pass."}},
+  {"id": "VC-PROP-08", "description": "Input completeness: every retained plan input has an explicit deterministic treatment cited to a source, with no silent omissions.",
+   "input_or_fixture": "Retained input model: first/last name, birth date, weekday, time, location (with geocoding support), birth order, parents' birth order, hair, eyes, ancestral surnames, heritage",
+   "expected_result": {"kind": "invariant", "text": "Each retained input maps to an explicit, cited, deterministic treatment in the identity derivation; absent fields are either implemented or explicitly deferred with a recorded decision."},
+   "authority_refs": [{"source_id": "sigil", "path": "docs/project-plan.md", "locator": "Inputs and deterministic bridge: every supported input needs an explicit deterministic treatment"}],
+   "execution": {"status": "not_run", "command": null, "evidence_refs": [], "reason": "Weekday, parents' birth order, and ancestral surnames are absent from SigilProfileInput at 53ba489; time, location, and birth order are digest-only. The case becomes runnable after IDENTITY-PIPELINE input expansion."}},
+  {"id": "VC-PROP-09", "description": "No-embedding boundary regression: the artifact carries no recoverable personal record beyond retained canonical data; no payload encoder, decoder, sidecar, or scan-to-record path exists.",
+   "input_or_fixture": "Full source scan plus artifact field inspection at the implementation commit",
+   "expected_result": {"kind": "invariant", "text": "No payload machinery exists anywhere in Sources or in the artifact schema; the hidden geometry is internal state, not a carrier."},
+   "authority_refs": [{"source_id": "sigil", "path": "docs/decisions/2026-10-10-no-personal-data-embedding.md", "locator": "removed, not deferred; retained boundaries"}, {"source_id": "sigil", "path": "docs/project-plan.md", "locator": "No added encoder/decoder/sidecar required"}],
+   "execution": {"status": "not_run", "command": null, "evidence_refs": [], "reason": "No named regression test exists in the product; the investigation verified the boundary by full source read at 53ba489 (see source-to-output-map.md, embedding-only responsibility check)."}}
+ ]
+}

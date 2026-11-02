@@ -12,7 +12,7 @@ Sigil uses ASH cosmological mathematics to derive its generated form. It is not 
 
 The October 10 owner decision removes the additional personal-data embedding layer from the product requirements. Payload encoding, decoding, and recovery from a Sigil are **removed, not deferred**. Do not reinstate the same requirement as a mandatory hidden layer, metadata payload, or sidecar. The exact decision and retained boundaries are recorded in [Remove personal-data embedding](decisions/2026-10-10-no-personal-data-embedding.md).
 
-The approved next engineering action remains the bounded ASH-to-Sigil source trace recorded as `SIGIL-DEC-2026-10-09-ASH-TRACE`, amended by `SIGIL-DEC-2026-10-10-NO-EMBEDDING`. Neither this roadmap nor its publication authorizes an unspecified formula change or a full framework rewrite.
+The approved next engineering action was the bounded ASH-to-Sigil source trace recorded as `SIGIL-DEC-2026-10-09-ASH-TRACE`, amended by `SIGIL-DEC-2026-10-10-NO-EMBEDDING`; the trace was completed on 2026-11-02 (see the ASH-TRACE workstream below). Neither this roadmap nor its publication authorizes an unspecified formula change or a full framework rewrite.
 
 This revision reconciles the August 2 roadmap with the current project direction. Earlier text remains available in Git history; historical phase numbers and projected releases do not constitute completed work or an execution grant.
 
@@ -44,9 +44,9 @@ No extra encoder/decoder stage appears in this flow. Reproducible generation fro
 
 The following labels organize retained work. They are not newly approved algorithms, deadlines, product versions, or blanket implementation authority. Only the source trace is the currently approved next engineering investigation; later work needs a concrete source-backed assignment under the existing authorization rules.
 
-### ASH-TRACE — Next eligible engineering action
+### ASH-TRACE — Source trace (complete)
 
-**State:** Approved investigation; not recorded complete.
+**State:** Investigation complete 2026-11-02 at source baseline `53ba4895cdea2cb5d9188c369e1f980a2580067`. Deliverables: [source-to-output map](ash-trace/source-to-output-map.md), [34-row trace ledger](ash-trace/trace-ledger.json), [findings and smallest next change (draft, not accepted)](ash-trace/findings-and-next-change.md), [verification cases](ash-trace/verification-cases.md), and the [continuation handoff](handoffs/ash-trace.md). The exit condition was met: every mapped result is supported, an evidenced substitution, or explicitly unresolved; proposed tests are recorded separately from executed commands; no application source changed during the investigation. The recorded owner decisions (findings F-01 through F-06) gate the next assignment; implementation is not authorized by the trace.
 
 Start at `Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift::makeHiddenGeometry(for:)`. Trace callers, helpers, shared models, consumers, and tests. Map each identity-bearing intermediate and geometric output to the applicable ASH mathematics, canonical data, and referenced binary artifacts. Follow APS, Aeostara, and Forsetti contracts where the actual path requires them.
 
@@ -120,6 +120,6 @@ Run the applicable native host/simulator checks, source-conformance tests, priva
 
 The exact mathematical mapping, smallest code change, test expectations, and any required compatibility migration remain investigation outputs. Older context questions about master-number handling, weekday authority, location precision, birth-order/ancestry rules, bounded Trials summaries, and export details must first be reconciled with existing decisions; they are not a request to repeat answered questions.
 
-The exact authoritative Project Record/handoff location and adopted immutable playbook binding were not verified in the supplied continuation records. Preserve any binding retrieved at execution time. The attached policy archive's version, the Phase 1 package revision, this planning date, and the application version are different identities; none substitutes for the missing binding. This document is the repository's product roadmap, not a claim to have recovered or replaced an external authoritative Project Record.
+The owner has designated this repository as the authoritative Project Record (recorded in the [project plan](project-plan.md), Source continuity); the [ASH-TRACE handoff](handoffs/ash-trace.md) is the current continuation record for the completed trace. The development-policy binding distinction (execution-time 0.8.0 snapshot versus the package intake/reference pin) is preserved in the project plan. The policy version, the Phase 1 package revision, this planning date, and the application version remain different identities; none substitutes for another.
 
-**Next engineering action after documentation synchronization:** ASH-TRACE, with the additional embedding requirement removed.
+**Next engineering action:** the owner decisions recorded in the ASH-TRACE findings (state formalization, profile-to-state mapping, master-number policy, and input treatment rules); IDENTITY-PIPELINE implementation remains a separate, unstarted assignment. The additional embedding requirement remains removed.
