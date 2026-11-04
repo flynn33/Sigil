@@ -1,4 +1,5 @@
 import ForsettiCore
+import Foundation
 import RFSigilAPSIntegration
 import RFSigilAeostaraIntegration
 import RFSigilCoreModels
@@ -17,7 +18,20 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
     public let pipelinePlaceholderService: SigilPipelinePlaceholderService
     public let privacySecurityService: SigilPrivacySecurityService
     public let diagnosticsService: SigilDiagnosticsService
+    public let diagnostics: any SigilDiagnosticCollector
     public let registration: SigilRuntimeRegistration
+
+    /// Development builds select the rich development capture profile;
+    /// release builds select the minimal release implementation. Source-
+    /// level exclusion of development capture from distribution artifacts
+    /// is completed in the delivery phase (see docs/diagnostics.md).
+    public static var selectedDiagnosticProfile: SigilDiagnosticProfile {
+        #if DEBUG
+        .development
+        #else
+        .release
+        #endif
+    }
 
     public init(
         apsGateway: SigilAPSIntegrationGateway = SigilAPSIntegrationGateway(),
@@ -27,6 +41,9 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
         pipelinePlaceholderService: SigilPipelinePlaceholderService = SigilPipelinePlaceholderService(),
         privacySecurityService: SigilPrivacySecurityService = SigilPrivacySecurityService(),
         diagnosticsService: SigilDiagnosticsService = SigilDiagnosticsService(),
+        diagnostics: any SigilDiagnosticCollector = SigilDiagnosticsFactory.collector(
+            profile: SigilRuntimeAssembly.selectedDiagnosticProfile
+        ),
         registration: SigilRuntimeRegistration = SigilModuleRegistryInstaller.registrationSummary()
     ) {
         self.apsGateway = apsGateway
@@ -36,7 +53,21 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
         self.pipelinePlaceholderService = pipelinePlaceholderService
         self.privacySecurityService = privacySecurityService
         self.diagnosticsService = diagnosticsService
+        self.diagnostics = diagnostics
         self.registration = registration
+    }
+
+    private static func defaultBuildIdentity() -> SigilDiagnosticBuildIdentity {
+        let info = Bundle.main.infoDictionary
+        return SigilDiagnosticBuildIdentity(
+            productVersion: info?["CFBundleShortVersionString"] as? String,
+            buildNumber: info?["CFBundleVersion"] as? String,
+            sourceCommit: nil,
+            sourceCommitUnavailableReason: "Source commit is not injected into the running build; the authoritative commit is recorded in the project record.",
+            componentVersions: [
+                "forsetti": ForsettiVersion.current.description
+            ]
+        )
     }
 
     public var forsettiVersion: String {
@@ -49,27 +80,43 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
     }
 
     public func dashboardStatus() -> RFSigilDashboardStatus {
+        diagnostics.beginSession(
+            buildIdentity: Self.defaultBuildIdentity(),
+            environment: SigilDiagnosticEnvironment.current()
+        )
+        let operationID = diagnostics.beginOperation(
+            name: "sigil.dashboard.status",
+            expected: "Phase 1 dashboard status assembles from local module services with no network access",
+            correlationID: nil
+        )
+        let operationStartedAt = Date()
         let aps = apsGateway.status()
         let aeostara = aeostaraGateway.status()
         let authority = sourceAuthorityService.status()
         let pipeline = pipelinePlaceholderService.status()
         let privacy = privacySecurityService.status()
         let aeostaraProducts = aeostara.productsFound.joined(separator: ", ")
+        let apsProducts = aps.productsFound.joined(separator: " and ")
+        let moduleCount = registration.moduleIDs.count
+        let uiModuleCount = SigilModuleCatalog.definitions
+            .filter { $0.descriptor.moduleType == .ui }
+            .count
+        let serviceModuleCount = moduleCount - uiModuleCount
 
         let cards = [
             RFSigilDashboardCard(
                 id: "forsetti",
                 title: "Forsetti Runtime",
                 status: .pass,
-                summary: "Seven Sigil modules are registered through Forsetti public module factories.",
-                detail: "Version \(forsettiVersion); one UI module and six service modules.",
+                summary: "\(moduleCount) Sigil modules are registered through Forsetti public module factories.",
+                detail: "Version \(forsettiVersion); \(uiModuleCount) UI module and \(serviceModuleCount) service modules.",
                 symbolName: "square.stack.3d.up"
             ),
             RFSigilDashboardCard(
                 id: "aps",
                 title: "APS Gateway",
                 status: aps.sourceCoverage,
-                summary: "ASHCore and ASHPatternSystem are present with conformance evidence recorded.",
+                summary: "Recorded conformance evidence for \(apsProducts) is preserved; the gateway is not a live APS dependency or resolver.",
                 detail: "Judgment: \(aps.conformanceJudgment.rawValue).",
                 symbolName: "checklist.checked"
             ),
@@ -115,7 +162,7 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
             )
         ]
 
-        return RFSigilDashboardStatus(
+        let status = RFSigilDashboardStatus(
             title: "Sigil Phase 1",
             cards: cards,
             evidence: diagnosticsService
@@ -128,5 +175,18 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
                 )
                 .records
         )
+        diagnostics.finishOperation(
+            id: operationID,
+            outcome: .success,
+            context: [
+                "moduleCount": .number(Double(moduleCount)),
+                "evidenceCount": .number(Double(status.evidence.count)),
+                "apsJudgment": .string(aps.conformanceJudgment.rawValue),
+                "aeostaraPlatformIOSAccessible": .boolean(aeostara.platformIOSAccessible),
+                "pipelineImplementedFinalFeatures": .number(Double(pipeline.implementedFinalFeatures.count))
+            ],
+            durationSeconds: Date().timeIntervalSince(operationStartedAt)
+        )
+        return status
     }
 }

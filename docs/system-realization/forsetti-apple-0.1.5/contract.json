@@ -1,0 +1,426 @@
+{
+  "$schema": "https://ravenforge.dev/schemas/system-realization-contract-1.0.schema.json",
+  "schemaVersion": "1.0",
+  "contractId": "SIGIL-SR-2026-11-03-FORSETTI-APPLE-015",
+  "revision": "0.1.0",
+  "status": "reviewed",
+  "product": {
+    "name": "Sigil",
+    "repository": "https://github.com/flynn33/Sigil",
+    "baselineCommit": "bc277ea05239398d58e70b76ad318de2765148d3"
+  },
+  "system": {
+    "name": "Forsetti Framework — Apple",
+    "sourceRepository": "https://github.com/flynn33/Forsetti-Framework-Mac-iOS",
+    "sourceCommit": "0097a4227789ed7d39e1491ac0aede2d9ea4f6ea",
+    "version": "0.1.5",
+    "profile": "rfd.forsetti.apple.0.1.5",
+    "classification": "public_runtime",
+    "realizationProfiles": [
+      "rfd.forsetti.apple.0.1.5"
+    ]
+  },
+  "sourceCoverage": {
+    "completeApplicableReading": true,
+    "records": [
+      {
+        "path": "README.md",
+        "role": "canonical high-level reference",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 0097a422 via git archive from a read-only clone in external evidence (pinned/forsetti-0097a422/README.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.forsetti.apple.0.1.5 required reading.",
+        "decisionImpact": "Confirms public products ForsettiCore, ForsettiPlatform, ForsettiHostTemplate (ForsettiModulesExample is an internal, non-public target), Pattern B multi-module single-application composition, the sealed-runtime integration contract, and manifest schema/template 1.1."
+      },
+      {
+        "path": "IMPLEMENTATION_GUIDE.md",
+        "role": "canonical implementation guidance",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 0097a422 (pinned/forsetti-0097a422/IMPLEMENTATION_GUIDE.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.forsetti.apple.0.1.5 required reading.",
+        "decisionImpact": "Fixes the module-first implementation workflow and the correct interpretation of import restrictions as target-level boundary rules, not global technology bans; Sigil keeps SwiftUI in RFSigilUIModule only."
+      },
+      {
+        "path": "MODULE_BOUNDARY_RULES.md",
+        "role": "boundary interpretation reference",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 0097a422 (pinned/forsetti-0097a422/MODULE_BOUNDARY_RULES.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.forsetti.apple.0.1.5 required reading.",
+        "decisionImpact": "Confirms exactly one dedicated UI module plus separate service modules; Sigil's 1 UI + 7 service layout matches Pattern B."
+      },
+      {
+        "path": "xcode-template-guide.md",
+        "role": "template reference",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 0097a422 (pinned/forsetti-0097a422/xcode-template-guide.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.forsetti.apple.0.1.5 required reading.",
+        "decisionImpact": "Defines the app-owned vs framework-owned file split and the bootstrap/registry/module/manifest scaffolding shape that Sigil realized in its own targets; templates are scaffolding references, not copied code."
+      },
+      {
+        "path": "version.txt",
+        "role": "version identity",
+        "status": "read_in_full",
+        "evidence": "git show at both commits in the read-only clone: 0.1.5 at profile pin 0097a422; 0.1.4 at product pin 43eef7a7 (verified 2026-11-03; 43eef7a7 is an ancestor of 0097a422, 20 commits apart, license/CI/version-bump only).",
+        "reason": "Pin-divergence evidence between the product pin and the profile pin.",
+        "decisionImpact": "Contract binds to the profile pin 0.1.5 per the pinned profile; the product's current 0.1.4 pin is recorded as a divergence, and neither pin is moved by this contract."
+      },
+      {
+        "path": "Package.swift",
+        "role": "product dependency declaration (product checkout)",
+        "status": "read_in_full",
+        "evidence": "Read from the product checkout at bc277ea on 2026-11-03.",
+        "reason": "Establishes what Sigil actually consumes from the authority container.",
+        "decisionImpact": "Sigil consumes only the ForsettiCore product from Forsetti-Framework-Mac-iOS at revision 43eef7a739f3b78253c64aa4b070521ab5b1f43c; no other Forsetti product is currently consumed."
+      },
+      {
+        "path": "Package.resolved",
+        "role": "product dependency lock (product checkout)",
+        "status": "read_in_full",
+        "evidence": "Read from the product checkout (root and Sigil.xcodeproj xcshareddata copy) at bc277ea on 2026-11-03; both lock Forsetti-Framework-Mac-iOS at 43eef7a739f3b78253c64aa4b070521ab5b1f43c.",
+        "reason": "Confirms the effective product pin for the dependency allowlist.",
+        "decisionImpact": "The allowlist records the current product pin 43eef7a7 (0.1.4) as the live constraint and the profile pin 0097a422 (0.1.5) as the contract authority; any pin movement is a separate policy-gated dependency change."
+      },
+      {
+        "path": "references/source-archives/Forsetti-Framework-Mac-iOS-main.zip",
+        "role": "supplied reference snapshot (external instruction bundle)",
+        "status": "inspected_for_scope",
+        "evidence": "Supplied bundle archive (SHA-256 in the bundle SOURCE-REGISTER.json); cross-checked for the public product surface only during Phase 01 continuity recovery.",
+        "reason": "Snapshot identity is not asserted; the contract's source identity comes from the pinned git clone.",
+        "decisionImpact": "None beyond cross-checking that the public product surface (ForsettiCore et al.) matches the pinned revision reading."
+      }
+    ],
+    "unresolvedGaps": [
+      "developer-guide.md, framework-policy.json, implementation-policy.json, and the wiki archive are not part of the profile required reading and were not read under this contract; profile scope only.",
+      "The 20 commits between product pin 43eef7a7 and profile pin 0097a422 were inspected by history, not diffed file-by-file; the observed change class is license, community boilerplate, CI workflow removal, and the 0.1.4 to 0.1.5 version bump."
+    ]
+  },
+  "teachBack": {
+    "purpose": "Sigil is a Forsetti Pattern B multi-module single application: RFSigilUIModule carries the Phase 1 dashboard UI and seven app-owned service modules (APS gateway, Aeostara gateway, visible glyph, source authority, pipeline placeholder, privacy/security, diagnostics) run alongside it. ForsettiCore provides module registry, manifest validation, capability-scoped service lookup, entitlement-aware activation, and runtime composition; SigilRuntimeAssembly composes the runtime and feeds the dashboard through app-owned status providers.",
+    "nonPurpose": "Forsetti does not provide ASH Pattern System semantics, Aeostara base semantics, numerology or glyph mathematics, personal-data processing, or any backend or network service. Sigil does not extend Forsetti internals for product behavior; the framework is a sealed runtime consumed through public products and contracts only. Field note: product.baselineCommit identifies the Sigil repository baseline for this record and is intentionally distinct from system.sourceCommit, which is the authority-container revision.",
+    "productLocalImplementation": "SigilModuleCatalog defines the eight product-owned module definitions (ModuleDescriptor plus in-code ModuleManifest objects at manifest template 1.1 plus module factories); SigilModuleRegistryInstaller.registerAll(into:) registers them into a ForsettiCore ModuleRegistry; SigilRuntimeAssembly and SigilRuntimeFactory compose the Forsetti runtime; each RFSigil* service target implements its ForsettiModule with app-owned gateway/service code. Manifests are constructed in product code through the public ForsettiCore API; no manifest JSON resources are shipped in the product bundle today.",
+    "permittedExternalDependencies": "ForsettiCore only, from the Forsetti-Framework-Mac-iOS Swift package at a pinned revision. Live product pin: 43eef7a739f3b78253c64aa4b070521ab5b1f43c (0.1.4 per Package.resolved). The dependencyAllowlist contains exactly one entry (ForsettiCore). ForsettiPlatform and ForsettiHostTemplate are allowed public products under the profile but are not consumed by Sigil today and are not allowlist entries in this contract.",
+    "externalOnlyMaterials": "Everything inside the Forsetti repository stays upstream: Sources/ForsettiCore, Sources/ForsettiPlatform, Sources/ForsettiHostTemplate, the internal ForsettiModulesExample target, XcodeTemplates, Scripts, workflows, and governance material. Sigil references the upstream repository by pinned commit and reads it for conformance; it never copies, vendors, forks, or patches it.",
+    "templateAndExampleUse": "The Forsetti Xcode templates informed the app-owned scaffolding shape (bootstrap file, module registry file, module class plus view, manifest conventions) that Sigil realized in its own targets. ForsettiModulesExample is evaluation-only material and is never consumed as a product dependency. No template or sample code is copied into Sigil, and sample identities (template placeholder tokens, example product identifiers) must not appear in product files.",
+    "conformanceProof": "Product tests (ForsettiModuleRegistrationTests, DashboardStatusTests, IntegrationGatewayTests) assert the registered entry points, catalog and manifest alignment, and runtime assembly composition; scripts/verify-sigil-guardrails.sh runs the strict guardrails validator, swift test, and xcodebuild -list; the realization validator contract, preflight, and delivery modes against this contract verify the dependency allowlist, prohibited-acquisition rules, and product-owned realization presence."
+  },
+  "sourceRoles": [
+    {
+      "source": "Sources/ForsettiCore, Sources/ForsettiPlatform, Sources/ForsettiHostTemplate (public package products)",
+      "role": "public_runtime",
+      "meaning": "Sealed modular runtime; Sigil consumes the ForsettiCore public product only, for registry, manifests, capability policy, activation, and runtime composition.",
+      "permittedTreatment": "SwiftPM package product dependency at a pinned revision; public API and public contracts only.",
+      "prohibitedTreatment": "Copying, vendoring, forking, patching, or importing internal targets; any coupling into framework internals."
+    },
+    {
+      "source": "ForsettiModulesExample target and its manifests",
+      "role": "example",
+      "meaning": "Internal reference/evaluation target that demonstrates module contracts; not a public package product.",
+      "permittedTreatment": "Read upstream for understanding module contract behavior.",
+      "prohibitedTreatment": "Use as a product dependency, import of its sample identity, or as the default wiring of Sigil modules."
+    },
+    {
+      "source": "XcodeTemplates/** (Forsetti App, UI Module, Service Module, Manifest templates)",
+      "role": "template",
+      "meaning": "Production-starter scaffolding that defines the app-owned file ownership model.",
+      "permittedTreatment": "Consult as a scaffold shape reference for app-owned bootstrap, registry, module, and manifest files.",
+      "prohibitedTreatment": "Copying template-generated code or placeholder tokens into Sigil sources."
+    },
+    {
+      "source": "README.md, IMPLEMENTATION_GUIDE.md, MODULE_BOUNDARY_RULES.md, xcode-template-guide.md, developer-guide.md, docs/**, wiki",
+      "role": "specification",
+      "meaning": "Canonical integration, boundary, and template guidance for Forsetti consumers.",
+      "permittedTreatment": "Read against the pinned revision; cite in product conformance documentation.",
+      "prohibitedTreatment": "Treat documentation prose as license to bypass module boundaries or import rules."
+    },
+    {
+      "source": "Scripts/**, .github/**, ci and lint configuration",
+      "role": "tool",
+      "meaning": "Upstream guardrail and release tooling for the Forsetti repository itself.",
+      "permittedTreatment": "Consult for the guardrail approach Sigil replicates in its own repository scripts.",
+      "prohibitedTreatment": "Adopting upstream tooling as Sigil repository configuration."
+    },
+    {
+      "source": "LICENSE, CHANGELOG.md, release metadata",
+      "role": "history",
+      "meaning": "License (Apache-2.0) and release history of the authority container.",
+      "permittedTreatment": "Cite license and version identity in product records.",
+      "prohibitedTreatment": "Treat as implementation authority."
+    }
+  ],
+  "dependencyAllowlist": [
+    {
+      "name": "ForsettiCore",
+      "kind": "package_product",
+      "sourceRepository": "https://github.com/flynn33/Forsetti-Framework-Mac-iOS",
+      "versionConstraint": "Pinned SwiftPM revision. Live product pin: 43eef7a739f3b78253c64aa4b070521ab5b1f43c (0.1.4 per Package.resolved at bc277ea). Pinned profile authority revision: 0097a4227789ed7d39e1491ac0aede2d9ea4f6ea (0.1.5). Divergence recorded, neither pin moved by this contract; a pin change is a separate policy-gated dependency change.",
+      "consumedByTargets": [
+        "RFSigilSourceAuthority",
+        "RFSigilAPSIntegration",
+        "RFSigilAeostaraIntegration",
+        "RFSigilVisibleGlyph",
+        "RFSigilPipelinePlaceholder",
+        "RFSigilPrivacySecurity",
+        "RFSigilDiagnostics",
+        "RFSigilUIModule",
+        "RFSigilForsettiModules",
+        "RFSigilRuntime",
+        "SigilTests"
+      ],
+      "required": true,
+      "requiredDeclarationTokens": [
+        "ForsettiCore"
+      ]
+    }
+  ],
+  "prohibitedAcquisition": {
+    "forbidWholeRepositoryCopies": true,
+    "forbidGitSubmodules": true,
+    "forbidVendorCopies": true,
+    "repositoryNames": [
+      "Forsetti-Framework-Mac-iOS"
+    ],
+    "pathPatterns": [
+      "Sources/ForsettiCore/**",
+      "Sources/ForsettiPlatform/**",
+      "Sources/ForsettiHostTemplate/**"
+    ],
+    "targetNames": [
+      "ForsettiModulesExample"
+    ],
+    "dependencyTokens": [
+      "ForsettiModulesExample"
+    ],
+    "fingerprintGroups": [
+      [
+        "Sources/ForsettiCore/**",
+        "Sources/ForsettiPlatform/**",
+        "Sources/ForsettiHostTemplate/**"
+      ]
+    ]
+  },
+  "productRealization": [
+    {
+      "pathPattern": "Sources/RFSigilUIModule/**",
+      "kind": "module",
+      "responsibility": "The single dedicated UI module: SigilPhase1DashboardView and SigilUIModule (ForsettiModule) carrying all Phase 1 dashboard UI.",
+      "sourceBasis": "Forsetti Pattern B (one dedicated UI module) per IMPLEMENTATION_GUIDE.md and MODULE_BOUNDARY_RULES.md at 0097a422.",
+      "required": true,
+      "verification": "ForsettiModuleRegistrationTests and DashboardStatusTests; guardrail UI/service separation rules; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilAPSIntegration/**",
+      "kind": "module",
+      "responsibility": "Service module: APS integration gateway (status, evidence records) and SigilAPSIntegrationModule.",
+      "sourceBasis": "Forsetti service module boundary per xcode-template-guide.md Pattern B section at 0097a422.",
+      "required": true,
+      "verification": "IntegrationGatewayTests; registration tests; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilAeostaraIntegration/**",
+      "kind": "module",
+      "responsibility": "Service module: Aeostara integration gateway (baseline pin, platform provenance, fail-closed health decisions) and SigilAeostaraIntegrationModule.",
+      "sourceBasis": "Forsetti service module boundary per xcode-template-guide.md Pattern B section at 0097a422.",
+      "required": true,
+      "verification": "IntegrationGatewayTests; registration tests; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilVisibleGlyph/**",
+      "kind": "module",
+      "responsibility": "Service module: bounded deterministic visible-glyph engine (hidden geometry, vector paths, quality gates) as SigilVisibleGlyphModule.",
+      "sourceBasis": "Forsetti service module boundary; product-owned engine keeps ASH semantics out of framework internals.",
+      "required": true,
+      "verification": "VisibleGlyphGenerationTests; guardrail ASH codeword literal checks; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilSourceAuthority/**",
+      "kind": "module",
+      "responsibility": "Service module: YWE/WRW source-authority status and layer-boundary preservation as SigilSourceAuthorityModule.",
+      "sourceBasis": "Forsetti service module boundary at 0097a422.",
+      "required": true,
+      "verification": "SourceAuthorityTests; registration tests; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilPipelinePlaceholder/**",
+      "kind": "module",
+      "responsibility": "Service module: placeholder-only final pipeline status as SigilPipelinePlaceholderModule; final pipeline remains unavailable by design.",
+      "sourceBasis": "Forsetti service module boundary at 0097a422.",
+      "required": true,
+      "verification": "PlaceholderPipelineTests; registration tests; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilPrivacySecurity/**",
+      "kind": "module",
+      "responsibility": "Service module: privacy/security posture (local-only, no backend upload path, sensitive-data logging disabled) as SigilPrivacySecurityModule with the security capability and default role.",
+      "sourceBasis": "Forsetti capability governance (security capability, default module role) per README.md section 14 at 0097a422.",
+      "required": true,
+      "verification": "PrivacySecurityTests; registration tests; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilDiagnostics/**",
+      "kind": "module",
+      "responsibility": "Service module: local diagnostics aggregation and reporting as SigilDiagnosticsModule with the diagnostics capability and emit I/O requirement.",
+      "sourceBasis": "Forsetti capability governance (diagnostics capability) per README.md section 14 at 0097a422.",
+      "required": true,
+      "verification": "Registration tests; diagnostics correlation and export tests added in Package 01; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilForsettiModules/SigilModuleCatalog.swift",
+      "kind": "manifest",
+      "responsibility": "Product-owned module manifests and descriptors: eight definitions with in-code ModuleManifest objects (manifest template 1.1, minForsettiVersion 0.1.4, iOS platform, per-module capabilities and runtime requirements). No manifest JSON resources are shipped today; this file is the manifest source of truth.",
+      "sourceBasis": "Manifest contract (required fields, schema/template 1.1) per README.md section 12 and xcode-template-guide.md section 6 at 0097a422.",
+      "required": true,
+      "verification": "ForsettiModuleRegistrationTests (entry points and catalog alignment); guardrail Forsetti manifest field checks; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilForsettiModules/SigilModuleCatalog.swift",
+      "kind": "registry",
+      "responsibility": "Product-owned registry installer: SigilModuleRegistryInstaller.registerAll(into:) registers all eight module factories into a ForsettiCore ModuleRegistry; registrationSummary() exposes entry points and module IDs to the runtime.",
+      "sourceBasis": "Module authoring workflow step 4 (register module factory in bootstrap/registry) per README.md section 11 at 0097a422.",
+      "required": true,
+      "verification": "ForsettiModuleRegistrationTests; realization validator path match."
+    },
+    {
+      "pathPattern": "Sources/RFSigilRuntime/SigilRuntimeAssembly.swift",
+      "kind": "bootstrap",
+      "responsibility": "Product-owned composition and bootstrap: SigilRuntimeAssembly composes all services and the registration summary; SigilRuntimeFactory.makeRuntime() builds the ForsettiCore runtime; dashboardStatus() derives the dashboard card set from the app-owned status providers.",
+      "sourceBasis": "Core runtime concepts and quick-start composition (registry, entitlement provider, runtime, host) per README.md sections 7 and 10 at 0097a422.",
+      "required": true,
+      "verification": "DashboardStatusTests (counts derived from registration); ForsettiModuleRegistrationTests; realization validator path match."
+    },
+    {
+      "pathPattern": "docs/system-realization/forsetti-apple-0.1.5/contract.md",
+      "kind": "documentation",
+      "responsibility": "Human-readable companion contract recording identity, teach-back, dispositions, and review state for this authority container.",
+      "sourceBasis": "Raven Forge System Realization Contract template (machine-readable companion requirement).",
+      "required": true,
+      "verification": "Realization validator contract mode against the pinned profile; independent review evidence in external evidence root."
+    }
+  ],
+  "composition": {
+    "pattern": "Forsetti deployment Pattern B (multi-module single application): exactly one dedicated UI module (RFSigilUIModule) plus seven app-owned service modules, composed by product code; local-only operation with no backend.",
+    "uiOwner": "RFSigilUIModule (SigilPhase1DashboardView, SigilUIModule).",
+    "modules": [
+      {
+        "name": "RFSigilCoreModels",
+        "type": "shared models",
+        "responsibility": "Status, evidence, source-authority, integration, privacy, and diagnostic models shared by all modules."
+      },
+      {
+        "name": "RFSigilUIModule",
+        "type": "ui module",
+        "responsibility": "The single dedicated UI module: Phase 1 dashboard view and SigilUIModule."
+      },
+      {
+        "name": "RFSigilAPSIntegration",
+        "type": "service module",
+        "responsibility": "APS gateway status and evidence; SigilAPSIntegrationModule."
+      },
+      {
+        "name": "RFSigilAeostaraIntegration",
+        "type": "service module",
+        "responsibility": "Aeostara gateway baseline/provenance status and fail-closed health decisions; SigilAeostaraIntegrationModule."
+      },
+      {
+        "name": "RFSigilVisibleGlyph",
+        "type": "service module",
+        "responsibility": "Bounded deterministic visible-glyph engine; SigilVisibleGlyphModule."
+      },
+      {
+        "name": "RFSigilSourceAuthority",
+        "type": "service module",
+        "responsibility": "YWE/WRW source-authority layer boundaries; SigilSourceAuthorityModule."
+      },
+      {
+        "name": "RFSigilPipelinePlaceholder",
+        "type": "service module",
+        "responsibility": "Placeholder-only final pipeline status; SigilPipelinePlaceholderModule."
+      },
+      {
+        "name": "RFSigilPrivacySecurity",
+        "type": "service module",
+        "responsibility": "Local-only privacy/security posture; SigilPrivacySecurityModule."
+      },
+      {
+        "name": "RFSigilDiagnostics",
+        "type": "service module",
+        "responsibility": "Local diagnostics aggregation and reporting; SigilDiagnosticsModule."
+      },
+      {
+        "name": "RFSigilForsettiModules",
+        "type": "catalog and registry",
+        "responsibility": "Module definitions, in-code manifests, descriptors, and registration installer."
+      },
+      {
+        "name": "RFSigilRuntime",
+        "type": "bootstrap and composition",
+        "responsibility": "Runtime factory, service composition, and dashboard status derivation."
+      }
+    ],
+    "dependencyDirection": "UI and service modules depend on RFSigilCoreModels and ForsettiCore only; RFSigilForsettiModules depends on every service module and the UI module; RFSigilRuntime composes the catalog, services, and ForsettiCore. No service module imports the UI module.",
+    "registrationAndDiscovery": "SigilModuleCatalog.definitions is the single source of the eight module definitions; SigilModuleRegistryInstaller.registerAll(into:) registers the factories; discovery and activation use the public ForsettiCore runtime flow.",
+    "communication": "Framework-mediated: ForsettiModuleContext services and published module events; dashboard data flows through app-owned status providers into RFSigilRuntimeAssembly.dashboardStatus().",
+    "lifecycle": "Each module implements idempotent ForsettiModule start/stop; the runtime is built per launch by SigilRuntimeFactory.makeRuntime(); dashboard status is a synchronous app-owned read.",
+    "persistence": "Local-only in Phase 1; no backend persistence; diagnostics remain local under RFSigilDiagnostics ownership.",
+    "capabilities": "Minimal per module: the UI module requests view injection; privacy/security requests the security capability with default role security; diagnostics requests the diagnostics capability plus one required emit I/O requirement; the remaining service modules request no capabilities.",
+    "runtimeRequirements": "iOS 17 minimum per Package.swift; ForsettiCore manifest floor 0.1.4 (live product pin 0.1.4, contract profile authority 0.1.5); no entitlement-gated paid modules (no iapProductID declared)."
+  },
+  "templateTransformations": [
+    {
+      "source": "Forsetti Xcode templates (Forsetti App, UI Module, Service Module, Manifest) per xcode-template-guide.md at 0097a422",
+      "purpose": "Define the app-owned scaffolding shape and ownership split (bootstrap file, deployment configuration, module registry file, module class plus view, manifest conventions) that Sigil realized in its own targets.",
+      "productOutputPatterns": [
+        "Sources/RFSigilForsettiModules/**",
+        "Sources/RFSigilRuntime/**",
+        "Sources/RFSigilUIModule/**"
+      ],
+      "requiredAdaptation": "Replace all template placeholder identifiers with Sigil-owned module identities (RFSigil* module IDs, entry points, capability sets); construct manifests in product code through the public ForsettiCore API instead of shipping template manifest JSON; keep exactly one UI module. The sample identity tokens listed in prohibitedSampleTokens are prohibited from appearing anywhere in product files.",
+      "prohibitedSampleTokens": [
+        "ForsettiModulesExample",
+        "___PACKAGENAME___",
+        "com.forsetti.iap.example-ui"
+      ],
+      "verification": "Realization validator RFD-SR-112 token scan over the product output patterns; registration tests assert Sigil-owned identities; no template placeholder tokens appear in product sources."
+    }
+  ],
+  "governance": {
+    "applies": false,
+    "rationale": "Forsetti Agentic Edition governance is not selected for Sigil: the product repository declares no agentic-edition artifacts, project context, or task contracts, and the profile governance mustApply flag is false. If Forsetti Agentic Edition governance is ever adopted, a separate governance contract (profile rfd.forsetti.agentic.1.1.0) must be added to the linked set before dependent work."
+  },
+  "preImplementationReview": {
+    "status": "accepted",
+    "reviewer": "Independent model-based pre-implementation review (separate route from preparation; LM Studio local service, model qwen/qwen3-coder-30b; not human acceptance)",
+    "reviewedAt": "2026-11-03 (UTC 2026-11-04T05:58:50Z)",
+    "evidence": "Round 1: /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/reviews/review-forsetti.json (issues individually verified against the product checkout and pinned sources; demonstrably false claims rejected with evidence; legitimate clarifications applied to the contract). Round 2: /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/reviews/review-forsetti-round2.json — VERDICT: accepted, ISSUES: none. Validator: /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/validator/contract-forsetti.json and contract-forsetti-round2.json (both pass, zero findings). Full prompts and responses preserved at /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/reviews/."
+  },
+  "deliveryReviews": {
+    "sourceUnderstanding": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "instructionAccuracy": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "instructionAdherence": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "implementationConformance": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "dependencyImportProhibition": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "governanceConformance": {
+      "status": "not_applicable",
+      "evidence": "Governance not selected for this product (see governance.rationale).",
+      "limitationsOrCorrections": "Re-assess if Forsetti Agentic Edition governance is adopted."
+    }
+  }
+}

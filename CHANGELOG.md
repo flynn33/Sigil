@@ -1,5 +1,18 @@
 # Changelog
 
+## PA.0.1.1 - 2026-11-04
+
+### Package 01 closeout — remediation, source alignment, and diagnostic foundation
+
+- Corrected the ASH source-trace record with fresh evidence (R-01 through R-04): the serialized ASH-Model and APS codeword tables are not identical but agree exactly under a documented final-two-coordinate swap (one-based `x8 = 0` versus zero-based `b8 = 0`); the 8+1 versus full-9D framing is reconciled as a domain distinction (the reference application's 256-state integrity subset inside the 512-state `F2^9` universe versus the APS R1 all-first-class-coordinate model); the semantic branch tree (121 nodes / 81 leaves) is separated from the independent rendering L-system (625 forward symbols at depth 4); the 39-character baseline hash transcription error is corrected to the 40-character Git identity.
+- Added the system realization contracts (Forsetti Apple 0.1.5, APS canonical 1.0.0-rc.3, Aeostara base 1.0.0) in `docs/system-realization/` with strict and preflight validator passes and an independent model-based acceptance record.
+- Added the bounded identity/input treatment specification (`docs/design/identity-input-treatment.md`) as documented product-owned design decisions; the one genuine upstream framing conflict is isolated and visible, not resolved unilaterally.
+- R-05 diagnostic foundation in `RFSigilDiagnostics`: a narrow typed `SigilDiagnosticCollector` contract with a development implementation (rich operation tracing, redacted context, detailed correlated failure accounts) and a release implementation (essential fault capture with accounted context drops), a shared lock-guarded engine, redaction before persistence with an export-boundary recheck and accounting, bounded protected local storage with retention, rotation, and disk quota, and a paired detailed JSON/Markdown export with a manifest carrying part checksums and redaction accounting from one consistent snapshot. `SigilRuntimeAssembly` selects the profile at the composition boundary and instruments the dashboard status as a real operation. See `docs/diagnostics.md`.
+- R-06 dashboard status correction: module counts are derived from registration/catalog (8 total: 1 UI module, 7 service modules) and the APS card states recorded conformance evidence rather than implying a live dependency or resolver.
+- Version/build: `PA.0.1.0` → `PA.0.1.1` (patch advance for a repair-and-foundation phase); Apple build identity 1 → 2 (app-affecting closeout). `VERSION` is the source of truth; `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION` are aligned in `project.yml` and the regenerated `Sigil.xcodeproj`; `Info.plist` continues to use build settings. Forsetti pin and schema/algorithm versions are unchanged.
+- Verification (fresh 2026-11-04): 33/33 Swift package tests; 33/33 iOS-simulator tests; Debug iOS-simulator build with 0 errors and 0 project-code warnings; strict project guardrails, version guard, attribution guard, and 17 guard unit tests passed; external trace structural validator passed. See `docs/verification.md`.
+- No dependency, schema, or test changes; the additional personal-data embedding requirement remains removed, not deferred.
+
 ## PA.0.1.0 - 2026-07-08
 
 ### Planning synchronization — 2026-10-10
