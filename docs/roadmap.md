@@ -1,8 +1,8 @@
 # Sigil — Product Roadmap
 
-**Planning revision:** 2026-10-10
-**Observed product baseline:** `PA.0.1.0`, Phase 1 foundation
-**Inspected source:** `main` at `19a0e2b9e9ad6fbaec06b62d2e084f444e92e84b`
+**Planning revision:** 2026-11-04
+**Observed product baseline:** `PA.0.1.1` (build 2), Phase 1 foundation with the Package 01 remediation and diagnostic foundation
+**Inspected source:** `main` at `bc277ea05239398d58e70b76ad318de2765148d3` (the 2026-11-02 ASH-TRACE publication; the 2026-10-10 revision inspected `19a0e2b9e9ad6fbaec06b62d2e084f444e92e84b`)
 **Target product:** Native iOS Sigil application
 **Current product plan:** [Project plan](project-plan.md)
 
@@ -42,11 +42,11 @@ No extra encoder/decoder stage appears in this flow. Reproducible generation fro
 
 ## Delivery workstreams
 
-The following labels organize retained work. They are not newly approved algorithms, deadlines, product versions, or blanket implementation authority. Only the source trace is the currently approved next engineering investigation; later work needs a concrete source-backed assignment under the existing authorization rules.
+The following labels organize retained work. They are not newly approved algorithms, deadlines, or product versions. The source trace was the approved next engineering investigation until it completed on 2026-11-02. The owner's 2026-11-03 decision `SIGIL-DEC-2026-11-03-AUTONOMOUS-SEQUENCE` (recorded in the [project plan](project-plan.md)) is the concrete source-backed assignment for the remaining workstreams, organized as the seven-package sequence: 01 remediation and source alignment, 02 identity pipeline, 03 artifact health and local storage, 04 canon and PersonalCodex, 05 ASH-derived glyph, 06 native experience and export, 07 integration and owner handover. Candidate/distribution builds, signing, releases, and physical-device qualification remain the owner's work.
 
 ### ASH-TRACE — Source trace (complete)
 
-**State:** Investigation complete 2026-11-02 at source baseline `53ba4895cdea2cb5d9188c369e1f980a2580067`. Deliverables: [source-to-output map](ash-trace/source-to-output-map.md), [34-row trace ledger](ash-trace/trace-ledger.json), [findings and smallest next change (draft, not accepted)](ash-trace/findings-and-next-change.md), [verification cases](ash-trace/verification-cases.md), and the [continuation handoff](handoffs/ash-trace.md). The exit condition was met: every mapped result is supported, an evidenced substitution, or explicitly unresolved; proposed tests are recorded separately from executed commands; no application source changed during the investigation. The recorded owner decisions (findings F-01 through F-06) gate the next assignment; implementation is not authorized by the trace.
+**State:** Investigation complete 2026-11-02 at source baseline `53ba4895cdea2cb5d91888c369e1f980a2580067`; source-relationship claims corrected 2026-11-03 in Package 01 remediation (coordinate convention, state-space scope, branch-tree/rendering-grammar separation; see the corrections noted in the linked documents). Deliverables: [source-to-output map](ash-trace/source-to-output-map.md), [34-row trace ledger](ash-trace/trace-ledger.json), [findings and smallest next change (draft, not accepted)](ash-trace/findings-and-next-change.md), [verification cases](ash-trace/verification-cases.md), and the [continuation handoff](handoffs/ash-trace.md). The exit condition was met: every mapped result is supported, an evidenced substitution, or explicitly unresolved; proposed tests are recorded separately from executed commands; no application source changed during the investigation. The findings' recorded decisions were the gate for the next assignment; the trace itself never authorized implementation (that gate was superseded on 2026-11-03 by [SIGIL-DEC-2026-11-03-AUTONOMOUS-SEQUENCE](decisions/2026-11-03-autonomous-phase-sequence.md), under which the decisions are resolved as documented product-owned design decisions).
 
 Start at `Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift::makeHiddenGeometry(for:)`. Trace callers, helpers, shared models, consumers, and tests. Map each identity-bearing intermediate and geometric output to the applicable ASH mathematics, canonical data, and referenced binary artifacts. Follow APS, Aeostara, and Forsetti contracts where the actual path requires them.
 
@@ -56,7 +56,7 @@ Start at `Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift::makeHidden
 
 ### IDENTITY-PIPELINE — Inputs, numerology, and ASH/APS realization
 
-**State:** Remaining product work; implementation detail depends on ASH-TRACE.
+**State:** Remaining product work; approved by the 2026-11-03 decision and executed as Package 02 of the authorized sequence. Package 01 (complete, 2026-11-04) delivered the bounded identity/input treatment specification ([design/identity-input-treatment.md](design/identity-input-treatment.md)) and the required system realization contracts with independent acceptance ([system-realization/](system-realization/README.md)).
 
 Implement the retained input model and local validation; make the standard numerology bridge explicit and source-backed; resolve the applicable ASH state/orbit/celestial-class basis through the governing contracts. Preserve all supported input signals rather than replacing them with profile-hash state selection. Reuse and extend the existing product-owned modules where the trace supports that choice.
 
@@ -64,7 +64,7 @@ Implement the retained input model and local validation; make the standard numer
 
 ### ARTIFACT-HEALTH — Validation, privacy, and local persistence
 
-**State:** Remaining product work; some status and validation surfaces already exist.
+**State:** Remaining product work; approved by the 2026-11-03 decision and executed as Package 03 of the authorized sequence. Some status and validation surfaces already exist.
 
 Apply source-backed Aeostara health checks to the actual records, geometry, schemas, and integrity relationships. Preserve safe failure, containment, and recovery of derivable optional metadata. Implement Apple-native encrypted-at-rest storage before introducing persistent sensitive records. Maintain local, redacted diagnostics and explicit error handling.
 
@@ -72,7 +72,7 @@ Apply source-backed Aeostara health checks to the actual records, geometry, sche
 
 ### CANON-AND-PersonalCodex — Celestial naming and WRW interpretation
 
-**State:** Remaining product work; depends on source-backed identity data and safe artifact handling.
+**State:** Remaining product work; approved by the 2026-11-03 decision and executed as Package 04 of the authorized sequence. Depends on source-backed identity data and safe artifact handling from Packages 02 and 03.
 
 Use the typed canon/specification resources for celestial naming, plane attunement, wolf balance, ancestry, bounded Trials/branch interpretation, and the user-facing PersonalCodex sections in the [project plan](project-plan.md). ASH supplies the structural identity; WRW interprets it. Do not substitute an unrelated world-simulation runtime or generic generated prose.
 
@@ -80,7 +80,7 @@ Use the typed canon/specification resources for celestial naming, plane attuneme
 
 ### ASH-GLYPH — Mathematical materialization and visible quality
 
-**State:** Existing bounded generator is the starting point; final mathematical connection remains to be established.
+**State:** Approved by the 2026-11-03 decision and executed as Package 05 of the authorized sequence. The existing bounded generator is the starting point; the final mathematical connection is established from the corrected source alignment delivered in Package 01.
 
 Apply the smallest ASH-TRACE-supported change so governing cosmological mathematics determines canonical form. Preserve deterministic generation and the existing quality, integrity, and presentation boundaries where compatible with the verified contract. Inspect internal geometry on its mathematical merits; do not delete it solely because its type name contains “Hidden.”
 
@@ -88,7 +88,7 @@ Apply the smallest ASH-TRACE-supported change so governing cosmological mathemat
 
 ### EXPERIENCE-AND-EXPORT — Native workflow, Flare, and explicit sharing
 
-**State:** Remaining product work; depends on stable identity, PersonalCodex, geometry, and storage contracts.
+**State:** Remaining product work; approved by the 2026-11-03 decision and executed as Package 06 of the authorized sequence. Depends on stable identity, PersonalCodex, geometry, and storage contracts.
 
 Complete the native input/results experience, user-facing PersonalCodex, presentation-only Flare editor, and explicit export/share workflow. Separate canonical content from display effects. Local export of a user-selected PersonalCodex/report is distinct from making the glyph an encoded personal record. Final export formats and metadata content remain governed by the applicable product decision, not by a reinstated embedding requirement.
 
@@ -96,7 +96,7 @@ Complete the native input/results experience, user-facing PersonalCodex, present
 
 ### CANDIDATE-VALIDATION — Evidence-backed delivery
 
-**State:** Future candidate work, not a release granted by this roadmap.
+**State:** Package 07 of the authorized sequence prepares the integrated development verification, remaining repairs, and owner test procedures. Candidate production, physical-device validation, and any release remain the owner's work under the 2026-11-03 decision; this roadmap grants no release.
 
 Run the applicable native host/simulator checks, source-conformance tests, privacy/storage checks, and repository guardrails against an identified source revision. Keep README, changelog, project configuration, versions, and wiki consistent with actual delivered behavior. Prepare owner hardware-validation procedures when a candidate exists.
 
@@ -122,4 +122,4 @@ The exact mathematical mapping, smallest code change, test expectations, and any
 
 The owner has designated this repository as the authoritative Project Record (recorded in the [project plan](project-plan.md), Source continuity); the [ASH-TRACE handoff](handoffs/ash-trace.md) is the current continuation record for the completed trace. The development-policy binding distinction (execution-time 0.8.0 snapshot versus the package intake/reference pin) is preserved in the project plan. The policy version, the Phase 1 package revision, this planning date, and the application version remain different identities; none substitutes for another.
 
-**Next engineering action:** the owner decisions recorded in the ASH-TRACE findings (state formalization, profile-to-state mapping, master-number policy, and input treatment rules); IDENTITY-PIPELINE implementation remains a separate, unstarted assignment. The additional embedding requirement remains removed.
+**Next engineering action:** Package 02 of the authorized seven-package sequence (identity pipeline). Package 01 (remediation, source alignment, and diagnostic foundation) completed 2026-11-04 at `PA.0.1.1` / build 2 with fresh SPM and iOS-simulator verification: trace corrections R-01 through R-04, system realization contracts with independent model-based acceptance, the identity/input treatment specification (product-owned design decisions with the one genuine upstream framing conflict isolated and visible), the R-05 bounded diagnostic capture-and-export foundation, and the R-06 dashboard status correction. The additional embedding requirement remains removed.

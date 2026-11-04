@@ -16,13 +16,14 @@ The approved read-only source trace from `SigilVisibleGlyphService.makeHiddenGeo
 
 | Area | State |
 | --- | --- |
-| Version | `PA.0.1.0` |
+| Version | `PA.0.1.1` (build 2) |
 | Stage | Pre-alpha |
 | Primary platform | iOS 17+ |
 | Package validation | SwiftPM on macOS 14+ |
 | Runtime modules | 1 SwiftUI UI module, 7 service modules |
 | Visible glyphs | Deterministic local service with quality gates and digest validation |
 | Privacy posture | Local-only diagnostics, no analytics SDK, no backend endpoint |
+| Diagnostics | Bounded local capture with redaction before persistence, correlated failure incidents, and a paired detailed JSON/Markdown export ([docs](docs/diagnostics.md)) |
 | Release governance | Version, changelog, attribution, and project guardrails |
 
 ## Architecture
@@ -132,7 +133,7 @@ python3 scripts/version_guard.py --repo-root .
 python3 tools/sigil_guardrails/verify_sigil_guardrails.py --project-root . --policy tools/sigil_guardrails/sigil_guardrail_policy.json --strict
 ```
 
-Current Phase 1 verification evidence records 22 Swift tests with 0 failures, passing repository guardrails, passing attribution guard, passing version guard, and successful configured Xcode simulator validation for `SigilApp`.
+Current Phase 1 verification evidence records 33 Swift tests with 0 failures, passing repository guardrails, passing attribution guard, passing version guard, and successful configured Xcode simulator validation for `SigilApp` (fresh 2026-11-04 run: 33/33 package tests, 33/33 iOS-simulator tests, Debug build with 0 project-code warnings; see [docs/verification.md](docs/verification.md)).
 
 ## Version And Changelog
 
