@@ -1,0 +1,321 @@
+{
+  "$schema": "https://ravenforge.dev/schemas/system-realization-contract-1.0.schema.json",
+  "schemaVersion": "1.0",
+  "contractId": "SIGIL-SR-2026-11-03-AEOSTARA-BASE-100",
+  "revision": "0.1.0",
+  "status": "reviewed",
+  "product": {
+    "name": "Sigil",
+    "repository": "https://github.com/flynn33/Sigil",
+    "baselineCommit": "bc277ea05239398d58e70b76ad318de2765148d3"
+  },
+  "system": {
+    "name": "Aeostara — Platform-Agnostic Base Design",
+    "sourceRepository": "https://github.com/flynn33/aeostara",
+    "sourceCommit": "a1852cc5f9e094a8b7f7135479e3bf24df8c1513",
+    "version": "1.0.0",
+    "profile": "rfd.aeostara.base.1.0.0",
+    "classification": "specification",
+    "realizationProfiles": [
+      "rfd.aeostara.base.1.0.0"
+    ]
+  },
+  "sourceCoverage": {
+    "completeApplicableReading": true,
+    "records": [
+      {
+        "path": "README.md",
+        "role": "base-design entry point and repository map",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned a1852cc5 via git archive from a read-only clone in external evidence (pinned/aeostara-a1852cc5/README.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aeostara.base.1.0.0 required reading.",
+        "decisionImpact": "Establishes the authority stack (ASH wins, Aeostara changes, platform repos implement), the mandatory platform-neutral lifecycle (observe through audit chain), the repository content map, and the downstream repository and branch layout."
+      },
+      {
+        "path": "BASE_DESIGN_COMPLETION.md",
+        "role": "base-design completion standard",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned a1852cc5 (pinned/aeostara-a1852cc5/BASE_DESIGN_COMPLETION.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aeostara.base.1.0.0 required reading.",
+        "decisionImpact": "Defines the completion standard (platform-neutral definitions sufficient for faithful downstream implementation), the non-completion conditions, and the v1.0.0 release closeout that separated platform realizations into destination repositories."
+      },
+      {
+        "path": "ASH_BASELINE_REFERENCE.md",
+        "role": "fixed upstream ASH baseline binding",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned a1852cc5 (pinned/aeostara-a1852cc5/ASH_BASELINE_REFERENCE.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aeostara.base.1.0.0 required reading.",
+        "decisionImpact": "Records Aeostara's fixed ASH upstream baseline (flynn33/ASH-Pattern-System main at e123f5d7) and the 15 required ASH source-area bindings; confirms the upstream precedence that also governs Sigil's ASH contract."
+      },
+      {
+        "path": "specs/architecture/repository_role_contract.md",
+        "role": "repository role and ownership contract",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned a1852cc5 (pinned/aeostara-a1852cc5/specs/architecture/repository_role_contract.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aeostara.base.1.0.0 required reading.",
+        "decisionImpact": "Fixes what Aeostara owns (JSON configuration semantics, ASH projection and binding, diagnostic and audit contracts, recovery lifecycle, fixtures, handoff) and does not own (native platform source, platform mechanics, ASH modification); completion is independent of downstream source files."
+      },
+      {
+        "path": "specs/architecture/downstream_platform_repository_contract.md",
+        "role": "downstream obligation contract",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned a1852cc5 (pinned/aeostara-a1852cc5/specs/architecture/downstream_platform_repository_contract.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aeostara.base.1.0.0 required reading.",
+        "decisionImpact": "Defines the eight downstream obligations (pin the base version, map interfaces, implement contracts without field-meaning changes, run fixture vectors, emit conforming diagnostics and audit events, document deviations, preserve ASH and Aeostara authority) and the five prohibited downstream behaviors Sigil must not exhibit in its Aeostara-facing code."
+      },
+      {
+        "path": "specs/architecture/platform_implementation_boundary.md",
+        "role": "base versus platform boundary",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned a1852cc5 (pinned/aeostara-a1852cc5/specs/architecture/platform_implementation_boundary.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aeostara.base.1.0.0 required reading.",
+        "decisionImpact": "Splits every lifecycle concern between base-design semantics and platform mechanics; Sigil (a product, not an Aeostara platform repository) may only implement product-owned services that consume these semantics, never redefine them."
+      },
+      {
+        "path": "specs/architecture/base_to_platform_versioning.md",
+        "role": "pinning and upgrade rules",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned a1852cc5 (pinned/aeostara-a1852cc5/specs/architecture/base_to_platform_versioning.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aeostara.base.1.0.0 required reading.",
+        "decisionImpact": "Downstream must explicitly pin the Aeostara base version or commit it implements and record the ASH baseline commit; compatibility requires passing that version's gates; upgrades require rerunning affected conformance vectors and updating the deviation log. This is why the product evidence record pins the base commit explicitly."
+      },
+      {
+        "path": "CHANGELOG.md",
+        "role": "release history and version identity",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned a1852cc5 (pinned/aeostara-a1852cc5/CHANGELOG.md) and read in full on 2026-11-03; git history verified that product-record pin 774b981 (2026-06-22 closeout) is an ancestor of profile pin a1852cc5 (2026-09-04) and the interval contains CI workflow and license/community changes only, both after the [1.0.0] - 2026-06-22 closeout entry.",
+        "reason": "Pin-divergence evidence between the product-record pin and the profile pin.",
+        "decisionImpact": "Both pins postdate the v1.0.0 base closeout and share the same semantic baseline; the contract binds to the profile pin a1852cc5 and records the product-record pin 774b981 as a divergence without moving either."
+      },
+      {
+        "path": "evidence/phase1/source-authority-evidence.md",
+        "role": "product authority record (product checkout)",
+        "status": "read_in_full",
+        "evidence": "Read from the product checkout at bc277ea on 2026-11-03.",
+        "reason": "Records the product's previously observed Aeostara authority (base v1.0.0 at 774b981; Aeostara-Mac-iOS platform/ios at 33e9154 with products AeostaraDomain and AeostaraServices; migration 0c931a7).",
+        "decisionImpact": "Confirms the product's Aeostara surface is evidence-recorded, not dependency-consumed; the contract therefore binds the base profile pin and records the platform-repository observations as product evidence, not as a selected authority container of this contract."
+      }
+    ],
+    "unresolvedGaps": [
+      "The base repository's per-area specs (specs/ash_baseline/**, specs/contracts/**, specs/algorithms/**, specs/interfaces/**, specs/acceptance/**), conformance fixtures, and ci validators were not read line-by-line under this contract; the profile required reading (architecture specs plus completion and baseline documents) was read in full. Per-area spec reading is required before any Sigil work implements the Aeostara lifecycle.",
+      "The platform implementation repository (flynn33/Aeostara-Mac-iOS, platform/ios branch) is outside the base profile's required reading; the product's Phase 1 observations of that branch remain recorded in product evidence."
+    ]
+  },
+  "teachBack": {
+    "purpose": "Aeostara is the platform-agnostic, ASH-conformant base design for a self-healing JSON configuration engine. For Sigil it is the health and validation authority pin: the product's Aeostara gateway records the base v1.0.0 baseline, platform-branch isolation, and fail-closed artifact-health decisions, and any future Aeostara lifecycle work in Sigil must follow the base's mandatory platform-neutral lifecycle (observe, normalize, project JSON or configuration state, diagnose, classify, determine recoverability, generate a recovery plan, evaluate the policy gate, prepare backup, execute the approved plan, verify, then rollback, fallback, containment, or safe halt, then emit the diagnostic and audit chain).",
+    "nonPurpose": "Aeostara is not a runtime dependency of Sigil and authorizes no package or native target import. It does not own native iOS implementation (that is the platform/ios branch of flynn33/Aeostara-Mac-iOS), does not define Sigil's identity pipeline or glyph mathematics, and cannot modify ASH (ASH wins conflicts). Generic JSON diffing is not semantic truth, and recovery is never derived from CRUD repair operations. Field note: product.baselineCommit identifies the Sigil repository baseline for this record and is intentionally distinct from system.sourceCommit, which is the authority-container revision.",
+    "productLocalImplementation": "Sources/RFSigilAeostaraIntegration is the product-owned Aeostara integration module and service: SigilAeostaraIntegrationGateway records the baseline pin (release v1.0.0, commit 774b981ef2267a41c1b1a59497b2b0746a86f32b per the product evidence record), platform/ios provenance, product observations, and fail-closed healthDecision results (mutation disallowed, backup required before mutation, verification required after execution, operator review required). tools/sigil_guardrails preserves the platform-separation and baseline-pinning guardrails. evidence/phase1/source-authority-evidence.md and docs/ash-trace carry the conformance documentation.",
+    "permittedExternalDependencies": "none. The base profile allowedRuntimeProducts and allowedDevelopmentTools are both empty; Sigil consumes no Aeostara code.",
+    "externalOnlyMaterials": "All of flynn33/aeostara (specs, conformance, fixtures, ci, implementation_handoff, templates, branch profiles) and all of flynn33/Aeostara-Mac-iOS (platform implementation) remain external. Sigil cites the base pin and platform provenance by commit in product-owned evidence records; repository identifiers appear as citations only and never in dependency declarations.",
+    "templateAndExampleUse": "templates/platform_repo and implementation_handoff define downstream platform-repository obligations (pin the base version, map every interface to a native module, run the fixture vectors, produce conforming diagnostics and audit events, document deviations); Sigil consults them to keep its Aeostara gateway evidence honest. Fixture vectors and schema examples are verification material only and never enter runtime targets.",
+    "conformanceProof": "IntegrationGatewayTests assert the recorded baseline, provenance, and fail-closed health-decision behavior; the strict guardrails validator enforces that Aeostara usage remains baseline-pinned and platform-separated; the realization validator verifies this contract and the absence of prohibited acquisition against the product checkout."
+  },
+  "sourceRoles": [
+    {
+      "source": "specs/** (ash_baseline, contracts, algorithms, interfaces, architecture, acceptance)",
+      "role": "specification",
+      "meaning": "Platform-neutral base-design specifications: ASH bindings, lifecycle boundary contracts, diagnosis-first JSON-pointer algorithms, adapter and orchestration boundaries, authority hierarchy, and completion gates.",
+      "permittedTreatment": "Read at the pinned commit; cite as base-design authority; implement product-owned services conformant to them.",
+      "prohibitedTreatment": "Copying spec files into the product tree; redefining base semantics in product code."
+    },
+    {
+      "source": "conformance/**",
+      "role": "test",
+      "meaning": "Module mapping, invariant coverage, diagnostics, materialization boundary, deviations, and judgment artifacts for the base design itself.",
+      "permittedTreatment": "Read to understand the base's own conformance evidence shape.",
+      "prohibitedTreatment": "Treat as downstream conformance evidence for Sigil."
+    },
+    {
+      "source": "fixtures/conformance/**, fixtures/schema_examples/**",
+      "role": "test",
+      "meaning": "Expected-output vectors and valid schema instances for base-design validation.",
+      "permittedTreatment": "Use as verification material when Sigil implements lifecycle behavior.",
+      "prohibitedTreatment": "Shipping fixture material inside runtime targets."
+    },
+    {
+      "source": "ci/**",
+      "role": "tool",
+      "meaning": "Schema, fixture, traceability, JSON semantics, diagnostic-chain, recovery, handoff, and completion validators for the base repository.",
+      "permittedTreatment": "Read for the validation approach; consult gate definitions.",
+      "prohibitedTreatment": "Adopting upstream tooling as product tooling."
+    },
+    {
+      "source": "implementation_handoff/**, templates/platform_repo/**",
+      "role": "template",
+      "meaning": "Downstream handoff requirements and platform-repository templates (including branch profiles).",
+      "permittedTreatment": "Use to keep downstream (platform repository or product) obligations explicit and documented.",
+      "prohibitedTreatment": "Treat template content as base semantics or as product configuration."
+    },
+    {
+      "source": "branch_profiles/**, REPOSITORY_* status documents, closeout reports",
+      "role": "history",
+      "meaning": "Platform branch profile material and repository separation and closeout history.",
+      "permittedTreatment": "Cite as historical provenance of the v1.0.0 separation.",
+      "prohibitedTreatment": "Treat as active base-design authority for new work."
+    },
+    {
+      "source": "LICENSE, CHANGELOG.md",
+      "role": "history",
+      "meaning": "License (Apache-2.0) and release history of the authority container.",
+      "permittedTreatment": "Cite license and version identity in product records.",
+      "prohibitedTreatment": "Treat as implementation authority."
+    }
+  ],
+  "dependencyAllowlist": [],
+  "prohibitedAcquisition": {
+    "forbidWholeRepositoryCopies": true,
+    "forbidGitSubmodules": true,
+    "forbidVendorCopies": true,
+    "repositoryNames": [
+      "flynn33/aeostara"
+    ],
+    "pathPatterns": [
+      "Vendor/aeostara/**",
+      "ThirdParty/aeostara/**",
+      "External/aeostara/**",
+      "vendor/aeostara/**"
+    ],
+    "targetNames": [],
+    "dependencyTokens": [
+      "github.com/flynn33/aeostara"
+    ],
+    "fingerprintGroups": [
+      [
+        "specs/contracts/**",
+        "specs/algorithms/**",
+        "specs/architecture/**"
+      ],
+      [
+        "fixtures/conformance/**",
+        "implementation_handoff/**",
+        "templates/platform_repo/**",
+        "ci/**"
+      ]
+    ]
+  },
+  "productRealization": [
+    {
+      "pathPattern": "Sources/RFSigilAeostaraIntegration/**",
+      "kind": "module",
+      "responsibility": "Product-owned Aeostara integration module: SigilAeostaraIntegrationGateway and SigilAeostaraIntegrationModule (Forsetti service module wrapper). The gateway is a recorded-evidence and fail-closed decision provider, not a live Aeostara dependency.",
+      "sourceBasis": "Downstream platform repository contract (preserve Aeostara base-design authority, document platform limitations as deviations, prohibited downstream behaviors) at a1852cc5; Phase 1 implementation plan module scope.",
+      "required": true,
+      "verification": "IntegrationGatewayTests; ForsettiModuleRegistrationTests; Package 01 R-06 keeps the dashboard wording consistent with the gateway's actual recorded-evidence nature."
+    },
+    {
+      "pathPattern": "Sources/RFSigilAeostaraIntegration/SigilAeostaraIntegrationGateway.swift",
+      "kind": "service",
+      "responsibility": "The product-owned service implementing Sigil's Aeostara-facing behavior: baseline pin evidence (release v1.0.0, product-record commit 774b981ef2267a41c1b1a59497b2b0746a86f32b), platform/ios accessibility and product observations, migration provenance (archive and import tags at 0c931a7cbac349c6be93a6aeb4a253dd2268178f), and fail-closed healthDecision for artifact failure kinds (mutation disallowed, backup required, verification required, operator review required). It is recorded-evidence and decision logic in product code, satisfying the profile mandate that the product implements the required lifecycle behavior in product-owned modules and services.",
+      "sourceBasis": "Platform implementation boundary (base defines semantics, platform implements mechanics) and downstream obligations (emit conforming diagnostics, document deviations) at a1852cc5.",
+      "required": true,
+      "verification": "IntegrationGatewayTests (fail-closed decision fields asserted); guardrail baseline-pinning and platform-separation checks."
+    },
+    {
+      "pathPattern": "tools/sigil_guardrails/**",
+      "kind": "guardrail",
+      "responsibility": "Product invariant guardrails that preserve the Aeostara authority boundary: distinct-product treatment, platform separation, baseline-pinned usage, and attribution integrity across the product tree.",
+      "sourceBasis": "Repository role contract (Aeostara does not own native platform source; completion independent of downstream files) and downstream contract (preserve ASH and Aeostara authority) at a1852cc5.",
+      "required": true,
+      "verification": "scripts/verify-sigil-guardrails.sh (strict validator plus swift test plus xcodebuild -list); guard unit tests."
+    },
+    {
+      "pathPattern": "evidence/phase1/source-authority-evidence.md",
+      "kind": "documentation",
+      "responsibility": "Product conformance documentation for the Aeostara authority: observed base pin, platform branch provenance, products, and migration tags, recorded as evidence rather than dependency.",
+      "sourceBasis": "Base-to-platform versioning rule (downstream must explicitly pin the Aeostara base version or commit it implements) at a1852cc5.",
+      "required": true,
+      "verification": "Cross-checked against the read-only clone history on 2026-11-03 (774b981 verified as ancestor of a1852cc5; both postdate the v1.0.0 closeout); realization validator path match."
+    },
+    {
+      "pathPattern": "docs/system-realization/aeostara-base-1.0.0/contract.md",
+      "kind": "documentation",
+      "responsibility": "Human-readable companion contract recording identity, teach-back, dispositions, pin-binding rationale, and review state for this authority container.",
+      "sourceBasis": "Raven Forge System Realization Contract template (machine-readable companion requirement).",
+      "required": true,
+      "verification": "Realization validator contract mode against the pinned profile; independent review evidence in external evidence root."
+    }
+  ],
+  "composition": {
+    "pattern": "Forsetti deployment Pattern B (multi-module single application) at the product level; this contract's authority container (Aeostara base) is a specification-only input with no runtime composition role. Sigil models Aeostara-facing behavior in product-owned code and records conformance in product-owned documentation.",
+    "uiOwner": "RFSigilUIModule (unchanged by this contract; UI ownership is governed by the Forsetti contract).",
+    "modules": [
+      {
+        "name": "RFSigilAeostaraIntegration",
+        "type": "service module",
+        "responsibility": "Product-owned Aeostara integration surface: recorded baseline and provenance evidence, fail-closed health decisions, and Forsetti module wrapper."
+      },
+      {
+        "name": "RFSigilDiagnostics",
+        "type": "service module",
+        "responsibility": "Product-owned local diagnostics that must carry Aeostara lifecycle evidence (diagnostic and audit chain requirements) when Aeostara lifecycle work is implemented."
+      },
+      {
+        "name": "tools/sigil_guardrails",
+        "type": "guardrail tooling",
+        "responsibility": "Enforces the Aeostara authority boundary (distinct product, platform separation, baseline pinning) across the product tree."
+      }
+    ],
+    "dependencyDirection": "No dependency on the Aeostara base repository exists or may be added; product modules that model Aeostara-facing behavior depend only on RFSigilCoreModels and ForsettiCore, with base semantics consumed through product-owned evidence and service code.",
+    "registrationAndDiscovery": "Not applicable to this authority container; module registration is governed by the Forsetti contract.",
+    "communication": "Not applicable to this authority container; future Aeostara lifecycle diagnostics must follow the base diagnostic envelope and audit-chain rules.",
+    "lifecycle": "Not applicable to this authority container today; the base's mandatory lifecycle (observe through audit chain) applies to product-owned services when the Aeostara lifecycle workstream is implemented, with recovery derived from diagnosis, classification, and recoverability, never from CRUD repair.",
+    "persistence": "Local-only; no Aeostara-owned persistence exists in Sigil today; backup and audit artifacts, when implemented, stay under product-owned services.",
+    "capabilities": "Not applicable to this authority container.",
+    "runtimeRequirements": "None from this authority container; the base repository prescribes no runtime."
+  },
+  "templateTransformations": [
+    {
+      "source": "implementation_handoff/** and templates/platform_repo/** at a1852cc5",
+      "purpose": "Define downstream obligations and platform-repository shape (pinning, interface mapping, fixture vectors, diagnostics and audit events, deviation tracking).",
+      "productOutputPatterns": [
+        "evidence/phase1/source-authority-evidence.md",
+        "docs/ash-trace/**"
+      ],
+      "requiredAdaptation": "Map the downstream obligations onto Sigil's evidence-record style: explicit base pin and ASH baseline reference, platform provenance by commit, deviations and caveats documented as product policy rather than semantic changes.",
+      "prohibitedSampleTokens": [],
+      "verification": "Realization validator RFD-SR-111 output presence in delivery mode; cross-check of recorded pins against the read-only clone history."
+    }
+  ],
+  "governance": {
+    "applies": false,
+    "rationale": "Forsetti Agentic Edition governance is not selected for Sigil: the product repository declares no agentic-edition artifacts, project context, or task contracts, and this profile's governance mustApply flag is false. The Aeostara base repository's own governance and CI material govern the upstream repository, not Sigil product work. If Forsetti Agentic Edition governance is ever adopted, a separate governance contract (profile rfd.forsetti.agentic.1.1.0) must be added to the linked set before dependent work."
+  },
+  "preImplementationReview": {
+    "status": "accepted",
+    "reviewer": "Independent model-based pre-implementation review (separate route from preparation; LM Studio local service, model qwen/qwen3-coder-30b; not human acceptance)",
+    "reviewedAt": "2026-11-03 (UTC 2026-11-04T05:58:58Z)",
+    "evidence": "Round 1: /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/reviews/review-aeostara.json (issues individually verified against the product checkout and pinned sources; demonstrably false claims rejected with evidence; legitimate clarifications applied to the contract). Round 2: /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/reviews/review-aeostara-round2.json — VERDICT: accepted, ISSUES: none. Validator: /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/validator/contract-aeostara.json and contract-aeostara-round2.json (both pass, zero findings). Full prompts and responses preserved at /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/reviews/."
+  },
+  "deliveryReviews": {
+    "sourceUnderstanding": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "instructionAccuracy": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "instructionAdherence": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "implementationConformance": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "dependencyImportProhibition": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "governanceConformance": {
+      "status": "not_applicable",
+      "evidence": "Governance not selected for this product (see governance.rationale).",
+      "limitationsOrCorrections": "Re-assess if Forsetti Agentic Edition governance is adopted."
+    }
+  }
+}

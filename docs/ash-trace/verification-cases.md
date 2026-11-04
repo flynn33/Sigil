@@ -1,8 +1,10 @@
 # ASH-Trace Verification Cases
 
 **Investigation:** `SIGIL-DEC-2026-10-09-ASH-TRACE`
-**Product commit examined:** `53ba4895cdea2cb5d9188c369e1f980a2580067`
+**Product commit examined:** `53ba4895cdea2cb5d91888c369e1f980a2580067`
 **Date:** 2026-11-02
+
+**Corrections (2026-11-03, Package 01 remediation):** the 39-character baseline hash on the line above was a transcription error and is corrected to the 40-character Git identity. The executed cases and their results are unchanged (they were run at the baseline identified by the 40-character hash). Proposed cases VC-PROP-04/05/06 are restated for the corrected source facts (coordinate conventions, state-space scope, and the separation of the semantic branch tree from the independent rendering L-system); see [findings-and-next-change.md](findings-and-next-change.md) F-01/F-11 (restated) and the ledger `corrections_2026_11_03` field.
 
 Machine-readable form: [trace-ledger.json](trace-ledger.json) (`verification_cases`). This document is the human-readable mirror. Executed current-behavior observations are kept separate from proposed conformance oracles, per the investigation exit condition.
 
@@ -40,11 +42,11 @@ Notes on the executed native runs:
 | VC-PROP-01 | Dominant plane = plane whose numerology values contain the life path (1977-11-04 -> 3) (value) | celestial generator; nine-planes | proposed — product derives dominance from digest bytes |
 | VC-PROP-02 | Wolf balance follows the canonical modifier equation and thresholds; non-moral interpretation (invariant) | celestial generator; master-mythic-mapping | proposed — product derives wolf balance from digest bytes |
 | VC-PROP-03 | Weekday archetype (Friday for 1977-11-04) represented with provenance (value) | celestial generator weekday table | proposed — weekday absent from the input type |
-| VC-PROP-04 | 9-bit ASH state with integrity per the adopted formalization; decoder status against the closed code (invariant) | ASH-Model spec + codewords; APS state-space spec | proposed — formalization unresolved (F-01) and no canonical profile mapping exists (F-02) |
-| VC-PROP-05 | Orbit of 16 states; coordinate 8 constant; no invented codewords (invariant) | ASH-Model spec section 6 + codewords; APS codeword-set spec | proposed — product computes no orbit |
-| VC-PROP-06 | Depth-4 branch topology: 81 leaves / 121 nodes, all 16 messages, node state = x xor enc(m), L-system geometry (invariant) | ASH-Model branch topology + spec section 9 | proposed — product uses fixed anchors and hash-parameterized paths |
+| VC-PROP-04 | 9-bit ASH state with integrity per the adopted representation (coordinate conventions: ASH-Model one-based x1..x9, APS zero-based b0..b8; tables agree under the documented final-two-coordinate swap); decoder status against the closed code (invariant) | ASH-Model spec + codewords; APS state-space spec | proposed — representation decision recorded in the Package 01 planning pass (F-01 restated); no canonical profile mapping exists (F-02) |
+| VC-PROP-05 | Orbit of 16 states; coordinate 8 constant (ASH-Model one-based convention; APS b8 is the ninth position); no invented codewords (invariant) | ASH-Model spec section 6 + codewords; APS codeword-set spec | proposed — product computes no orbit |
+| VC-PROP-06 | Depth-4 semantic branch topology: 81 leaves / 121 nodes, all 16 messages, node state = x xor enc(m); separate rendering L-system (625 forward symbols at depth 4) (invariant) | ASH-Model branch topology + spec section 9 | proposed — product uses fixed anchors and hash-parameterized paths |
 | VC-PROP-07 | Master-number policy (unresolved expectation) | none — missing source decision (F-05) | proposed — an unresolved expectation cannot pass |
 | VC-PROP-08 | Every retained plan input has an explicit, cited, deterministic treatment (invariant) | project plan input model | not_run — weekday, parents' birth order, and ancestral surnames absent; time/location/birth order digest-only |
 | VC-PROP-09 | No payload encoder/decoder/sidecar/scan-to-record anywhere (invariant) | no-embedding decision; project plan | not_run — no named regression test exists; the investigation verified the boundary by full source read at `53ba489` |
 
-Proposed cases define expected results with their sources; they are planning oracles, not passing conformance tests. They become runnable only under a separately authorized implementation assignment that first records the owner decisions named in [findings-and-next-change.md](findings-and-next-change.md).
+Proposed cases define expected results with their sources; they are planning oracles, not passing conformance tests. They become runnable under the authorized implementation workstreams (Packages 02-05) once the design decisions named in [findings-and-next-change.md](findings-and-next-change.md) are in force as product-owned design decisions. (Superseded as a gate: `SIGIL-DEC-2026-11-03-AUTONOMOUS-SEQUENCE`; the decisions are resolved in the Package 01 planning pass and recorded in the repository.)

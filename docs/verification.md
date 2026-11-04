@@ -33,6 +33,7 @@ python3 -m unittest Tests/VersionGuardTests/test_version_guard.py
 | `PrivacySecurityTests` | Local-only privacy posture |
 | `SourceAuthorityTests` | Source hierarchy and boundary preservation |
 | `VisibleGlyphGenerationTests` | Deterministic visible-glyph artifacts, quality gates, collision handling, validation |
+| `DiagnosticCaptureTests` | Diagnostic success/failure correlation, paired export identity matching, nested synthetic-secret redaction, concurrent capture/export, queue limits, disk/export failure, unavailable source identity, release-profile scoping, instrumented runtime operation |
 | Guardrail Python suites | Attribution, version, changelog, source, and policy checks |
 
 ## GitHub Actions
@@ -102,10 +103,22 @@ Fresh 2026-11-01 run (version alignment publication):
 - The build log contains 12 `appintentsmetadataprocessor` "Metadata extraction skipped, no AppIntents.framework dependency found" lines; these are Xcode 27 metadata-phase notices, not project warnings.
 - Repository guards (strict project guardrail validator, version guard, attribution guard, guard unit tests, `git diff --check`, verification wrapper) re-ran fresh for this publication; raw logs are stored outside the repository.
 
-Fresh 2026-11-02 run (ASH-TRACE investigation at `53ba4895cdea2cb5d9188c369e1f980a2580067`):
+Fresh 2026-11-02 run (ASH-TRACE investigation at `53ba4895cdea2cb5d91888c369e1f980a2580067`; the 39-character hash previously printed here was a transcription error, corrected 2026-11-03):
 
 - Xcode iOS-simulator build for `SigilApp` (Debug, `generic/platform=iOS Simulator`, fresh DerivedData): `BUILD SUCCEEDED`, 0 errors, 0 project-code warnings; 12 `appintentsmetadataprocessor` toolchain notices (non-project).
 - Xcode iOS-simulator test for `SigilApp` (fresh DerivedData and result bundle): `TEST SUCCEEDED`, 22 tests, 0 failures, 0 unexpected.
 - Repository guards re-ran fresh: strict project guardrail validator, version guard, attribution guard (branch `main`), 17 guard unit tests, `git diff --check`, and the verification wrapper (strict guard plus 22/22 Swift package tests) — all passed.
 - Instruction-package integrity check and 20 helper unit tests passed; the completed 34-row trace ledger passed the external structural validator.
 - Raw logs and the result bundle are stored in the owner-external evidence root and cited by measured SHA-256 in [docs/ash-trace/trace-ledger.json](ash-trace/trace-ledger.json).
+
+Fresh 2026-11-04 run (Package 01 remediation closeout: R-05 diagnostic foundation and R-06 dashboard status corrections, at `main`):
+
+- Swift package tests (`swift test`, macOS arm64, Xcode 27.0/Swift 6.4 toolchain): 33 tests, 0 failures (24 product tests including 4 dashboard tests plus 9 new `DiagnosticCaptureTests`).
+- Xcode iOS-simulator build for `SigilApp` (Debug, `generic/platform=iOS Simulator`, fresh DerivedData in the owner-external evidence root): `BUILD SUCCEEDED`, 0 errors, 0 project-code warnings; 12 `appintentsmetadataprocessor` toolchain notices (non-project).
+- Xcode iOS-simulator test for `SigilApp` (`SigilTraceiPhone17`, iOS 27.0, fresh result bundle): `TEST SUCCEEDED`, 33 tests, 0 failures, 0 unexpected.
+- Repository guards re-ran fresh: strict project guardrail validator, version guard, attribution guard (branch `main`), 17 guard unit tests (6 + 5 + 6), and the verification wrapper (strict guard plus Swift package tests) — all passed. Two blocked attribution markers in two Phase-01 docs (a two-word generation-attribution phrase and a standalone two-letter initialism token in authorization text) were reworded before the guard pass; no guard or test was weakened.
+- External trace structural validator (instruction-package `tools/validate_trace.py` against `docs/ash-trace/trace-ledger.json`): `STRUCTURAL CHECK PASSED` (structural, not semantic approval).
+- `xcodegen` (2.46.0) regenerated `Sigil.xcodeproj` to include the seven new diagnostic files; `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION` values were unchanged by the regeneration until the closeout version alignment.
+- Version-alignment build verification after the `PA.0.1.1` / build 2 update: Debug iOS-simulator rebuild `BUILD SUCCEEDED`, 0 project-code warnings; the built `SigilApp.app/Info.plist` reports `CFBundleShortVersionString = PA.0.1.1`, `CFBundleVersion = 2`, bundle identifier `com.ravenforge.sigil`. Internal framework targets keep xcodegen's stock dylib-versioning defaults (a separate binary-versioning identity from the app build number).
+- Realization-contract validator results (contract mode and preflight mode) were completed in the preceding session with reports in the owner-external evidence root; they were not re-run in this session.
+- Raw build/test logs and the result bundle are stored in the owner-external evidence root (`phase01/xcodebuild/`).
