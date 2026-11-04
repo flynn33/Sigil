@@ -1,0 +1,368 @@
+{
+  "$schema": "https://ravenforge.dev/schemas/system-realization-contract-1.0.schema.json",
+  "schemaVersion": "1.0",
+  "contractId": "SIGIL-SR-2026-11-03-APS-CANONICAL-RC3",
+  "revision": "0.1.0",
+  "status": "reviewed",
+  "product": {
+    "name": "Sigil",
+    "repository": "https://github.com/flynn33/Sigil",
+    "baselineCommit": "bc277ea05239398d58e70b76ad318de2765148d3"
+  },
+  "system": {
+    "name": "ASH Pattern System — Canonical Specification",
+    "sourceRepository": "https://github.com/flynn33/ASH-Pattern-System",
+    "sourceCommit": "50d7e5ab88932a4a967ffc2c83bd18fae45b73c8",
+    "version": "1.0.0-rc.3",
+    "profile": "rfd.aps.canonical.1.0.0-rc.3",
+    "classification": "specification",
+    "realizationProfiles": [
+      "rfd.aps.canonical.1.0.0-rc.3"
+    ]
+  },
+  "sourceCoverage": {
+    "completeApplicableReading": true,
+    "records": [
+      {
+        "path": "README.md",
+        "role": "canonical repository purpose and map",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 50d7e5ab via git archive from a read-only clone in external evidence (pinned/aps-50d7e5ab/README.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aps.canonical.1.0.0-rc.3 required reading.",
+        "decisionImpact": "Establishes the repository as the canonical agnostic specification baseline: full F2^9 state space (512 states), fixed 16-member [9,4,4] doubly-even codeword set with 32 orbits, XOR-by-codeword transitions, and the source-of-truth rule (the specification wins over any implementation disagreement)."
+      },
+      {
+        "path": "PUBLIC-SPECIFICATION-API.md",
+        "role": "public specification API and rc.3 normative reconciliation",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 50d7e5ab (pinned/aps-50d7e5ab/PUBLIC-SPECIFICATION-API.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aps.canonical.1.0.0-rc.3 required reading; rc.3 reconciliation is the precedence record for all superseded rc.1/rc.2 clauses.",
+        "decisionImpact": "Fixes which clauses are superseded in rc.3 (structural normalization, operational assessment classes, realm identity APS-REALM-000..511, topology model, fallback ordering, fifteen-field diagnostic record, axiom predicates, generation plan identity) and which locked mathematics remain unchanged. Sigil conformance documentation must cite rc.3, not rc.1/rc.2 prose."
+      },
+      {
+        "path": "docs/00-repository-purpose.md",
+        "role": "repository role and boundaries",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 50d7e5ab (pinned/aps-50d7e5ab/docs/00-repository-purpose.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aps.canonical.1.0.0-rc.3 required reading.",
+        "decisionImpact": "Confirms the repository is a language-neutral semantic baseline, not a language-bound implementation authority; downstream decisions (types, tooling, storage, layout) belong in the product."
+      },
+      {
+        "path": "specs/verification/implementation-acceptance.md",
+        "role": "canonical acceptance threshold",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 50d7e5ab (pinned/aps-50d7e5ab/specs/verification/implementation-acceptance.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aps.canonical.1.0.0-rc.3 required reading.",
+        "decisionImpact": "Defines the four minimum acceptance conditions, the seven failure conditions, the non-waivable requirement list, and the CONFORMANT / CONFORMANT WITH CAVEATS / NON-CONFORMANT judgment language (no PARTIAL). Sigil's current recorded judgment is CONFORMANT WITH CAVEATS per Phase 1 evidence."
+      },
+      {
+        "path": "handoff-templates/common-downstream-handoff-requirements.md",
+        "role": "downstream obligation template",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 50d7e5ab (pinned/aps-50d7e5ab/handoff-templates/common-downstream-handoff-requirements.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aps.canonical.1.0.0-rc.3 required reading.",
+        "decisionImpact": "Defines the nine canonical semantic modules every downstream must map, the verification-plan inputs, diagnostics integration expectations, the planner/emitter materialization boundary, and the six proof-of-conformance deliverables Sigil's conformance documentation must eventually satisfy."
+      },
+      {
+        "path": "COMPATIBILITY.md",
+        "role": "compatibility policy",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 50d7e5ab (pinned/aps-50d7e5ab/COMPATIBILITY.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aps.canonical.1.0.0-rc.3 required reading.",
+        "decisionImpact": "A downstream binding must name the exact source commit as well as the product version; namespace 1.0 alone does not distinguish prerelease artifacts. This contract therefore binds commit 50d7e5ab with version 1.0.0-rc.3."
+      },
+      {
+        "path": "MIGRATION-GUIDE.md",
+        "role": "downstream migration guidance",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 50d7e5ab (pinned/aps-50d7e5ab/MIGRATION-GUIDE.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aps.canonical.1.0.0-rc.3 required reading.",
+        "decisionImpact": "Binding to rc.3 means binding regenerated product-version fields, checksums, schemas, and corpus to the exact commit; rc.1/rc.2 diagnostic IDs remain identified as such and are not valid rc.3 identities."
+      },
+      {
+        "path": "specs/interfaces/diagnostic-schema.md",
+        "role": "canonical diagnostic envelope, chain, and identity specification",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 50d7e5ab (pinned/aps-50d7e5ab/specs/interfaces/diagnostic-schema.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aps.canonical.1.0.0-rc.3 required reading.",
+        "decisionImpact": "Fixes the fifteen-field diagnostic record, the transport envelope, safety-phase mapping, chain-integrity rules, the nonblank explanation requirement, and the nine-field semantic identity hash (APS-DIAG- plus first 24 hex of SHA256 of the canonical compact-JSON payload). Sigil's diagnostics extension (Package 01 R-05) must emit schema-conformant records with taxonomy-valid rule IDs when it models ASH diagnostics."
+      },
+      {
+        "path": "specs/algorithms/containment-safe-failure-semantics.pseudo.md",
+        "role": "canonical containment and safe-failure semantics",
+        "status": "read_in_full",
+        "evidence": "Extracted at pinned 50d7e5ab (pinned/aps-50d7e5ab/specs/algorithms/containment-safe-failure-semantics.pseudo.md) and read in full on 2026-11-03.",
+        "reason": "Profile rfd.aps.canonical.1.0.0-rc.3 required reading.",
+        "decisionImpact": "Fixes containment triggers, restricted-mode behavior, denied-attempt versus confirmed-breach distinction, SAFE_HALT terminal finality, monotonic escalation, and the no-silent-containment/no-silent-halt invariants that Sigil diagnostics must preserve."
+      },
+      {
+        "path": "VERSION",
+        "role": "version identity",
+        "status": "read_in_full",
+        "evidence": "git show at pinned 50d7e5ab in the read-only clone: VERSION = 1.0.0-rc.3; product-manifest.json confirms release_tag v1.0.0-rc.3 and product_identifier aps (verified 2026-11-03).",
+        "reason": "Confirms the pinned revision's product version for the contract identity.",
+        "decisionImpact": "Contract identity binds 50d7e5ab with 1.0.0-rc.3, matching the profile exactly."
+      },
+      {
+        "path": "evidence/phase1/source-authority-evidence.md",
+        "role": "product authority record (product checkout)",
+        "status": "read_in_full",
+        "evidence": "Read from the product checkout at bc277ea on 2026-11-03.",
+        "reason": "Records what the product previously read and how it judged conformance.",
+        "decisionImpact": "The Phase 1 record read the APS Mac-iOS repository surface and recorded CONFORMANT WITH CAVEATS; it contains no canonical-repository pin. This contract is therefore a new deliberate selection of the canonical authority at the profile pin, and no historical canonical-repo adoption is claimed."
+      }
+    ],
+    "unresolvedGaps": [
+      "The nine canonical semantic modules' individual contract files under specs/interfaces/contracts/ (StateModel, RecoveryEngine, RealmEncoder, TransitionRegistry, TopologyGenerator, AxiomEvaluator, GenerationPlanner, ArtifactEmitter, Diagnostics) were not all read line-by-line under this contract; the acceptance, handoff, diagnostic, and containment specifications that define their obligations were read in full. Per-module contract files remain required reading for the Package 05 ASH glyph workstream when Sigil implements the state machine.",
+      "rc.1/rc.2-era corpus and schema files were read only as named by the rc.3 reconciliation; superseded clauses are not re-read in full.",
+      "The ASH-Model repository (the cosmological mathematics upstream of APS) is not part of this profile's required reading; its relationship is recorded in docs/ash-trace with archive-hash identity, and the recorded 8+1 versus full-9D source tension remains an unresolved owner-visible item rather than a contract input."
+    ]
+  },
+  "teachBack": {
+    "purpose": "The canonical APS repository is Sigil's semantic authority for ASH Pattern System behavior: the full F2^9 state space (512 states), the fixed 16-member [9,4,4] doubly-even codeword set with 32 orbits, XOR-by-codeword transitions, realm and orbit identity, the seven system-state classes, recovery/fallback/containment/SAFE_HALT semantics, the fifteen-field diagnostic schema with nine-field semantic identity, and the rule-ID taxonomy. Sigil's visible-glyph engine, status gateways, guardrails, and diagnostics must preserve these invariants wherever they model ASH behavior.",
+    "nonPurpose": "The canonical repository defines no programming language, operating system, runtime, build system, package, platform implementation, or emitted artifact tree, and it is not a runtime dependency of Sigil. It does not authorize importing ASH-Pattern-System source into the product, and it does not define numerology input policy, profile-to-state mapping, or personal identity semantics (those are product-owned decisions recorded under product policy). Field note: product.baselineCommit identifies the Sigil repository baseline for this record and is intentionally distinct from system.sourceCommit, which is the authority-container revision; the profile binding requirement applies to system fields versus profile fields, not to product.baselineCommit.",
+    "productLocalImplementation": "Sources/RFSigilAPSIntegration (SigilAPSIntegrationGateway status plus source-coverage evidence records plus SigilAPSIntegrationModule) is the product-owned APS integration module. tools/sigil_guardrails enforces the canonical 16-member codeword literal set and the diagnostic rule-ID taxonomy in product code. docs/ash-trace records the source-to-output trace, findings, verification cases, and conformance documentation. Any future ASH state machine in Sigil will be product-owned code conformant to the pinned rc.3 specification, with conformance evidence structured by the downstream handoff requirements.",
+    "permittedExternalDependencies": "none. The profile allowedRuntimeProducts and allowedDevelopmentTools are both empty; the canonical repository authorizes no package or native target dependency. Sigil consumes no APS code today.",
+    "externalOnlyMaterials": "All of flynn33/ASH-Pattern-System remains upstream: specs (core, algorithms, registries, interfaces, verification), canonical-data, conformance corpus, schemas, examples, handoff-templates, tools, governance, and completion evidence. Sigil cites the repository by pinned commit in product documentation and evidence records; repository URLs appear as citations only and never in dependency declarations.",
+    "templateAndExampleUse": "handoff-templates define the shape of downstream conformance evidence (module mapping document, verification report, diagnostics conformance report, materialization-boundary report, deviation log, acceptance judgment); Sigil uses them to structure docs/ash-trace and future conformance documentation. examples/ and the conformance/ corpus are verification material that establishes expected results; neither enters runtime targets.",
+    "conformanceProof": "docs/ash-trace/trace-ledger.json maps each product behavior to a supported, evidenced-substitution, or unresolved source basis with retrieval evidence; the strict guardrails validator enforces the 16-member codeword literal set and the rule-ID taxonomy in product code; scripts/verify-sigil-guardrails.sh plus swift test provide the local verification route; the realization validator verifies this contract and the absence of prohibited acquisition against the product checkout."
+  },
+  "sourceRoles": [
+    {
+      "source": "specs/core/**, specs/algorithms/**, specs/registries/**, specs/interfaces/**, specs/verification/**",
+      "role": "specification",
+      "meaning": "Canonical semantic specifications: state space, codeword set, transitions, classification, recoverability, containment and safe failure, diagnostic schema, rule-ID taxonomy, invariants, conformance categories, acceptance threshold.",
+      "permittedTreatment": "Read at the pinned commit; cite as semantic authority; implement product-owned code conformant to them.",
+      "prohibitedTreatment": "Copying spec files into the product tree; treating superseded rc.1/rc.2 clauses as binding where the rc.3 reconciliation names them superseded."
+    },
+    {
+      "source": "canonical-data/**",
+      "role": "specification",
+      "meaning": "Versioned canonical data: codewords, realms, orbits, transitions, fallback policy definitions, rule registry, artifact index.",
+      "permittedTreatment": "Read and cite by pinned commit and artifact identity; use as the expected-value basis for product tests.",
+      "prohibitedTreatment": "Vendoring canonical-data into the product repository; treating a single artifact hash as the whole baseline (artifacts must be rebound together per COMPATIBILITY.md)."
+    },
+    {
+      "source": "conformance/**",
+      "role": "test",
+      "meaning": "Versioned implementation-neutral conformance corpus (input vectors and expected outputs).",
+      "permittedTreatment": "Use as verification material for product-owned conformance tests.",
+      "prohibitedTreatment": "Shipping corpus material inside runtime targets."
+    },
+    {
+      "source": "schemas/**",
+      "role": "specification",
+      "meaning": "Versioned JSON Schema entry points for diagnostics, safety records, and product manifest.",
+      "permittedTreatment": "Read at the pinned commit; validate product-owned diagnostic serialization against them.",
+      "prohibitedTreatment": "Vendoring schemas as product configuration."
+    },
+    {
+      "source": "handoff-templates/**",
+      "role": "template",
+      "meaning": "Downstream delivery templates defining repository organization, deliverables, and conformance evidence requirements.",
+      "permittedTreatment": "Use to structure product conformance documentation.",
+      "prohibitedTreatment": "Treat template prose as canonical semantics."
+    },
+    {
+      "source": "examples/**",
+      "role": "example",
+      "meaning": "Valid and invalid schema examples.",
+      "permittedTreatment": "Use to verify product serialization understanding.",
+      "prohibitedTreatment": "Copying example records into product runtime data."
+    },
+    {
+      "source": "tools/product/**",
+      "role": "tool",
+      "meaning": "Standard-library product generation, validation, conformance, and archive tooling for the canonical repository.",
+      "permittedTreatment": "Read to understand product-artifact generation semantics.",
+      "prohibitedTreatment": "Adopting upstream tooling as product tooling."
+    },
+    {
+      "source": "governance/**, .github/**",
+      "role": "governance",
+      "meaning": "Repository rules, protected handoff and governance policy, math-change notes, and repository agent workflows.",
+      "permittedTreatment": "Read for the math-change and protected-surface rules.",
+      "prohibitedTreatment": "Importing governance material into the product runtime or repository configuration."
+    },
+    {
+      "source": "completion-evidence/**",
+      "role": "history",
+      "meaning": "Temporary completion evidence, protected-surface baseline, and verification reports of the canonical repository itself.",
+      "permittedTreatment": "Cite as historical evidence of the pinned release state.",
+      "prohibitedTreatment": "Treat as downstream conformance evidence for Sigil."
+    }
+  ],
+  "dependencyAllowlist": [],
+  "prohibitedAcquisition": {
+    "forbidWholeRepositoryCopies": true,
+    "forbidGitSubmodules": true,
+    "forbidVendorCopies": true,
+    "repositoryNames": [
+      "ASH-Pattern-System"
+    ],
+    "pathPatterns": [
+      "ASH-Pattern-System/**",
+      "Vendor/ASH-Pattern-System/**",
+      "ThirdParty/ASH-Pattern-System/**",
+      "External/ASH-Pattern-System/**"
+    ],
+    "targetNames": [],
+    "dependencyTokens": [
+      "ASH-Pattern-System.git",
+      "github.com/flynn33/ASH-Pattern-System\"",
+      "github.com/flynn33/ASH-Pattern-System'",
+      "github.com/flynn33/ASH-Pattern-System/",
+      "github.com/flynn33/ASH-Pattern-System?",
+      "github.com/flynn33/ASH-Pattern-System#",
+      "github.com/flynn33/ASH-Pattern-System ",
+      "github.com/flynn33/ASH-Pattern-System\t",
+      "github.com/flynn33/ASH-Pattern-System\n",
+      "github.com/flynn33/ASH-Pattern-System)",
+      "github.com/flynn33/ASH-Pattern-System]",
+      "github.com:flynn33/ASH-Pattern-System\"",
+      "github.com:flynn33/ASH-Pattern-System'",
+      "github.com:flynn33/ASH-Pattern-System/",
+      "github.com:flynn33/ASH-Pattern-System?",
+      "github.com:flynn33/ASH-Pattern-System#",
+      "github.com:flynn33/ASH-Pattern-System ",
+      "github.com:flynn33/ASH-Pattern-System\t",
+      "github.com:flynn33/ASH-Pattern-System\n",
+      "github.com:flynn33/ASH-Pattern-System)",
+      "github.com:flynn33/ASH-Pattern-System]"
+    ],
+    "fingerprintGroups": [
+      [
+        "canonical-data/**",
+        "conformance/**",
+        "specs/core/**",
+        "specs/algorithms/**"
+      ],
+      [
+        "schemas/**",
+        "handoff-templates/**",
+        "tools/product/**"
+      ]
+    ]
+  },
+  "productRealization": [
+    {
+      "pathPattern": "Sources/RFSigilAPSIntegration/**",
+      "kind": "module",
+      "responsibility": "Product-owned APS integration module: SigilAPSIntegrationGateway provides the APS status (source-coverage evidence records, conformance judgment, build status) and SigilAPSIntegrationModule is the Forsetti service module wrapper. Status is a recorded-evidence provider, not a live resolver; wording must not imply a working APS dependency.",
+      "sourceBasis": "Common downstream handoff requirements (module mapping, verification inputs, diagnostics integration) at 50d7e5ab; Phase 1 implementation plan module scope.",
+      "required": true,
+      "verification": "IntegrationGatewayTests; ForsettiModuleRegistrationTests; Package 01 R-06 corrects the dashboard wording that overstates the gateway capability."
+    },
+    {
+      "pathPattern": "tools/sigil_guardrails/**",
+      "kind": "guardrail",
+      "responsibility": "Product invariant guardrails: enforce the canonical 16-member ASH codeword literal set for 9-bit vector literals, the diagnostic rule-ID taxonomy pattern, attribution and ASH-misuse marker absence, Forsetti internal copy-path absence, and manifest field completeness across the product tree.",
+      "sourceBasis": "Implementation acceptance non-waivable requirements (full F2^9 processing, exact 16-codeword set, diagnostic schema and rule-ID taxonomy conformance) at 50d7e5ab.",
+      "required": true,
+      "verification": "scripts/verify-sigil-guardrails.sh (strict validator plus swift test plus xcodebuild -list); 17 guard unit tests in SigilTests."
+    },
+    {
+      "pathPattern": "docs/ash-trace/**",
+      "kind": "documentation",
+      "responsibility": "Conformance documentation: source-to-output map, trace ledger (row-by-row source basis), findings and smallest-change proposal, verification cases, and the handoff record for the ASH source trace.",
+      "sourceBasis": "Proof-of-conformance deliverables (module mapping, verification report, diagnostics conformance, materialization boundary, deviation log, acceptance judgment) per common-downstream-handoff-requirements.md at 50d7e5ab.",
+      "required": true,
+      "verification": "validate_trace.py structural check on the ledger; Package 01 R-01 through R-04 corrections with fresh evidence; realization validator path match."
+    },
+    {
+      "pathPattern": "docs/system-realization/aps-canonical-1.0.0-rc.3/contract.md",
+      "kind": "documentation",
+      "responsibility": "Human-readable companion contract recording identity, teach-back, dispositions, pin-binding rationale, and review state for this authority container.",
+      "sourceBasis": "Raven Forge System Realization Contract template (machine-readable companion requirement).",
+      "required": true,
+      "verification": "Realization validator contract mode against the pinned profile; independent review evidence in external evidence root."
+    }
+  ],
+  "composition": {
+    "pattern": "Forsetti deployment Pattern B (multi-module single application) at the product level; this contract's authority container (canonical APS) is a specification-only input with no runtime composition role. Sigil models ASH semantics in product-owned code and records conformance in product-owned documentation.",
+    "uiOwner": "RFSigilUIModule (unchanged by this contract; UI ownership is governed by the Forsetti contract).",
+    "modules": [
+      {
+        "name": "RFSigilAPSIntegration",
+        "type": "service module",
+        "responsibility": "Product-owned APS integration surface: recorded source-coverage status, conformance judgment, and Forsetti module wrapper."
+      },
+      {
+        "name": "RFSigilVisibleGlyph",
+        "type": "service module",
+        "responsibility": "Product-owned visible-glyph engine that derives canonical hidden geometry from ASH-derived state; must preserve canonical codeword and state-space invariants."
+      },
+      {
+        "name": "RFSigilDiagnostics",
+        "type": "service module",
+        "responsibility": "Product-owned local diagnostics that must emit schema-conformant records with taxonomy-valid rule IDs when modeling ASH diagnostics."
+      },
+      {
+        "name": "tools/sigil_guardrails",
+        "type": "guardrail tooling",
+        "responsibility": "Enforces canonical codeword literals and rule-ID taxonomy across the product tree."
+      }
+    ],
+    "dependencyDirection": "No dependency on the canonical repository exists or may be added; product modules that model ASH behavior depend only on RFSigilCoreModels and ForsettiCore, with canonical semantics implemented in product code.",
+    "registrationAndDiscovery": "Not applicable to this authority container; module registration is governed by the Forsetti contract.",
+    "communication": "Not applicable to this authority container; product diagnostics follow the canonical envelope and chain rules when modeling ASH conditions.",
+    "lifecycle": "Not applicable to this authority container; ASH lifecycle semantics (classification, recovery, fallback, containment, safe halt) apply to product-owned state machines when implemented in later packages.",
+    "persistence": "Local-only; no APS-owned persistence exists in Sigil; diagnostic persistence stays under RFSigilDiagnostics ownership.",
+    "capabilities": "Not applicable to this authority container.",
+    "runtimeRequirements": "None from this authority container; the canonical repository prescribes no runtime."
+  },
+  "templateTransformations": [
+    {
+      "source": "handoff-templates/common-downstream-handoff-requirements.md at 50d7e5ab",
+      "purpose": "Define the shape of downstream conformance evidence: module mapping, verification plan, diagnostics integration, materialization boundary, deviation tracking, and the six proof-of-conformance deliverables.",
+      "productOutputPatterns": [
+        "docs/ash-trace/**"
+      ],
+      "requiredAdaptation": "Map the six deliverables onto Sigil's existing documentation surfaces (trace ledger as module mapping plus source basis, verification cases and ledger rows as verification evidence, findings as deviation log, acceptance judgment stated in the handoff record); no new runtime artifacts.",
+      "prohibitedSampleTokens": [],
+      "verification": "Realization validator RFD-SR-111 output presence in delivery mode; validate_trace.py structural check on the ledger; review of the handoff record against the six deliverables."
+    }
+  ],
+  "governance": {
+    "applies": false,
+    "rationale": "Forsetti Agentic Edition governance is not selected for Sigil: the product repository declares no agentic-edition artifacts, project context, or task contracts, and this profile's governance mustApply flag is false. The canonical APS repository's own governance material governs the upstream repository, not Sigil product work. If Forsetti Agentic Edition governance is ever adopted, a separate governance contract (profile rfd.forsetti.agentic.1.1.0) must be added to the linked set before dependent work."
+  },
+  "preImplementationReview": {
+    "status": "accepted",
+    "reviewer": "Independent model-based pre-implementation review (separate route from preparation; LM Studio local service, model qwen/qwen3-coder-30b; not human acceptance)",
+    "reviewedAt": "2026-11-03 (UTC 2026-11-04T05:58:54Z)",
+    "evidence": "Round 1: /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/reviews/review-aps.json (issues individually verified against the product checkout and pinned sources; demonstrably false claims rejected with evidence; legitimate clarifications applied to the contract). Round 2: /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/reviews/review-aps-round2.json — VERDICT: accepted, ISSUES: none. Validator: /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/validator/contract-aps.json and contract-aps-round2.json (both pass, zero findings). Full prompts and responses preserved at /Volumes/DockCase/Projects/Sigil/Sigil-Autonomous-Phase-Packages-v1.0-evidence/phase01/reviews/."
+  },
+  "deliveryReviews": {
+    "sourceUnderstanding": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "instructionAccuracy": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "instructionAdherence": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "implementationConformance": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "dependencyImportProhibition": {
+      "status": "not_reviewed",
+      "evidence": "",
+      "limitationsOrCorrections": ""
+    },
+    "governanceConformance": {
+      "status": "not_applicable",
+      "evidence": "Governance not selected for this product (see governance.rationale).",
+      "limitationsOrCorrections": "Re-assess if Forsetti Agentic Edition governance is adopted."
+    }
+  }
+}
