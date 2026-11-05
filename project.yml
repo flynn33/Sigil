@@ -15,8 +15,8 @@ settings:
     CODE_SIGNING_REQUIRED: "NO"
     DEVELOPMENT_TEAM: ""
     PRODUCT_BUNDLE_IDENTIFIER: "com.ravenforge.sigil.$(PRODUCT_NAME:rfc1034identifier)"
-    MARKETING_VERSION: "PA.0.1.1"
-    CURRENT_PROJECT_VERSION: "2"
+    MARKETING_VERSION: "PA.0.2.0"
+    CURRENT_PROJECT_VERSION: "3"
 targets:
   RFSigilCoreModels:
     type: framework
@@ -72,6 +72,7 @@ targets:
       - Sources/RFSigilVisibleGlyph
     dependencies:
       - target: RFSigilCoreModels
+      - target: RFSigilDiagnostics
       - package: ForsettiFramework
         product: ForsettiCore
   RFSigilPipelinePlaceholder:

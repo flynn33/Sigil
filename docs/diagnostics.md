@@ -58,6 +58,8 @@ instrumented operation (`sigil.dashboard.status`) with success context
 duration); controlled failure capture is available to every future
 operation through the same contract.
 
+**Package 02 identity instrumentation:** `SigilVisibleGlyphService` takes the collector as an optional dependency (no-op when unset) and instruments the source-backed identity resolution as the tracked operation `sigil.identity.resolve` (expected behavior recorded at begin: deterministic, source-backed identity; fail-closed on missing identity-core signals). It records the ASH state/orbit classification decision (info), a fail-closed warning naming the missing identity-core signals when the state is unavailable, an info event for the resolved field states, and a warning when a supplied weekday differs from the civil-date-derived weekday. None of these events records personal raw values; context carries only the non-sensitive decisions and counts, and every value is redacted before persistence under the same rules as the dashboard operation.
+
 **Release replacement status (source-level):** planned and compositionally
 wired now; the source-level exclusion of the development implementation from
 distribution artifacts is completed and inspected in **Package 07** (delivery
@@ -178,6 +180,6 @@ behavior against a real controlled failure:
 
 Recorded actual results (2026-11-04, macOS arm64, Xcode 27.0/Swift 6.4
 toolchain, SPM debug build): `swift test --filter DiagnosticCaptureTests`
-9/9 pass, exit 0; full `swift test` 33 tests, 0 failures, exit 0. The
+9/9 pass, exit 0; full `swift test` 48 tests, 0 failures, exit 0 (the Package 02 identity pipeline added the 15 `IdentityPipelineTests` to the 33-test Package 01 suite). The
 controlled-failure demonstration is the focused test run above (synthetic
 fixture only; no real captures are committed).

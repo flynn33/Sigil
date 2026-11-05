@@ -1,7 +1,7 @@
 # Sigil — Product Roadmap
 
 **Planning revision:** 2026-11-04
-**Observed product baseline:** `PA.0.1.1` (build 2), Phase 1 foundation with the Package 01 remediation and diagnostic foundation
+**Observed product baseline:** `PA.0.2.0` (build 3), Phase 1 foundation with the Package 01 remediation/diagnostic foundation and the Package 02 identity pipeline
 **Inspected source:** `main` at `bc277ea05239398d58e70b76ad318de2765148d3` (the 2026-11-02 ASH-TRACE publication; the 2026-10-10 revision inspected `19a0e2b9e9ad6fbaec06b62d2e084f444e92e84b`)
 **Target product:** Native iOS Sigil application
 **Current product plan:** [Project plan](project-plan.md)
@@ -22,10 +22,10 @@ This revision reconciles the August 2 roadmap with the current project direction
 | --- | --- |
 | Runtime | Existing Forsetti-backed app-owned assembly and module catalog; one SwiftUI UI module and seven service modules. |
 | Visible glyph | Bounded local geometry and SVG service, quality/collision checks, digest linkage, and separate Flare presentation. |
-| ASH integration | Status/evidence gateway exists; mathematical identity resolution through that gateway is not established by its status output. |
-| Generation path | `SigilVisibleGlyphService.makeHiddenGeometry(for:)` constructs local digest-derived state. The approved trace must establish each required mathematical relationship before changing this formula. |
-| Full workflow | Input workflow, complete numerology/ASH resolution, naming, lore, PersonalCodex, encrypted persistence, editor, and final exports are not completed by Phase 1. |
-| Evidence | Stored evidence reports 22 Swift tests and simulator results. These are inherited results, not fresh verification of this planning revision or ASH conformance. |
+| ASH integration | Mathematical identity resolution is established in the visible-glyph service (source-backed numerology + nine-bit ASH state/orbit/classification through the APS canonical contract); the status/evidence gateway remains a separate reporting surface. |
+| Generation path | `SigilVisibleGlyphService.makeHiddenGeometry(for:)` now resolves the source-backed ASH state (standard numerology, nine-bit state/orbit/classification, wolf balance) through the governing contracts; the final mathematical glyph materialization (Package 05) is pending. |
+| Full workflow | The standard numerology and ASH/APS state resolution are delivered (Package 02); the input workflow UI, naming, lore, PersonalCodex, encrypted persistence, editor, and final exports are not yet completed. |
+| Evidence | Fresh 2026-11-04 verification reports 48 Swift tests and 48 iOS-simulator tests (0 failures) and strict guardrails; the older 22-test figure is the inherited Phase 1 baseline. |
 | Native targets | iOS 17+ app; Swift package declares macOS 14+ support. This does not add a separate macOS consumer-product milestone. |
 
 Do not restart the app, relabel gateway status as a completed resolver, remove working internal geometry because it is called “hidden,” or declare encrypted storage implemented because readiness is modeled.
@@ -56,7 +56,7 @@ Start at `Sources/RFSigilVisibleGlyph/SigilVisibleGlyphService.swift::makeHidden
 
 ### IDENTITY-PIPELINE — Inputs, numerology, and ASH/APS realization
 
-**State:** Remaining product work; approved by the 2026-11-03 decision and executed as Package 02 of the authorized sequence. Package 01 (complete, 2026-11-04) delivered the bounded identity/input treatment specification ([design/identity-input-treatment.md](design/identity-input-treatment.md)) and the required system realization contracts with independent acceptance ([system-realization/](system-realization/README.md)).
+**State:** Delivered 2026-11-04 at `PA.0.2.0` / build 3 (Package 02 of the authorized sequence). Package 01 (complete, 2026-11-04) delivered the bounded identity/input treatment specification ([design/identity-input-treatment.md](design/identity-input-treatment.md)) and the required system realization contracts with independent acceptance ([system-realization/](system-realization/README.md)). Package 02 implemented the retained input model and local validation, the explicit source-backed standard numerology bridge, and the ASH state/orbit/classification resolution through the governing contracts (finite nine-bit `F2^9` state, the exact 16-member `[9,4,4]` codeword set, 32 orbits, the named `sigil-profile-adapter.v1` seam, the `b6 <-> b7` coordinate involution, and wolf balance). The final mathematical glyph materialization remains in ASH-GLYPH (Package 05) and the PersonalCodex in CANON-AND-PersonalCodex (Package 04).
 
 Implement the retained input model and local validation; make the standard numerology bridge explicit and source-backed; resolve the applicable ASH state/orbit/celestial-class basis through the governing contracts. Preserve all supported input signals rather than replacing them with profile-hash state selection. Reuse and extend the existing product-owned modules where the trace supports that choice.
 
@@ -122,4 +122,4 @@ The exact mathematical mapping, smallest code change, test expectations, and any
 
 The owner has designated this repository as the authoritative Project Record (recorded in the [project plan](project-plan.md), Source continuity); the [ASH-TRACE handoff](handoffs/ash-trace.md) is the current continuation record for the completed trace. The development-policy binding distinction (execution-time 0.8.0 snapshot versus the package intake/reference pin) is preserved in the project plan. The policy version, the Phase 1 package revision, this planning date, and the application version remain different identities; none substitutes for another.
 
-**Next engineering action:** Package 02 of the authorized seven-package sequence (identity pipeline). Package 01 (remediation, source alignment, and diagnostic foundation) completed 2026-11-04 at `PA.0.1.1` / build 2 with fresh SPM and iOS-simulator verification: trace corrections R-01 through R-04, system realization contracts with independent model-based acceptance, the identity/input treatment specification (product-owned design decisions with the one genuine upstream framing conflict isolated and visible), the R-05 bounded diagnostic capture-and-export foundation, and the R-06 dashboard status correction. The additional embedding requirement remains removed.
+**Next engineering action:** Package 03 of the authorized seven-package sequence (artifact health and local storage). Package 02 (identity pipeline) completed 2026-11-04 at `PA.0.2.0` / build 3 with fresh SwiftPM and iOS-simulator verification (48 tests, 0 failures; strict guardrails, version and attribution guards, and 17 guard unit tests passed): the retained input model and local validation, the explicit source-backed standard numerology bridge (full-date life path, expression/soul-urge/personality, master-number preservation with reduction provenance), and the source-backed ASH state/orbit/classification resolution (finite nine-bit `F2^9` state, the exact 16-member `[9,4,4]` codeword set, 32 orbits, the named `sigil-profile-adapter.v1` seam, the `b6 <-> b7` coordinate involution, and wolf balance). The final mathematical glyph materialization remains in ASH-GLYPH (Package 05). The additional embedding requirement remains removed.

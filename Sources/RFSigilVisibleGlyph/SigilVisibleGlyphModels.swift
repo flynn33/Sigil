@@ -11,6 +11,15 @@ public struct SigilProfileInput: Codable, Equatable, Hashable, Sendable {
     public let eyes: String
     public let hair: String
     public let heritage: [String]
+    // Package 02 canonical additions (defaulted so retained inputs and existing
+    // fixtures remain source-compatible). firstName/lastName are separate
+    // canonical fields (§5.2); when absent they are derived from `name` in the
+    // owning boundary. These are canonical user-confirmed data, not UI drafts.
+    public let firstName: String?
+    public let lastName: String?
+    public let birthWeekday: String?
+    public let parentalOrder: [SigilParentalBirthOrder]
+    public let ancestralSurnames: [String]
 
     public init(
         id: String,
@@ -21,7 +30,12 @@ public struct SigilProfileInput: Codable, Equatable, Hashable, Sendable {
         birthOrder: String,
         eyes: String,
         hair: String,
-        heritage: [String]
+        heritage: [String],
+        firstName: String? = nil,
+        lastName: String? = nil,
+        birthWeekday: String? = nil,
+        parentalOrder: [SigilParentalBirthOrder] = [],
+        ancestralSurnames: [String] = []
     ) {
         self.id = id
         self.name = name
@@ -32,6 +46,11 @@ public struct SigilProfileInput: Codable, Equatable, Hashable, Sendable {
         self.eyes = eyes
         self.hair = hair
         self.heritage = heritage
+        self.firstName = firstName
+        self.lastName = lastName
+        self.birthWeekday = birthWeekday
+        self.parentalOrder = parentalOrder
+        self.ancestralSurnames = ancestralSurnames
     }
 }
 
@@ -44,6 +63,10 @@ public struct NumerologyVector: Codable, Equatable, Hashable, Sendable {
     public let personalityRoot: Int
     public let birthOrderOrdinal: Int
     public let birthOrderTotal: Int
+    // Package 02 provenance: derived civil-calendar weekday (1=Mon...7=Sun) and
+    // the intermediate reduction chains so each root is explainable.
+    public let weekday: Int
+    public let reductionProvenance: [String: [Int]]
 
     public init(
         lifePathRoot: Int,
@@ -53,7 +76,9 @@ public struct NumerologyVector: Codable, Equatable, Hashable, Sendable {
         soulUrgeRoot: Int,
         personalityRoot: Int,
         birthOrderOrdinal: Int,
-        birthOrderTotal: Int
+        birthOrderTotal: Int,
+        weekday: Int = 0,
+        reductionProvenance: [String: [Int]] = [:]
     ) {
         self.lifePathRoot = lifePathRoot
         self.preservedMasterNumbers = preservedMasterNumbers
@@ -63,18 +88,8 @@ public struct NumerologyVector: Codable, Equatable, Hashable, Sendable {
         self.personalityRoot = personalityRoot
         self.birthOrderOrdinal = birthOrderOrdinal
         self.birthOrderTotal = birthOrderTotal
-    }
-}
-
-public struct SigilStabilizedState: Codable, Equatable, Hashable, Sendable {
-    public let stateDigest: String
-    public let dominantPlaneId: Int
-    public let stabilizerClass: String
-
-    public init(stateDigest: String, dominantPlaneId: Int, stabilizerClass: String) {
-        self.stateDigest = stateDigest
-        self.dominantPlaneId = dominantPlaneId
-        self.stabilizerClass = stabilizerClass
+        self.weekday = weekday
+        self.reductionProvenance = reductionProvenance
     }
 }
 
@@ -138,9 +153,10 @@ public struct SigilGeometryEdge: Codable, Equatable, Hashable, Sendable {
 
 public struct HiddenCanonicalGeometry: Codable, Equatable, Hashable, Sendable {
     public let schemaVersion: String
+    public let algorithmIdentity: String
     public let profileHash: String
     public let numerologyVector: NumerologyVector
-    public let ashState: SigilStabilizedState
+    public let ashState: SigilAshStateRecord
     public let planeAttunementVector: [Double]
     public let wolfBalance: WolfBalance
     public let ancestryWeights: [AncestryWeight]
@@ -152,9 +168,10 @@ public struct HiddenCanonicalGeometry: Codable, Equatable, Hashable, Sendable {
 
     public init(
         schemaVersion: String = "rf.hidden_geometry.v1",
+        algorithmIdentity: String = "sigil-identity-pipeline.v1",
         profileHash: String,
         numerologyVector: NumerologyVector,
-        ashState: SigilStabilizedState,
+        ashState: SigilAshStateRecord,
         planeAttunementVector: [Double],
         wolfBalance: WolfBalance,
         ancestryWeights: [AncestryWeight],
@@ -165,6 +182,7 @@ public struct HiddenCanonicalGeometry: Codable, Equatable, Hashable, Sendable {
         canonicalGeometryDigest: String
     ) {
         self.schemaVersion = schemaVersion
+        self.algorithmIdentity = algorithmIdentity
         self.profileHash = profileHash
         self.numerologyVector = numerologyVector
         self.ashState = ashState
@@ -396,4 +414,8 @@ public struct SigilVisibleGlyphArtifact: Codable, Equatable, Hashable, Sendable 
 
 public enum SigilVisibleGlyphError: Error, Equatable, Sendable {
     case qualityUnsatisfied
+    /// Fail-closed: one or more identity-core signals were unavailable, so the
+    /// ASH state record cannot be computed without a fabricated value. The array
+    /// names the missing fields.
+    case identityUnavailable([String])
 }
