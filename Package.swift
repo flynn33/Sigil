@@ -47,7 +47,7 @@ let package = Package(
         ),
         .target(
             name: "RFSigilVisibleGlyph",
-            dependencies: ["RFSigilCoreModels", forsettiDependency]
+            dependencies: ["RFSigilCoreModels", "RFSigilDiagnostics", forsettiDependency]
         ),
         .target(
             name: "RFSigilPipelinePlaceholder",
