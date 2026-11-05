@@ -8,7 +8,7 @@ This is not the final identity pipeline. It is a local deterministic artifact se
 
 ## Mathematical Direction And Removed Payload Requirement
 
-The [current project plan](project-plan.md) requires source-backed ASH cosmological mathematics to determine canonical form. `makeHiddenGeometry(for:)` currently derives local values using profile digests; naming its result a stabilized state does not establish the final ASH resolver. The approved source trace must map these outputs to governing mathematics, canonical data, and applicable binary artifacts before a formula change.
+The [current project plan](project-plan.md) requires source-backed ASH cosmological mathematics to determine canonical form. `makeHiddenGeometry(for:)` now resolves the source-backed ASH state — standard numerology, the finite nine-bit `F2^9` state in the APS native convention, orbit and codeword classification, and wolf balance — under `algorithmIdentity = sigil-identity-pipeline.v1`; the final mathematical glyph materialization (Package 05) is not yet established.
 
 An additional personal-data carrier, encoder/decoder, or payload-recovery layer is [no longer required](decisions/2026-10-10-no-personal-data-embedding.md). The “payload” descriptions below mean structured in-process values, not a requirement to encode a personal record into a glyph. `HiddenCanonicalGeometry`, digest linkage, local artifact validation, mathematical transforms, and Flare isolation are not removed solely by this decision. No application code or test removal is implied by this documentation change.
 
@@ -23,6 +23,10 @@ An additional personal-data carrier, encoder/decoder, or payload-recovery layer 
 | `SigilVisibleGlyphArtifact` | Combined hidden geometry, family key, visible sigil, SVG, and validation decision |
 | `SigilVisibleQualityGate` | Structural, spacing, silhouette, crossing, and segment checks |
 | `SigilFlarePresentation` | Presentation-only style sidecar that preserves canonical path data |
+| `SigilNumerologyRecord` | Standard numerology roots (life path, expression, soul urge, personality, weekday) with master-number preservation and reduction provenance |
+| `SigilAshStateRecord` | Source-backed nine-bit ASH state, orbit size, codeword/orbit-member classification, dominant plane, wolf balance, and algorithm identity |
+| `SigilProfileAdapterV1` | Named, versioned profile-to-state seam (one parity rule per coordinate; fail-closed on missing identity-core signals) |
+| `SigilCoordinateAdapter` | `b6 <-> b7` coordinate seam (involution over the 512 states; commutes with XOR-by-codeword) |
 
 ## Artifact Flow
 
@@ -58,8 +62,8 @@ flowchart TB
 Hidden geometry is derived locally and contains:
 
 - profile hash
-- numerology vector
-- stabilized state digest
+- numerology vector (roots, weekday, and reduction provenance)
+- source-backed ASH state record (`sigil-ash-state.v1`: packed nine-bit state, bits, orbit size, codeword/orbit-member classification, dominant plane, wolf balance)
 - plane attunement vector
 - wolf balance
 - ancestry weights
@@ -69,7 +73,7 @@ Hidden geometry is derived locally and contains:
 - semantic roles
 - canonical geometry digest
 
-The visible artifact references hidden geometry by digest. Hidden geometry is not encoded as visible path IDs.
+The hidden geometry carries `algorithmIdentity = sigil-identity-pipeline.v1`; the embedded state record carries `sigil-ash-state.v1`. No digest bytes substitute for the semantic state. The visible artifact references hidden geometry by digest, and hidden geometry is not encoded as visible path IDs. The visible path synthesis still uses the existing deterministic bounded renderer (temporary; Package 05 replaces it with canonical branch geometry).
 
 ## Family Key Derivation
 
@@ -160,12 +164,12 @@ This keeps canonical identity and presentation style separate.
 
 | Fixture | Signature prefix | Path signature prefix | Segments | Major crossings | Candidate |
 | --- | --- | --- | ---: | ---: | ---: |
-| `golden_mortal_a` | `d1c449480681` | `325751febea0` | 11 | 2 | 0 |
-| `golden_mortal_b` | `a30f0637d20e` | `0fa74b57db6f` | 12 | 3 | 0 |
-| `golden_mortal_c` | `fe6ad030656d` | `3a3164751a4f` | 12 | 3 | 0 |
-| `golden_mortal_d` | `1f83673aa6ff` | `17ea3da2c04c` | 12 | 2 | 0 |
+| `golden_mortal_a` | `e38d4ad28741` | `6dbb7aa5162e` | 13 | 2 | 0 |
+| `golden_mortal_b` | `518e517d7aff` | `0d976a83a569` | 14 | 3 | 0 |
+| `golden_mortal_c` | `60bfa9395601` | `d0198f4e3a19` | 13 | 3 | 0 |
+| `golden_mortal_d` | `441d655e515a` | `cf2491ac4bc3` | 11 | 2 | 0 |
 
-The fixture SVGs and snapshot summary live in `ProjectEvidence/visible-glyph-snapshots/`.
+The fixture SVGs and snapshot summary live in `ProjectEvidence/visible-glyph-snapshots/`. All four golden-profile states are orbit members (none is a codeword); their packed nine-bit ASH states are 108, 435, 183, and 249 respectively (a = balanced wolf, b and c = dark-dominant, d = white-dominant).
 
 ## Test Coverage
 
@@ -179,3 +183,5 @@ The fixture SVGs and snapshot summary live in `ProjectEvidence/visible-glyph-sna
 - rejection of scribble-like output
 - deterministic collision resolution
 - fail-closed validation for digest mismatch
+
+`IdentityPipelineTests` (Package 02) covers: independently computed spec fixtures, letter normalization and numerology roots, weekday reduction, master-number preservation, wolf categories, fail-closed input classes, the 512/16 codeword set and coordinate-adapter invariants, and the ASH state record.
