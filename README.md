@@ -2,11 +2,11 @@
 
 Sigil is a native Apple-platform project in pre-alpha. The current implementation is the Phase 1 foundation: a Forsetti-backed modular runtime, one SwiftUI dashboard module, source-authority gateways, local-only diagnostics, privacy guardrails, and a bounded deterministic visible-glyph service.
 
-The repository is intentionally foundation-first. It exposes verified status surfaces and local artifact generation without implementing the full identity pipeline, lore generation, export bundles, analytics, backend upload, or personal-data network flows.
+The repository is intentionally foundation-first. It exposes verified status surfaces, the standard numerology and ASH/APS identity resolution, and local artifact generation; the final ASH glyph materialization, lore generation, export bundles, analytics, backend upload, and personal-data network flows remain out of scope.
 
 ## Product Direction And Roadmap
 
-The [current project plan](docs/project-plan.md) and [product roadmap](docs/roadmap.md) govern planned work. Sigil's canonical form must derive from ASH cosmological mathematics; the existing bounded local generator is not evidence that the final ASH identity pipeline is complete.
+The [current project plan](docs/project-plan.md) and [product roadmap](docs/roadmap.md) govern planned work. Sigil's canonical form must derive from ASH cosmological mathematics. Package 02 delivered the standard numerology bridge and the source-backed ASH/APS state/orbit/classification resolution; the final mathematical glyph materialization (Package 05) is not yet complete, and the current visible renderer is a temporary stand-in.
 
 The owner has [removed the additional personal-data embedding requirement](docs/decisions/2026-10-10-no-personal-data-embedding.md). The Sigil need not carry a recoverable personal record. Personal input, internal mathematical geometry, PersonalCodex, deterministic generation, integrity/safety checks, and canonical/Flare separation remain in scope. Do not reintroduce the removed feature as a mandatory hidden payload or sidecar.
 
@@ -16,12 +16,13 @@ The approved read-only source trace from `SigilVisibleGlyphService.makeHiddenGeo
 
 | Area | State |
 | --- | --- |
-| Version | `PA.0.1.1` (build 2) |
+| Version | `PA.0.2.0` (build 3) |
 | Stage | Pre-alpha |
 | Primary platform | iOS 17+ |
 | Package validation | SwiftPM on macOS 14+ |
 | Runtime modules | 1 SwiftUI UI module, 7 service modules |
 | Visible glyphs | Deterministic local service with quality gates and digest validation |
+| Identity pipeline | Standard numerology and ASH/APS nine-bit state/orbit/classification resolution implemented; final ASH glyph materialization pending (Package 05) |
 | Privacy posture | Local-only diagnostics, no analytics SDK, no backend endpoint |
 | Diagnostics | Bounded local capture with redaction before persistence, correlated failure incidents, and a paired detailed JSON/Markdown export ([docs](docs/diagnostics.md)) |
 | Release governance | Version, changelog, attribution, and project guardrails |
