@@ -35,6 +35,9 @@ python3 -m unittest Tests/VersionGuardTests/test_version_guard.py
 | `VisibleGlyphGenerationTests` | Deterministic visible-glyph artifacts, quality gates, collision handling, validation |
 | `DiagnosticCaptureTests` | Diagnostic success/failure correlation, paired export identity matching, nested synthetic-secret redaction, concurrent capture/export, queue limits, disk/export failure, unavailable source identity, release-profile scoping, instrumented runtime operation |
 | `IdentityPipelineTests` | Independently computed spec fixtures, letter normalization and numerology roots, weekday reduction, master-number preservation, wolf categories, fail-closed input classes, the 512/16 codeword and coordinate-adapter invariants, and the ASH state record |
+| `ArtifactHealthTests` | Aeostara base-lifecycle artifact-health validation: pass on a healthy artifact, fail-closed on corrupt JSON / unknown schema / missing required data / invalid topology / non-recoverable failure, non-destructive in-memory recovery of derivable authoritative digests only, monotonic containment, and agreement with the existing visible-glyph artifact validation |
+| `SecureStorageTests` | Local-only encrypted persistence: AES-GCM round-trip, no-plaintext-leak, keys-not-beside-ciphertext, atomic update, failed-replacement preserves last-verified, wrong/missing key, tampered ciphertext, corrupt record, unsupported version, not found, list/delete, concurrent writes, and storage-identity-is-independent-of-mathematical-identity |
+| `SecurePersistenceIntegrationTests` | Runtime integration: a failed save is reported as a `.writeFailed` failure and not counted as a record, a save/load round-trip through the service, the `secure-persistence` dashboard card is present and not a sensitive path, and a capturing collector proves no record payload, key material, storage path, or identifier leaks on the success and failure paths |
 | Guardrail Python suites | Attribution, version, changelog, source, and policy checks |
 
 ## GitHub Actions
@@ -133,3 +136,13 @@ Fresh 2026-11-04 run (Package 02 identity pipeline closeout, at `main`):
 - Version-alignment build verification after the `PA.0.2.0` / build 3 update: the built `SigilApp.app/Info.plist` reports `CFBundleShortVersionString = PA.0.2.0`, `CFBundleVersion = 3`, bundle identifier `com.ravenforge.sigil`.
 - A previously missing `RFSigilDiagnostics` dependency edge on the `RFSigilVisibleGlyph` Xcode target was added to `project.yml` (the SwiftPM target already carried it); `xcodegen` regenerated `Sigil.xcodeproj`.
 - Raw build/test logs and the result bundle are stored in the owner-external evidence root (`phase02/xcodebuild/`).
+
+Fresh 2026-11-05 run (Package 03 artifact-health and encrypted local persistence closeout, on the phase branch):
+
+- Swift build (`swift build`, macOS arm64): `BUILD SUCCEEDED`, 0 errors, 0 warnings in Package 03 sources.
+- Swift package tests (`swift test`, macOS arm64): 76 tests, 0 failures, 0 unexpected (48 from Package 02 plus 10 `ArtifactHealthTests`, 14 `SecureStorageTests`, and 4 `SecurePersistenceIntegrationTests`).
+- Strict project guardrail wrapper (`bash scripts/verify-sigil-guardrails.sh`): strict validator, `swift test --parallel` 76/0, and `xcodebuild -list` all passed; `git diff --check` clean. `xcodebuild -list` confirms the regenerated project is well-formed and target membership is complete.
+- The full iOS-simulator `xcodebuild` build/test was not re-run in this session; this is recorded honestly rather than claimed as a pass.
+- Device/simulator keychain data-protection behavior remains an owner qualification: the host tests exercise the native crypto, storage, and atomic-replacement logic with an injected key, not the OS keychain protection.
+- `xcodegen` (2.46.0) regenerated `Sigil.xcodeproj`: the five new Package 03 source files were added to their framework targets and the app marketing/build version aligned to `PA.0.3.0` / build 4.
+- Raw build/test output and the closeout receipt are stored in the owner-external evidence root (`phase03/closeout/`).

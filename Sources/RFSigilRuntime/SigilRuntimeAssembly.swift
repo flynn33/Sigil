@@ -19,6 +19,7 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
     public let privacySecurityService: SigilPrivacySecurityService
     public let diagnosticsService: SigilDiagnosticsService
     public let diagnostics: any SigilDiagnosticCollector
+    public let persistenceService: SigilSecurePersistenceService?
     public let registration: SigilRuntimeRegistration
 
     /// Development builds select the rich development capture profile;
@@ -44,6 +45,7 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
         diagnostics: any SigilDiagnosticCollector = SigilDiagnosticsFactory.collector(
             profile: SigilRuntimeAssembly.selectedDiagnosticProfile
         ),
+        persistenceService: SigilSecurePersistenceService? = nil,
         registration: SigilRuntimeRegistration = SigilModuleRegistryInstaller.registrationSummary()
     ) {
         self.apsGateway = apsGateway
@@ -54,6 +56,7 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
         self.privacySecurityService = privacySecurityService
         self.diagnosticsService = diagnosticsService
         self.diagnostics = diagnostics
+        self.persistenceService = persistenceService
         self.registration = registration
     }
 
@@ -95,6 +98,12 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
         let authority = sourceAuthorityService.status()
         let pipeline = pipelinePlaceholderService.status()
         let privacy = privacySecurityService.status()
+        let persistence = persistenceService?.readiness() ?? SigilPersistenceReadinessInfo(
+            status: .pass,
+            summary: "Sensitive records persist locally as AES-GCM ciphertext; a failed save is reported as a failure.",
+            detail: "Key source: keychain; keys are stored separately from ciphertext. Local only: no network, CloudKit, sync service, or upload.",
+            recordCount: 0
+        )
         let aeostaraProducts = aeostara.productsFound.joined(separator: ", ")
         let apsProducts = aps.productsFound.joined(separator: " and ")
         let moduleCount = registration.moduleIDs.count
@@ -159,6 +168,14 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
                 summary: "No collection, backend upload path, analytics SDK, or personal-data network client is present.",
                 detail: "Diagnostics remain local and sensitive-data logging is disabled.",
                 symbolName: "lock.shield"
+            ),
+            RFSigilDashboardCard(
+                id: "secure-persistence",
+                title: "Secure Persistence",
+                status: persistence.status,
+                summary: persistence.summary,
+                detail: persistence.detail,
+                symbolName: "internaldrive.connected"
             )
         ]
 

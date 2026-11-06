@@ -6,7 +6,11 @@ public protocol RFSigilPrivacySecurityProviding: Sendable {
 }
 
 public struct SigilPrivacySecurityService: RFSigilPrivacySecurityProviding {
-    public init() {}
+    public let secureStorageReadiness: SecureStorageReadinessStatus
+
+    public init(secureStorageReadiness: SecureStorageReadinessStatus = .encryptedAtRestNativeKeychain) {
+        self.secureStorageReadiness = secureStorageReadiness
+    }
 
     public func status() -> PrivacyPostureStatus {
         PrivacyPostureStatus(
@@ -17,7 +21,7 @@ public struct SigilPrivacySecurityService: RFSigilPrivacySecurityProviding {
                 hasAnalyticsSDK: false,
                 plannedLaterExternalService: "Apple Maps/geocoding later for birth-location lookup only"
             ),
-            secureStorageReadiness: .modeledNotPersistingSensitiveData,
+            secureStorageReadiness: secureStorageReadiness,
             diagnosticsLocalOnly: true,
             userSensitiveDataLogged: false,
             evidence: [
@@ -28,9 +32,15 @@ public struct SigilPrivacySecurityService: RFSigilPrivacySecurityProviding {
                     status: .pass
                 ),
                 RFSigilEvidenceRecord(
-                    id: "privacy-secure-storage-readiness",
+                    id: "privacy-secure-storage-implemented",
                     source: "RFSigilPrivacySecurity",
-                    summary: "Encrypted-at-rest readiness is modeled without storing sensitive data.",
+                    summary: "Sensitive records persist only through local AES-GCM encryption with keychain-backed keys; keys are stored separately from ciphertext and never beside it. No CloudKit, sync service, or background upload.",
+                    status: .pass
+                ),
+                RFSigilEvidenceRecord(
+                    id: "privacy-atomic-local-persistence",
+                    source: "RFSigilSecureRecordStore",
+                    summary: "Writes are atomic (temp file + replace); a failed or interrupted write preserves the last-verified record. Stored bytes are ciphertext only.",
                     status: .pass
                 )
             ]

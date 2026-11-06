@@ -11,6 +11,9 @@ final class PrivacySecurityTests: XCTestCase {
         XCTAssertFalse(status.networkDenyStatus.hasBackendEndpoint)
         XCTAssertFalse(status.networkDenyStatus.hasAnalyticsSDK)
         XCTAssertTrue(status.diagnosticsLocalOnly)
-        XCTAssertEqual(status.secureStorageReadiness, .modeledNotPersistingSensitiveData)
+        XCTAssertFalse(status.userSensitiveDataLogged)
+        // Real, implemented encrypted-at-rest persistence (supersedes the
+        // modeled-only Phase 1 posture). Local-only invariants preserved.
+        XCTAssertEqual(status.secureStorageReadiness, .encryptedAtRestNativeKeychain)
     }
 }
