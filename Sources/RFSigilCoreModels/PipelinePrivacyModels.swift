@@ -75,7 +75,12 @@ public struct NetworkDenyStatus: Codable, Hashable, Sendable {
 }
 
 public enum SecureStorageReadinessStatus: String, Codable, Hashable, Sendable {
+    /// Superseded Phase 1 posture: encryption readiness was modeled without
+    /// persisting sensitive data. Retained for historical records.
     case modeledNotPersistingSensitiveData = "MODELED_NOT_PERSISTING_SENSITIVE_DATA"
+    /// Real, implemented encrypted-at-rest persistence: native AES-GCM with
+    /// keychain-backed keys, local-only, no sync/upload.
+    case encryptedAtRestNativeKeychain = "ENCRYPTED_AT_REST_NATIVE_KEYCHAIN"
 }
 
 public struct PrivacyPostureStatus: Codable, Hashable, Sendable {
