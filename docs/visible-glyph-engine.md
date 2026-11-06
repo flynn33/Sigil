@@ -8,7 +8,7 @@ This is not the final identity pipeline. It is a local deterministic artifact se
 
 ## Mathematical Direction And Removed Payload Requirement
 
-The [current project plan](project-plan.md) requires source-backed ASH cosmological mathematics to determine canonical form. `makeHiddenGeometry(for:)` now resolves the source-backed ASH state — standard numerology, the finite nine-bit `F2^9` state in the APS native convention, orbit and codeword classification, and wolf balance — under `algorithmIdentity = sigil-identity-pipeline.v1`; the final mathematical glyph materialization (Package 05) is not yet established.
+The [current project plan](project-plan.md) requires source-backed ASH cosmological mathematics to determine canonical form. `makeHiddenGeometry(for:)` resolves the source-backed ASH state — standard numerology, the finite nine-bit `F2^9` state in the APS native convention, orbit and codeword classification, and wolf balance — under `algorithmIdentity = sigil-identity-pipeline.v1`. The final mathematical glyph materialization (Package 05) is now established: the visible vector paths are a deterministic branch fan projected from the canonical ASH branch topology, selected by the profile's decoded ASH message (see [design/ash-derived-glyph.md](design/ash-derived-glyph.md)).
 
 An additional personal-data carrier, encoder/decoder, or payload-recovery layer is [no longer required](decisions/2026-10-10-no-personal-data-embedding.md). The “payload” descriptions below mean structured in-process values, not a requirement to encode a personal record into a glyph. `HiddenCanonicalGeometry`, digest linkage, local artifact validation, mathematical transforms, and Flare isolation are not removed solely by this decision. No application code or test removal is implied by this documentation change.
 
@@ -27,6 +27,9 @@ An additional personal-data carrier, encoder/decoder, or payload-recovery layer 
 | `SigilAshStateRecord` | Source-backed nine-bit ASH state, orbit size, codeword/orbit-member classification, dominant plane, wolf balance, and algorithm identity |
 | `SigilProfileAdapterV1` | Named, versioned profile-to-state seam (one parity rule per coordinate; fail-closed on missing identity-core signals) |
 | `SigilCoordinateAdapter` | `b6 <-> b7` coordinate seam (involution over the 512 states; commutes with XOR-by-codeword) |
+| `SigilBranchTopology` / `SigilBranchNode` | The canonical ASH branch tree (121 nodes / 81 leaves, depth 0-4 full ternary tree); each node carries its 9-bit ASH codeword state, 4-bit message (the codeword index), and 2D segment endpoints |
+| `SigilBranchTopologyLoader` | Integrity-verified, fail-closed loader: re-hashes the shipped resource against the manifest and structurally validates the tree (counts, single root, parent links, finite coordinates, `state == codeword`, 16 messages/codewords) |
+| `SigilBranchSource` / `SigilBranchManifest` | Product-owned provenance for the branch topology (source SHA-256, pinned source-archive SHA-256, mode, role) |
 
 ## Artifact Flow
 
@@ -35,8 +38,9 @@ flowchart TB
     Input["SigilProfileInput"]
     Digest["Profile digest"]
     Hidden["HiddenCanonicalGeometry"]
-    Family["SigilFamilyKey"]
-    Candidate["Candidate path set"]
+    Topology["Branch topology (resource, fail-closed)"]
+    Message["Decoded ASH branch message"]
+    Candidate["Branch fan (selected + projected)"]
     Quality["VisibleSigilQualityReport"]
     Signature["Visible signature hash"]
     SVG["SVG document"]
@@ -45,8 +49,9 @@ flowchart TB
 
     Input --> Digest
     Digest --> Hidden
-    Hidden --> Family
-    Family --> Candidate
+    Hidden --> Message
+    Message --> Candidate
+    Topology --> Candidate
     Candidate --> Quality
     Candidate --> Signature
     Quality --> Validation
@@ -73,7 +78,7 @@ Hidden geometry is derived locally and contains:
 - semantic roles
 - canonical geometry digest
 
-The hidden geometry carries `algorithmIdentity = sigil-identity-pipeline.v1`; the embedded state record carries `sigil-ash-state.v1`. No digest bytes substitute for the semantic state. The visible artifact references hidden geometry by digest, and hidden geometry is not encoded as visible path IDs. The visible path synthesis still uses the existing deterministic bounded renderer (temporary; Package 05 replaces it with canonical branch geometry).
+The hidden geometry carries `algorithmIdentity = sigil-identity-pipeline.v1`; the embedded state record carries `sigil-ash-state.v1`. No digest bytes substitute for the semantic state. The visible artifact references hidden geometry by digest, and hidden geometry is not encoded as visible path IDs. The visible path synthesis is now the **canonical ASH branch geometry** (Package 05): a deterministic branch fan projected from the shipped branch topology and selected by the decoded ASH branch message.
 
 ## Family Key Derivation
 
@@ -87,21 +92,13 @@ The hidden geometry carries `algorithmIdentity = sigil-identity-pipeline.v1`; th
 - primary ancestry family
 - celestial class basis ID
 
-This key influences stroke selection, ornaments, path roles, palette metadata, and candidate structure.
+The visible **geometry** is driven by the decoded ASH branch message (not the family key); the family key now influences the presentation layer only — the palette metadata and the semantic motif map.
 
 ## Visible Path Synthesis
 
-The service produces a stable vector path set for each candidate index. The baseline visible structure includes:
+The service produces a stable vector path set for each candidate index. The visible geometry is the **canonical ASH branch geometry**: a deterministic branch fan selected from the shipped branch topology and projected into the 100x100 viewBox.
 
-- dominant spine
-- upper left and right crown structure
-- shoulder paths
-- central nexus crossing paths
-- lower root paths
-- terminal stroke
-- internal division stroke
-- optional side ornaments
-- optional master-number accent
+Selection is driven by the profile's decoded ASH **branch message** (through the reference-to-APS message seam), not by digest bytes. For a message, the service takes the smallest root-to-leaf ancestor-edge fan within the presentation budget (10...14 strokes) whose **recomputed** segment crossings are within the quality limit (<= 3); sparse channels are completed deterministically from adjacent messages, shifted by the candidate index so collision resolution changes the geometry. Each emitted stroke carries a depth-derived primitive (`dominantSpine`, `upperStructure`, `lowerRoot`, `terminal`), a `branch_depthN` stroke role, and a branch-message semantic source.
 
 Visible paths are capped at 14 segments and must satisfy the quality gate before an artifact is returned.
 

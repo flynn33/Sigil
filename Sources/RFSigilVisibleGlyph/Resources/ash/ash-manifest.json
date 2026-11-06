@@ -1,0 +1,17 @@
+{
+  "manifest": "sigil-branch-topology-manifest",
+  "version": "1.0.0",
+  "note": "Product-owned provenance for the ASH branch topology. The shipped topology file is re-hashed at load and fails closed on mismatch; the source identity is the SHA-256 of the pinned ASH-Model archive that the file was extracted from. The authoritative source register is docs/ash-trace/source-to-output-map.md.",
+  "sourceArchiveSha256": "a40206150252bd5caecd55a4a97bf8938b25b39664e737148ba381997a57de09",
+  "sources": [
+    {
+      "id": "branch-topology",
+      "displayName": "ASH Cosmology Branch Topology",
+      "sha256": "e114168b20ce2842126b949399b07750160fb0acbdf3971a028f5fcc15d3748c",
+      "version": "1.0.0",
+      "mode": "resource-raw",
+      "resourcePath": "ash/branch-topology.json",
+      "role": "Canonical semantic branch tree (121 nodes, 81 leaves, depth 0-4, a full ternary tree). Geometric materialization source for the visible glyph: each node carries a 9-bit ASH codeword state, a 4-bit message (the codeword index), 2D segment start/end, heading, segment length, and weight. The 16 distinct node states are the 16 codewords of a [9,4,4] code; the visible glyph projects a deterministic branch fan selected by the profile's decoded ASH message."
+    }
+  ]
+}

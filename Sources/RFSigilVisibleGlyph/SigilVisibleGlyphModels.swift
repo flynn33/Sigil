@@ -309,19 +309,31 @@ public struct VisibleStyleMetadata: Codable, Equatable, Hashable, Sendable {
     public let candidateIndex: Int
     public let renderer: String
     public let paletteID: String
+    /// Geometry-only collision signature: a hash of the quantized segment set,
+    /// independent of profileHash/canonicalGeometryDigest. A cross-profile data-
+    /// quality identity (two different profiles that render the same picture share
+    /// it). It is NOT the profile-linked artifact identity.
+    public let geometryCollisionSignature: String
+    /// Provenance: SHA-256 of the canonical branch-topology resource the geometry
+    /// was projected from (the source identity of the glyph's mathematical record).
+    public let branchTopologySourceSha256: String
 
     public init(
         strokeCount: Int,
         majorCrossingCount: Int,
         candidateIndex: Int,
         renderer: String,
-        paletteID: String
+        paletteID: String,
+        geometryCollisionSignature: String,
+        branchTopologySourceSha256: String
     ) {
         self.strokeCount = strokeCount
         self.majorCrossingCount = majorCrossingCount
         self.candidateIndex = candidateIndex
         self.renderer = renderer
         self.paletteID = paletteID
+        self.geometryCollisionSignature = geometryCollisionSignature
+        self.branchTopologySourceSha256 = branchTopologySourceSha256
     }
 }
 
@@ -418,4 +430,9 @@ public enum SigilVisibleGlyphError: Error, Equatable, Sendable {
     /// ASH state record cannot be computed without a fabricated value. The array
     /// names the missing fields.
     case identityUnavailable([String])
+    /// Fail-closed: the canonical ASH branch topology resource is missing,
+    /// tampered, or structurally invalid, so no canonical geometry can be
+    /// projected. Generation throws this rather than falling back to a
+    /// fabricated (digest-parameterized) renderer.
+    case branchTopologyUnavailable
 }
