@@ -5,6 +5,7 @@ import RFSigilAeostaraIntegration
 import RFSigilCoreModels
 import RFSigilDiagnostics
 import RFSigilForsettiModules
+import RFSigilPersonalCodex
 import RFSigilPipelinePlaceholder
 import RFSigilPrivacySecurity
 import RFSigilSourceAuthority
@@ -20,6 +21,7 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
     public let diagnosticsService: SigilDiagnosticsService
     public let diagnostics: any SigilDiagnosticCollector
     public let persistenceService: SigilSecurePersistenceService?
+    public let personalCodexService: SigilPersonalCodexService?
     public let registration: SigilRuntimeRegistration
 
     /// Development builds select the rich development capture profile;
@@ -46,6 +48,7 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
             profile: SigilRuntimeAssembly.selectedDiagnosticProfile
         ),
         persistenceService: SigilSecurePersistenceService? = nil,
+        personalCodexService: SigilPersonalCodexService? = nil,
         registration: SigilRuntimeRegistration = SigilModuleRegistryInstaller.registrationSummary()
     ) {
         self.apsGateway = apsGateway
@@ -57,6 +60,7 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
         self.diagnosticsService = diagnosticsService
         self.diagnostics = diagnostics
         self.persistenceService = persistenceService
+        self.personalCodexService = personalCodexService
         self.registration = registration
     }
 
@@ -103,6 +107,11 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
             summary: "Sensitive records persist locally as AES-GCM ciphertext; a failed save is reported as a failure.",
             detail: "Key source: keychain; keys are stored separately from ciphertext. Local only: no network, CloudKit, sync service, or upload.",
             recordCount: 0
+        )
+        let personalcodexReadiness = personalCodexService?.readiness ?? SigilPersonalCodexReadiness(
+            status: .pass,
+            summary: "The PersonalCodex derives a readable, canon-backed interpretation and a deterministic celestial name from the ASH identity.",
+            detail: "Canonical and Flare remain separate; no personal-data embedding. Local only."
         )
         let aeostaraProducts = aeostara.productsFound.joined(separator: ", ")
         let apsProducts = aps.productsFound.joined(separator: " and ")
@@ -176,6 +185,14 @@ public struct SigilRuntimeAssembly: RFSigilDashboardStatusProviding {
                 summary: persistence.summary,
                 detail: persistence.detail,
                 symbolName: "internaldrive.connected"
+            ),
+            RFSigilDashboardCard(
+                id: "personalcodex",
+                title: "PersonalCodex",
+                status: personalcodexReadiness.status,
+                summary: personalcodexReadiness.summary,
+                detail: personalcodexReadiness.detail,
+                symbolName: "book.closed"
             )
         ]
 

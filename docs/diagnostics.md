@@ -73,6 +73,22 @@ redaction is by construction in the service, not only the collector's own redact
 so even a capturing collector observes no sensitive material; `SecurePersistenceIntegrationTests`
 verifies this directly. See [design/secure-local-storage.md](design/secure-local-storage.md).
 
+**Package 04 PersonalCodex instrumentation:** `SigilPersonalCodexService` takes
+the collector as an optional dependency (no-op when unset) and instruments each
+record build as the tracked operation `sigil.personal_codex.build` (expected
+behavior recorded at begin: a readable, canon-backed PersonalCodex record is
+derived deterministically from the ASH identity). On success it records an info
+event with a `.success` operation finish; on a fail-closed identity-unavailable
+failure it records a warning event with a `.blocked` operation finish. Both paths
+carry only non-sensitive, coarse context — `recordType`, a derived `dominantPlane`
+and `wolfCategory` (on success), and, on failure, the missing identity-core field
+names only — and never the profile name, birth date, profile hash, or wolf score.
+The redaction is by construction in the service, not only the collector's own
+redaction; `PersonalCodexPersistenceTests` (`PersistDiagnosticsNeverLeakSensitiveData`)
+verifies this directly with a capturing collector. The pure, I/O-free `readiness`
+drives the `personalcodex` dashboard card. See
+[design/canon-personalcodex.md](design/canon-personalcodex.md).
+
 **Release replacement status (source-level):** planned and compositionally
 wired now; the source-level exclusion of the development implementation from
 distribution artifacts is completed and inspected in **Package 07** (delivery
