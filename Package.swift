@@ -43,7 +43,7 @@ let package = Package(
         ),
         .target(
             name: "RFSigilAeostaraIntegration",
-            dependencies: ["RFSigilCoreModels", forsettiDependency]
+            dependencies: ["RFSigilCoreModels", "RFSigilVisibleGlyph", forsettiDependency]
         ),
         .target(
             name: "RFSigilVisibleGlyph",
