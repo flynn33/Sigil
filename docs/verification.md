@@ -38,6 +38,10 @@ python3 -m unittest Tests/VersionGuardTests/test_version_guard.py
 | `ArtifactHealthTests` | Aeostara base-lifecycle artifact-health validation: pass on a healthy artifact, fail-closed on corrupt JSON / unknown schema / missing required data / invalid topology / non-recoverable failure, non-destructive in-memory recovery of derivable authoritative digests only, monotonic containment, and agreement with the existing visible-glyph artifact validation |
 | `SecureStorageTests` | Local-only encrypted persistence: AES-GCM round-trip, no-plaintext-leak, keys-not-beside-ciphertext, atomic update, failed-replacement preserves last-verified, wrong/missing key, tampered ciphertext, corrupt record, unsupported version, not found, list/delete, concurrent writes, and storage-identity-is-independent-of-mathematical-identity |
 | `SecurePersistenceIntegrationTests` | Runtime integration: a failed save is reported as a `.writeFailed` failure and not counted as a record, a save/load round-trip through the service, the `secure-persistence` dashboard card is present and not a sensitive path, and a capturing collector proves no record payload, key material, storage path, or identifier leaks on the success and failure paths |
+| `CanonResourceTests` | Product-owned canon resource layer: load succeeds and is structurally valid, the nine-plane taxonomy has nine planes in fixed order, the provenance digest is deterministic and version-sensitive, a missing manifest fails closed, and a tampered resource fails its hash check |
+| `CelestialNamingTests` | Deterministic celestial naming: the life-path-dominant plane, the three wolf categories, heritage priority, deterministic reproduction and stability, a Unicode name is deterministic and valid, no reference-character name is ever produced, and name length bounds |
+| `PersonalCodexTests` | Readable PersonalCodex record: build succeeds with all sections, the Sigil Reading is explicitly incomplete, the wolf divergence is documented, deterministic build, bloodline is not a destiny claim, trials are bounded and not fabricated, the provenance digest matches the canon, and `validate` accepts a well-formed record and rejects a tampered one |
+| `PersonalCodexPersistenceTests` | Runtime integration for the PersonalCodex: a build/encode/save/load/decode/validate round trip, a failed save is never reported as success, the storage identity uses the profile id not the hash, and persist diagnostics leak no sensitive data |
 | Guardrail Python suites | Attribution, version, changelog, source, and policy checks |
 
 ## GitHub Actions
@@ -146,3 +150,13 @@ Fresh 2026-11-05 run (Package 03 artifact-health and encrypted local persistence
 - Device/simulator keychain data-protection behavior remains an owner qualification: the host tests exercise the native crypto, storage, and atomic-replacement logic with an injected key, not the OS keychain protection.
 - `xcodegen` (2.46.0) regenerated `Sigil.xcodeproj`: the five new Package 03 source files were added to their framework targets and the app marketing/build version aligned to `PA.0.3.0` / build 4.
 - Raw build/test output and the closeout receipt are stored in the owner-external evidence root (`phase03/closeout/`).
+
+Fresh 2026-11-06 run (Package 04 canon and PersonalCodex closeout, on the phase branch):
+
+- Swift build (`swift build`, macOS arm64): `BUILD SUCCEEDED`, 0 errors, 0 warnings in Package 04 sources.
+- Swift package tests (`swift test --parallel`, macOS arm64): 105 tests, 0 failures, 0 unexpected (76 from Package 03 plus 5 `CanonResourceTests`, 11 `CelestialNamingTests`, 9 `PersonalCodexTests`, and 4 `PersonalCodexPersistenceTests`).
+- Strict project guardrail wrapper (`bash scripts/verify-sigil-guardrails.sh`): strict validator, `swift test --parallel` 105/0, and `xcodebuild -list` all passed (exit 0); `git diff --check` clean. `xcodebuild -list` lists both new targets (`RFSigilCanon`, `RFSigilPersonalCodex`) and confirms the regenerated project is well-formed and target membership is complete.
+- The full iOS-simulator `xcodebuild` build/test was not re-run in this session; this is recorded honestly rather than claimed as a pass.
+- Device/simulator qualification of the PersonalCodex persistence path remains an owner qualification: the host tests exercise the deterministic derivation, the acyclic digest, the both-rule wolf recording, and the redaction logic, not device-level data protection.
+- `xcodegen` (2.46.0) regenerated `Sigil.xcodeproj`: the `RFSigilCanon` and `RFSigilPersonalCodex` framework targets were added (wired into `RFSigilRuntime` and `SigilTests`), the four shipped canon JSON resources were added to a Resources build phase, and the app marketing/build version aligned to `PA.0.4.0` / build 5 (both Debug and Release); the Forsetti pin is unchanged.
+- Raw build/test output and the closeout receipt are stored in the owner-external evidence root (`phase04/closeout/`).

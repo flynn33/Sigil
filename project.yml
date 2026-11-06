@@ -15,8 +15,8 @@ settings:
     CODE_SIGNING_REQUIRED: "NO"
     DEVELOPMENT_TEAM: ""
     PRODUCT_BUNDLE_IDENTIFIER: "com.ravenforge.sigil.$(PRODUCT_NAME:rfc1034identifier)"
-    MARKETING_VERSION: "PA.0.3.0"
-    CURRENT_PROJECT_VERSION: "4"
+    MARKETING_VERSION: "PA.0.4.0"
+    CURRENT_PROJECT_VERSION: "5"
 targets:
   RFSigilCoreModels:
     type: framework
@@ -111,6 +111,28 @@ targets:
       - target: RFSigilCoreModels
       - package: ForsettiFramework
         product: ForsettiCore
+  RFSigilCanon:
+    type: framework
+    platform: iOS
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: "YES"
+    sources:
+      - Sources/RFSigilCanon
+  RFSigilPersonalCodex:
+    type: framework
+    platform: iOS
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: "YES"
+    sources:
+      - Sources/RFSigilPersonalCodex
+    dependencies:
+      - target: RFSigilCoreModels
+      - target: RFSigilCanon
+      - target: RFSigilVisibleGlyph
+      - target: RFSigilDiagnostics
+      - target: RFSigilPrivacySecurity
   RFSigilUIModule:
     type: framework
     platform: iOS
@@ -160,6 +182,8 @@ targets:
       - target: RFSigilPipelinePlaceholder
       - target: RFSigilPrivacySecurity
       - target: RFSigilDiagnostics
+      - target: RFSigilCanon
+      - target: RFSigilPersonalCodex
       - target: RFSigilForsettiModules
       - package: ForsettiFramework
         product: ForsettiCore
@@ -203,6 +227,8 @@ targets:
       - target: RFSigilPipelinePlaceholder
       - target: RFSigilPrivacySecurity
       - target: RFSigilDiagnostics
+      - target: RFSigilCanon
+      - target: RFSigilPersonalCodex
       - target: RFSigilForsettiModules
       - target: RFSigilRuntime
       - target: SigilApp
