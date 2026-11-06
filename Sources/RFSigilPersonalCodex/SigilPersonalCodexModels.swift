@@ -486,20 +486,37 @@ extension SigilPersonalCodex {
         }
     }
 
-    /// The Sigil Reading is EXPLICITLY incomplete pending the Package 05
-    /// canonical geometry. It carries a one-way provenance link to the
-    /// pipeline's canonical geometry digest (the glyph does not hash back to
-    /// this record).
+    /// The Sigil Reading: a one-way provenance link from the readable
+    /// PersonalCodex to the pipeline's canonical geometry. Package 05 realized
+    /// the canonical branch geometry, so this section is now COMPLETE: it records
+    /// the canonical geometry digest (authoritative half) and the geometry-only
+    /// identity of the selected visible branch geometry (the picture the glyph
+    /// actually renders). The link is one-way: the glyph does not hash back to
+    /// the PersonalCodex, and the acyclic record digest is recomputed over these
+    /// recorded identities.
     public struct SigilReadingSection: Codable, Equatable, Hashable, Sendable {
         public let complete: Bool
         public let completionNote: String
+        /// One-way link to the authoritative (hidden) canonical geometry digest.
         public let canonicalGeometryDigest: String
+        /// The geometry-only identity (collision signature) of the SELECTED
+        /// visible branch geometry: the deterministic identity of the picture the
+        /// glyph renders, independent of the profile digest. One-way: recorded
+        /// here, never referenced by the glyph.
+        public let selectedGeometrySignature: String
         public let prose: String
 
-        public init(complete: Bool, completionNote: String, canonicalGeometryDigest: String, prose: String) {
+        public init(
+            complete: Bool,
+            completionNote: String,
+            canonicalGeometryDigest: String,
+            selectedGeometrySignature: String,
+            prose: String
+        ) {
             self.complete = complete
             self.completionNote = completionNote
             self.canonicalGeometryDigest = canonicalGeometryDigest
+            self.selectedGeometrySignature = selectedGeometrySignature
             self.prose = prose
         }
     }

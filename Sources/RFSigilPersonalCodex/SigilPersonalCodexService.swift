@@ -260,10 +260,11 @@ public struct SigilPersonalCodexService: Sendable {
             prose: "Gifts, burdens, and thresholds are bounded symbolic framing from the dominant plane's keywords and the wolf category; they are not factual claims about the person."
         )
         let reading = SigilPersonalCodex.SigilReadingSection(
-            complete: false,
-            completionNote: "Explicitly incomplete: the canonical branch geometry is realized in Package 05. This section links one-way to the pipeline's canonical geometry digest; the glyph does not hash back to the PersonalCodex.",
+            complete: true,
+            completionNote: "Complete (Package 05): the canonical branch geometry is realized. This section links one-way to the pipeline's canonical geometry digest and to the geometry-only identity of the selected visible branch geometry; the glyph does not hash back to the PersonalCodex.",
             canonicalGeometryDigest: hidden.canonicalGeometryDigest,
-            prose: "The Sigil Reading is intentionally incomplete pending Package 05 canonical geometry. It records a one-way provenance link to the canonical geometry digest only."
+            selectedGeometrySignature: artifact.visibleSigil.styleMetadata.geometryCollisionSignature,
+            prose: "The Sigil Reading records a one-way provenance link to the canonical geometry and to the selected visible branch geometry (its geometry-only identity, the picture the glyph renders). The glyph does not hash back to the PersonalCodex."
         )
         let provenance = SigilPersonalCodex.Provenance(
             manifestVersion: canon.manifestVersion,
@@ -358,8 +359,11 @@ public struct SigilPersonalCodexService: Sendable {
         guard !record.ashIdentity.canonicalGeometryDigest.isEmpty else {
             throw SigilPersonalCodexError.missingSection("ashIdentity.canonicalGeometryDigest")
         }
-        guard record.sigilReading.complete == false else {
-            throw SigilPersonalCodexError.missingSection("sigilReading must remain incomplete until Package 05")
+        guard record.sigilReading.complete == true else {
+            throw SigilPersonalCodexError.missingSection("sigilReading must be complete (the canonical branch geometry is realized)")
+        }
+        guard !record.sigilReading.selectedGeometrySignature.isEmpty else {
+            throw SigilPersonalCodexError.missingSection("sigilReading.selectedGeometrySignature")
         }
         let recomputed = try SigilPersonalCodexEncoding.digest(record.digestPayload())
         guard recomputed == record.digest else {

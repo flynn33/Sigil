@@ -144,10 +144,13 @@ final class IdentityPipelineTests: XCTestCase {
         XCTAssertEqual(c.hiddenGeometry.numerologyVector.preservedMasterNumbers, [11])
         XCTAssertEqual(c.hiddenGeometry.numerologyVector.soulUrgeRoot, 2, "11 reduces to 2")
 
-        // The master is recorded in the reduction provenance chain and drives the
-        // visible accent path; the reduced root still governs derivation.
+        // The master is recorded in the reduction provenance chain; in the branch-
+        // derived glyph (Package 05) it is annotation-only and does NOT drive a
+        // visible stroke -- the visible geometry is the canonical branch geometry,
+        // driven by the decoded ASH message, not by numerology accents. The reduced
+        // root still governs derivation.
         XCTAssertTrue(b.hiddenGeometry.numerologyVector.reductionProvenance["expression"]!.contains(11), "master 11 is recorded in the expression reduction chain")
-        XCTAssertTrue(b.visibleSigil.vectorPaths.contains { $0.semanticSource == "master_number" }, "master annotation drives the visible accent path")
+        XCTAssertFalse(b.visibleSigil.vectorPaths.contains { $0.semanticSource == "master_number" }, "annotation-only: the master number does not drive a visible stroke in the branch-derived glyph")
     }
 
     // MARK: - Letter normalization
