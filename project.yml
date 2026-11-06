@@ -15,8 +15,8 @@ settings:
     CODE_SIGNING_REQUIRED: "NO"
     DEVELOPMENT_TEAM: ""
     PRODUCT_BUNDLE_IDENTIFIER: "com.ravenforge.sigil.$(PRODUCT_NAME:rfc1034identifier)"
-    MARKETING_VERSION: "PA.0.2.0"
-    CURRENT_PROJECT_VERSION: "3"
+    MARKETING_VERSION: "PA.0.3.0"
+    CURRENT_PROJECT_VERSION: "4"
 targets:
   RFSigilCoreModels:
     type: framework
