@@ -1,13 +1,23 @@
+import Foundation
 import ForsettiCore
 import RFSigilCoreModels
+import RFSigilVisibleGlyph
 
 public protocol RFSigilAeostaraIntegrationProviding: Sendable {
     func status() -> AeostaraIntegrationStatus
     func healthDecision(for failure: AeostaraArtifactFailureKind) -> AeostaraHealthDecision
+    /// Real, fail-closed artifact health for a decoded glyph artifact.
+    func validate(artifact: SigilVisibleGlyphArtifact) -> SigilArtifactHealthResult
+    /// Real, fail-closed artifact health for raw stored bytes (covers corrupt records).
+    func validate(data: Data) -> SigilArtifactHealthResult
 }
 
 public struct SigilAeostaraIntegrationGateway: RFSigilAeostaraIntegrationProviding {
-    public init() {}
+    public let healthValidator: SigilArtifactHealthValidator
+
+    public init(healthValidator: SigilArtifactHealthValidator = SigilArtifactHealthValidator()) {
+        self.healthValidator = healthValidator
+    }
 
     public func status() -> AeostaraIntegrationStatus {
         AeostaraIntegrationStatus(
@@ -63,6 +73,14 @@ public struct SigilAeostaraIntegrationGateway: RFSigilAeostaraIntegrationProvidi
             requiresOperatorReview: true,
             reason: "Artifact health check failed closed for \(failure.rawValue)."
         )
+    }
+
+    public func validate(artifact: SigilVisibleGlyphArtifact) -> SigilArtifactHealthResult {
+        healthValidator.validate(artifact: artifact)
+    }
+
+    public func validate(data: Data) -> SigilArtifactHealthResult {
+        healthValidator.validate(data: data)
     }
 }
 

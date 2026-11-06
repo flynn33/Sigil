@@ -174,6 +174,31 @@ public struct SigilVisibleGlyphService: Sendable {
         validate(hiddenGeometry: artifact.hiddenGeometry, visibleSigil: artifact.visibleSigil)
     }
 
+    /// Recomputes the authoritative canonical geometry digest using the same
+    /// canonical encoding the producer uses. An independent validator (Aeostara
+    /// artifact-health) calls this to verify a recorded `canonicalGeometryDigest`
+    /// against intact authoritative content: if the recomputation disagrees with
+    /// the recorded digest, the authoritative half is internally inconsistent and
+    /// the artifact fails closed. Returns an empty string only on a pathological
+    /// encoding failure, which a caller treats as a mismatch (fail closed).
+    public func canonicalGeometryDigest(for hidden: HiddenCanonicalGeometry) -> String {
+        let payload = HiddenCanonicalGeometryDigestPayload(
+            schemaVersion: hidden.schemaVersion,
+            algorithmIdentity: hidden.algorithmIdentity,
+            profileHash: hidden.profileHash,
+            numerologyVector: hidden.numerologyVector,
+            ashState: hidden.ashState,
+            planeAttunementVector: hidden.planeAttunementVector,
+            wolfBalance: hidden.wolfBalance,
+            ancestryWeights: hidden.ancestryWeights,
+            celestialClassBasis: hidden.celestialClassBasis,
+            anchorPoints: hidden.anchorPoints,
+            edges: hidden.edges,
+            semanticRoles: hidden.semanticRoles
+        )
+        return (try? SigilCanonicalJSON.digest(payload)) ?? ""
+    }
+
     // MARK: - Identity pipeline (Package 02)
     //
     // The owning canonical identity stage: retained inputs -> validated,

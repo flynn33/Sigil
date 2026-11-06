@@ -60,6 +60,19 @@ operation through the same contract.
 
 **Package 02 identity instrumentation:** `SigilVisibleGlyphService` takes the collector as an optional dependency (no-op when unset) and instruments the source-backed identity resolution as the tracked operation `sigil.identity.resolve` (expected behavior recorded at begin: deterministic, source-backed identity; fail-closed on missing identity-core signals). It records the ASH state/orbit classification decision (info), a fail-closed warning naming the missing identity-core signals when the state is unavailable, an info event for the resolved field states, and a warning when a supplied weekday differs from the civil-date-derived weekday. None of these events records personal raw values; context carries only the non-sensitive decisions and counts, and every value is redacted before persistence under the same rules as the dashboard operation.
 
+**Package 03 secure-persistence instrumentation:** `SigilSecurePersistenceService`
+takes the collector as an optional dependency (no-op when unset) and instruments
+each secure save as the tracked operation `sigil.persistence.save` (expected
+behavior recorded at begin: the record is sealed with AES-GCM and persisted
+atomically; a failed save is reported as a failure, never a success). On success it
+records an info event with a `.success` operation finish; on failure it records an
+error event with a `.blocked` operation finish. Both paths carry only non-sensitive,
+coarse context — `recordType`, `failureCategory` (on failure), and `recordCount` —
+and never the record payload, key material, storage path, or record identifier. The
+redaction is by construction in the service, not only the collector's own redaction,
+so even a capturing collector observes no sensitive material; `SecurePersistenceIntegrationTests`
+verifies this directly. See [design/secure-local-storage.md](design/secure-local-storage.md).
+
 **Release replacement status (source-level):** planned and compositionally
 wired now; the source-level exclusion of the development implementation from
 distribution artifacts is completed and inspected in **Package 07** (delivery

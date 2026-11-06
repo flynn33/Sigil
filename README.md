@@ -6,7 +6,7 @@ The repository is intentionally foundation-first. It exposes verified status sur
 
 ## Product Direction And Roadmap
 
-The [current project plan](docs/project-plan.md) and [product roadmap](docs/roadmap.md) govern planned work. Sigil's canonical form must derive from ASH cosmological mathematics. Package 02 delivered the standard numerology bridge and the source-backed ASH/APS state/orbit/classification resolution; the final mathematical glyph materialization (Package 05) is not yet complete, and the current visible renderer is a temporary stand-in.
+The [current project plan](docs/project-plan.md) and [product roadmap](docs/roadmap.md) govern planned work. Sigil's canonical form must derive from ASH cosmological mathematics. Package 02 delivered the standard numerology bridge and the source-backed ASH/APS state/orbit/classification resolution. Package 03 delivered artifact-health validation over real records, geometry, schemas, and digests and real local-only encrypted persistence with Keychain-backed keys; a failed save is reported as a failure, never a success, and diagnostics never record the record payload, key material, storage path, or identifier. The final mathematical glyph materialization (Package 05) is not yet complete, and the current visible renderer is a temporary stand-in.
 
 The owner has [removed the additional personal-data embedding requirement](docs/decisions/2026-10-10-no-personal-data-embedding.md). The Sigil need not carry a recoverable personal record. Personal input, internal mathematical geometry, PersonalCodex, deterministic generation, integrity/safety checks, and canonical/Flare separation remain in scope. Do not reintroduce the removed feature as a mandatory hidden payload or sidecar.
 
@@ -16,13 +16,15 @@ The approved read-only source trace from `SigilVisibleGlyphService.makeHiddenGeo
 
 | Area | State |
 | --- | --- |
-| Version | `PA.0.2.0` (build 3) |
+| Version | `PA.0.3.0` (build 4) |
 | Stage | Pre-alpha |
 | Primary platform | iOS 17+ |
 | Package validation | SwiftPM on macOS 14+ |
 | Runtime modules | 1 SwiftUI UI module, 7 service modules |
 | Visible glyphs | Deterministic local service with quality gates and digest validation |
 | Identity pipeline | Standard numerology and ASH/APS nine-bit state/orbit/classification resolution implemented; final ASH glyph materialization pending (Package 05) |
+| Artifact health | Aeostara base-lifecycle validation over real records, geometry, schemas, and digests; fail-closed and non-destructive, with safe recovery of derivable metadata |
+| Secure persistence | Local-only AES-GCM (CryptoKit) with Keychain-backed keys stored separately from ciphertext; atomic replace preserves the last-verified record; a failed save is reported as a failure, never a success ([docs](docs/design/secure-local-storage.md)) |
 | Privacy posture | Local-only diagnostics, no analytics SDK, no backend endpoint |
 | Diagnostics | Bounded local capture with redaction before persistence, correlated failure incidents, and a paired detailed JSON/Markdown export ([docs](docs/diagnostics.md)) |
 | Release governance | Version, changelog, attribution, and project guardrails |
@@ -134,7 +136,7 @@ python3 scripts/version_guard.py --repo-root .
 python3 tools/sigil_guardrails/verify_sigil_guardrails.py --project-root . --policy tools/sigil_guardrails/sigil_guardrail_policy.json --strict
 ```
 
-Current Phase 1 verification evidence records 33 Swift tests with 0 failures, passing repository guardrails, passing attribution guard, passing version guard, and successful configured Xcode simulator validation for `SigilApp` (fresh 2026-11-04 run: 33/33 package tests, 33/33 iOS-simulator tests, Debug build with 0 project-code warnings; see [docs/verification.md](docs/verification.md)).
+Current Phase 1 verification: 76 Swift package tests with 0 failures, strict repository guardrails, attribution guard, and version guard passed, with the Xcode project aligned to `PA.0.3.0` / build 4 (fresh 2026-11-05 run: 76/76 package tests; strict guardrail wrapper including `swift test --parallel` and `xcodebuild -list`; see [docs/verification.md](docs/verification.md)).
 
 ## Version And Changelog
 
@@ -170,6 +172,7 @@ The visible-glyph service is bounded local foundation work, not the final pipeli
 - [No Personal-Data Embedding Decision](docs/decisions/2026-10-10-no-personal-data-embedding.md)
 - [Architecture](docs/architecture.md)
 - [Visible Glyph Engine](docs/visible-glyph-engine.md)
+- [Secure Local Storage](docs/design/secure-local-storage.md) (encrypted-at-rest design and failure semantics)
 - [Verification](docs/verification.md)
 - [Version Policy](docs/release/version-policy.md)
 - [Phase 1 Implementation Plan](docs/phase1/implementation-plan.md)
