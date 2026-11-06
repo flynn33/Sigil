@@ -21,6 +21,8 @@ let package = Package(
         .library(name: "RFSigilPipelinePlaceholder", targets: ["RFSigilPipelinePlaceholder"]),
         .library(name: "RFSigilPrivacySecurity", targets: ["RFSigilPrivacySecurity"]),
         .library(name: "RFSigilDiagnostics", targets: ["RFSigilDiagnostics"]),
+        .library(name: "RFSigilCanon", targets: ["RFSigilCanon"]),
+        .library(name: "RFSigilPersonalCodex", targets: ["RFSigilPersonalCodex"]),
         .library(name: "RFSigilUIModule", targets: ["RFSigilUIModule"]),
         .library(name: "RFSigilForsettiModules", targets: ["RFSigilForsettiModules"]),
         .library(name: "RFSigilRuntime", targets: ["RFSigilRuntime"])
@@ -62,6 +64,21 @@ let package = Package(
             dependencies: ["RFSigilCoreModels", forsettiDependency]
         ),
         .target(
+            name: "RFSigilCanon",
+            dependencies: [],
+            resources: [.process("Resources")]
+        ),
+        .target(
+            name: "RFSigilPersonalCodex",
+            dependencies: [
+                "RFSigilCoreModels",
+                "RFSigilCanon",
+                "RFSigilVisibleGlyph",
+                "RFSigilDiagnostics",
+                "RFSigilPrivacySecurity"
+            ]
+        ),
+        .target(
             name: "RFSigilUIModule",
             dependencies: ["RFSigilCoreModels", forsettiDependency]
         ),
@@ -91,6 +108,8 @@ let package = Package(
                 "RFSigilPipelinePlaceholder",
                 "RFSigilPrivacySecurity",
                 "RFSigilDiagnostics",
+                "RFSigilCanon",
+                "RFSigilPersonalCodex",
                 "RFSigilForsettiModules",
                 forsettiDependency
             ]
@@ -106,6 +125,8 @@ let package = Package(
                 "RFSigilPipelinePlaceholder",
                 "RFSigilPrivacySecurity",
                 "RFSigilDiagnostics",
+                "RFSigilCanon",
+                "RFSigilPersonalCodex",
                 "RFSigilForsettiModules",
                 "RFSigilRuntime",
                 forsettiDependency

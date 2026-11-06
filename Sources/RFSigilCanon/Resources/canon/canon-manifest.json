@@ -1,0 +1,52 @@
+{
+  "manifest": "sigil-canon-manifest",
+  "version": "1.0.0",
+  "note": "Product-owned canon provenance. Resources shipped raw are re-hashed at load and fail closed on mismatch; typed-embedded sources record the upstream file identity for provenance. The authoritative source register is docs/ash-trace/source-to-output-map.md.",
+  "sources": [
+    {
+      "id": "celestial-gen",
+      "displayName": "Celestial Name Generator",
+      "sha256": "91fe15c05026621f2956ec0998dde384101bffab6b778bba92d0d03d090d04fb",
+      "version": "1.0.0",
+      "modelVersion": "1.0.0",
+      "algorithmVersion": "1.0.1",
+      "mode": "resource-raw",
+      "resourcePath": "canon/celestial-name-generator.json",
+      "role": "Canonical profile-side derivation: life path, dominant plane, wolf score, weekday archetypes, heritage priority, name and epithet templates, and numerology prose."
+    },
+    {
+      "id": "celestial-gen-pseudo",
+      "displayName": "Celestial Name Generator Algorithm",
+      "sha256": "2232c6e1460919b37cefd30af007178c99800b55efed8e247b6c84095e620cfa",
+      "version": "1.0.0",
+      "mode": "resource-raw",
+      "resourcePath": "canon/celestial-name-generator-pseudocode.json",
+      "role": "Algorithm-level specification of the celestial name generator; deterministic syllable selection seeded by the mortal name."
+    },
+    {
+      "id": "mythic-map",
+      "displayName": "Master Mythic Mapping",
+      "sha256": "a9235762a0b5d4f9c146abd547a65a1e585be94af301b27c06590f74eacfcee6",
+      "version": "unversioned-supplied",
+      "mode": "resource-raw",
+      "resourcePath": "canon/master-mythic-mapping.json",
+      "role": "White and Dark Wolf as symbiotic dual attractors, not moral poles; angels, lucifer, trials, and the balance principle."
+    },
+    {
+      "id": "nine-planes",
+      "displayName": "Nine Planes of Existence",
+      "sha256": "f0f893c791262c47e2294f2e30d7ad38e8d1890c46c4c25f7a20eee693c96b1e",
+      "version": "unversioned-supplied",
+      "mode": "typed-embedded",
+      "role": "Nine planes with mathematical types and roles, encoded as typed product models. Two story-mapping phrases are omitted from the embedded taxonomy for guardrail compliance."
+    },
+    {
+      "id": "wrw-ontology",
+      "displayName": "Where Ravens Wait Universal Ontology",
+      "sha256": "527f8d89226f8c7d363efbf10c7b95ce027e9a58cf8650c7f55ccb62c8b22323",
+      "version": "2.0.0-luciferian-merged",
+      "mode": "typed-embedded",
+      "role": "WRW merged ontology: axioms, planes, pattern-vector model, existence potential Phi, branching dynamics, celestial-identity, bloodline-resonance, and plane-attunement semantics, encoded as typed product models with source identity."
+    }
+  ]
+}

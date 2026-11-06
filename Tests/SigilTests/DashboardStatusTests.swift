@@ -18,7 +18,8 @@ final class DashboardStatusTests: XCTestCase {
                 "source-authority",
                 "pipeline-placeholder",
                 "privacy-security",
-                "secure-persistence"
+                "secure-persistence",
+                "personalcodex"
             ]
         )
     }
