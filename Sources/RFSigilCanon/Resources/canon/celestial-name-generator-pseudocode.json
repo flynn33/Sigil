@@ -1,0 +1,198 @@
+{
+  "celestial_name_generator_pseudocode": {
+    "version": "1.0.0",
+    "description": "Pseudocode instructions for generating celestial name, epithet, numerology, and wolf-balance from the unified model JSON.",
+    "pseudocode": {
+      "main_function": {
+        "name": "generateCelestialProfile",
+        "parameters": [
+          "heritage[]",
+          "birth_date",
+          "birth_weekday",
+          "birth_time",
+          "hair_color",
+          "eye_color",
+          "mortal_name"
+        ],
+        "returns": [
+          "celestial_name",
+          "epithet",
+          "dominant_plane",
+          "wolf_balance_category",
+          "numerology_text",
+          "debug_metadata"
+        ]
+      },
+      "steps": [
+        {
+          "step": "parseInput",
+          "pseudocode": [
+            "normalizeStringsToLowercase()",
+            "validateDateFormat(birth_date)",
+            "validateTimeFormat(birth_time)",
+            "verifyHeritageValues(heritage[])",
+            "if unknown heritage: assign 'other'"
+          ]
+        },
+        {
+          "step": "computeLifePathNumber",
+          "pseudocode": [
+            "digits = extractDigits(birth_date)",
+            "life_path = sum(digits)",
+            "while life_path > 9: life_path = sumDigits(life_path)",
+            "store life_path_number"
+          ]
+        },
+        {
+          "step": "determineDominantPlane",
+          "pseudocode": [
+            "for each plane in model.planes:",
+            "  if life_path_number in plane.numerology_values:",
+            "    dominant_plane = plane.code",
+            "    dominant_plane_name = plane.name",
+            "    dominant_plane_text = numerology_fragments.planes[plane.code]"
+          ]
+        },
+        {
+          "step": "bucketBirthTime",
+          "pseudocode": [
+            "minutes = convertTimeToMinutes(birth_time)",
+            "for each bucket in model.inputs.birth_time.buckets:",
+            "  if minutes inside bucket.start and bucket.end:",
+            "    birth_time_bucket = bucketName"
+          ]
+        },
+        {
+          "step": "computeWolfBalance",
+          "pseudocode": [
+            "wolf_score = wolf_rules.base_score",
+            "wolf_score += wolf_rules.hair_modifiers[hair_color]",
+            "wolf_score += wolf_rules.eye_modifiers[eye_color]",
+            "wolf_score += wolf_rules.birth_time_modifiers[birth_time_bucket]",
+            "wolf_score += wolf_rules.life_path_modifiers[life_path_number]",
+            "if wolf_score >= white_threshold: category = 'white_dominant'",
+            "else if wolf_score <= dark_threshold: category = 'dark_dominant'",
+            "else category = 'balanced'",
+            "wolf_text = numerology_fragments.wolf_balance[category]"
+          ]
+        },
+        {
+          "step": "determineWeekdayArchetype",
+          "pseudocode": [
+            "weekday_data = model.weekday_archetypes[birth_weekday]",
+            "role_bias = weekday_data.role_bias",
+            "tone = weekday_data.tone",
+            "weekday_text = numerology_fragments.weekday[birth_weekday]"
+          ]
+        },
+        {
+          "step": "selectPrimaryHeritage",
+          "pseudocode": [
+            "if heritage[] contains scandinavian: primary_heritage = 'scandinavian'",
+            "else if contains celtic: primary_heritage = 'celtic'",
+            "else if contains germanic: primary_heritage = 'germanic'",
+            "else primary_heritage = 'generic_northern'",
+            "syllable_bias = model.heritage_families[primary_heritage].syllable_bias",
+            "epithet_flavor = model.heritage_families[primary_heritage].epithet_flavor"
+          ]
+        },
+        {
+          "step": "buildCelestialNameComponents",
+          "pseudocode": [
+            "root_syllable = chooseSyllable(model.syllables.root.neutral, mortal_name_seed, syllable_bias)",
+            "plane_syllable = chooseSyllable(model.syllables.plane[dominant_plane], mortal_name_seed, syllable_bias)",
+            "if category == 'white_dominant': wolf_pool = model.syllables.wolf.white",
+            "else if category == 'dark_dominant': wolf_pool = model.syllables.wolf.dark",
+            "else wolf_pool = model.syllables.wolf.balanced",
+            "wolf_syllable = optionalChoose(wolf_pool)",
+            "name_syllables = [root_syllable, plane_syllable, wolf_syllable]",
+            "enforceMinMaxSyllables(name_syllables, min=2, max=4)"
+          ]
+        },
+        {
+          "step": "assembleCelestialName",
+          "pseudocode": [
+            "capitalize each syllable",
+            "if apostrophe_needed: insert before final syllable",
+            "celestial_name = concatenateCamelCase(syllables)"
+          ]
+        },
+        {
+          "step": "selectEpithetTemplate",
+          "pseudocode": [
+            "matching = []",
+            "for each template in model.epithet_templates:",
+            "  if template.conditions contains dominant_plane and != dominant_plane skip",
+            "  if template.conditions contains dominant_plane_any_of and dominant_plane not in list skip",
+            "  if template.conditions contains role_bias_any_of and role_bias not in list skip",
+            "  else add template to matching",
+            "if matching not empty: epithet_base = chooseOne(matching)",
+            "else epithet_base = 'The One Who Walks Between Paths'"
+          ]
+        },
+        {
+          "step": "personalizeEpithet",
+          "pseudocode": [
+            "epithet = epithet_base",
+            "if epithet_flavor available:",
+            "  replace generic tokens in epithet with heritage-specific flavor words",
+            "if category == 'white_dominant': brighten language",
+            "if category == 'dark_dominant': deepen language",
+            "if category == 'balanced': emphasize duality",
+            "store final epithet"
+          ]
+        },
+        {
+          "step": "composeNumerologyText",
+          "pseudocode": [
+            "numerology_text = []",
+            "add dominant_plane_text",
+            "add wolf_text",
+            "add weekday_text",
+            "add 'Your heritage carries the tone: ' + primary_heritage",
+            "join all into final numerology_text"
+          ]
+        },
+        {
+          "step": "assembleOutput",
+          "pseudocode": [
+            "output.celestial_name = celestial_name",
+            "output.epithet = epithet",
+            "output.dominant_plane = dominant_plane",
+            "output.wolf_balance_category = category",
+            "output.numerology_text = numerology_text",
+            "output.debug_metadata = {",
+            "  'wolf_score': wolf_score,",
+            "  'life_path_number': life_path_number,",
+            "  'birth_time_bucket': birth_time_bucket",
+            "}",
+            "return output"
+          ]
+        }
+      ]
+    },
+    "math": {
+      "life_path": {
+        "formula": "Sum digits of YYYYMMDD until one digit remains.",
+        "example": "1984-07-25 => 1+9+8+4+0+7+2+5 = 36 → 3+6 = 9"
+      },
+      "wolf_balance": {
+        "equation": "wolf_score = base + hair_mod + eye_mod + time_mod + lp_mod",
+        "determine_category": [
+          "if wolf_score >= white_dominant_threshold → white_dominant",
+          "else if wolf_score <= dark_dominant_threshold → dark_dominant",
+          "else → balanced"
+        ]
+      },
+      "plane_mapping": {
+        "rule": "life_path_number determines dominant_plane using plane.numerology_values"
+      },
+      "syllable_selection": {
+        "rule": "Weighted random or deterministic choice using mortal_name as RNG seed"
+      },
+      "name_joining": {
+        "rule": "CamelCase(name_parts) with optional apostrophe before final syllable"
+      }
+    }
+  }
+}
