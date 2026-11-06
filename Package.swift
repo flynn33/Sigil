@@ -55,7 +55,7 @@ let package = Package(
         ),
         .target(
             name: "RFSigilPrivacySecurity",
-            dependencies: ["RFSigilCoreModels", forsettiDependency]
+            dependencies: ["RFSigilCoreModels", "RFSigilDiagnostics", forsettiDependency]
         ),
         .target(
             name: "RFSigilDiagnostics",

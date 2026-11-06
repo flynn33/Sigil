@@ -17,7 +17,8 @@ final class DashboardStatusTests: XCTestCase {
                 "visible-glyph",
                 "source-authority",
                 "pipeline-placeholder",
-                "privacy-security"
+                "privacy-security",
+                "secure-persistence"
             ]
         )
     }
