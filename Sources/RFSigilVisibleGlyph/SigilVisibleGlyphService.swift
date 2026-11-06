@@ -62,29 +62,45 @@ public struct SigilVisibleGlyphService: Sendable {
     /// (normalization, reductions, state/orbit decisions, validation and
     /// failure paths). Never records personal raw values. No-op when nil.
     private let diagnostics: (any SigilDiagnosticCollector)?
+    /// The canonical ASH branch topology (the Package 05 geometry source). Loaded
+    /// once and fail-closed: nil when the resource is missing, tampered, or
+    /// structurally invalid, in which case generation throws
+    /// `.branchTopologyUnavailable` rather than fabricating geometry.
+    private let branchTopology: SigilBranchTopology?
 
     public init(
         qualityGate: SigilVisibleQualityGate = SigilVisibleQualityGate(),
-        diagnostics: (any SigilDiagnosticCollector)? = nil
+        diagnostics: (any SigilDiagnosticCollector)? = nil,
+        branchTopology: SigilBranchTopology? = nil
     ) {
         self.qualityGate = qualityGate
         self.diagnostics = diagnostics
+        self.branchTopology = branchTopology ?? (try? SigilBranchTopologyLoader().load())
     }
 
     public func generateArtifact(
         for profile: SigilProfileInput,
         existingVisibleSignatureHashes: Set<String> = []
     ) throws -> SigilVisibleGlyphArtifact {
+        // Fail-closed: the canonical branch topology is required for geometry.
+        // A missing/tampered/invalid resource is an error, never a fallback to a
+        // fabricated (digest-parameterized) renderer.
+        guard let topology = branchTopology else {
+            throw SigilVisibleGlyphError.branchTopologyUnavailable
+        }
         let hiddenGeometry = try makeHiddenGeometry(for: profile)
         let familyKey = makeFamilyKey(from: hiddenGeometry)
 
         for candidateIndex in 0..<64 {
             let vectorPaths = makeVectorPaths(
+                topology: topology,
                 hiddenGeometry: hiddenGeometry,
-                familyKey: familyKey,
                 candidateIndex: candidateIndex
             )
-            let majorCrossings = majorCrossingCount(for: hiddenGeometry, candidateIndex: candidateIndex)
+            // Real geometric verification: the crossing count is recomputed from
+            // the actually-emitted segment set (independent of the caller), not a
+            // caller-provided proxy (ASH-TRACE F-07 / F-11).
+            let majorCrossings = Self.realCrossingCount(from: vectorPaths)
             let qualityReport = qualityGate.evaluate(
                 vectorPaths: vectorPaths,
                 candidateIndex: candidateIndex,
@@ -95,7 +111,9 @@ public struct SigilVisibleGlyphService: Sendable {
                 majorCrossingCount: majorCrossings,
                 candidateIndex: candidateIndex,
                 renderer: "RFSigilRenderer.svg.v1",
-                paletteID: paletteID(for: familyKey)
+                paletteID: paletteID(for: familyKey),
+                geometryCollisionSignature: Self.geometryCollisionSignature(for: vectorPaths),
+                branchTopologySourceSha256: topology.resourceSha256
             )
             let semanticMotifMap = makeSemanticMotifMap(familyKey: familyKey, hiddenGeometry: hiddenGeometry)
             let signatureHash = try visibleSignatureHash(
@@ -587,135 +605,264 @@ public struct SigilVisibleGlyphService: Sendable {
         )
     }
 
+    // MARK: - Canonical branch projection (Package 05)
+    //
+    // F-07: the visible geometry is the canonical branch geometry, driven by the
+    // profile's decoded ASH message -- not digest bytes. The projection is a
+    // deterministic, source-backed branch fan from the canonical topology,
+    // normalized into the 100x100 viewBox. No field is fabricated: a missing
+    // message or an out-of-budget fan fails closed (the gate rejects it).
+
     private func makeVectorPaths(
+        topology: SigilBranchTopology,
         hiddenGeometry: HiddenCanonicalGeometry,
-        familyKey: SigilFamilyKey,
         candidateIndex: Int
     ) -> [VisibleVectorPath] {
-        let digest = SigilCanonicalJSON.sha256Hex(
-            Data("\(hiddenGeometry.profileHash):\(hiddenGeometry.canonicalGeometryDigest):\(candidateIndex)".utf8)
-        )
-        let bytes = bytes(fromHex: digest)
-        let shoulder = 21.0 + Double(bytes[0] % 8)
-        let crownY = 8.0 + Double(bytes[1] % 5)
-        let nexusY = 47.0 + Double(bytes[2] % 7)
-        let rootY = 85.0 + Double(bytes[3] % 6)
-        let rootSpread = 13.0 + Double(bytes[4] % 8)
-        let curveLift = Double(bytes[5] % 7)
-        let sideOffset = 8.0 + Double(bytes[6] % 5)
-        let divisionOffset = Double(familyKey.lifePathRoot % 5)
-
-        var paths: [VisibleVectorPath] = [
-            path("visible.spine", .dominantSpine, "central_axis", "life_path", 50, crownY, 50, rootY),
-            path("visible.upper.left", .upperStructure, "left_crown", "plane_\(familyKey.dominantPlaneId)", 50, crownY, shoulder, 25 + curveLift),
-            path("visible.upper.right", .upperStructure, "right_crown", "plane_\(familyKey.dominantPlaneId)", 50, crownY, 100 - shoulder, 25 + curveLift),
-            path("visible.shoulder.left", .upperStructure, "left_shoulder", familyKey.ancestryFamilyPrimary, shoulder, 25 + curveLift, 34, nexusY),
-            path("visible.shoulder.right", .upperStructure, "right_shoulder", familyKey.ancestryFamilyPrimary, 100 - shoulder, 25 + curveLift, 66, nexusY),
-            path("visible.nexus.left", .centralNexus, "nexus_cross_left", familyKey.wolfBalanceCategory, 34, nexusY - 8, 66, nexusY + 8),
-            path("visible.nexus.right", .centralNexus, "nexus_cross_right", familyKey.wolfBalanceCategory, 66, nexusY - 8, 34, nexusY + 8),
-            path("visible.root.left", .lowerRoot, "left_root", "birth_order", 50, nexusY + 4, 50 - rootSpread, rootY),
-            path("visible.root.right", .lowerRoot, "right_root", "birth_order", 50, nexusY + 4, 50 + rootSpread, rootY),
-            path("visible.terminal", .terminal, "root_terminal", familyKey.celestialClassBasisId, 50 - rootSpread, rootY, 50 + rootSpread, rootY),
-            path("visible.division", .internalDivision, "internal_division", "birth_order", 43 + divisionOffset, nexusY, 57 - divisionOffset, nexusY)
-        ]
-
-        if familyKey.ancestryFamilyPrimary == "celtic" || familyKey.wolfBalanceCategory == "balanced" {
-            paths.append(
-                curvePath(
-                    id: "visible.ornament.left",
-                    primitive: .sideOrnament,
-                    strokeRole: "left_side_ornament",
-                    semanticSource: familyKey.ancestryFamilyPrimary,
-                    startX: 34 - sideOffset,
-                    startY: nexusY - 2,
-                    controlX: 24,
-                    controlY: nexusY + 10,
-                    endX: 35,
-                    endY: nexusY + 18
-                )
-            )
+        // 1. Decode the profile's canonical ASH state to its branch message.
+        let state = SigilAshState(packed: hiddenGeometry.ashState.statePacked)
+        let decoded = SigilAshClassifier.decode(state)
+        guard let message = Self.message(forAPSWord: decoded.nearestCodeword, topology: topology) else {
+            // Fail-closed: the decoded codeword is outside the topology's message
+            // set. Emit nothing; the gate rejects the empty set. We never fabricate.
+            return []
         }
-
-        if familyKey.ancestryFamilyPrimary == "slavic" || familyKey.wolfBalanceCategory == "dark_dominant" {
-            paths.append(
-                curvePath(
-                    id: "visible.ornament.right",
-                    primitive: .sideOrnament,
-                    strokeRole: "right_side_ornament",
-                    semanticSource: familyKey.ancestryFamilyPrimary,
-                    startX: 66 + sideOffset,
-                    startY: nexusY - 2,
-                    controlX: 76,
-                    controlY: nexusY + 10,
-                    endX: 65,
-                    endY: nexusY + 18
-                )
-            )
-        }
-
-        if hiddenGeometry.numerologyVector.preservedMasterNumbers.isEmpty == false {
-            paths.append(
-                path("visible.master.accent", .upperStructure, "master_number_accent", "master_number", 44, crownY + 11, 56, crownY + 11)
-            )
-        }
-
-        return Array(paths.prefix(14))
+        // 2. Select + project the deterministic branch fan for this message.
+        return Self.selectBranchFan(topology: topology, message: message, candidateIndex: candidateIndex)
     }
 
-    // MARK: - Bounded temporary renderer (Package 05 replaces this with canonical
-    // branch geometry; the geometry here is a placeholder that consumes the real
-    // identity contract and is explicitly not final glyph math).
+    // MARK: - Branch message seam (reference codeword -> APS-native codeword)
+    //
+    // The branch topology's 16 codewords are in the ASH-Model *reference*
+    // convention; the product's SigilAshCodewordSet is APS-native. The unique
+    // seam that maps the reference codeword set exactly onto the APS set is:
+    // read the 9-bit string leftmost = b0 (LSB), then swap bits 7 and 8. This is
+    // the branch-topology-specific message seam (NOT the product's swapB6B7
+    // coordinate adapter). The derived APS codeword -> message bijection is
+    // re-derived and verified by test.
 
-    private func fmt(_ value: Double) -> String {
+    private static func readLeftmostB0(_ s: String) -> UInt16 {
+        var v: UInt16 = 0
+        for (i, ch) in s.enumerated() { if ch == "1" { v |= (1 << i) } }
+        return v & 0x1FF
+    }
+
+    private static func swapBits78(_ v: UInt16) -> UInt16 {
+        let b7 = (v >> 7) & 1
+        let b8 = (v >> 8) & 1
+        var out = v & ~UInt16(0b110000000)
+        if b7 == 1 { out |= (1 << 8) }
+        if b8 == 1 { out |= (1 << 7) }
+        return out & 0x1FF
+    }
+
+    /// The APS-native codeword value carried by a given 4-bit branch message.
+    private static func apsWord(forMessage message: String, topology: SigilBranchTopology) -> UInt16 {
+        guard let node = topology.nodes.first(where: { $0.message == message }) else { return 0 }
+        return swapBits78(readLeftmostB0(node.codeword))
+    }
+
+    /// The branch message corresponding to an APS-native codeword (a nearest-
+    /// codeword decode result). Nil if the word is outside the topology set.
+    private static func message(forAPSWord word: UInt16, topology: SigilBranchTopology) -> String? {
+        topology.messages.first { apsWord(forMessage: $0, topology: topology) == word }
+    }
+
+    /// The full APS codeword -> branch message bijection derived from the topology.
+    /// Exposed so tests can re-derive and verify the seam independently.
+    public static func apsToMessageMap(_ topology: SigilBranchTopology) -> [UInt16: String] {
+        var map: [UInt16: String] = [:]
+        for message in topology.messages {
+            map[apsWord(forMessage: message, topology: topology)] = message
+        }
+        return map
+    }
+
+    /// A canonical 4-bit binary label for a 0...15 value. `String(format:)` has no
+    /// reliable binary conversion (`%b` is undefined in the C conversion set this
+    /// builds on), so the neighbor message label is formed from the radix-2 digits
+    /// directly and zero-padded to four digits. Deterministic and total.
+    private static func fourBitBinary(_ value: Int) -> String {
+        let n = value & 0xF
+        let digits = String(n, radix: 2)
+        return String(repeating: "0", count: 4 - digits.count) + digits
+    }
+
+    // MARK: - Deterministic branch fan selection
+
+    /// Select and project the deterministic branch fan for a decoded message and
+    /// candidate index. Returns the projected vector paths (already within the
+    /// presentation budget and crossing limit when one exists for the channel).
+    private static func selectBranchFan(
+        topology: SigilBranchTopology,
+        message: String,
+        candidateIndex: Int
+    ) -> [VisibleVectorPath] {
+        let leaves = topology.leaves(forMessage: message)
+        let count = leaves.count
+        let rotation = count > 0 ? candidateIndex % count : 0
+        let rotated = Array(leaves[rotation...]) + Array(leaves[..<rotation])
+
+        func validPaths(_ edgePaths: [String]) -> [VisibleVectorPath]? {
+            let paths = projectBranchEdges(edgePaths.map { topology.nodeByPath($0)! })
+            return isGlyphCandidate(projected: paths) ? paths : nil
+        }
+
+        // Primary channel: the smallest leaf fan within the presentation budget
+        // (10...14 edges) whose real crossing count is within the quality limit.
+        if count > 0 {
+            for k in 1...count {
+                if let paths = validPaths(fanEdgePaths(topology: topology, leafPaths: rotated.prefix(k).map(\.path))) {
+                    return paths
+                }
+            }
+        }
+
+        // Completion for sparse channels (only the 2-leaf message reaches here):
+        // extend with leaves from adjacent messages in a candidateIndex-shifted
+        // order until a valid fan forms. Deterministic and source-backed.
+        var edgePaths = fanEdgePaths(topology: topology, leafPaths: rotated.map(\.path))
+        let base = Int(message, radix: 2) ?? 0
+        for step in 0..<15 {
+            let neighbor = Self.fourBitBinary((base + 1 + step + candidateIndex) % 16)
+            for leaf in topology.leaves(forMessage: neighbor) {
+                var next = Set(edgePaths)
+                next.insert(leaf.path)
+                edgePaths = next.sorted()
+                if let paths = validPaths(edgePaths) { return paths }
+                if edgePaths.count > 14 { break }
+            }
+        }
+        return projectBranchEdges(edgePaths.map { topology.nodeByPath($0)! })
+    }
+
+    /// The union of root-to-leaf ancestor edges for a set of leaf paths,
+    /// de-duplicated and deterministically ordered by path label.
+    private static func fanEdgePaths(topology: SigilBranchTopology, leafPaths: [String]) -> [String] {
+        var edges = Set<String>()
+        for path in leafPaths {
+            var cursor: String? = path
+            while let current = cursor, !current.isEmpty {
+                edges.insert(current)
+                cursor = topology.nodeByPath(current)?.parentPath
+            }
+        }
+        edges.remove("")  // the root is not a segment
+        return edges.sorted()
+    }
+
+    /// A projected fan is a glyph candidate iff it is within the presentation
+    /// budget (10...14 strokes) and its real segment crossings are within the
+    /// quality limit (<= 3).
+    private static func isGlyphCandidate(projected: [VisibleVectorPath]) -> Bool {
+        guard (10...14).contains(projected.count) else { return false }
+        return realCrossingCount(from: projected) <= 3
+    }
+
+    // MARK: - Real geometric verification (recomputed, not caller-provided)
+
+    /// Real segment-segment crossings recomputed from the emitted path data --
+    /// an independent geometric verification of the actually-rendered geometry
+    /// (ASH-TRACE F-07 / F-11: a caller-provided count is not verification).
+    public static func realCrossingCount(from vectorPaths: [VisibleVectorPath]) -> Int {
+        var segments: [((Double, Double), (Double, Double))] = []
+        for path in vectorPaths {
+            let parts = path.pathData.split(separator: " ").compactMap { Double($0) }
+            guard parts.count >= 4 else { continue }
+            segments.append(((parts[0], parts[1]), (parts[2], parts[3])))
+        }
+        return countProperIntersections(segments)
+    }
+
+    /// Count proper (interior) intersections. Adjacent segments sharing an
+    /// endpoint are not counted: a tree's branches meet at joints, not crossings.
+    private static func countProperIntersections(_ segments: [((Double, Double), (Double, Double))]) -> Int {
+        var count = 0
+        func cross(_ o: (Double, Double), _ a: (Double, Double), _ b: (Double, Double)) -> Double {
+            (a.0 - o.0) * (b.1 - o.1) - (a.1 - o.1) * (b.0 - o.0)
+        }
+        func same(_ a: (Double, Double), _ b: (Double, Double)) -> Bool { a.0 == b.0 && a.1 == b.1 }
+        for i in 0..<segments.count {
+            for j in (i + 1)..<segments.count {
+                let p1 = segments[i].0, p2 = segments[i].1
+                let p3 = segments[j].0, p4 = segments[j].1
+                if same(p1, p3) || same(p1, p4) || same(p2, p3) || same(p2, p4) { continue }
+                let d1 = cross(p3, p4, p1), d2 = cross(p3, p4, p2)
+                let d3 = cross(p1, p2, p3), d4 = cross(p1, p2, p4)
+                if ((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0))
+                    && ((d3 > 0 && d4 < 0) || (d3 < 0 && d4 > 0)) {
+                    count += 1
+                }
+            }
+        }
+        return count
+    }
+
+    /// Geometry-only collision signature: a hash of the sorted, quantized segment
+    /// set, independent of profileHash/canonicalGeometryDigest. Two different
+    /// profiles that render the same picture share this signature (data-quality).
+    public static func geometryCollisionSignature(for vectorPaths: [VisibleVectorPath]) -> String {
+        let serialized = vectorPaths.map(\.pathData).sorted().joined(separator: "|")
+        return SigilCanonicalJSON.sha256Hex(Data(serialized.utf8))
+    }
+
+    // MARK: - ViewBox projection (canonical branch plane -> 100x100)
+
+    private static func projectBranchEdges(_ edgeNodes: [SigilBranchNode]) -> [VisibleVectorPath] {
+        guard !edgeNodes.isEmpty else { return [] }
+        let xs = edgeNodes.flatMap { [$0.start.x, $0.end.x] }
+        let ys = edgeNodes.flatMap { [$0.start.y, $0.end.y] }
+        guard let minX = xs.min(), let maxX = xs.max(), let minY = ys.min(), let maxY = ys.max(),
+              xs.allSatisfy({ $0.isFinite }), ys.allSatisfy({ $0.isFinite }) else {
+            return []
+        }
+        let width = max(maxX - minX, 1e-9)
+        let height = max(maxY - minY, 1e-9)
+        let inset: Double = 8
+        let usable: Double = 84  // 8...92 inset in the 100x100 viewBox
+        let scale = min(usable / width, usable / height)
+        let originX = inset + (usable - width * scale) / 2
+        let originY = inset + (usable - height * scale) / 2
+        func projectX(_ x: Double) -> String { Self.fmt(originX + (x - minX) * scale) }
+        // The branch plane grows upward (y increases up); the SVG viewBox y-axis
+        // grows downward. Flip y so the glyph is upright and centered in the inset.
+        func projectY(_ y: Double) -> String { Self.fmt(originY + (maxY - y) * scale) }
+        return edgeNodes.map { node in
+            let id = "visible.branch." + Self.branchID(node.path)
+            return VisibleVectorPath(
+                id: id,
+                primitive: Self.primitive(forDepth: node.depth),
+                pathData: "M \(projectX(node.start.x)) \(projectY(node.start.y)) L \(projectX(node.end.x)) \(projectY(node.end.y))",
+                strokeRole: "branch_depth\(node.depth)",
+                semanticSource: node.message
+            )
+        }
+    }
+
+    /// An injective, SVG/XML-id-safe label for a node path. The validated path
+    /// alphabet is exactly {0, +, -} (paths are built from the branch actions). A
+    /// naive non-alphanumeric-to-underscore collapse is NOT injective: sibling
+    /// actions '+' and '-' both map to '_', so e.g. paths "0+" and "0-" collide
+    /// to the same id (duplicate visible-path ids -> invalid topology). Map each
+    /// symbol to a distinct safe token instead: 0 -> "0", + -> "plus", - -> "minus".
+    private static func branchID(_ path: String) -> String {
+        path.replacingOccurrences(of: "+", with: "plus")
+            .replacingOccurrences(of: "-", with: "minus")
+    }
+
+    private static func primitive(forDepth depth: Int) -> VisiblePathPrimitive {
+        switch depth {
+        case 2: return .upperStructure
+        case 3: return .lowerRoot
+        case 4: return .terminal
+        default: return .dominantSpine  // depth 1 (the root at depth 0 is never emitted)
+        }
+    }
+
+    private static func fmt(_ value: Double) -> String {
         let rounded = (value * 100).rounded() / 100
         return rounded.truncatingRemainder(dividingBy: 1) == 0
             ? String(Int(rounded))
             : String(format: "%.2f", rounded)
-    }
-
-    private func path(
-        _ id: String,
-        _ primitive: VisiblePathPrimitive,
-        _ strokeRole: String,
-        _ semanticSource: String,
-        _ x1: Double,
-        _ y1: Double,
-        _ x2: Double,
-        _ y2: Double
-    ) -> VisibleVectorPath {
-        VisibleVectorPath(
-            id: id,
-            primitive: primitive,
-            pathData: "M \(fmt(x1)) \(fmt(y1)) L \(fmt(x2)) \(fmt(y2))",
-            strokeRole: strokeRole,
-            semanticSource: semanticSource
-        )
-    }
-
-    private func curvePath(
-        id: String,
-        primitive: VisiblePathPrimitive,
-        strokeRole: String,
-        semanticSource: String,
-        startX: Double,
-        startY: Double,
-        controlX: Double,
-        controlY: Double,
-        endX: Double,
-        endY: Double
-    ) -> VisibleVectorPath {
-        VisibleVectorPath(
-            id: id,
-            primitive: primitive,
-            pathData: "M \(fmt(startX)) \(fmt(startY)) Q \(fmt(controlX)) \(fmt(controlY)) \(fmt(endX)) \(fmt(endY))",
-            strokeRole: strokeRole,
-            semanticSource: semanticSource
-        )
-    }
-
-    private func majorCrossingCount(for hiddenGeometry: HiddenCanonicalGeometry, candidateIndex: Int) -> Int {
-        let base = 2 + (hiddenGeometry.numerologyVector.birthDayRoot + candidateIndex) % 2
-        return min(3, base)
     }
 
     private func visibleSignatureHash(

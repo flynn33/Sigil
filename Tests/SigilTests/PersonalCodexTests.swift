@@ -11,7 +11,8 @@ import XCTest
 // naming, then checks the structural invariants that keep it DERIVED (never
 // looked up), deterministic, provenance-complete, and acyclic-digest-validated.
 // There is no personal-data embedding; the record is deterministic and the
-// Sigil Reading remains explicitly incomplete pending Package 05.
+// Sigil Reading is complete (Package 05 realized the canonical branch geometry),
+// linking one-way to the canonical geometry and the selected visible geometry.
 
 final class PersonalCodexTests: XCTestCase {
 
@@ -59,15 +60,26 @@ final class PersonalCodexTests: XCTestCase {
         XCTAssertEqual(record.digest.count, 64, "The record digest is a SHA-256 hex string")
     }
 
-    // MARK: - Explicitly-incomplete Sigil Reading (one-way provenance link)
+    // MARK: - Completed Sigil Reading (one-way provenance link)
 
-    func testSigilReadingIsExplicitlyIncomplete() throws {
+    func testSigilReadingIsCompleteAndLinkedToSelectedGeometry() throws {
         let (_, record) = try buildOnce()
-        XCTAssertFalse(record.sigilReading.complete, "The Sigil Reading must remain incomplete until Package 05")
+        XCTAssertTrue(record.sigilReading.complete, "The Sigil Reading is complete: Package 05 realized the canonical branch geometry")
         XCTAssertFalse(record.sigilReading.completionNote.isEmpty)
         XCTAssertFalse(record.sigilReading.canonicalGeometryDigest.isEmpty)
         // The one-way link is consistent with the ASH identity's geometry digest.
         XCTAssertEqual(record.sigilReading.canonicalGeometryDigest, record.ashIdentity.canonicalGeometryDigest)
+        // The selected visible branch geometry's geometry-only identity is recorded
+        // and matches the actually-rendered geometry. One-way: the glyph does not
+        // hash back to the PersonalCodex.
+        let glyph = SigilVisibleGlyphService()
+        let artifact = try glyph.generateArtifact(for: Self.goldenProfile)
+        XCTAssertFalse(record.sigilReading.selectedGeometrySignature.isEmpty)
+        XCTAssertEqual(
+            record.sigilReading.selectedGeometrySignature,
+            artifact.visibleSigil.styleMetadata.geometryCollisionSignature,
+            "the recorded selected-geometry identity must match the rendered branch geometry"
+        )
     }
 
     // MARK: - Wolf divergence (source ±1.0 vs pipeline 0.12 band) is explicit
