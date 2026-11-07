@@ -142,7 +142,7 @@ final class GenerationJourneyStateTests: XCTestCase {
         }
     }
 
-    private func makeCodex() -> SigilPersonalCodex {
+    private func makeRecord() -> SigilPersonalCodex {
         let profile = SigilProfileInput(
             id: "state-test",
             name: "Avery Rowan",
@@ -177,7 +177,7 @@ final class GenerationJourneyStateTests: XCTestCase {
 
     func testLoadingSucceededTransitionsToSuccess() {
         let artifact = makeArtifact()
-        let codex = makeCodex()
+        let codex = makeRecord()
         let start: SigilGenerationJourneyState = .loading(requestSequence: 1)
         let after = SigilGenerationJourney.advance(
             current: start,
@@ -209,7 +209,7 @@ final class GenerationJourneyStateTests: XCTestCase {
 
     func testOutOfOrderSuccessIsDropped() {
         let artifact = makeArtifact()
-        let codex = makeCodex()
+        let codex = makeRecord()
         // We are loading seq=2; an event for seq=1 must be dropped.
         let after = SigilGenerationJourney.advance(
             current: .loading(requestSequence: 2),
@@ -237,7 +237,7 @@ final class GenerationJourneyStateTests: XCTestCase {
 
     func testSuccessCannotTransitionFurther() {
         let artifact = makeArtifact()
-        let codex = makeCodex()
+        let codex = makeRecord()
         let after = SigilGenerationJourney.advance(
             current: .success(requestSequence: 1, artifact: artifact, codex: codex),
             with: .start(2)
