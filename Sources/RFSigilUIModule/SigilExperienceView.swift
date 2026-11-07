@@ -130,7 +130,7 @@ struct SigilDeleteConfirmState: Identifiable, Equatable {
 // - A journey view model (the generation state machine)
 // - A records list view model (CRUD over the secure store)
 //
-// Navigation: Dashboard -> Create (form) -> Result (glyph + codex) -> Flare/Export.
+// Navigation: Dashboard -> Create (form) -> Result (glyph + record) -> Flare/Export.
 // Records: a list of saved records; open -> result; delete -> confirm.
 
 @MainActor
@@ -180,7 +180,7 @@ public final class SigilExperienceViewModel: ObservableObject {
     }
 
     public func saveResult() async {
-        guard case .success(_, let artifact, let codex) = journeyViewModel.state else { return }
+        guard case .success(_, let artifact, let record) = journeyViewModel.state else { return }
         // Save the profile draft as a .profile record.
         let profile = SigilProfileDraftSerializer.serialize(draft)
         _ = await recordsListViewModel.recordsStore.upsert(
@@ -190,7 +190,7 @@ public final class SigilExperienceViewModel: ObservableObject {
         )
         // Save the PersonalCodex record.
         _ = await recordsListViewModel.recordsStore.upsert(
-            codex,
+            record,
             storageID: storageID,
             recordType: .personalCodex
         )
@@ -238,8 +238,8 @@ public final class SigilExperienceViewModel: ObservableObject {
     /// The dependencies needed to build the export view. Returns nil when
     /// no successful artifact is available.
     var exportDependencies: (SigilVisibleGlyphArtifact, SigilPersonalCodex, SigilVisibleGlyphService)? {
-        guard case .success(_, let artifact, let codex) = journeyViewModel.state else { return nil }
-        return (artifact, codex, journeyViewModel.glyphServiceRef)
+        guard case .success(_, let artifact, let record) = journeyViewModel.state else { return nil }
+        return (artifact, record, journeyViewModel.glyphServiceRef)
     }
 
     public func openRecord(_ record: SigilRecord) async {
@@ -250,11 +250,11 @@ public final class SigilExperienceViewModel: ObservableObject {
             recordType: .personalCodex,
             as: SigilPersonalCodex.self
         )
-        if case .success(let codex) = result {
+        if case .success(let record) = result {
             // Re-generate the glyph for this profile to display alongside.
             // (In production, we would load the saved profile and re-run the
-            //  pipeline. For the MVP, we display the codex only.)
-            _ = codex
+            //  pipeline. For the MVP, we display the record only.)
+            _ = record
         }
     }
 }
@@ -297,7 +297,7 @@ public struct SigilExperienceView: View {
                             }
                             fatalError("Unreachable")
                         }(),
-                        codex: SigilPersonalRecordDisplay(
+                        record: SigilPersonalRecordDisplay(
                             celestialName: extractCelestialName(from: viewModel.journeyViewModel.state),
                             sections: extractCodexSections(from: viewModel.journeyViewModel.state)
                         ),
@@ -330,11 +330,11 @@ public struct SigilExperienceView: View {
                 }
             }
             .sheet(isPresented: $viewModel.showExport) {
-                if let (artifact, codex, glyphService) = viewModel.exportDependencies {
+                if let (artifact, record, glyphService) = viewModel.exportDependencies {
                     SigilExportView(
                         viewModel: SigilExportViewModel(
                             artifact: artifact,
-                            codex: codex,
+                            record: record,
                             glyphService: glyphService,
                             flareStyle: viewModel.currentFlareStyle
                         ),
@@ -362,19 +362,19 @@ public struct SigilExperienceView: View {
     }
 
     private func extractCelestialName(from state: SigilGenerationJourneyState) -> String? {
-        guard case .success(_, _, let codex) = state else { return nil }
-        return codex.celestialName.celestialName
+        guard case .success(_, _, let record) = state else { return nil }
+        return record.celestialName.celestialName
     }
 
     private func extractCodexSections(from state: SigilGenerationJourneyState) -> [SigilRecordSection] {
-        guard case .success(_, _, let codex) = state else { return [] }
+        guard case .success(_, _, let record) = state else { return [] }
         var sections: [SigilRecordSection] = []
-        sections.append(.init(title: "Mortal incarnation", body: codex.mortalIncarnation.prose))
-        sections.append(.init(title: "Numerology", body: codex.numerologyProfile.prose))
-        sections.append(.init(title: "ASH identity", body: codex.ashIdentity.prose))
-        sections.append(.init(title: "Plane attunement", body: codex.planeAttunement.prose))
-        sections.append(.init(title: "Wolf balance", body: codex.wolfBalance.prose))
-        sections.append(.init(title: "Sigil reading", body: codex.sigilReading.prose))
+        sections.append(.init(title: "Mortal incarnation", body: record.mortalIncarnation.prose))
+        sections.append(.init(title: "Numerology", body: record.numerologyProfile.prose))
+        sections.append(.init(title: "ASH identity", body: record.ashIdentity.prose))
+        sections.append(.init(title: "Plane attunement", body: record.planeAttunement.prose))
+        sections.append(.init(title: "Wolf balance", body: record.wolfBalance.prose))
+        sections.append(.init(title: "Sigil reading", body: record.sigilReading.prose))
         return sections
     }
 }

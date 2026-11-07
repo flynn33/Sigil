@@ -124,20 +124,20 @@ public struct SigilProfileFormView: View {
 
 public struct SigilResultView: View {
     let artifact: SigilVisibleGlyphArtifact
-    let codex: SigilPersonalRecordDisplay
+    let record: SigilPersonalRecordDisplay
     var onSave: (() -> Void)? = nil
     var onExport: (() -> Void)? = nil
     var onFlare: (() -> Void)? = nil
 
     public init(
         artifact: SigilVisibleGlyphArtifact,
-        codex: SigilPersonalRecordDisplay,
+        record: SigilPersonalRecordDisplay,
         onSave: (() -> Void)? = nil,
         onExport: (() -> Void)? = nil,
         onFlare: (() -> Void)? = nil
     ) {
         self.artifact = artifact
-        self.codex = codex
+        self.record = record
         self.onSave = onSave
         self.onExport = onExport
         self.onFlare = onFlare
@@ -154,7 +154,7 @@ public struct SigilResultView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 8))
 
                 // Celestial name (the most user-facing result).
-                if let name = codex.celestialName {
+                if let name = record.celestialName {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Celestial name")
                             .font(.caption)
@@ -166,14 +166,14 @@ public struct SigilResultView: View {
                 }
 
                 // Provenance (concise).
-                if let provenance = codex.provenanceSummary {
+                if let provenance = record.provenanceSummary {
                     Text(provenance)
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
 
                 // PersonalCodex sections (readable prose).
-                ForEach(codex.sections) { section in
+                ForEach(record.sections) { section in
                     SigilRecordSectionView(section: section)
                 }
 

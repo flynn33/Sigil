@@ -162,7 +162,7 @@ final class GenerationJourneyStateTests: XCTestCase {
             )
             return try service.build(for: profile)
         } catch {
-            XCTFail("Could not build codex: \(error)")
+            XCTFail("Could not build record: \(error)")
             fatalError()
         }
     }
@@ -177,18 +177,18 @@ final class GenerationJourneyStateTests: XCTestCase {
 
     func testLoadingSucceededTransitionsToSuccess() {
         let artifact = makeArtifact()
-        let codex = makeRecord()
+        let record = makeRecord()
         let start: SigilGenerationJourneyState = .loading(requestSequence: 1)
         let after = SigilGenerationJourney.advance(
             current: start,
-            with: .succeeded(1, artifact, codex)
+            with: .succeeded(1, artifact, record)
         )
         guard case .success(let seq, let a, let c) = after else {
             return XCTFail("Expected success, got \(after)")
         }
         XCTAssertEqual(seq, 1)
         XCTAssertEqual(a, artifact)
-        XCTAssertEqual(c, codex)
+        XCTAssertEqual(c, record)
     }
 
     func testLoadingFailedTransitionsToFailure() {
@@ -209,11 +209,11 @@ final class GenerationJourneyStateTests: XCTestCase {
 
     func testOutOfOrderSuccessIsDropped() {
         let artifact = makeArtifact()
-        let codex = makeRecord()
+        let record = makeRecord()
         // We are loading seq=2; an event for seq=1 must be dropped.
         let after = SigilGenerationJourney.advance(
             current: .loading(requestSequence: 2),
-            with: .succeeded(1, artifact, codex)
+            with: .succeeded(1, artifact, record)
         )
         XCTAssertEqual(after, .loading(requestSequence: 2))
     }
@@ -237,9 +237,9 @@ final class GenerationJourneyStateTests: XCTestCase {
 
     func testSuccessCannotTransitionFurther() {
         let artifact = makeArtifact()
-        let codex = makeRecord()
+        let record = makeRecord()
         let after = SigilGenerationJourney.advance(
-            current: .success(requestSequence: 1, artifact: artifact, codex: codex),
+            current: .success(requestSequence: 1, artifact: artifact, record: record),
             with: .start(2)
         )
         // From .success, no event advances the state.
