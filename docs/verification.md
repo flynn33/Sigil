@@ -170,3 +170,12 @@ Fresh 2026-11-06 run (Package 05 ASH-derived canonical glyph closeout, on `main`
 - The full iOS-simulator `xcodebuild` build/test was not re-run in this session; this is recorded honestly rather than claimed as a pass. The App target reports `PA.0.5.0` / build 6 via `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` (both Debug and Release) in `project.yml` and the regenerated `Sigil.xcodeproj`.
 - `xcodegen` (2.46.0) regenerated `Sigil.xcodeproj`: the `RFSigilVisibleGlyph` target gained the `Resources/ash/*.json` build phase (the same `sources`-glob resource pattern `RFSigilCanon` uses) and the app marketing/build version aligned to `PA.0.5.0` / build 6 (both Debug and Release); the Forsetti pin is unchanged and no new target dependency was added (`RFSigilVisibleGlyph` remains independent of `RFSigilCanon`).
 - Raw build/test output and the closeout receipt are stored in the owner-external evidence root (`phase05/closeout/`).
+
+Fresh 2026-11-06 run (Package 06 native experience, presentation-only Flare, and explicit export closeout, on `main`):
+
+- Swift build (`swift build`, macOS arm64): `BUILD SUCCEEDED`, 0 errors, 0 warnings.
+- Swift package tests (`swift test`, macOS arm64): 136 tests, 0 failures, 0 unexpected (111 from Package 05 plus 20 `ProfileDraftAndJourneyTests` and 5 `JourneyIntegrationTests`).
+- Strict project guardrail wrapper (`bash scripts/verify-sigil-guardrails.sh`): strict validator, `swift test --parallel` 136/0, and `xcodebuild -list` all passed (exit 0); `git diff --check` clean.
+- The full iOS-simulator `xcodebuild` build/test was not re-run in this session; this is recorded honestly rather than claimed as a pass. The App target reports `PA.0.6.0` / build 7 via `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` (both Debug and Release) in `project.yml` and the regenerated `Sigil.xcodeproj`.
+- `xcodegen` (2.46.0) regenerated `Sigil.xcodeproj`: the `RFSigilUIModule` target gained its three new source files (picked up by the existing `sources` glob) and the app marketing/build version aligned to `PA.0.6.0` / build 7 (both Debug and Release); the Forsetti pin is unchanged and no new third-party dependency was added (`RFSigilUIModule` now depends on the existing in-repo targets `RFSigilVisibleGlyph`, `RFSigilPrivacySecurity`, and `RFSigilPersonalCodex`).
+- Raw build/test output and the closeout receipt are stored in the owner-external evidence root (`phase06/closeout/`).

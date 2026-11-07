@@ -14,6 +14,7 @@
 		049377354AF3289D206ADC44 /* SigilSecurePersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854645C1E2F81001CD27BF9 /* SigilSecurePersistenceService.swift */; };
 		07FDB311828F5E86BFA335B0 /* SigilPrivacySecurityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0075AB5EDE50259FED70DE69 /* SigilPrivacySecurityService.swift */; };
 		093C0B0AFCC60ADF51329CD4 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
+		0B67B9F93780A562F30094F0 /* ProfileDraftAndJourneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F9BD344E046942DC93927C /* ProfileDraftAndJourneyTests.swift */; };
 		0D0C3B9AEF198B39B1AB0770 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = 2DEAABB9A7B735BEB0DD397D /* ForsettiCore */; };
 		0EEBBD0D5EC6CB4AA282552E /* SigilVisibleGlyphService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4ECBC4E8D91EFB178A1A0 /* SigilVisibleGlyphService.swift */; };
 		0F8E01204C97780DCECF94E5 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
@@ -32,12 +33,14 @@
 		27536EF6FF3352E407965A9B /* RFSigilVisibleGlyph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */; };
 		2D20A165F5889CF1EC952FE4 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
 		343D4129E768CB5A8AA8AD44 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = CCBB62817BB446EEE6ED2B54 /* ForsettiCore */; };
+		35800C44FF350F2CEE9E90D0 /* SigilProfileFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA5CE4A182D926AB18E4D5 /* SigilProfileFormView.swift */; };
 		35BBFED9715108518D1CCDBA /* SigilDiagnosticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B5B7FD9AB44425F328727B /* SigilDiagnosticsService.swift */; };
 		36F7489F54E983EECCF09563 /* PipelinePrivacyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18EBBB51C46ABEF398E0DA /* PipelinePrivacyModels.swift */; };
 		382FE076D0228B7084364BDC /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = A8D92403126B0A9D02B0AFF3 /* ForsettiCore */; };
 		3BA5E80C6AD432CAEFCE672E /* celestial-name-generator-pseudocode.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F6A15AA5314593030D1B5FD /* celestial-name-generator-pseudocode.json */; };
 		3EAF8FF48AE9B4A8897D0B40 /* RFSigilCanon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9227C8AB511B796AA60C6D3D /* RFSigilCanon.framework */; };
 		3ED89392A49789E291F73096 /* SigilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE1441D5CFABC764FB8AE56 /* SigilApp.swift */; };
+		400A2EA7D954ADD749A63BEB /* JourneyIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADF244A028DD24019AA4013 /* JourneyIntegrationTests.swift */; };
 		44EAAE77772225C43BD3BAC7 /* VisibleGlyphGenerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B82F34E0C92180F17781A8B /* VisibleGlyphGenerationTests.swift */; };
 		45644F3DE79FA5C704368CA4 /* RFSigilDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D9989D71CA059E7C17CAE0 /* RFSigilDiagnostics.framework */; };
 		49AAD4AA93B7D9981CEDB399 /* RFSigilDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D9989D71CA059E7C17CAE0 /* RFSigilDiagnostics.framework */; };
@@ -53,7 +56,9 @@
 		5E4D5F4EA55F8054D6DE55D0 /* RFSigilDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D9989D71CA059E7C17CAE0 /* RFSigilDiagnostics.framework */; };
 		605668D422E9E155B0B729C3 /* celestial-name-generator.json in Resources */ = {isa = PBXBuildFile; fileRef = 95295F85A912F2CA8008A3FF /* celestial-name-generator.json */; };
 		62BCFA4B8E3C93535CA9B8EF /* RFSigilPipelinePlaceholder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05080515E1EDB2236A664408 /* RFSigilPipelinePlaceholder.framework */; };
+		65EE94DEC4CB8A45979B3137 /* SigilProfileDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF732F726872D6656605993 /* SigilProfileDraft.swift */; };
 		67B0CFB7213A064E2C6F1436 /* SigilDiagnosticCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D4702AC3F9B240660C24DA /* SigilDiagnosticCollector.swift */; };
+		68700FFA240C17C6767F34E7 /* SigilExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333336DD0C970369402DE881 /* SigilExportView.swift */; };
 		68A7761DBCEB30F5DE252071 /* RFSigilRuntime.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC2DC49BCA7EF641C6632519 /* RFSigilRuntime.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		68F64E47546E2C146AC77055 /* CelestialNamingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FA7447A7AE673BFE2F6B6C /* CelestialNamingTests.swift */; };
 		69218548E9D578F94093F29E /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
@@ -80,6 +85,7 @@
 		8AC1405C487FA50A10CAC94D /* SigilNumerologyEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B24EDEE671BAC3C1D621E2 /* SigilNumerologyEngine.swift */; };
 		8B3981FDB87FEDC7700F68FE /* RFSigilCoreModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BD192ACFF4BB802DB5BCD00 /* PlaceholderPipelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606125917EA8507C3CE9D27 /* PlaceholderPipelineTests.swift */; };
+		8BD8A8CC3F8E5897EE019D04 /* SigilFlareEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DA8E350FD6E60349652213 /* SigilFlareEditorView.swift */; };
 		8C692D2B5B5699EDF7CA38DF /* SigilPersonalCodexModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6331E3F6BBCA4F6BA783938 /* SigilPersonalCodexModels.swift */; };
 		8C6D51D27BD8336925676CFA /* SigilSourceAuthorityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D77310791300606182AABA2 /* SigilSourceAuthorityService.swift */; };
 		8D19082494D6D7B3275400B6 /* SigilPersonalCodexService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B563D8B763C03667AF51E24D /* SigilPersonalCodexService.swift */; };
@@ -101,6 +107,7 @@
 		B3AB494B928FB48B421B7C25 /* RFSigilAeostaraIntegration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFBFD0C011EDFD2AA31E09B /* RFSigilAeostaraIntegration.framework */; };
 		B5832F1182A3149A7EBF6066 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
 		B60AA96BC41D5305A9E75D3F /* SigilSecureRecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C21F1E5B15AD08EAF855F5 /* SigilSecureRecordStore.swift */; };
+		B67EB0662886F1D9987EC265 /* SigilExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE304CE7946747D0DF9D4 /* SigilExperienceView.swift */; };
 		B6E5ADABECEAF262FE5F83D9 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5EE22835B46F42E5456E7F37 /* ForsettiCore */; };
 		B92D7E3FE6760F92575E646D /* RFSigilVisibleGlyph.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BB04121397CC9C051E9C374D /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
@@ -538,11 +545,13 @@
 		0F1BB9343ED9A5485B92B43E /* DiagnosticCaptureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticCaptureTests.swift; sourceTree = "<group>"; };
 		0F79802D52745F55A8225D4E /* SigilDiagnosticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilDiagnosticModels.swift; sourceTree = "<group>"; };
 		10D9989D71CA059E7C17CAE0 /* RFSigilDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFSigilDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13DA8E350FD6E60349652213 /* SigilFlareEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilFlareEditorView.swift; sourceTree = "<group>"; };
 		14C21F1E5B15AD08EAF855F5 /* SigilSecureRecordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilSecureRecordStore.swift; sourceTree = "<group>"; };
 		15DEDCB1BFA0B448D7FCB3C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2629895507CB38A0A1CE1670 /* PrivacySecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySecurityTests.swift; sourceTree = "<group>"; };
 		2E351CD863840931AFA03144 /* RFSigilPersonalCodex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFSigilPersonalCodex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3147BF8DC5D00B3F7DB87170 /* SigilDiagnosticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilDiagnosticEngine.swift; sourceTree = "<group>"; };
+		333336DD0C970369402DE881 /* SigilExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilExportView.swift; sourceTree = "<group>"; };
 		35EEC6F774D082BB1480E062 /* SigilTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SigilTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		378483515A246B48586461AB /* SigilSecureStorageTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilSecureStorageTypes.swift; sourceTree = "<group>"; };
 		3E6CEFCAEE8751D44E460AAA /* StatusModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModels.swift; sourceTree = "<group>"; };
@@ -556,11 +565,14 @@
 		5A360DA326745DC386E24E37 /* IntegrationGatewayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationGatewayTests.swift; sourceTree = "<group>"; };
 		5B82F34E0C92180F17781A8B /* VisibleGlyphGenerationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibleGlyphGenerationTests.swift; sourceTree = "<group>"; };
 		5D77310791300606182AABA2 /* SigilSourceAuthorityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilSourceAuthorityService.swift; sourceTree = "<group>"; };
+		61F9BD344E046942DC93927C /* ProfileDraftAndJourneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDraftAndJourneyTests.swift; sourceTree = "<group>"; };
 		6233B123986BBB10DDD57DF7 /* SigilRuntimeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilRuntimeAssembly.swift; sourceTree = "<group>"; };
 		62A4ECBC4E8D91EFB178A1A0 /* SigilVisibleGlyphService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilVisibleGlyphService.swift; sourceTree = "<group>"; };
 		69C086546FF21E293A130568 /* SigilDiagnosticStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilDiagnosticStorage.swift; sourceTree = "<group>"; };
 		6A0828C356C99B2115963620 /* IntegrationStatusModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationStatusModels.swift; sourceTree = "<group>"; };
 		6DD0E5303B9147661D6A1508 /* SigilAshIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilAshIdentity.swift; sourceTree = "<group>"; };
+		77EBE304CE7946747D0DF9D4 /* SigilExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilExperienceView.swift; sourceTree = "<group>"; };
+		79EA5CE4A182D926AB18E4D5 /* SigilProfileFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilProfileFormView.swift; sourceTree = "<group>"; };
 		7DE1441D5CFABC764FB8AE56 /* SigilApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilApp.swift; sourceTree = "<group>"; };
 		7DF81D9882E4F3258D13B26F /* IdentityPipelineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityPipelineTests.swift; sourceTree = "<group>"; };
 		7FBB4EFB13E6B63D6CFD612A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -581,6 +593,7 @@
 		A12E21FEE9B339C857D307F7 /* ArtifactHealthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactHealthTests.swift; sourceTree = "<group>"; };
 		A32D31F6A990AEB8685FC1F9 /* SigilBranchTopologyModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilBranchTopologyModels.swift; sourceTree = "<group>"; };
 		A854645C1E2F81001CD27BF9 /* SigilSecurePersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilSecurePersistenceService.swift; sourceTree = "<group>"; };
+		ACF732F726872D6656605993 /* SigilProfileDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilProfileDraft.swift; sourceTree = "<group>"; };
 		ACFBFD0C011EDFD2AA31E09B /* RFSigilAeostaraIntegration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFSigilAeostaraIntegration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADAB499F24CA6535D2D08121 /* SigilCelestialNameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilCelestialNameGenerator.swift; sourceTree = "<group>"; };
 		B04F8059EB4FE65363C87865 /* BranchGlyphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchGlyphTests.swift; sourceTree = "<group>"; };
@@ -590,6 +603,7 @@
 		B563D8B763C03667AF51E24D /* SigilPersonalCodexService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilPersonalCodexService.swift; sourceTree = "<group>"; };
 		B6CF253814E8D852C2FA13BA /* SigilDiagnosticRedaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilDiagnosticRedaction.swift; sourceTree = "<group>"; };
 		B9BB01ED28CA49437D07DB0D /* branch-topology.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "branch-topology.json"; sourceTree = "<group>"; };
+		BADF244A028DD24019AA4013 /* JourneyIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyIntegrationTests.swift; sourceTree = "<group>"; };
 		BD2CC077A828BEA822807AC9 /* SigilDiagnosticExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilDiagnosticExporter.swift; sourceTree = "<group>"; };
 		C3E3E1B2D5014202BB0FD648 /* ash-manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "ash-manifest.json"; sourceTree = "<group>"; };
 		C532FF8B24DA318F55E66BB0 /* SigilCanonResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilCanonResource.swift; sourceTree = "<group>"; };
@@ -780,10 +794,12 @@
 				FE081F06DDC3AE8056BB5619 /* ForsettiModuleRegistrationTests.swift */,
 				7DF81D9882E4F3258D13B26F /* IdentityPipelineTests.swift */,
 				5A360DA326745DC386E24E37 /* IntegrationGatewayTests.swift */,
+				BADF244A028DD24019AA4013 /* JourneyIntegrationTests.swift */,
 				C769CF0A11DACC2C0B0E8626 /* PersonalCodexPersistenceTests.swift */,
 				89D1A1D68DACCA6BF919E3B6 /* PersonalCodexTests.swift */,
 				9606125917EA8507C3CE9D27 /* PlaceholderPipelineTests.swift */,
 				2629895507CB38A0A1CE1670 /* PrivacySecurityTests.swift */,
+				61F9BD344E046942DC93927C /* ProfileDraftAndJourneyTests.swift */,
 				CCA822223D17EBE7050CA7D2 /* SecurePersistenceIntegrationTests.swift */,
 				041396CD1FB1396835C69FE4 /* SecureStorageTests.swift */,
 				598C9E80010D861EDF0AB77D /* SourceAuthorityTests.swift */,
@@ -1014,7 +1030,12 @@
 		EE2CEB0A4030EA66975262B1 /* RFSigilUIModule */ = {
 			isa = PBXGroup;
 			children = (
+				77EBE304CE7946747D0DF9D4 /* SigilExperienceView.swift */,
+				333336DD0C970369402DE881 /* SigilExportView.swift */,
+				13DA8E350FD6E60349652213 /* SigilFlareEditorView.swift */,
 				808853041F00936BE3111DE0 /* SigilPhase1DashboardView.swift */,
+				ACF732F726872D6656605993 /* SigilProfileDraft.swift */,
+				79EA5CE4A182D926AB18E4D5 /* SigilProfileFormView.swift */,
 			);
 			name = RFSigilUIModule;
 			path = Sources/RFSigilUIModule;
@@ -1511,10 +1532,12 @@
 				D7614EF0EFD112ADD50B4137 /* ForsettiModuleRegistrationTests.swift in Sources */,
 				1E51E3B12534E1B9C89C303A /* IdentityPipelineTests.swift in Sources */,
 				AF7883CB7FF2EA55E96EF539 /* IntegrationGatewayTests.swift in Sources */,
+				400A2EA7D954ADD749A63BEB /* JourneyIntegrationTests.swift in Sources */,
 				537EA7F89A61E467CCF7632D /* PersonalCodexPersistenceTests.swift in Sources */,
 				DE60C967C8A95C91A819926B /* PersonalCodexTests.swift in Sources */,
 				8BD192ACFF4BB802DB5BCD00 /* PlaceholderPipelineTests.swift in Sources */,
 				00E34CB26BA2468E7645E65F /* PrivacySecurityTests.swift in Sources */,
+				0B67B9F93780A562F30094F0 /* ProfileDraftAndJourneyTests.swift in Sources */,
 				F0270C2C8B271CDE9E92C2C6 /* SecurePersistenceIntegrationTests.swift in Sources */,
 				4FF7DBA06B78CDE63EB31DC2 /* SecureStorageTests.swift in Sources */,
 				77779EEAFA7ACE6489C60945 /* SourceAuthorityTests.swift in Sources */,
@@ -1568,7 +1591,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67EB0662886F1D9987EC265 /* SigilExperienceView.swift in Sources */,
+				68700FFA240C17C6767F34E7 /* SigilExportView.swift in Sources */,
+				8BD8A8CC3F8E5897EE019D04 /* SigilFlareEditorView.swift in Sources */,
 				5CDA210CCB046DE6CC6B0EC7 /* SigilPhase1DashboardView.swift in Sources */,
+				65EE94DEC4CB8A45979B3137 /* SigilProfileDraft.swift in Sources */,
+				35800C44FF350F2CEE9E90D0 /* SigilProfileFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2230,7 +2258,7 @@
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2244,7 +2272,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = PA.0.5.0;
+				MARKETING_VERSION = PA.0.6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ravenforge.sigil.$(PRODUCT_NAME:rfc1034identifier)";
@@ -2638,7 +2666,7 @@
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2658,7 +2686,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = PA.0.5.0;
+				MARKETING_VERSION = PA.0.6.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

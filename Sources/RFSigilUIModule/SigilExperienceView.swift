@@ -297,7 +297,7 @@ public struct SigilExperienceView: View {
                             }
                             fatalError("Unreachable")
                         }(),
-                        codex: SigilPersonalCodexDisplay(
+                        codex: SigilPersonalRecordDisplay(
                             celestialName: extractCelestialName(from: viewModel.journeyViewModel.state),
                             sections: extractCodexSections(from: viewModel.journeyViewModel.state)
                         ),
@@ -366,9 +366,9 @@ public struct SigilExperienceView: View {
         return codex.celestialName.celestialName
     }
 
-    private func extractCodexSections(from state: SigilGenerationJourneyState) -> [SigilCodexSection] {
+    private func extractCodexSections(from state: SigilGenerationJourneyState) -> [SigilRecordSection] {
         guard case .success(_, _, let codex) = state else { return [] }
-        var sections: [SigilCodexSection] = []
+        var sections: [SigilRecordSection] = []
         sections.append(.init(title: "Mortal incarnation", body: codex.mortalIncarnation.prose))
         sections.append(.init(title: "Numerology", body: codex.numerologyProfile.prose))
         sections.append(.init(title: "ASH identity", body: codex.ashIdentity.prose))

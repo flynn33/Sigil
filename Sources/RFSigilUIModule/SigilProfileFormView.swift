@@ -124,14 +124,14 @@ public struct SigilProfileFormView: View {
 
 public struct SigilResultView: View {
     let artifact: SigilVisibleGlyphArtifact
-    let codex: SigilPersonalCodexDisplay
+    let codex: SigilPersonalRecordDisplay
     var onSave: (() -> Void)? = nil
     var onExport: (() -> Void)? = nil
     var onFlare: (() -> Void)? = nil
 
     public init(
         artifact: SigilVisibleGlyphArtifact,
-        codex: SigilPersonalCodexDisplay,
+        codex: SigilPersonalRecordDisplay,
         onSave: (() -> Void)? = nil,
         onExport: (() -> Void)? = nil,
         onFlare: (() -> Void)? = nil
@@ -174,7 +174,7 @@ public struct SigilResultView: View {
 
                 // PersonalCodex sections (readable prose).
                 ForEach(codex.sections) { section in
-                    SigilCodexSectionView(section: section)
+                    SigilRecordSectionView(section: section)
                 }
 
                 // Advanced detail (raw geometry / diagnostics).
@@ -206,21 +206,21 @@ public struct SigilResultView: View {
     }
 }
 
-// MARK: - Codex section display model
+// MARK: - Record section display model
 //
 // A lightweight, display-only projection of the PersonalCodex record. The
 // view does not import RFSigilPersonalCodex directly; the adapter at the
 // app boundary (SigilResultAdapter) maps the real record to this model.
 
-public struct SigilPersonalCodexDisplay: Equatable, Sendable {
+public struct SigilPersonalRecordDisplay: Equatable, Sendable {
     public let celestialName: String?
     public let provenanceSummary: String?
-    public let sections: [SigilCodexSection]
+    public let sections: [SigilRecordSection]
 
     public init(
         celestialName: String? = nil,
         provenanceSummary: String? = nil,
-        sections: [SigilCodexSection] = []
+        sections: [SigilRecordSection] = []
     ) {
         self.celestialName = celestialName
         self.provenanceSummary = provenanceSummary
@@ -228,7 +228,7 @@ public struct SigilPersonalCodexDisplay: Equatable, Sendable {
     }
 }
 
-public struct SigilCodexSection: Identifiable, Equatable, Sendable {
+public struct SigilRecordSection: Identifiable, Equatable, Sendable {
     public let id: UUID
     public let title: String
     public let body: String
@@ -247,8 +247,8 @@ public struct SigilCodexSection: Identifiable, Equatable, Sendable {
     }
 }
 
-private struct SigilCodexSectionView: View {
-    let section: SigilCodexSection
+private struct SigilRecordSectionView: View {
+    let section: SigilRecordSection
 
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {

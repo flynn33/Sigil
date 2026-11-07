@@ -6,7 +6,7 @@ The repository is intentionally foundation-first. It exposes verified status sur
 
 ## Product Direction And Roadmap
 
-The [current project plan](docs/project-plan.md) and [product roadmap](docs/roadmap.md) govern planned work. Sigil's canonical form must derive from ASH cosmological mathematics. Package 02 delivered the standard numerology bridge and the source-backed ASH/APS state/orbit/classification resolution. Package 03 delivered artifact-health validation over real records, geometry, schemas, and digests and real local-only encrypted persistence with Keychain-backed keys; a failed save is reported as a failure, never a success, and diagnostics never record the record payload, key material, storage path, or identifier. Package 04 delivered the integrity-verified canon resource layer, deterministic celestial naming, and the readable PersonalCodex interpretation. Package 05 delivered the canonical ASH-derived visible glyph: the visible vector paths are now a deterministic branch fan projected from the canonical topology and driven by the profile's decoded ASH state through a product-owned message seam, so the temporary digest-parameterized renderer is gone. Packages 06 (native experience and export) and 07 (integration and owner handover) remain.
+The [current project plan](docs/project-plan.md) and [product roadmap](docs/roadmap.md) govern planned work. Sigil's canonical form must derive from ASH cosmological mathematics. Package 02 delivered the standard numerology bridge and the source-backed ASH/APS state/orbit/classification resolution. Package 03 delivered artifact-health validation over real records, geometry, schemas, and digests and real local-only encrypted persistence with Keychain-backed keys; a failed save is reported as a failure, never a success, and diagnostics never record the record payload, key material, storage path, or identifier. Package 04 delivered the integrity-verified canon resource layer, deterministic celestial naming, and the readable PersonalCodex interpretation. Package 05 delivered the canonical ASH-derived visible glyph: the visible vector paths are now a deterministic branch fan projected from the canonical topology and driven by the profile's decoded ASH state through a product-owned message seam, so the temporary digest-parameterized renderer is gone. Package 06 delivered the native experience on top of the real services: a three-tab app (Dashboard / Create / Records), the input → generate → result journey with a validated draft and a state machine that drops out-of-order completions, the presentation-only Flare editor, and user-selected export/share — wiring the real pipeline and the real secure store into the app. Package 07 (integration and owner handover) remains.
 
 The owner has [removed the additional personal-data embedding requirement](docs/decisions/2026-10-10-no-personal-data-embedding.md). The Sigil need not carry a recoverable personal record. Personal input, internal mathematical geometry, PersonalCodex, deterministic generation, integrity/safety checks, and canonical/Flare separation remain in scope. Do not reintroduce the removed feature as a mandatory hidden payload or sidecar.
 
@@ -16,7 +16,7 @@ The approved read-only source trace from `SigilVisibleGlyphService.makeHiddenGeo
 
 | Area | State |
 | --- | --- |
-| Version | `PA.0.5.0` (build 6) |
+| Version | `PA.0.6.0` (build 7) |
 | Stage | Pre-alpha |
 | Primary platform | iOS 17+ |
 | Package validation | SwiftPM on macOS 14+ |
@@ -136,7 +136,7 @@ python3 scripts/version_guard.py --repo-root .
 python3 tools/sigil_guardrails/verify_sigil_guardrails.py --project-root . --policy tools/sigil_guardrails/sigil_guardrail_policy.json --strict
 ```
 
-Current verification: 111 Swift package tests with 0 failures, strict repository guardrails, attribution guard, and version guard passed, with the Xcode project aligned to `PA.0.5.0` / build 6 (fresh 2026-11-06 run: 111/111 package tests; strict guardrail wrapper including `swift test --parallel` and `xcodebuild -list`; see [docs/verification.md](docs/verification.md)).
+Current verification: 136 Swift package tests with 0 failures, strict repository guardrails, attribution guard, and version guard passed, with the Xcode project aligned to `PA.0.6.0` / build 7 (fresh 2026-11-06 run: 136/136 package tests; strict guardrail wrapper including `swift test --parallel` and `xcodebuild -list`; see [docs/verification.md](docs/verification.md)).
 
 ## Version And Changelog
 
