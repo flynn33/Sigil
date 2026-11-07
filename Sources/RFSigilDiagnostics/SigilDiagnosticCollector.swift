@@ -71,8 +71,14 @@ public protocol SigilDiagnosticCollector: Sendable {
     func health() -> SigilDiagnosticHealth
 }
 
+#if DEBUG
 /// Rich development diagnostic implementation: full operation tracing,
 /// redacted context snapshots, and detailed correlated failure accounts.
+///
+/// Compiled only into DEBUG (development) builds. In a release build the type
+/// is not part of the `RFSigilDiagnostics` module, so the release artifact
+/// cannot contain the invasive development capture; the `SigilDiagnosticsFactory`
+/// returns the minimal `SigilReleaseDiagnostics` in that configuration.
 public final class SigilDevelopmentDiagnostics: SigilDiagnosticCollector, @unchecked Sendable {
     private let engine: SigilDiagnosticEngine
 
@@ -150,6 +156,7 @@ public final class SigilDevelopmentDiagnostics: SigilDiagnosticCollector, @unche
         engine.health()
     }
 }
+#endif
 
 /// Minimal release diagnostic implementation: lower-overhead,
 /// privacy-minimized capture preserving essential actionable faults and the
@@ -237,17 +244,30 @@ public final class SigilReleaseDiagnostics: SigilDiagnosticCollector, @unchecked
 
 /// Composition-boundary factory that selects the diagnostic implementation
 /// for the active profile.
+///
+/// Source-level exclusion of the development implementation: the rich, invasive
+/// development capture is compiled out of non-DEBUG (release) builds, so a
+/// release binary cannot ship the development collector even if the runtime
+/// profile were overridden. The `profile` argument still selects the
+/// implementation inside a DEBUG build, which is how the tests exercise the
+/// release (minimal) behavior; in a release build the development type is not
+/// part of the module, so the only reachable implementation is the minimal one.
 public enum SigilDiagnosticsFactory {
     public static func collector(
         profile: SigilDiagnosticProfile = .development,
         limits: SigilDiagnosticLimits = .default,
         storageDirectory: URL? = nil
     ) -> any SigilDiagnosticCollector {
+        #if DEBUG
         switch profile {
         case .development:
             return SigilDevelopmentDiagnostics(limits: limits, storageDirectory: storageDirectory)
         case .release:
             return SigilReleaseDiagnostics(limits: limits, storageDirectory: storageDirectory)
         }
+        #else
+        // Non-DEBUG: the minimal implementation is the only one compiled in.
+        return SigilReleaseDiagnostics(limits: limits, storageDirectory: storageDirectory)
+        #endif
     }
 }

@@ -16,7 +16,7 @@ The approved read-only source trace from `SigilVisibleGlyphService.makeHiddenGeo
 
 | Area | State |
 | --- | --- |
-| Version | `PA.0.6.0` (build 7) |
+| Version | `PA.0.6.1` (build 8) |
 | Stage | Pre-alpha |
 | Primary platform | iOS 17+ |
 | Package validation | SwiftPM on macOS 14+ |
@@ -136,7 +136,7 @@ python3 scripts/version_guard.py --repo-root .
 python3 tools/sigil_guardrails/verify_sigil_guardrails.py --project-root . --policy tools/sigil_guardrails/sigil_guardrail_policy.json --strict
 ```
 
-Current verification: 136 Swift package tests with 0 failures, strict repository guardrails, attribution guard, and version guard passed, with the Xcode project aligned to `PA.0.6.0` / build 7 (fresh 2026-11-06 run: 136/136 package tests; strict guardrail wrapper including `swift test --parallel` and `xcodebuild -list`; see [docs/verification.md](docs/verification.md)).
+Current verification: 137 Swift package tests with 0 failures, strict repository guardrails, attribution guard, and version guard passed, with the Xcode project aligned to `PA.0.6.1` / build 8 (fresh 2026-11-07 run: 137/137 package tests; strict guardrail wrapper including `swift test --parallel` and `xcodebuild -list`; a release-configuration build confirms the development diagnostic capture is compiled out of the distributable configuration; see [docs/verification.md](docs/verification.md)).
 
 ## Version And Changelog
 

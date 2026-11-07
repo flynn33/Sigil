@@ -89,12 +89,23 @@ verifies this directly with a capturing collector. The pure, I/O-free `readiness
 drives the `personalcodex` dashboard card. See
 [design/canon-personalcodex.md](design/canon-personalcodex.md).
 
-**Release replacement status (source-level):** planned and compositionally
-wired now; the source-level exclusion of the development implementation from
-distribution artifacts is completed and inspected in **Package 07** (delivery
-phase). Log-level changes and runtime switches are not the replacement;
-operator qualification of the release artifact remains pending owner
-evidence and is recorded as such, not claimed.
+**Release replacement status (source-level):** **completed and inspected in
+Package 07 (2026-11-07, `PA.0.6.1` / build 8).** The invasive development
+capture (`SigilDevelopmentDiagnostics`) is now compiled out of non-DEBUG
+(release) builds with a `#if DEBUG` guard, and the composition-boundary
+`SigilDiagnosticsFactory` returns the minimal `SigilReleaseDiagnostics` in a
+non-DEBUG build regardless of the requested profile. The exclusion is
+therefore source-level, not a log-level change or a runtime switch: a release
+binary cannot contain the development collector, and it cannot be reactivated
+through a runtime toggle. A release-configuration build (`swift build -c
+release`) confirms the module composes with the development implementation
+absent; a new `DiagnosticCaptureTests` case verifies business-outcome parity
+across the development and minimal implementations (the business output is
+identical and the product error channel is independent of the collector). The
+`profile` argument still selects the implementation inside a DEBUG build, which
+is how the tests exercise the release (minimal) behavior. Operator qualification
+of the actual release artifact remains pending owner evidence and is recorded as
+such, not claimed.
 
 ## Capture coverage
 
@@ -174,8 +185,9 @@ integrity. No automatic upload, commit, or transfer is authorized.
   specifically rather than silently truncating. Numbered parts with a
   manifest are the recorded follow-up when a capture exceeds the limit.
 - **Stack frames:** not captured on this platform path (declared in health).
-- **Release source-level exclusion:** completed and inspected in Package 07;
-  operator release-artifact qualification is pending owner evidence.
+- **Release source-level exclusion:** completed and inspected in Package 07
+  (2026-11-07, `PA.0.6.1` / build 8); operator release-artifact qualification
+  is pending owner evidence.
 - **Physical-device crash/hang reporting:** owner-qualified in the final
   phase after candidate production.
 

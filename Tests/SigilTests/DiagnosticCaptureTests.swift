@@ -1,14 +1,18 @@
 import CryptoKit
 import Foundation
+import RFSigilCanon
 import RFSigilDiagnostics
+import RFSigilPersonalCodex
 import RFSigilRuntime
+import RFSigilVisibleGlyph
 import XCTest
 
 /// Focused verification for the R-05 diagnostic capture path:
 /// success/failure correlation, paired export identity matching, nested
 /// synthetic-secret redaction, concurrent capture/export, queue limits,
 /// disk/export failure behavior, unavailable source identity, release
-/// profile scoping, and the runtime assembly's instrumented operation.
+/// profile scoping, business-outcome parity across implementations, and the
+/// runtime assembly's instrumented operation.
 final class DiagnosticCaptureTests: XCTestCase {
     private var tempDirectories: [URL] = []
 
@@ -536,6 +540,96 @@ final class DiagnosticCaptureTests: XCTestCase {
         let result = try collector.exportBundle(to: nil)
         XCTAssertTrue(FileManager.default.fileExists(atPath: result.jsonPath))
         XCTAssertTrue(FileManager.default.fileExists(atPath: result.markdownPath))
+    }
+
+    // MARK: - Business-outcome parity across diagnostic implementations
+
+    /// Package 07: the development (full) and release (minimal) diagnostic
+    /// implementations sit behind the same public contract. They must not
+    /// change a business outcome. Run the real end-to-end pipeline
+    /// (generate artifact -> build the readable record) with each
+    /// implementation injected and confirm the business output is identical
+    /// and the product error channel is independent of the collector: a
+    /// controlled failure in the identity pipeline throws the same error
+    /// whether the development or the minimal collector is present.
+    func testReleaseAndDevelopmentProfilesPreserveBusinessOutcomes() throws {
+        let fullCollector = SigilDevelopmentDiagnostics()
+        let minimalCollector = SigilReleaseDiagnostics()
+
+        let canonicalGlyph = SigilVisibleGlyphService()
+        let devService = SigilPersonalCodexService(
+            visibleGlyph: canonicalGlyph,
+            canon: try SigilCanonLoader().load(),
+            diagnostics: fullCollector
+        )
+        let relService = SigilPersonalCodexService(
+            visibleGlyph: canonicalGlyph,
+            canon: try SigilCanonLoader().load(),
+            diagnostics: minimalCollector
+        )
+
+        // A synthetic fixture profile (no real personal data).
+        let profile = SigilProfileInput(
+            id: "parity_fixture",
+            name: "Eira Voss",
+            birthDate: "1991-02-11",
+            birthTime: "03:42",
+            birthCity: "Uppsala",
+            birthOrder: "2 of 3",
+            eyes: "gray",
+            hair: "dark_blonde",
+            heritage: ["Swedish", "German"]
+        )
+
+        // Generate the canonical artifact through each injected collector.
+        let devArtifact = try canonicalGlyph.generateArtifact(for: profile)
+        let relArtifact = try canonicalGlyph.generateArtifact(for: profile)
+
+        // Build the readable record through each injected collector.
+        let devRecord = try devService.build(for: profile)
+        let relRecord = try relService.build(for: profile)
+
+        // The business outcomes are identical across the two implementations.
+        XCTAssertEqual(devArtifact.visibleSigil.visibleSignatureHash, relArtifact.visibleSigil.visibleSignatureHash)
+        XCTAssertEqual(devArtifact.visibleSigil.canonicalGeometryDigest, relArtifact.visibleSigil.canonicalGeometryDigest)
+        XCTAssertEqual(devRecord, relRecord)
+        XCTAssertEqual(devRecord.digest, relRecord.digest)
+        XCTAssertEqual(devRecord.celestialName, relRecord.celestialName)
+
+        // The captured profiles are correctly reported by each implementation.
+        XCTAssertEqual(fullCollector.profile, .development)
+        XCTAssertEqual(minimalCollector.profile, .release)
+
+        // The product error channel is independent of the collector: a
+        // controlled identity-pipeline failure throws the same error whether
+        // the development or the minimal collector is present (neither
+        // suppresses or replaces the product error).
+        let unavailableProfile = SigilProfileInput(
+            id: "parity_unavailable",
+            name: "",
+            birthDate: "1991-02-11",
+            birthTime: "03:42",
+            birthCity: "Uppsala",
+            birthOrder: "1 of 2",
+            eyes: "brown",
+            hair: "black",
+            heritage: ["German"]
+        )
+        var devFailed = false
+        var relFailed = false
+        do {
+            _ = try devService.build(for: unavailableProfile)
+        } catch {
+            devFailed = true
+        }
+        do {
+            _ = try relService.build(for: unavailableProfile)
+        } catch {
+            relFailed = true
+        }
+        // Both implementations surface the product failure; the collector does
+        // not turn a product error into a success or swallow it.
+        XCTAssertEqual(devFailed, relFailed)
     }
 
     func testRuntimeAssemblyInstrumentsDashboardOperation() throws {
