@@ -144,6 +144,7 @@ public final class SigilExperienceViewModel: ObservableObject {
     @Published var pendingDelete: SigilDeleteConfirmState?
     @Published var records: [SigilRecord] = []
     @Published var recordLoadError: String?
+    @Published var currentFlareStyle: SigilFlareStyle?
 
     public let storageID: String
     public let journeyViewModel: SigilGenerationJourneyViewModel
@@ -225,12 +226,20 @@ public final class SigilExperienceViewModel: ObservableObject {
     }
 
     public func saveFlare(_ presentation: SigilFlarePresentation) async {
+        currentFlareStyle = presentation.style
         _ = await recordsListViewModel.recordsStore.upsert(
             presentation,
             storageID: storageID,
             recordType: .flare
         )
         await recordsListViewModel.refresh()
+    }
+
+    /// The dependencies needed to build the export view. Returns nil when
+    /// no successful artifact is available.
+    var exportDependencies: (SigilVisibleGlyphArtifact, SigilPersonalCodex, SigilVisibleGlyphService)? {
+        guard case .success(_, let artifact, let codex) = journeyViewModel.state else { return nil }
+        return (artifact, codex, journeyViewModel.glyphServiceRef)
     }
 
     public func openRecord(_ record: SigilRecord) async {
@@ -321,8 +330,19 @@ public struct SigilExperienceView: View {
                 }
             }
             .sheet(isPresented: $viewModel.showExport) {
-                Text("Export (coming in S5)")
-                    .padding()
+                if let (artifact, codex, glyphService) = viewModel.exportDependencies {
+                    SigilExportView(
+                        viewModel: SigilExportViewModel(
+                            artifact: artifact,
+                            codex: codex,
+                            glyphService: glyphService,
+                            flareStyle: viewModel.currentFlareStyle
+                        ),
+                        onDismiss: {
+                            viewModel.showExport = false
+                        }
+                    )
+                }
             }
             .alert(
                 "Delete record?",
