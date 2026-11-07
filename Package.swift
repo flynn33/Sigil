@@ -81,7 +81,13 @@ let package = Package(
         ),
         .target(
             name: "RFSigilUIModule",
-            dependencies: ["RFSigilCoreModels", forsettiDependency]
+            dependencies: [
+                "RFSigilCoreModels",
+                "RFSigilVisibleGlyph",
+                "RFSigilPrivacySecurity",
+                "RFSigilPersonalCodex",
+                forsettiDependency
+            ]
         ),
         .target(
             name: "RFSigilForsettiModules",
