@@ -100,7 +100,7 @@ what is included.
 ### 7. Integration tests (S6)
 
 `JourneyIntegrationTests` exercises the real service integration (not mocks)
-through the full create → generate → read codex → save → reopen → Flare →
+through the full create → generate → read record → save → reopen → Flare →
 export journey with a synthetic fixture. Covers: save/reopen round-trip
 integrity (digest stability), the Flare presentation-only guarantee
 (canonical data unchanged across 3 styles), out-of-order completion drop,
