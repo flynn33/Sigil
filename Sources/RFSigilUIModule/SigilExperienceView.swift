@@ -217,6 +217,22 @@ public final class SigilExperienceViewModel: ObservableObject {
         pendingDelete = nil
     }
 
+    /// The dependencies needed to build the Flare editor. Returns nil when
+    /// no successful artifact is available.
+    var flareEditorDependencies: (VisibleCanonicalSigil, SigilVisibleGlyphService)? {
+        guard case .success(_, let artifact, _) = journeyViewModel.state else { return nil }
+        return (artifact.visibleSigil, journeyViewModel.glyphServiceRef)
+    }
+
+    public func saveFlare(_ presentation: SigilFlarePresentation) async {
+        _ = await recordsListViewModel.recordsStore.upsert(
+            presentation,
+            storageID: storageID,
+            recordType: .flare
+        )
+        await recordsListViewModel.refresh()
+    }
+
     public func openRecord(_ record: SigilRecord) async {
         // Load the PersonalCodex for this record and display it.
         guard record.recordType == .personalCodex else { return }
@@ -285,8 +301,24 @@ public struct SigilExperienceView: View {
                 }
             }
             .sheet(isPresented: $viewModel.showFlare) {
-                Text("Flare editor (coming in S4)")
-                    .padding()
+                if let (sigil, glyphService) = viewModel.flareEditorDependencies {
+                    NavigationStack {
+                        SigilFlareEditorView(
+                            viewModel: SigilFlareEditorViewModel(
+                                visibleSigil: sigil,
+                                glyphService: glyphService
+                            ),
+                            onSave: { presentation in
+                                Task {
+                                    await viewModel.saveFlare(presentation)
+                                }
+                            },
+                            onDismiss: {
+                                viewModel.showFlare = false
+                            }
+                        )
+                    }
+                }
             }
             .sheet(isPresented: $viewModel.showExport) {
                 Text("Export (coming in S5)")
