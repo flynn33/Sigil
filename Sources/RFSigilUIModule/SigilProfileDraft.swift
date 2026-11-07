@@ -85,7 +85,7 @@ public struct SigilDraftValidationErrorBag: Error, Equatable, Sendable {
     public init(errors: [SigilDraftValidationError]) { self.errors = errors }
 }
 
-/// A single failure in the journey pipeline (glyph or codex).
+/// A single failure in the journey pipeline (glyph or record).
 /// `reason` is safe to surface to the user.
 public struct SigilPipelineFailure: Error, Equatable, Sendable {
     public let reason: String
@@ -182,7 +182,7 @@ public enum SigilDraftPromoter {
 public enum SigilGenerationJourneyState: Equatable, Sendable {
     case idle
     case loading(requestSequence: UInt64)
-    case success(requestSequence: UInt64, artifact: SigilVisibleGlyphArtifact, codex: SigilPersonalCodex)
+    case success(requestSequence: UInt64, artifact: SigilVisibleGlyphArtifact, record: SigilPersonalCodex)
     case failure(requestSequence: UInt64, reason: String)
     case cancelled(requestSequence: UInt64)
 }
@@ -206,7 +206,7 @@ public enum SigilGenerationJourney {
         case (.loading(let s), .start(let seq)) where seq > s:
             return .loading(requestSequence: seq)
         case (.loading(let s), .succeeded(let seq, let a, let c)) where seq == s:
-            return .success(requestSequence: seq, artifact: a, codex: c)
+            return .success(requestSequence: seq, artifact: a, record: c)
         case (.loading(let s), .failed(let seq, let reason)) where seq == s:
             return .failure(requestSequence: seq, reason: reason)
         case (.loading(let s), .cancelled(let seq)) where seq == s:
@@ -267,7 +267,7 @@ public final class SigilGenerationJourneyViewModel: ObservableObject {
                     glyphService: glyphService,
                     codexService: codexService
                 )
-                await self.finish(seq: seq, artifact: artifactResult, codex: codexResult)
+                await self.finish(seq: seq, artifact: artifactResult, record: codexResult)
             }
         }
     }
@@ -275,12 +275,12 @@ public final class SigilGenerationJourneyViewModel: ObservableObject {
     private func finish(
         seq: UInt64,
         artifact: Result<SigilVisibleGlyphArtifact, SigilPipelineFailure>,
-        codex: Result<SigilPersonalCodex, SigilPipelineFailure>
+        record: Result<SigilPersonalCodex, SigilPipelineFailure>
     ) {
         guard case .loading(let currentSeq) = state, currentSeq == seq else { return }
-        switch (artifact, codex) {
+        switch (artifact, record) {
         case (.success(let a), .success(let c)):
-            state = .success(requestSequence: seq, artifact: a, codex: c)
+            state = .success(requestSequence: seq, artifact: a, record: c)
         case (.failure(let r), _):
             state = .failure(requestSequence: seq, reason: r.reason)
         case (_, .failure(let r)):
@@ -310,10 +310,10 @@ public final class SigilGenerationJourneyViewModel: ObservableObject {
             let artifact = try await Task.detached(priority: .userInitiated) {
                 try glyphService.generateArtifact(for: input)
             }.value
-            let codex = try await Task.detached(priority: .userInitiated) {
+            let record = try await Task.detached(priority: .userInitiated) {
                 try codexService.build(for: input)
             }.value
-            return (.success(artifact), .success(codex))
+            return (.success(artifact), .success(record))
         } catch {
             let failure = SigilPipelineFailure(reason: Self.describe(error))
             return (.failure(failure), .failure(failure))

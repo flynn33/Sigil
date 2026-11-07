@@ -10,7 +10,7 @@ import XCTest
 // MARK: - Full journey integration test
 //
 // Exercises the real service integration (not mocks) through the full
-// create → generate → read codex → save → reopen → Flare → export journey.
+// create → generate → read record → save → reopen → Flare → export journey.
 // Uses a synthetic fixture (never the owner's real personal record).
 
 final class JourneyIntegrationTests: XCTestCase {
@@ -35,7 +35,7 @@ final class JourneyIntegrationTests: XCTestCase {
 
     private func makeServices(in directory: URL) throws -> (
         glyph: SigilVisibleGlyphService,
-        codex: SigilPersonalCodexService,
+        record: SigilPersonalCodexService,
         persistence: SigilSecurePersistenceService,
         recordsStore: SigilRecordsStore
     ) {
@@ -48,9 +48,9 @@ final class JourneyIntegrationTests: XCTestCase {
             keyID: "journey-test-key"
         )
         let persistence = SigilSecurePersistenceService(store: recordStore)
-        let codex = SigilPersonalCodexService(visibleGlyph: glyph, canon: canon)
+        let record = SigilPersonalCodexService(visibleGlyph: glyph, canon: canon)
         let store = SigilRecordsStore(persistence: persistence)
-        return (glyph, codex, persistence, store)
+        return (glyph, record, persistence, store)
     }
 
     // MARK: - Tests
@@ -79,10 +79,10 @@ final class JourneyIntegrationTests: XCTestCase {
         XCTAssertFalse(artifact.visibleSigil.visibleSignatureHash.isEmpty)
 
         // 3. Build the PersonalCodex (real pipeline).
-        let codex = try services.codex.build(for: input)
-        XCTAssertEqual(codex.profileStorageID, input.id)
-        XCTAssertFalse(codex.digest.isEmpty)
-        XCTAssertFalse(codex.celestialName.celestialName.isEmpty)
+        let record = try services.record.build(for: input)
+        XCTAssertEqual(record.profileStorageID, input.id)
+        XCTAssertFalse(record.digest.isEmpty)
+        XCTAssertFalse(record.celestialName.celestialName.isEmpty)
 
         // 4. Save all records to the real secure store.
         let store = services.recordsStore
@@ -100,9 +100,9 @@ final class JourneyIntegrationTests: XCTestCase {
         guard case .success = saveProfile else {
             return XCTFail("Expected profile save to succeed: \(saveProfile)")
         }
-        let saveRecord = await store.upsert(codex, storageID: draft.storageID, recordType: .personalCodex)
+        let saveRecord = await store.upsert(record, storageID: draft.storageID, recordType: .personalCodex)
         guard case .success = saveRecord else {
-            return XCTFail("Expected codex save to succeed: \(saveRecord)")
+            return XCTFail("Expected record save to succeed: \(saveRecord)")
         }
         let canonicalStyle = SigilFlareStyle(
             paletteID: "canonical", glowStrength: 0, backgroundID: "transparent"
@@ -120,10 +120,10 @@ final class JourneyIntegrationTests: XCTestCase {
             as: SigilPersonalCodex.self
         )
         guard case .success(let loadedRecord) = reopenedRecord else {
-            return XCTFail("Expected codex reopen to succeed: \(reopenedRecord)")
+            return XCTFail("Expected record reopen to succeed: \(reopenedRecord)")
         }
-        XCTAssertEqual(loadedRecord.digest, codex.digest, "Record digest must be stable across save/reopen")
-        XCTAssertEqual(loadedRecord.celestialName.celestialName, codex.celestialName.celestialName)
+        XCTAssertEqual(loadedRecord.digest, record.digest, "Record digest must be stable across save/reopen")
+        XCTAssertEqual(loadedRecord.celestialName.celestialName, record.celestialName.celestialName)
 
         let reopenedFlare = await store.open(
             storageID: draft.storageID,
@@ -165,9 +165,9 @@ final class JourneyIntegrationTests: XCTestCase {
         XCTAssertTrue(artifact.svgDocument.hasSuffix("</svg>"))
 
         // 9. Export the PersonalCodex as JSON.
-        let recordJSON = try JSONEncoder().encode(codex)
+        let recordJSON = try JSONEncoder().encode(record)
         let decodedRecord = try JSONDecoder().decode(SigilPersonalCodex.self, from: recordJSON)
-        XCTAssertEqual(decodedRecord.digest, codex.digest)
+        XCTAssertEqual(decodedRecord.digest, record.digest)
 
         // 10. Delete all records (destructive, explicit).
         _ = await store.delete(storageID: draft.storageID, recordType: .profile)
@@ -223,7 +223,7 @@ final class JourneyIntegrationTests: XCTestCase {
 
         let input = try XCTUnwrap(SigilDraftPromoter.promote(draft).successValue)
         let artifact = try services.glyph.generateArtifact(for: input)
-        let codex = try services.codex.build(for: input)
+        let record = try services.record.build(for: input)
 
         var state: SigilGenerationJourneyState = .idle
         // Start seq 1.
@@ -233,10 +233,10 @@ final class JourneyIntegrationTests: XCTestCase {
         state = SigilGenerationJourney.advance(current: state, with: .start(2))
         XCTAssertEqual(state, .loading(requestSequence: 2))
         // Seq 1 completes (out of order: should be dropped).
-        state = SigilGenerationJourney.advance(current: state, with: .succeeded(1, artifact, codex))
+        state = SigilGenerationJourney.advance(current: state, with: .succeeded(1, artifact, record))
         XCTAssertEqual(state, .loading(requestSequence: 2), "Out-of-order seq 1 must be dropped")
         // Seq 2 completes (in order: should be accepted).
-        state = SigilGenerationJourney.advance(current: state, with: .succeeded(2, artifact, codex))
+        state = SigilGenerationJourney.advance(current: state, with: .succeeded(2, artifact, record))
         guard case .success(let seq, _, _) = state else {
             return XCTFail("Expected success, got \(state)")
         }

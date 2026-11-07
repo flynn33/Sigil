@@ -29,7 +29,7 @@ struct SigilApp: App {
                     canon: canon
                 )
             } else {
-                // Fail-closed: no codex service without a valid canon resource.
+                // Fail-closed: no record service without a valid canon resource.
                 // The experience will report generation failures honestly.
                 codexService = SigilPersonalCodexService(
                     visibleGlyph: glyphService,
