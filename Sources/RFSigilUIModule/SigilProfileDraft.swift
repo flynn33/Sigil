@@ -228,8 +228,11 @@ public final class SigilGenerationJourneyViewModel: ObservableObject {
     @Published public private(set) var state: SigilGenerationJourneyState = .idle
     public let storageID: String
 
-    private let glyphService: SigilVisibleGlyphService
-    private let codexService: SigilPersonalCodexService
+    public let glyphService: SigilVisibleGlyphService
+    public let codexService: SigilPersonalCodexService
+    /// Convenience alias so the experience view can access the glyph service
+    /// without a separate reference.
+    public var glyphServiceRef: SigilVisibleGlyphService { glyphService }
     private var inFlight: Task<Void, Never>?
     private var nextSequence: UInt64 = 1
 
