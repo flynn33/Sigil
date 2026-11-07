@@ -209,6 +209,20 @@ public final class SigilSecurePersistenceService: @unchecked Sendable {
         try await store.load(id)
     }
 
+    /// Removes a record from the local store. Throws `SigilSecureStorageError.notFound`
+    /// when the record does not exist; the caller is expected to confirm destructive
+    /// intent before invoking this.
+    public func delete(_ id: SigilRecordIdentity) async throws {
+        try await store.delete(id)
+    }
+
+    /// Lists all record identities in the store, sorted by storageID then
+    /// recordType. Returns an empty array when the partition directory does not
+    /// yet exist. This is a directory listing; it does not decrypt any record.
+    public func list() async throws -> [SigilRecordIdentity] {
+        try await store.list()
+    }
+
     private static func category(for error: Error) -> SigilPersistenceFailureCategory {
         if let storageError = error as? SigilSecureStorageError {
             switch storageError {
