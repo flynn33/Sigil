@@ -178,3 +178,10 @@ The visible-glyph service is bounded local foundation work, not the final pipeli
 - [Phase 1 Implementation Plan](docs/phase1/implementation-plan.md)
 
 The project wiki provides the narrative architecture, module map, visual evidence, and release governance pages for broader review; the repository documentation pages above remain the authoritative reference.
+
+## License
+
+Sigil is available for personal use and research only under the [Sigil Source License](LICENSE). This is not the MIT License: commercial use requires separate written permission.
+
+Copyright (c) 2026 Raven Forge Software.
+
