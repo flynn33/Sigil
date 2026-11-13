@@ -187,6 +187,16 @@ Fresh 2026-11-07 run (Package 07 integration, development verification, and owne
 - Swift package tests (`swift test`, macOS arm64): 137 tests, 0 failures, 0 unexpected (136 from Package 06 plus 1 `DiagnosticCaptureTests` business-outcome-parity case).
 - Strict project guardrail wrapper (`bash scripts/verify-sigil-guardrails.sh`): strict validator, `swift test --parallel` 137/0, and `xcodebuild -list` all passed (exit 0); `git diff --check` clean.
 - Dependency/target composition inspected against the real graph: a single pinned external dependency (`ForsettiCore` @ `43eef7a739f3b78253c64aa4b070521ab5b1f43c`), no prohibited internal/example/demo/tooling target linked, no Forsetti-internal source path copied into the product, and the acyclic target graph unchanged; no instruction package, source archive, real diagnostic capture, secret, or personal test data in the product tree or application resources.
-- The full iOS-simulator `xcodebuild` build/test was not re-run in this session; this is recorded honestly rather than claimed as a pass. Actual release-artifact exclusion and physical-device behavior remain owner qualification and are recorded as pending in the owner handover. The App target reports `PA.0.6.1` / build 8 via `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` (both Debug and Release) in `project.yml` and the regenerated `Sigil.xcodeproj`.
+- The full iOS-simulator `xcodebuild` build/test was not re-run in that session; that limitation is superseded by the 2026-11-13 Xcode buildability closeout below. The App target at Package 07 closeout reported `PA.0.6.1` / build 8 via `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` in `project.yml` and the regenerated `Sigil.xcodeproj`.
 - `xcodegen` regenerated `Sigil.xcodeproj`: the app marketing/build version aligned to `PA.0.6.1` / build 8 (both Debug and Release); the Forsetti pin is unchanged and no new dependency or target was added.
 - Raw build/test output and the closeout receipt are stored in the owner-external evidence root (`phase07/closeout/`).
+
+Fresh 2026-11-13 run (Xcode project buildability closeout, on `main` at the `PA.0.6.2` / build 9 source revision):
+
+- Xcode Debug iOS-simulator build (`xcodebuild -project Sigil.xcodeproj -scheme SigilApp -destination 'platform=iOS Simulator,…' build`): `BUILD SUCCEEDED`, 0 errors, 0 project-source warnings (toolchain `appintentsmetadataprocessor` notices only).
+- Xcode Debug iOS-simulator test (`xcodebuild … test`): **TEST SUCCEEDED**, 137 tests, 0 failures.
+- Swift build (`swift build`, macOS arm64, Debug): `BUILD SUCCEEDED`.
+- Swift build, release configuration (`swift build -c release`, macOS arm64): `BUILD SUCCEEDED`.
+- Swift package tests (`swift test`, macOS arm64): 137 tests, 0 failures.
+- `project.yml` target dependencies aligned with `Package.swift`; `#if !SWIFT_PACKAGE` `Bundle.module` accessors added for `RFSigilCanon` and `RFSigilVisibleGlyph`; `xcodegen` regenerated `Sigil.xcodeproj` at `PA.0.6.2` / build 9 (Debug and Release). Forsetti pin unchanged.
+- A fresh clone of `main` is expected to open `Sigil.xcodeproj`, resolve the pinned Forsetti package, and build/test scheme `SigilApp` on an iOS 17+ Simulator.

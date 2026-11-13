@@ -267,7 +267,7 @@ public final class SigilGenerationJourneyViewModel: ObservableObject {
                     glyphService: glyphService,
                     codexService: codexService
                 )
-                await self.finish(seq: seq, artifact: artifactResult, record: codexResult)
+                self.finish(seq: seq, artifact: artifactResult, record: codexResult)
             }
         }
     }

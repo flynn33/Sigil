@@ -90,7 +90,8 @@ drives the `personalcodex` dashboard card. See
 [design/canon-personalcodex.md](design/canon-personalcodex.md).
 
 **Release replacement status (source-level):** **completed and inspected in
-Package 07 (2026-11-07, `PA.0.6.1` / build 8).** The invasive development
+Package 07 (2026-11-07, `PA.0.6.1` / build 8; current published product
+`PA.0.6.2` / build 9).** The invasive development
 capture (`SigilDevelopmentDiagnostics`) is now compiled out of non-DEBUG
 (release) builds with a `#if DEBUG` guard, and the composition-boundary
 `SigilDiagnosticsFactory` returns the minimal `SigilReleaseDiagnostics` in a
@@ -186,8 +187,8 @@ integrity. No automatic upload, commit, or transfer is authorized.
   manifest are the recorded follow-up when a capture exceeds the limit.
 - **Stack frames:** not captured on this platform path (declared in health).
 - **Release source-level exclusion:** completed and inspected in Package 07
-  (2026-11-07, `PA.0.6.1` / build 8); operator release-artifact qualification
-  is pending owner evidence.
+  (2026-11-07, `PA.0.6.1` / build 8; current product `PA.0.6.2` / build 9);
+  operator release-artifact qualification is pending owner evidence.
 - **Physical-device crash/hang reporting:** owner-qualified in the final
   phase after candidate production.
 

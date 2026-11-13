@@ -59,6 +59,7 @@ public final class SigilRecordsListViewModel: ObservableObject {
 public struct SigilRecordsListView: View {
     @ObservedObject var viewModel: SigilRecordsListViewModel
     var onOpen: ((SigilRecord) -> Void)? = nil
+    @State private var pendingDelete: SigilDeleteConfirmState?
 
     public init(viewModel: SigilRecordsListViewModel, onOpen: ((SigilRecord) -> Void)? = nil) {
         self.viewModel = viewModel
@@ -77,12 +78,13 @@ public struct SigilRecordsListView: View {
             ForEach(viewModel.records) { record in
                 SigilRecordRow(
                     record: record,
-                    onOpen: { onOpen?(record) },
-                    onDelete: {
-                        let alertState = SigilDeleteConfirmState(record: record)
-                        // The confirm dialog is handled by the parent.
-                    }
+                    onOpen: { onOpen?(record) }
                 )
+                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                    Button("Delete", role: .destructive) {
+                        pendingDelete = SigilDeleteConfirmState(record: record)
+                    }
+                }
             }
         }
         .overlay {
@@ -93,13 +95,29 @@ public struct SigilRecordsListView: View {
         .navigationTitle("Records")
         .task { await viewModel.refresh() }
         .refreshable { await viewModel.refresh() }
+        .alert(
+            "Delete record?",
+            isPresented: Binding(
+                get: { pendingDelete != nil },
+                set: { if !$0 { pendingDelete = nil } }
+            )
+        ) {
+            Button("Cancel", role: .cancel) { pendingDelete = nil }
+            Button("Delete", role: .destructive) {
+                if let pending = pendingDelete {
+                    pendingDelete = nil
+                    Task { await viewModel.delete(pending.record) }
+                }
+            }
+        } message: {
+            Text("This will permanently remove the record from this device.")
+        }
     }
 }
 
 private struct SigilRecordRow: View {
     let record: SigilRecord
     var onOpen: () -> Void
-    var onDelete: () -> Void
 
     var body: some View {
         HStack {

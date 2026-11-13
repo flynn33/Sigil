@@ -1,4 +1,5 @@
 import RFSigilCanon
+import RFSigilPersonalCodex
 import RFSigilPrivacySecurity
 import RFSigilRuntime
 import RFSigilUIModule
@@ -21,21 +22,13 @@ struct SigilApp: App {
         if let existing = assembly.personalCodexService {
             codexService = existing
         } else {
-            // The assembly's default personalCodexService is nil; construct one
-            // with the real canon resource.
-            if let canon = try? SigilCanonLoader().load() {
-                codexService = SigilPersonalCodexService(
-                    visibleGlyph: glyphService,
-                    canon: canon
-                )
-            } else {
-                // Fail-closed: no record service without a valid canon resource.
-                // The experience will report generation failures honestly.
-                codexService = SigilPersonalCodexService(
-                    visibleGlyph: glyphService,
-                    canon: { fatalError("Canon resource is required for the PersonalCodex service.") }()
-                )
-            }
+            // Fail closed at composition: the PersonalCodex path requires the
+            // integrity-verified canon resource shipped in RFSigilCanon.
+            let canon = try! SigilCanonLoader().load()
+            codexService = SigilPersonalCodexService(
+                visibleGlyph: glyphService,
+                canon: canon
+            )
         }
 
         // Build the real secure persistence service.
@@ -73,16 +66,21 @@ struct SigilApp: App {
 
     var body: some Scene {
         WindowGroup {
+            // iOS 17-compatible tab chrome (the iOS 18 `Tab` API requires a higher
+            // deployment target than this project's IPHONEOS_DEPLOYMENT_TARGET).
             TabView {
-                Tab("Dashboard", systemImage: "gauge") {
-                    SigilPhase1DashboardView(viewModel: dashboardViewModel)
-                }
-                Tab("Create", systemImage: "plus.circle") {
-                    SigilExperienceView(viewModel: experienceViewModel)
-                }
-                Tab("Records", systemImage: "tray.full") {
-                    SigilRecordsListView(viewModel: recordsListViewModel)
-                }
+                SigilPhase1DashboardView(viewModel: dashboardViewModel)
+                    .tabItem {
+                        Label("Dashboard", systemImage: "gauge")
+                    }
+                SigilExperienceView(viewModel: experienceViewModel)
+                    .tabItem {
+                        Label("Create", systemImage: "plus.circle")
+                    }
+                SigilRecordsListView(viewModel: recordsListViewModel)
+                    .tabItem {
+                        Label("Records", systemImage: "tray.full")
+                    }
             }
         }
     }

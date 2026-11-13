@@ -17,9 +17,11 @@
 		0B67B9F93780A562F30094F0 /* ProfileDraftAndJourneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F9BD344E046942DC93927C /* ProfileDraftAndJourneyTests.swift */; };
 		0D0C3B9AEF198B39B1AB0770 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = 2DEAABB9A7B735BEB0DD397D /* ForsettiCore */; };
 		0EEBBD0D5EC6CB4AA282552E /* SigilVisibleGlyphService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A4ECBC4E8D91EFB178A1A0 /* SigilVisibleGlyphService.swift */; };
+		0F57F147EE5D190C7666B3FD /* RFSigilPersonalCodex.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E351CD863840931AFA03144 /* RFSigilPersonalCodex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0F8E01204C97780DCECF94E5 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
 		10AA488090E872D3E39295BC /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
 		11B8516A783E56BFF623795E /* RFSigilSourceAuthority.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60D8698625E653A1F9FCECA /* RFSigilSourceAuthority.framework */; };
+		1271F60CE0247BAFC7189079 /* RFSigilVisibleGlyph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */; };
 		130E357CF950DED32694A16A /* IntegrationStatusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0828C356C99B2115963620 /* IntegrationStatusModels.swift */; };
 		1331CC9DA577F2A62E570EE6 /* SigilDiagnosticExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2CC077A828BEA822807AC9 /* SigilDiagnosticExporter.swift */; };
 		13E892989BF01059CE2658CB /* SigilDiagnosticModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F79802D52745F55A8225D4E /* SigilDiagnosticModels.swift */; };
@@ -32,6 +34,7 @@
 		2557F6FE74FC5EB211C19EB2 /* RFSigilSourceAuthority.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60D8698625E653A1F9FCECA /* RFSigilSourceAuthority.framework */; };
 		27536EF6FF3352E407965A9B /* RFSigilVisibleGlyph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */; };
 		2D20A165F5889CF1EC952FE4 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
+		30E14341F17B40EA7313992A /* RFSigilPersonalCodex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E351CD863840931AFA03144 /* RFSigilPersonalCodex.framework */; };
 		343D4129E768CB5A8AA8AD44 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = CCBB62817BB446EEE6ED2B54 /* ForsettiCore */; };
 		35800C44FF350F2CEE9E90D0 /* SigilProfileFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA5CE4A182D926AB18E4D5 /* SigilProfileFormView.swift */; };
 		35BBFED9715108518D1CCDBA /* SigilDiagnosticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B5B7FD9AB44425F328727B /* SigilDiagnosticsService.swift */; };
@@ -53,6 +56,8 @@
 		556DD429ECF964FD33F00A38 /* SourceAuthorityModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597ABCCCF624F5B6BD6B8905 /* SourceAuthorityModels.swift */; };
 		5BDC4ED3C20D73B587ACD139 /* RFSigilAeostaraIntegration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFBFD0C011EDFD2AA31E09B /* RFSigilAeostaraIntegration.framework */; };
 		5CDA210CCB046DE6CC6B0EC7 /* SigilPhase1DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808853041F00936BE3111DE0 /* SigilPhase1DashboardView.swift */; };
+		5D6656E63BD86DA7C8EFE95C /* RFSigilPrivacySecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532BC89D06E735CDE11FEEAE /* RFSigilPrivacySecurity.framework */; };
+		5E38E27BCD6A9F44F7151242 /* ResourceBundleAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5170551880E2E02678BCFF /* ResourceBundleAccessor.swift */; };
 		5E4D5F4EA55F8054D6DE55D0 /* RFSigilDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D9989D71CA059E7C17CAE0 /* RFSigilDiagnostics.framework */; };
 		605668D422E9E155B0B729C3 /* celestial-name-generator.json in Resources */ = {isa = PBXBuildFile; fileRef = 95295F85A912F2CA8008A3FF /* celestial-name-generator.json */; };
 		62BCFA4B8E3C93535CA9B8EF /* RFSigilPipelinePlaceholder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05080515E1EDB2236A664408 /* RFSigilPipelinePlaceholder.framework */; };
@@ -78,6 +83,7 @@
 		7E699D6AF22EC35F3160AB97 /* SigilBranchTopologyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D31F6A990AEB8685FC1F9 /* SigilBranchTopologyModels.swift */; };
 		7E79DE179B6AAD9A5D379C11 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
 		7F42B8D8B14D992C3BF753B6 /* SigilCelestialCanonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B234DC6DEC07C947081261CA /* SigilCelestialCanonModels.swift */; };
+		801A85512827C1BAD379C879 /* RFSigilPersonalCodex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E351CD863840931AFA03144 /* RFSigilPersonalCodex.framework */; };
 		81533377D51E0F1BA6EB0412 /* RFSigilPersonalCodex.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E351CD863840931AFA03144 /* RFSigilPersonalCodex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84B143560560B01EA8FEE683 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = F5F923488C5842B8547376DE /* ForsettiCore */; };
 		86A2049749BE54DE0877DFE0 /* SigilPipelinePlaceholderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8B7D431B8DC8FC0464CA8 /* SigilPipelinePlaceholderService.swift */; };
@@ -103,6 +109,7 @@
 		AE749B826C6389BDECE5971B /* RFSigilAeostaraIntegration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFBFD0C011EDFD2AA31E09B /* RFSigilAeostaraIntegration.framework */; };
 		AF7883CB7FF2EA55E96EF539 /* IntegrationGatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A360DA326745DC386E24E37 /* IntegrationGatewayTests.swift */; };
 		AF7E9051D54A40B1E922EEF6 /* SigilMythicMapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41E8BBC0FF4217C829295C2 /* SigilMythicMapModels.swift */; };
+		B016F018CF5EA7F50C6FF43B /* ResourceBundleAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C842B9509B59045E9B0D6E1 /* ResourceBundleAccessor.swift */; };
 		B30795091B1607BAB0F73ABF /* branch-topology.json in Resources */ = {isa = PBXBuildFile; fileRef = B9BB01ED28CA49437D07DB0D /* branch-topology.json */; };
 		B3AB494B928FB48B421B7C25 /* RFSigilAeostaraIntegration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFBFD0C011EDFD2AA31E09B /* RFSigilAeostaraIntegration.framework */; };
 		B5832F1182A3149A7EBF6066 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
@@ -110,16 +117,20 @@
 		B67EB0662886F1D9987EC265 /* SigilExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EBE304CE7946747D0DF9D4 /* SigilExperienceView.swift */; };
 		B6E5ADABECEAF262FE5F83D9 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5EE22835B46F42E5456E7F37 /* ForsettiCore */; };
 		B92D7E3FE6760F92575E646D /* RFSigilVisibleGlyph.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B9DCE0A0BDC1F4254EB446C2 /* RFSigilDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D9989D71CA059E7C17CAE0 /* RFSigilDiagnostics.framework */; };
 		BB04121397CC9C051E9C374D /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
 		BCE3D98F8149014DBE582266 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
 		C252A05E06B74AAAD9C2FA7B /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F4964FD8C7F7BF340371207 /* ForsettiCore */; };
 		C2B3A20A85D17B8FB6536921 /* RFSigilVisibleGlyph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */; };
+		C31976AF1F86034784BA74FA /* RFSigilVisibleGlyph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */; };
 		C45A4B78A3BF79B17F27D80B /* RFSigilPrivacySecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532BC89D06E735CDE11FEEAE /* RFSigilPrivacySecurity.framework */; };
 		C639D8E8B8FDFEF5554DB652 /* SigilIdentityModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005DEA2D4BB382591E91FDD /* SigilIdentityModels.swift */; };
+		C7179C3D1D91FE0515EAFA92 /* RFSigilVisibleGlyph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */; };
 		C7BFCB894F50A4ECEFA34233 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = CD220B2253DCF1C28527534D /* ForsettiCore */; };
 		C89F416D21A94061EA9DB467 /* master-mythic-mapping.json in Resources */ = {isa = PBXBuildFile; fileRef = E5ADAE44538C6AE9679FA8CB /* master-mythic-mapping.json */; };
 		CAB3597EA8116325253E480B /* SigilDiagnosticRedaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CF253814E8D852C2FA13BA /* SigilDiagnosticRedaction.swift */; };
 		CDDD13BDCC2C22E1E5B52584 /* canon-manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 504A49350A3C78B6D8334535 /* canon-manifest.json */; };
+		D21FB4AE97F885ECF190077A /* RFSigilVisibleGlyph.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2AEA81B389D5185C8EAB5C3 /* RFSigilCoreModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D3630413770C5D905138CC /* RFSigilCoreModels.framework */; };
 		D2CA70723523C3251982FE52 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = 299B37EB4CB2C9A84EE262AA /* ForsettiCore */; };
 		D3ADCF59F5338BBD5517CEAF /* RFSigilRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2DC49BCA7EF641C6632519 /* RFSigilRuntime.framework */; };
@@ -131,9 +142,11 @@
 		DCCC54B9C7665470536323E8 /* ForsettiCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5E0B7EA7D32AD93BDCAB6831 /* ForsettiCore */; };
 		DE60C967C8A95C91A819926B /* PersonalCodexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D1A1D68DACCA6BF919E3B6 /* PersonalCodexTests.swift */; };
 		DFF4DA34BEB462F060F1EF3E /* SigilArtifactHealthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857D8FE4ACF7820CB14145F7 /* SigilArtifactHealthValidator.swift */; };
+		E035D1C4BB49A80EF5DC97B9 /* RFSigilCanon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9227C8AB511B796AA60C6D3D /* RFSigilCanon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E3D9F3D8901E4F749AA046E0 /* RFSigilDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D9989D71CA059E7C17CAE0 /* RFSigilDiagnostics.framework */; };
 		E5368BCE1981CB2A590F0924 /* ash-manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = C3E3E1B2D5014202BB0FD648 /* ash-manifest.json */; };
 		E5CF3F94FAA9540A3C1E446A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB4EFB13E6B63D6CFD612A /* LaunchScreen.storyboard */; };
+		E73C36C1E334C02FA284B572 /* RFSigilPrivacySecurity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 532BC89D06E735CDE11FEEAE /* RFSigilPrivacySecurity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E84E25BE71FE5AC488D95DDB /* RFSigilPrivacySecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532BC89D06E735CDE11FEEAE /* RFSigilPrivacySecurity.framework */; };
 		EB2F9F7061C4A2F3DDA2755C /* RFSigilAPSIntegration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED534A1B64E01BC5DDDA290C /* RFSigilAPSIntegration.framework */; };
 		EBF636453E617E5C8F1901D7 /* RFSigilSourceAuthority.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60D8698625E653A1F9FCECA /* RFSigilSourceAuthority.framework */; };
@@ -145,12 +158,14 @@
 		F1B165CBDE5BC22EBE0354AB /* RFSigilPipelinePlaceholder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05080515E1EDB2236A664408 /* RFSigilPipelinePlaceholder.framework */; };
 		F1DE1ED059B6D982CBC16010 /* RFSigilPrivacySecurity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 532BC89D06E735CDE11FEEAE /* RFSigilPrivacySecurity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F3ADE4857436A9E65C5CB652 /* DashboardStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D7602C5DA44F94C57E564 /* DashboardStatusTests.swift */; };
+		F9A27395D341D25485D5E177 /* RFSigilCanon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9227C8AB511B796AA60C6D3D /* RFSigilCanon.framework */; };
 		F9A7ED765B8B5D409251223A /* RFSigilPipelinePlaceholder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 05080515E1EDB2236A664408 /* RFSigilPipelinePlaceholder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAD818F6B8FCF8EC5ADEB87E /* SigilCelestialNameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB499F24CA6535D2D08121 /* SigilCelestialNameGenerator.swift */; };
 		FAE0FAA28B8187E52BBDE32D /* SigilCanonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E32151CD9163F2DFB64284 /* SigilCanonLoader.swift */; };
 		FB50642A28FB7709A8FD1AB1 /* RFSigilAPSIntegration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED534A1B64E01BC5DDDA290C /* RFSigilAPSIntegration.framework */; };
 		FB9AE549D6FC365E7BC145E2 /* SigilCanonResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C532FF8B24DA318F55E66BB0 /* SigilCanonResource.swift */; };
 		FCF89F1AB66D79FD4A30E725 /* RFSigilPrivacySecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532BC89D06E735CDE11FEEAE /* RFSigilPrivacySecurity.framework */; };
+		FE4D21EF76C343587C9C92D5 /* RFSigilPrivacySecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532BC89D06E735CDE11FEEAE /* RFSigilPrivacySecurity.framework */; };
 		FEC97EEE7361301C222F56F8 /* RFSigilCanon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9227C8AB511B796AA60C6D3D /* RFSigilCanon.framework */; };
 /* End PBXBuildFile section */
 
@@ -183,6 +198,13 @@
 			remoteGlobalIDString = 9274CC1B3774BB2AECD0D980;
 			remoteInfo = RFSigilAeostaraIntegration;
 		};
+		1A8890BC883E84A247111A35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 260DD548E12776299D923E28;
+			remoteInfo = RFSigilPersonalCodex;
+		};
 		299564A73B06B7BCF6795F65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
@@ -196,6 +218,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = AA32028FD6F1AE009AAB6B81;
 			remoteInfo = RFSigilCanon;
+		};
+		2AC46F7331A7C275CA5CBAA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DB4CABA3B5C1292D2D31A3F;
+			remoteInfo = RFSigilPrivacySecurity;
+		};
+		2E8FD94F41D270CE7F0B7972 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47E04A882E21F03171802EDB;
+			remoteInfo = RFSigilVisibleGlyph;
 		};
 		2FAF91F36CFB625613E03946 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -224,6 +260,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = F6927F18ADFF27359758D5ED;
 			remoteInfo = RFSigilAPSIntegration;
+		};
+		5E2EDA69A3D7A3BE7BADD0E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47E04A882E21F03171802EDB;
+			remoteInfo = RFSigilVisibleGlyph;
+		};
+		630FC81990C0A995BAC81A34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DB4CABA3B5C1292D2D31A3F;
+			remoteInfo = RFSigilPrivacySecurity;
+		};
+		660BC2E1B4C5B7CE47467673 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47E04A882E21F03171802EDB;
+			remoteInfo = RFSigilVisibleGlyph;
 		};
 		69069236A1CDA0F7EF7F67DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -281,6 +338,13 @@
 			remoteGlobalIDString = 40659DD10D16BD6EFABC89E7;
 			remoteInfo = SigilApp;
 		};
+		7A4E12EEC25B8DBACF2F1FDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 260DD548E12776299D923E28;
+			remoteInfo = RFSigilPersonalCodex;
+		};
 		7DBF494328E98C91250381ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
@@ -301,6 +365,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5DB4CABA3B5C1292D2D31A3F;
 			remoteInfo = RFSigilPrivacySecurity;
+		};
+		8C4794714857FF63096E2ECC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FB0DDAAC1002C3EBE16D10C;
+			remoteInfo = RFSigilDiagnostics;
 		};
 		8CB0AD7082CB786BA9EB7A92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -428,6 +499,13 @@
 			remoteGlobalIDString = 260DD548E12776299D923E28;
 			remoteInfo = RFSigilPersonalCodex;
 		};
+		DA46CE734FA25624C14BB63E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA32028FD6F1AE009AAB6B81;
+			remoteInfo = RFSigilCanon;
+		};
 		DBF10149E02A76591383DEAF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1FCFEC7164B16C28914CD005 /* Project object */;
@@ -531,6 +609,10 @@
 			files = (
 				68A7761DBCEB30F5DE252071 /* RFSigilRuntime.framework in Embed Frameworks */,
 				78123D513230238148C1C992 /* RFSigilUIModule.framework in Embed Frameworks */,
+				E035D1C4BB49A80EF5DC97B9 /* RFSigilCanon.framework in Embed Frameworks */,
+				D21FB4AE97F885ECF190077A /* RFSigilVisibleGlyph.framework in Embed Frameworks */,
+				E73C36C1E334C02FA284B572 /* RFSigilPrivacySecurity.framework in Embed Frameworks */,
+				0F57F147EE5D190C7666B3FD /* RFSigilPersonalCodex.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +624,7 @@
 		041396CD1FB1396835C69FE4 /* SecureStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorageTests.swift; sourceTree = "<group>"; };
 		05080515E1EDB2236A664408 /* RFSigilPipelinePlaceholder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFSigilPipelinePlaceholder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D4702AC3F9B240660C24DA /* SigilDiagnosticCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilDiagnosticCollector.swift; sourceTree = "<group>"; };
+		0C842B9509B59045E9B0D6E1 /* ResourceBundleAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceBundleAccessor.swift; sourceTree = "<group>"; };
 		0F1BB9343ED9A5485B92B43E /* DiagnosticCaptureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticCaptureTests.swift; sourceTree = "<group>"; };
 		0F79802D52745F55A8225D4E /* SigilDiagnosticModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilDiagnosticModels.swift; sourceTree = "<group>"; };
 		10D9989D71CA059E7C17CAE0 /* RFSigilDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFSigilDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -609,6 +692,7 @@
 		C532FF8B24DA318F55E66BB0 /* SigilCanonResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilCanonResource.swift; sourceTree = "<group>"; };
 		C5B24EDEE671BAC3C1D621E2 /* SigilNumerologyEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilNumerologyEngine.swift; sourceTree = "<group>"; };
 		C769CF0A11DACC2C0B0E8626 /* PersonalCodexPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCodexPersistenceTests.swift; sourceTree = "<group>"; };
+		CB5170551880E2E02678BCFF /* ResourceBundleAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceBundleAccessor.swift; sourceTree = "<group>"; };
 		CBEA498AA0F0154BDBD14E37 /* SigilWRWCanonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigilWRWCanonModels.swift; sourceTree = "<group>"; };
 		CCA822223D17EBE7050CA7D2 /* SecurePersistenceIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurePersistenceIntegrationTests.swift; sourceTree = "<group>"; };
 		CFD62D13332CAE21291C015E /* RFSigilVisibleGlyph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RFSigilVisibleGlyph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -643,6 +727,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D20A165F5889CF1EC952FE4 /* RFSigilCoreModels.framework in Frameworks */,
+				C7179C3D1D91FE0515EAFA92 /* RFSigilVisibleGlyph.framework in Frameworks */,
+				FE4D21EF76C343587C9C92D5 /* RFSigilPrivacySecurity.framework in Frameworks */,
+				30E14341F17B40EA7313992A /* RFSigilPersonalCodex.framework in Frameworks */,
 				382FE076D0228B7084364BDC /* ForsettiCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,6 +739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				180B412BCFB87C2528BA3796 /* RFSigilCoreModels.framework in Frameworks */,
+				1271F60CE0247BAFC7189079 /* RFSigilVisibleGlyph.framework in Frameworks */,
 				01CBA0B0FD59A7C35ED29EF6 /* ForsettiCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,6 +770,10 @@
 			files = (
 				92D58ACAE418097DE42012F4 /* RFSigilRuntime.framework in Frameworks */,
 				D3C648AD9D7A67E0FC5C788E /* RFSigilUIModule.framework in Frameworks */,
+				F9A27395D341D25485D5E177 /* RFSigilCanon.framework in Frameworks */,
+				C31976AF1F86034784BA74FA /* RFSigilVisibleGlyph.framework in Frameworks */,
+				5D6656E63BD86DA7C8EFE95C /* RFSigilPrivacySecurity.framework in Frameworks */,
+				801A85512827C1BAD379C879 /* RFSigilPersonalCodex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +791,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCE3D98F8149014DBE582266 /* RFSigilCoreModels.framework in Frameworks */,
+				B9DCE0A0BDC1F4254EB446C2 /* RFSigilDiagnostics.framework in Frameworks */,
 				EC92B2B6E183776173108055 /* ForsettiCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -935,6 +1028,7 @@
 		91D6E2A456DC2EB9B9FFA082 /* RFSigilVisibleGlyph */ = {
 			isa = PBXGroup;
 			children = (
+				CB5170551880E2E02678BCFF /* ResourceBundleAccessor.swift */,
 				6DD0E5303B9147661D6A1508 /* SigilAshIdentity.swift */,
 				D08B83BCC6950B325C798098 /* SigilBranchTopologyLoader.swift */,
 				A32D31F6A990AEB8685FC1F9 /* SigilBranchTopologyModels.swift */,
@@ -1015,6 +1109,7 @@
 		DE0BC25858D6DDF34F77B8CB /* RFSigilCanon */ = {
 			isa = PBXGroup;
 			children = (
+				0C842B9509B59045E9B0D6E1 /* ResourceBundleAccessor.swift */,
 				F9E32151CD9163F2DFB64284 /* SigilCanonLoader.swift */,
 				C532FF8B24DA318F55E66BB0 /* SigilCanonResource.swift */,
 				B234DC6DEC07C947081261CA /* SigilCelestialCanonModels.swift */,
@@ -1174,6 +1269,10 @@
 			dependencies = (
 				DFB6FCCF10C544A51F4043B1 /* PBXTargetDependency */,
 				BEF2C160C13F819A3501C677 /* PBXTargetDependency */,
+				1AD4C903FEE82851319D6F50 /* PBXTargetDependency */,
+				E796EBE377059BF88B6FADA2 /* PBXTargetDependency */,
+				2700E6AD0128DE45E2D0E777 /* PBXTargetDependency */,
+				E751C7CFB03EAF470FD5D552 /* PBXTargetDependency */,
 			);
 			name = SigilApp;
 			packageProductDependencies = (
@@ -1232,6 +1331,7 @@
 			);
 			dependencies = (
 				9415FBE8EEEA7B8A1601B793 /* PBXTargetDependency */,
+				BA714B942DA208AF04A16FEA /* PBXTargetDependency */,
 			);
 			name = RFSigilPrivacySecurity;
 			packageProductDependencies = (
@@ -1252,6 +1352,7 @@
 			);
 			dependencies = (
 				4346DE38BE825DB085118495 /* PBXTargetDependency */,
+				743D9D956A2DEDF4920E3BE2 /* PBXTargetDependency */,
 			);
 			name = RFSigilAeostaraIntegration;
 			packageProductDependencies = (
@@ -1310,6 +1411,9 @@
 			);
 			dependencies = (
 				B50755FC87C98E27161D64BD /* PBXTargetDependency */,
+				2134844F46E4EB3E486586D7 /* PBXTargetDependency */,
+				D6E1BF04F87DE0BFB9A5F47F /* PBXTargetDependency */,
+				E1D8C8508847E1F5B5DDEEFB /* PBXTargetDependency */,
 			);
 			name = RFSigilUIModule;
 			packageProductDependencies = (
@@ -1622,6 +1726,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E38E27BCD6A9F44F7151242 /* ResourceBundleAccessor.swift in Sources */,
 				8E00140C1B1321AB85230358 /* SigilAshIdentity.swift in Sources */,
 				970C8EA2AA597E73273CF414 /* SigilBranchTopologyLoader.swift in Sources */,
 				7E699D6AF22EC35F3160AB97 /* SigilBranchTopologyModels.swift in Sources */,
@@ -1652,6 +1757,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B016F018CF5EA7F50C6FF43B /* ResourceBundleAccessor.swift in Sources */,
 				FAE0FAA28B8187E52BBDE32D /* SigilCanonLoader.swift in Sources */,
 				FB9AE549D6FC365E7BC145E2 /* SigilCanonResource.swift in Sources */,
 				7F42B8D8B14D992C3BF753B6 /* SigilCelestialCanonModels.swift in Sources */,
@@ -1704,15 +1810,30 @@
 			target = 1FB0DDAAC1002C3EBE16D10C /* RFSigilDiagnostics */;
 			targetProxy = 82624E0C1BD093D6A9BCD499 /* PBXContainerItemProxy */;
 		};
+		1AD4C903FEE82851319D6F50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA32028FD6F1AE009AAB6B81 /* RFSigilCanon */;
+			targetProxy = DA46CE734FA25624C14BB63E /* PBXContainerItemProxy */;
+		};
 		1BC9770EE64CCC081E59F4A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A4CD9B08040B9AB8CA975130 /* RFSigilSourceAuthority */;
 			targetProxy = BA5158F60347A9FB9CD29CB8 /* PBXContainerItemProxy */;
 		};
+		2134844F46E4EB3E486586D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47E04A882E21F03171802EDB /* RFSigilVisibleGlyph */;
+			targetProxy = 660BC2E1B4C5B7CE47467673 /* PBXContainerItemProxy */;
+		};
 		231EA3010D4EC0125E4B5842 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1FB0DDAAC1002C3EBE16D10C /* RFSigilDiagnostics */;
 			targetProxy = EF9301EEF77238206FBF0E71 /* PBXContainerItemProxy */;
+		};
+		2700E6AD0128DE45E2D0E777 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DB4CABA3B5C1292D2D31A3F /* RFSigilPrivacySecurity */;
+			targetProxy = 2AC46F7331A7C275CA5CBAA3 /* PBXContainerItemProxy */;
 		};
 		2F047F20C839081C6DCDDAB2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1794,6 +1915,11 @@
 			target = 40659DD10D16BD6EFABC89E7 /* SigilApp */;
 			targetProxy = 796A8A807970ADD573DFBEC0 /* PBXContainerItemProxy */;
 		};
+		743D9D956A2DEDF4920E3BE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47E04A882E21F03171802EDB /* RFSigilVisibleGlyph */;
+			targetProxy = 5E2EDA69A3D7A3BE7BADD0E5 /* PBXContainerItemProxy */;
+		};
 		8912527FFF3D1C38618DDBB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1C5C6206889342DAD98D2EFE /* RFSigilRuntime */;
@@ -1844,6 +1970,11 @@
 			target = 43950E27A80B15FE76B6CB13 /* RFSigilCoreModels */;
 			targetProxy = F13CC7423AAA8EDB79D1B837 /* PBXContainerItemProxy */;
 		};
+		BA714B942DA208AF04A16FEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FB0DDAAC1002C3EBE16D10C /* RFSigilDiagnostics */;
+			targetProxy = 8C4794714857FF63096E2ECC /* PBXContainerItemProxy */;
+		};
 		BD55C191743BB9160103BDD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FE85A87388E920C509492F40 /* RFSigilPipelinePlaceholder */;
@@ -1889,6 +2020,11 @@
 			target = 43950E27A80B15FE76B6CB13 /* RFSigilCoreModels */;
 			targetProxy = F7A1820E75A2FF6C7278F82A /* PBXContainerItemProxy */;
 		};
+		D6E1BF04F87DE0BFB9A5F47F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DB4CABA3B5C1292D2D31A3F /* RFSigilPrivacySecurity */;
+			targetProxy = 630FC81990C0A995BAC81A34 /* PBXContainerItemProxy */;
+		};
 		DB8770F4049C58EC5061F982 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9274CC1B3774BB2AECD0D980 /* RFSigilAeostaraIntegration */;
@@ -1904,10 +2040,25 @@
 			target = 1C5C6206889342DAD98D2EFE /* RFSigilRuntime */;
 			targetProxy = 0D908828EEA7F9034BF75669 /* PBXContainerItemProxy */;
 		};
+		E1D8C8508847E1F5B5DDEEFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 260DD548E12776299D923E28 /* RFSigilPersonalCodex */;
+			targetProxy = 1A8890BC883E84A247111A35 /* PBXContainerItemProxy */;
+		};
 		E34265CD22641487310B0BBB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CB5FBC7446A4F3215B55E9E4 /* RFSigilUIModule */;
 			targetProxy = B81D7B0DADFCF3BC8FB97C6A /* PBXContainerItemProxy */;
+		};
+		E751C7CFB03EAF470FD5D552 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 260DD548E12776299D923E28 /* RFSigilPersonalCodex */;
+			targetProxy = 7A4E12EEC25B8DBACF2F1FDA /* PBXContainerItemProxy */;
+		};
+		E796EBE377059BF88B6FADA2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47E04A882E21F03171802EDB /* RFSigilVisibleGlyph */;
+			targetProxy = 2E8FD94F41D270CE7F0B7972 /* PBXContainerItemProxy */;
 		};
 		FA499DC0EDAD042DC4E320FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2258,7 +2409,7 @@
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2272,7 +2423,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = PA.0.6.1;
+				MARKETING_VERSION = PA.0.6.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ravenforge.sigil.$(PRODUCT_NAME:rfc1034identifier)";
@@ -2666,7 +2817,7 @@
 				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2686,7 +2837,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = PA.0.6.1;
+				MARKETING_VERSION = PA.0.6.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

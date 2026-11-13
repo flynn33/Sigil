@@ -1,12 +1,12 @@
 # Sigil
 
-Sigil is a native Apple-platform project in pre-alpha. The current implementation is the Phase 1 foundation: a Forsetti-backed modular runtime, one SwiftUI dashboard module, source-authority gateways, local-only diagnostics, privacy guardrails, and a bounded deterministic visible-glyph service.
+Sigil is a native Apple-platform project in pre-alpha. The current implementation is the Phase 1 product path: a Forsetti-backed modular runtime, a three-tab SwiftUI experience (Dashboard / Create / Records), source-authority gateways, local-only diagnostics, privacy guardrails, the standard numerology and ASH/APS identity pipeline, the readable PersonalCodex, the canonical ASH-derived visible glyph, presentation-only Flare, and user-selected export — all local-only.
 
-The repository is intentionally foundation-first. It exposes verified status surfaces, the standard numerology and ASH/APS identity resolution, and local artifact generation; the final ASH glyph materialization, lore generation, export bundles, analytics, backend upload, and personal-data network flows remain out of scope.
+The repository is foundation-complete for the authorized seven-package development sequence. Analytics, application-backend upload, personal-data network flows, and the removed personal-data embedding requirement remain out of scope.
 
 ## Product Direction And Roadmap
 
-The [current project plan](docs/project-plan.md) and [product roadmap](docs/roadmap.md) govern planned work. Sigil's canonical form must derive from ASH cosmological mathematics. Package 02 delivered the standard numerology bridge and the source-backed ASH/APS state/orbit/classification resolution. Package 03 delivered artifact-health validation over real records, geometry, schemas, and digests and real local-only encrypted persistence with Keychain-backed keys; a failed save is reported as a failure, never a success, and diagnostics never record the record payload, key material, storage path, or identifier. Package 04 delivered the integrity-verified canon resource layer, deterministic celestial naming, and the readable PersonalCodex interpretation. Package 05 delivered the canonical ASH-derived visible glyph: the visible vector paths are now a deterministic branch fan projected from the canonical topology and driven by the profile's decoded ASH state through a product-owned message seam, so the temporary digest-parameterized renderer is gone. Package 06 delivered the native experience on top of the real services: a three-tab app (Dashboard / Create / Records), the input → generate → result journey with a validated draft and a state machine that drops out-of-order completions, the presentation-only Flare editor, and user-selected export/share — wiring the real pipeline and the real secure store into the app. Package 07 (integration and owner handover) remains.
+The [current project plan](docs/project-plan.md) and [product roadmap](docs/roadmap.md) govern planned work. Sigil's canonical form must derive from ASH cosmological mathematics. Package 02 delivered the standard numerology bridge and the source-backed ASH/APS state/orbit/classification resolution. Package 03 delivered artifact-health validation over real records, geometry, schemas, and digests and real local-only encrypted persistence with Keychain-backed keys; a failed save is reported as a failure, never a success, and diagnostics never record the record payload, key material, storage path, or identifier. Package 04 delivered the integrity-verified canon resource layer, deterministic celestial naming, and the readable PersonalCodex interpretation. Package 05 delivered the canonical ASH-derived visible glyph: the visible vector paths are now a deterministic branch fan projected from the canonical topology and driven by the profile's decoded ASH state through a product-owned message seam, so the temporary digest-parameterized renderer is gone. Package 06 delivered the native experience on top of the real services: a three-tab app (Dashboard / Create / Records), the input → generate → result journey with a validated draft and a state machine that drops out-of-order completions, the presentation-only Flare editor, and user-selected export/share — wiring the real pipeline and the real secure store into the app. Package 07 delivered integration verification, the source-level diagnostic release exclusion, and the owner handover. The checked-in Xcode project is simulator-buildable at the current version (see Current Status).
 
 The owner has [removed the additional personal-data embedding requirement](docs/decisions/2026-10-10-no-personal-data-embedding.md). The Sigil need not carry a recoverable personal record. Personal input, internal mathematical geometry, PersonalCodex, deterministic generation, integrity/safety checks, and canonical/Flare separation remain in scope. Do not reintroduce the removed feature as a mandatory hidden payload or sidecar.
 
@@ -16,7 +16,7 @@ The approved read-only source trace from `SigilVisibleGlyphService.makeHiddenGeo
 
 | Area | State |
 | --- | --- |
-| Version | `PA.0.6.1` (build 8) |
+| Version | `PA.0.6.2` (build 9) |
 | Stage | Pre-alpha |
 | Primary platform | iOS 17+ |
 | Package validation | SwiftPM on macOS 14+ |
@@ -136,7 +136,7 @@ python3 scripts/version_guard.py --repo-root .
 python3 tools/sigil_guardrails/verify_sigil_guardrails.py --project-root . --policy tools/sigil_guardrails/sigil_guardrail_policy.json --strict
 ```
 
-Current verification: 137 Swift package tests with 0 failures, strict repository guardrails, attribution guard, and version guard passed, with the Xcode project aligned to `PA.0.6.1` / build 8 (fresh 2026-11-07 run: 137/137 package tests; strict guardrail wrapper including `swift test --parallel` and `xcodebuild -list`; a release-configuration build confirms the development diagnostic capture is compiled out of the distributable configuration; see [docs/verification.md](docs/verification.md)).
+Current verification: 137 Swift package tests with 0 failures, Debug iOS-simulator `xcodebuild` for scheme `SigilApp` builds with 0 project-source warnings, simulator `xcodebuild test` 137/137, strict repository guardrails, attribution guard, and version guard passed, with the Xcode project aligned to `PA.0.6.2` / build 9 (fresh 2026-11-13 run; a release-configuration `swift build -c release` confirms the development diagnostic capture is compiled out of the distributable configuration; see [docs/verification.md](docs/verification.md)).
 
 ## Version And Changelog
 
@@ -150,18 +150,13 @@ The current stage prefix is `PA` for pre-alpha. `VERSION` is the source of truth
 
 ## Boundaries
 
-The following are intentionally unavailable in the current phase:
+Delivered in the current phase: the identity pipeline, celestial naming, PersonalCodex, ASH-derived glyph, Flare editor, and user-selected export/share.
 
-- Full identity pipeline
-- Standard numerology and final life-path calculations
-- Celestial name generation
-- WRW lore generation
-- Personal artifact package generation
-- Sigil Flare export or editor workflows
-- Final export bundle generation
-- Analytics, backend upload, or personal-data network flows
+Still intentionally unavailable:
 
-The visible-glyph service is bounded local foundation work, not the final pipeline.
+- Analytics, application-backend upload, or personal-data network flows
+- Recoverable personal-data embedding inside the glyph (removed, not deferred)
+- Candidate/distribution builds, signing, notarization, and releases (owner qualification)
 
 ## Documentation
 

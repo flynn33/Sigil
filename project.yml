@@ -15,8 +15,8 @@ settings:
     CODE_SIGNING_REQUIRED: "NO"
     DEVELOPMENT_TEAM: ""
     PRODUCT_BUNDLE_IDENTIFIER: "com.ravenforge.sigil.$(PRODUCT_NAME:rfc1034identifier)"
-    MARKETING_VERSION: "PA.0.6.1"
-    CURRENT_PROJECT_VERSION: "8"
+    MARKETING_VERSION: "PA.0.6.2"
+    CURRENT_PROJECT_VERSION: "9"
 targets:
   RFSigilCoreModels:
     type: framework
@@ -60,6 +60,7 @@ targets:
       - Sources/RFSigilAeostaraIntegration
     dependencies:
       - target: RFSigilCoreModels
+      - target: RFSigilVisibleGlyph
       - package: ForsettiFramework
         product: ForsettiCore
   RFSigilVisibleGlyph:
@@ -97,6 +98,7 @@ targets:
       - Sources/RFSigilPrivacySecurity
     dependencies:
       - target: RFSigilCoreModels
+      - target: RFSigilDiagnostics
       - package: ForsettiFramework
         product: ForsettiCore
   RFSigilDiagnostics:
@@ -143,6 +145,9 @@ targets:
       - Sources/RFSigilUIModule
     dependencies:
       - target: RFSigilCoreModels
+      - target: RFSigilVisibleGlyph
+      - target: RFSigilPrivacySecurity
+      - target: RFSigilPersonalCodex
       - package: ForsettiFramework
         product: ForsettiCore
   RFSigilForsettiModules:
@@ -210,6 +215,10 @@ targets:
     dependencies:
       - target: RFSigilRuntime
       - target: RFSigilUIModule
+      - target: RFSigilCanon
+      - target: RFSigilVisibleGlyph
+      - target: RFSigilPrivacySecurity
+      - target: RFSigilPersonalCodex
   SigilTests:
     type: bundle.unit-test
     platform: iOS

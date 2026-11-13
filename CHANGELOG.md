@@ -1,5 +1,18 @@
 # Changelog
 
+## PA.0.6.2 - 2026-11-13
+
+### Xcode project buildability — simulator-verified closeout
+
+Repair/verification patch so a fresh clone of `main` builds and tests the checked-in Xcode project on the iOS Simulator without errors or project-source warnings. No new user-facing product capability.
+
+- **XcodeGen / SwiftPM resource parity.** Added `#if !SWIFT_PACKAGE` `Bundle.module` accessors in `RFSigilCanon` and `RFSigilVisibleGlyph` so the integrity-verified canon and ASH branch-topology resources resolve under XcodeGen framework targets the same way SwiftPM's generated accessor does.
+- **`project.yml` dependency alignment with `Package.swift`.** Wired the missing Xcode target edges that SwiftPM already carried: `RFSigilUIModule` → VisibleGlyph / PrivacySecurity / PersonalCodex; `RFSigilAeostaraIntegration` → VisibleGlyph; `RFSigilPrivacySecurity` → Diagnostics; `SigilApp` links Canon / VisibleGlyph / PrivacySecurity / PersonalCodex. Regenerated `Sigil.xcodeproj` with xcodegen 2.46.0.
+- **App composition for iOS 17.** Replaced the iOS 18-only `Tab` API with `.tabItem` chrome; imported `RFSigilPersonalCodex` at the app composition boundary; kept fail-closed canon load at composition time.
+- **UI warning cleanup.** Form list `onDelete` now removes rows; the Records tab owns swipe-to-delete with an explicit confirmation dialog; removed an unnecessary `await` on a synchronous MainActor finish path.
+- **Version/build:** `PA.0.6.1` → `PA.0.6.2` (patch: repair/verification only); Apple build identity 8 → 9. `VERSION` is the source of truth; `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION` are aligned in `project.yml` and the regenerated `Sigil.xcodeproj`. The Forsetti pin and schema/algorithm versions are unchanged.
+- **Verification (fresh 2026-11-13):** Debug iOS-simulator `xcodebuild` for scheme `SigilApp` — `BUILD SUCCEEDED`, 0 project-source warnings; simulator `xcodebuild test` — 137/137, 0 failures; `swift test` 137/137; `swift build` / `swift build -c release` clean. See `docs/verification.md`.
+
 ## PA.0.6.1 - 2026-11-07
 
 ### Package 07 closeout — integration, development verification, and owner handover

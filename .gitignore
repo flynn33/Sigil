@@ -1,6 +1,7 @@
 .build/
 .swiftpm/
 .derivedData/
+.derivedData*/
 DerivedData/
 build/
 xcuserdata/

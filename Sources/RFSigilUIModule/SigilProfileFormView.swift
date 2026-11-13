@@ -59,7 +59,7 @@ public struct SigilProfileFormView: View {
                 ForEach(draft.heritage.indices, id: \.self) { i in
                     TextField("Heritage \(i + 1)", text: $draft.heritage[i])
                 }
-                .onDelete { $0 }
+                .onDelete { draft.heritage.remove(atOffsets: $0) }
                 Button {
                     draft.heritage.append("")
                 } label: {
@@ -71,7 +71,7 @@ public struct SigilProfileFormView: View {
                 ForEach(draft.ancestralSurnames.indices, id: \.self) { i in
                     TextField("Surname \(i + 1)", text: $draft.ancestralSurnames[i])
                 }
-                .onDelete { $0 }
+                .onDelete { draft.ancestralSurnames.remove(atOffsets: $0) }
                 Button {
                     draft.ancestralSurnames.append("")
                 } label: {
@@ -83,7 +83,7 @@ public struct SigilProfileFormView: View {
                 ForEach(draft.parentalOrder.indices, id: \.self) { i in
                     TextField("Side: 2 of 3", text: $draft.parentalOrder[i])
                 }
-                .onDelete { $0 }
+                .onDelete { draft.parentalOrder.remove(atOffsets: $0) }
                 Button {
                     draft.parentalOrder.append("")
                 } label: {
