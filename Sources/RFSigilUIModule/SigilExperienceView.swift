@@ -7,12 +7,15 @@ import RFSigilVisibleGlyph
 // MARK: - Records list (CRUD over the real secure store)
 
 public struct SigilRecord: Identifiable, Equatable, Sendable {
-    public let id: String
+    public let storageID: String
     public let recordType: SigilRecordType
     public let createdAt: Date
 
-    public init(id: String, recordType: SigilRecordType, createdAt: Date = Date()) {
-        self.id = id
+    /// Unique across record types that share a storage ID.
+    public var id: String { "\(recordType.rawValue)::\(storageID)" }
+
+    public init(storageID: String, recordType: SigilRecordType, createdAt: Date = Date()) {
+        self.storageID = storageID
         self.recordType = recordType
         self.createdAt = createdAt
     }
@@ -38,16 +41,16 @@ public final class SigilRecordsListViewModel: ObservableObject {
         defer { isLoading = false }
         switch await recordsStore.list() {
         case .success(let identities):
-            records = identities.map { SigilRecord(id: $0.storageID, recordType: $0.recordType) }
+            records = identities.map { SigilRecord(storageID: $0.storageID, recordType: $0.recordType) }
         case .failure(let failure):
             errorMessage = failure.message
         }
     }
 
     public func delete(_ record: SigilRecord) async {
-        switch await recordsStore.delete(storageID: record.id, recordType: record.recordType) {
+        switch await recordsStore.delete(storageID: record.storageID, recordType: record.recordType) {
         case .success:
-            records.removeAll { $0.id == record.id && $0.recordType == record.recordType }
+            records.removeAll { $0.storageID == record.storageID && $0.recordType == record.recordType }
         case .failure(let failure):
             errorMessage = failure.message
         }
@@ -59,30 +62,45 @@ public final class SigilRecordsListViewModel: ObservableObject {
 public struct SigilRecordsListView: View {
     @ObservedObject var viewModel: SigilRecordsListViewModel
     var onOpen: ((SigilRecord) -> Void)? = nil
+    var onCreate: (() -> Void)? = nil
     @State private var pendingDelete: SigilDeleteConfirmState?
 
-    public init(viewModel: SigilRecordsListViewModel, onOpen: ((SigilRecord) -> Void)? = nil) {
+    public init(
+        viewModel: SigilRecordsListViewModel,
+        onOpen: ((SigilRecord) -> Void)? = nil,
+        onCreate: (() -> Void)? = nil
+    ) {
         self.viewModel = viewModel
         self.onOpen = onOpen
+        self.onCreate = onCreate
     }
 
     public var body: some View {
-        List {
+        Group {
             if viewModel.records.isEmpty && !viewModel.isLoading {
-                ContentUnavailableView(
-                    "No records",
-                    systemImage: "tray",
-                    description: Text("Generated records will appear here.")
-                )
-            }
-            ForEach(viewModel.records) { record in
-                SigilRecordRow(
-                    record: record,
-                    onOpen: { onOpen?(record) }
-                )
-                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                    Button("Delete", role: .destructive) {
-                        pendingDelete = SigilDeleteConfirmState(record: record)
+                ContentUnavailableView {
+                    Label("No records", systemImage: "tray")
+                } description: {
+                    Text("Saved Sigils appear here. Everything stays encrypted on this device.")
+                } actions: {
+                    if let onCreate {
+                        Button("Create a Sigil", action: onCreate)
+                            .buttonStyle(.borderedProminent)
+                    }
+                }
+            } else {
+                List {
+                    ForEach(viewModel.records) { record in
+                        Button {
+                            onOpen?(record)
+                        } label: {
+                            SigilRecordSummaryRow(record: record)
+                        }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button("Delete", role: .destructive) {
+                                pendingDelete = SigilDeleteConfirmState(record: record)
+                            }
+                        }
                     }
                 }
             }
@@ -93,6 +111,15 @@ public struct SigilRecordsListView: View {
             }
         }
         .navigationTitle("Records")
+        .toolbar {
+            if let onCreate {
+                ToolbarItem(placement: .primaryAction) {
+                    Button(action: onCreate) {
+                        Label("New", systemImage: "plus")
+                    }
+                }
+            }
+        }
         .task { await viewModel.refresh() }
         .refreshable { await viewModel.refresh() }
         .alert(
@@ -111,26 +138,6 @@ public struct SigilRecordsListView: View {
             }
         } message: {
             Text("This will permanently remove the record from this device.")
-        }
-    }
-}
-
-private struct SigilRecordRow: View {
-    let record: SigilRecord
-    var onOpen: () -> Void
-
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(record.recordType.rawValue)
-                    .font(.headline)
-                Text(record.id.prefix(12) + "…")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            Spacer()
-            Button("Open", action: onOpen)
-                .buttonStyle(.bordered)
         }
     }
 }
@@ -164,7 +171,7 @@ public final class SigilExperienceViewModel: ObservableObject {
     @Published var recordLoadError: String?
     @Published var currentFlareStyle: SigilFlareStyle?
 
-    public let storageID: String
+    public private(set) var storageID: String
     public let journeyViewModel: SigilGenerationJourneyViewModel
     public let recordsListViewModel: SigilRecordsListViewModel
 
@@ -176,6 +183,19 @@ public final class SigilExperienceViewModel: ObservableObject {
         self.storageID = storageID
         self.journeyViewModel = journeyViewModel
         self.recordsListViewModel = recordsListViewModel
+    }
+
+    /// Resets draft and journey state for a new Create task presentation.
+    public func beginNewCreation() {
+        storageID = UUID().uuidString
+        draft = SigilProfileDraft(storageID: storageID)
+        fieldErrors = []
+        showResult = false
+        showFlare = false
+        showExport = false
+        currentFlareStyle = nil
+        pendingDelete = nil
+        journeyViewModel.reset()
     }
 
     public func generate() {
@@ -264,7 +284,7 @@ public final class SigilExperienceViewModel: ObservableObject {
         // Load the PersonalCodex for this record and display it.
         guard record.recordType == .personalCodex else { return }
         let result = await recordsListViewModel.recordsStore.open(
-            storageID: record.id,
+            storageID: record.storageID,
             recordType: .personalCodex,
             as: SigilPersonalCodex.self
         )
@@ -280,22 +300,39 @@ public final class SigilExperienceViewModel: ObservableObject {
 // MARK: - Main experience view
 
 public struct SigilExperienceView: View {
-    @StateObject var viewModel: SigilExperienceViewModel
+    @ObservedObject var viewModel: SigilExperienceViewModel
+    var onDismiss: (() -> Void)?
 
-    public init(viewModel: SigilExperienceViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+    public init(viewModel: SigilExperienceViewModel, onDismiss: (() -> Void)? = nil) {
+        self.viewModel = viewModel
+        self.onDismiss = onDismiss
     }
 
     public var body: some View {
         NavigationStack {
             Group {
                 switch viewModel.journeyViewModel.state {
-                case .idle, .failure, .cancelled:
+                case .idle, .cancelled:
                     SigilProfileFormView(
                         draft: $viewModel.draft,
                         fieldErrors: viewModel.fieldErrors,
                         onGenerate: { viewModel.generate() }
                     )
+                    .navigationTitle("Create")
+                case .failure(_, let reason):
+                    SigilProfileFormView(
+                        draft: $viewModel.draft,
+                        fieldErrors: viewModel.fieldErrors,
+                        onGenerate: { viewModel.generate() }
+                    )
+                    .safeAreaInset(edge: .top) {
+                        Text(reason)
+                            .font(.footnote)
+                            .foregroundStyle(.red)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
+                            .background(Color.red.opacity(0.08))
+                    }
                     .navigationTitle("Create")
                 case .loading:
                     VStack(spacing: 16) {
@@ -320,11 +357,23 @@ public struct SigilExperienceView: View {
                             sections: extractCodexSections(from: viewModel.journeyViewModel.state)
                         ),
                         onSave: {
-                            Task { await viewModel.saveResult() }
+                            Task {
+                                await viewModel.saveResult()
+                                onDismiss?()
+                            }
                         },
                         onExport: { viewModel.showExport = true },
                         onFlare: { viewModel.showFlare = true }
                     )
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close") {
+                        viewModel.cancelGeneration()
+                        viewModel.journeyViewModel.reset()
+                        onDismiss?()
+                    }
                 }
             }
             .sheet(isPresented: $viewModel.showFlare) {

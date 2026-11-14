@@ -66,22 +66,11 @@ struct SigilApp: App {
 
     var body: some Scene {
         WindowGroup {
-            // iOS 17-compatible tab chrome (the iOS 18 `Tab` API requires a higher
-            // deployment target than this project's IPHONEOS_DEPLOYMENT_TARGET).
-            TabView {
-                SigilPhase1DashboardView(viewModel: dashboardViewModel)
-                    .tabItem {
-                        Label("Dashboard", systemImage: "gauge")
-                    }
-                SigilExperienceView(viewModel: experienceViewModel)
-                    .tabItem {
-                        Label("Create", systemImage: "plus.circle")
-                    }
-                SigilRecordsListView(viewModel: recordsListViewModel)
-                    .tabItem {
-                        Label("Records", systemImage: "tray.full")
-                    }
-            }
+            SigilRootTabView(
+                dashboardViewModel: dashboardViewModel,
+                experienceViewModel: experienceViewModel,
+                recordsListViewModel: recordsListViewModel
+            )
         }
     }
 }

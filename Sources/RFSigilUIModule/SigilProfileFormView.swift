@@ -33,13 +33,17 @@ public struct SigilProfileFormView: View {
 
     public var body: some View {
         Form {
-            Section("Identity") {
+            Section {
                 TextField("First name", text: $draft.firstName)
                 TextField("Last name", text: $draft.lastName)
                 errorRow(for: "name")
+            } header: {
+                Text("Identity")
+            } footer: {
+                Text("Required: given and family name used for identity resolution.")
             }
 
-            Section("Birth") {
+            Section {
                 TextField("Birth date (YYYY-MM-DD)", text: $draft.birthDate)
                 TextField("Birth time (HH:mm)", text: $draft.birthTime)
                 TextField("Birth city / place", text: $draft.birthCity)
@@ -48,14 +52,22 @@ public struct SigilProfileFormView: View {
 
                 TextField("Birth order (e.g. 2 of 3)", text: $draft.birthOrder)
                 errorRow(for: "birthOrder")
+            } header: {
+                Text("Birth")
+            } footer: {
+                Text("Birth date and city are required. Time and birth order are optional; unknown is allowed.")
             }
 
-            Section("Appearance") {
+            Section {
                 TextField("Eyes (e.g. blue, brown, hazel)", text: $draft.eyes)
                 TextField("Hair (e.g. black, blond, red)", text: $draft.hair)
+            } header: {
+                Text("Appearance")
+            } footer: {
+                Text("Optional. Leave blank when unknown.")
             }
 
-            Section("Heritage") {
+            Section {
                 ForEach(draft.heritage.indices, id: \.self) { i in
                     TextField("Heritage \(i + 1)", text: $draft.heritage[i])
                 }
@@ -65,9 +77,13 @@ public struct SigilProfileFormView: View {
                 } label: {
                     Label("Add heritage", systemImage: "plus")
                 }
+            } header: {
+                Text("Heritage")
+            } footer: {
+                Text("Optional ancestral heritage labels.")
             }
 
-            Section("Ancestral surnames") {
+            Section {
                 ForEach(draft.ancestralSurnames.indices, id: \.self) { i in
                     TextField("Surname \(i + 1)", text: $draft.ancestralSurnames[i])
                 }
@@ -77,9 +93,11 @@ public struct SigilProfileFormView: View {
                 } label: {
                     Label("Add surname", systemImage: "plus")
                 }
+            } header: {
+                Text("Ancestral surnames")
             }
 
-            Section("Parental birth order") {
+            Section {
                 ForEach(draft.parentalOrder.indices, id: \.self) { i in
                     TextField("Side: 2 of 3", text: $draft.parentalOrder[i])
                 }
@@ -89,6 +107,10 @@ public struct SigilProfileFormView: View {
                 } label: {
                     Label("Add parental order", systemImage: "plus")
                 }
+            } header: {
+                Text("Parental birth order")
+            } footer: {
+                Text("Optional. One entry per parental side when known.")
             }
         }
         .safeAreaInset(edge: .bottom) {
@@ -149,9 +171,10 @@ public struct SigilResultView: View {
                 // Glyph preview (SVG rendered to a view).
                 SigilGlyphSVGView(svg: artifact.svgDocument)
                     .frame(maxWidth: .infinity)
-                    .frame(height: 280)
+                    .frame(height: 300)
                     .background(Color.primary.opacity(0.04))
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .clipShape(RoundedRectangle(cornerRadius: SigilVisualTheme.cornerRadius, style: .continuous))
+                    .accessibilityLabel("Canonical Sigil glyph")
 
                 // Celestial name (the most user-facing result).
                 if let name = record.celestialName {
@@ -182,27 +205,30 @@ public struct SigilResultView: View {
                     SigilAdvancedDetailView(artifact: artifact)
                 }
                 .font(.footnote)
-
-                // Action buttons.
-                HStack(spacing: 12) {
-                    if let onSave {
-                        Button("Save", action: onSave)
-                            .buttonStyle(.bordered)
-                    }
-                    if let onFlare {
-                        Button("Flare", action: onFlare)
-                            .buttonStyle(.bordered)
-                    }
-                    if let onExport {
-                        Button("Export", action: onExport)
-                            .buttonStyle(.borderedProminent)
-                    }
-                }
-                .padding(.top, 8)
             }
             .padding()
         }
+        .background { SigilVisualTheme.atmosphere.opacity(0.5) }
         .navigationTitle("Result")
+        .safeAreaInset(edge: .bottom) {
+            HStack(spacing: 12) {
+                if let onSave {
+                    Button("Save", action: onSave)
+                        .buttonStyle(.bordered)
+                }
+                Spacer()
+                if let onFlare {
+                    Button("Flare", action: onFlare)
+                        .buttonStyle(.bordered)
+                }
+                if let onExport {
+                    Button("Export", action: onExport)
+                        .buttonStyle(.borderedProminent)
+                }
+            }
+            .padding()
+            .background(.bar)
+        }
     }
 }
 

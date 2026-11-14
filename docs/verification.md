@@ -200,3 +200,13 @@ Fresh 2026-11-13 run (Xcode project buildability closeout, on `main` at the `PA.
 - Swift package tests (`swift test`, macOS arm64): 137 tests, 0 failures.
 - `project.yml` target dependencies aligned with `Package.swift`; `#if !SWIFT_PACKAGE` `Bundle.module` accessors added for `RFSigilCanon` and `RFSigilVisibleGlyph`; `xcodegen` regenerated `Sigil.xcodeproj` at `PA.0.6.2` / build 9 (Debug and Release). Forsetti pin unchanged.
 - A fresh clone of `main` is expected to open `Sigil.xcodeproj`, resolve the pinned Forsetti package, and build/test scheme `SigilApp` on an iOS 17+ Simulator.
+
+Fresh 2026-11-14 run (end-user UI information architecture, on `main` at the `PA.0.7.0` / build 10 source revision):
+
+- Xcode Debug iOS-simulator build (`xcodebuild -project Sigil.xcodeproj -scheme SigilApp -destination 'platform=iOS Simulator,…' build`): `BUILD SUCCEEDED`, 0 errors, 0 project-source warnings (toolchain `appintentsmetadataprocessor` notices only).
+- Swift build (`swift build`, macOS arm64, Debug): `BUILD SUCCEEDED`.
+- Swift build, release configuration (`swift build -c release`, macOS arm64): `BUILD SUCCEEDED`.
+- Swift package tests (`swift test`, macOS arm64): 137 tests, 0 failures.
+- `xcodegen` regenerated `Sigil.xcodeproj` at `PA.0.7.0` / build 10 (Debug and Release) with the new UI module sources. Forsetti pin unchanged.
+- Built `SigilApp.app/Info.plist` reports `CFBundleShortVersionString = PA.0.7.0`, `CFBundleVersion = 10`.
+- A fresh clone of `main` is expected to open `Sigil.xcodeproj`, resolve the pinned Forsetti package, and build scheme `SigilApp` on an iOS 17+ Simulator.

@@ -1,5 +1,19 @@
 # Changelog
 
+## PA.0.7.0 - 2026-11-14
+
+### End-user UI information architecture — Home / Records / Settings
+
+Feature advance: reorganize the native SwiftUI chrome for end users per Apple Human Interface Guidelines. Create remains the same pipeline journey; navigation and presentation change.
+
+- **Tabs:** Home · Records · Settings (replaces Dashboard / Create / Records). Cold launch lands on a branded, content-first Home with Create CTA and recent records.
+- **Create as a task:** Profile form → generate → result → Flare/Export sheets present as a full-screen cover from Home or Records (sheet on macOS package builds). Save dismisses and refreshes Records.
+- **Settings:** Privacy (local-only posture), System status (former Dashboard status cards), and About (version, build, license).
+- **Records polish:** Navigation stack, toolbar New, clearer rows, stronger empty state; saved PersonalCodex detail sheet.
+- **Visual tone:** Quiet-ritual branding on Home/Result; Forms and Settings keep system `Form`/`List` materials. Shared visual tokens in `SigilVisualTheme`.
+- **Version/build:** `PA.0.6.2` → `PA.0.7.0` (feature: end-user IA and Settings/About); Apple build identity 9 → 10. `VERSION` is the source of truth; `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION` are aligned in `project.yml` and the regenerated `Sigil.xcodeproj`. The Forsetti pin and schema/algorithm versions are unchanged.
+- **Verification (fresh 2026-11-14):** Debug iOS-simulator `xcodebuild` for scheme `SigilApp` — `BUILD SUCCEEDED`, 0 project-source warnings; `swift test` 137/137; `swift build` / `swift build -c release` clean; version/attribution/strict guards. See `docs/verification.md` and `docs/design/ui-information-architecture.md`.
+
 ## PA.0.6.2 - 2026-11-13
 
 ### Xcode project buildability — simulator-verified closeout

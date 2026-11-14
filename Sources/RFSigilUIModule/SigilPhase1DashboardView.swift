@@ -23,21 +23,20 @@ public struct SigilPhase1DashboardView: View {
     }
 
     public var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVGrid(
-                    columns: [GridItem(.adaptive(minimum: 260), spacing: 14)],
-                    spacing: 14
-                ) {
-                    ForEach(viewModel.status.cards) { card in
-                        SigilStatusCard(card: card)
-                    }
+        ScrollView {
+            LazyVGrid(
+                columns: [GridItem(.adaptive(minimum: 260), spacing: 14)],
+                spacing: 14
+            ) {
+                ForEach(viewModel.status.cards) { card in
+                    SigilStatusCard(card: card)
                 }
-                .padding(16)
             }
-            .background(Color.gray.opacity(0.08))
-            .navigationTitle(viewModel.status.title)
+            .padding(16)
         }
+        .background(Color.gray.opacity(0.08))
+        .navigationTitle(viewModel.status.title)
+        .sigilInlineNavigationTitle()
     }
 }
 

@@ -117,8 +117,10 @@ store actor.
 - **No analytics / backend / upload**: all records are local-only,
   encrypted-at-rest. Export is a user-selected, local temp file handed to the
   native share sheet.
-- **No redesign**: the existing dashboard is preserved as a tab; the new
-  experience is additive.
+- **UI chrome evolution**: the Package 06 three-tab Dashboard / Create / Records
+  chrome was later reorganized to Home / Records / Settings (Create as a
+  full-screen task; System status under Settings). See
+  [ui-information-architecture.md](ui-information-architecture.md).
 
 ## Files added / changed
 
